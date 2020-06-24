@@ -1,0 +1,412 @@
+/* Theme */
+#switcher .theme-click {
+	background-color:#111111;
+}
+
+.au-navbar, .au-notification, .au-header-btn .au-btn-white, .au-list-ietem span i, .nav-tabs .nav-item.show .nav-link, .au-nav-tabs .au-nav-item.active,.pagination-item:hover, .pagination-item.is-active, .au-bidding .au-btn-modren, .au-body-footer a i:hover, .au-subscribe button, .au-all-upcoming button {
+    background-color:#0798bc;
+}
+
+.au-nav-inner .au-items .au-custom span, .au-deals h2, .au-deals-wrapper:hover .au-deal-card .card-title, .au-deals-wrapper:hover .au-deal-card label, .au-upcoming-body h4, .au-common-details .au-icon-media i, .au-links li a:hover{
+    color:#0798bc;
+}
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background: #0798bc !important;
+}
+
+.au-nav-tabs .au-nav-item {
+    border: 2px solid #0798bc;
+    color: #0798bc;
+}
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    border-color:#0798bc #0798bc #0798bc;
+    background-color:#0798bc;
+    color:#FFFFFF;
+}
+
+.au-nav-inner li a:hover{
+    color:#0798bc !important;
+}
+
+.pagination-link--wide:hover {
+    color: #0798bc;
+}
+
+.sf-menu > li, .sf-menu .single-dropdown {
+    border-right: 1px solid #0798bc;
+}
+
+.au-list-ietem span i:hover {
+    border: 3px solid #0798bc;
+    color: #0798bc;;
+}
+
+.au-ads {
+    background: linear-gradient( rgba(7, 152, 188,0.9), rgba(7, 152, 188,0.9)), url(../images/ads-bg.png);
+}
+
+.au-clients {
+    background: linear-gradient( rgba(7, 152, 188,0.9), rgba(7, 152, 188,0.9)), url(../images/client-bg.png);
+}
+
+.btn:not([disabled]):not(.disabled).active, .btn:not([disabled]):not(.disabled):active {
+    background-image: none;
+    background-color: #0798bc;
+}
+
+/*.btn:hover, .btn:focus {
+    color: #FFFFFF;
+    background-image: -webkit-linear-gradient(right, #111111, #0798bc);
+    background-image: -ms-linear-gradient(right, #111111, #0798bc);
+    background-image: -moz-linear-gradient(right, #111111, #0798bc);
+    background-image: -o-linear-gradient(right, #111111, #0798bc);
+    background-image: linear-gradient(to left, #111111, #0798bc);
+    transition: ease 1s ease;
+}
+*/
+
+/*-----------------------------
+HOME PAGE-Pacific Blue #0798BC
+------------------------------*/
+.au-deals-wrapper:hover {
+    border-bottom: 3px solid #0798BC !important;
+}
+
+
+.au-accordina:hover {
+    border-bottom: 3px solid #0798BC;
+    transform: translateY(-5px);
+}
+
+.au-accordina:hover .card-title a {
+    color: #0798BC;
+}
+
+.au-list-ietem i:hover {
+    color: #0798BC;
+}
+
+.au-list-ietems .dropdown-menu i {
+    color: #0798BC;
+}
+
+.au-list-ietems .dropdown-menu i:hover {
+    background-color: #0798BC;
+}
+
+.au-bidding .au-btn-gray {
+    color: #FFFFFF;
+    background-color: #2caece;
+}
+
+.btn:hover, .btn:focus {
+    background-color: #fff;
+    color: #0798BC;
+    border: 1px solid #0798BC;
+}
+
+
+.bar-line:hover {
+    border-right: 3px solid #0798BC;
+}
+
+.btn-primary {
+    background-color: #0798BC;
+    border-color: #0798BC;
+}
+
+.btn-primary:hover {
+    color: #0798BC;
+    background-color: #fff;
+    border-color: #0798BC;
+}
+
+/*--------------------------------
+AUCTIONS PAGE - Pacific Blue #0798BC
+----------------------------------*/
+
+.au-all-category h6 {
+    background: #0798BC;
+}
+
+#clear_date {
+    color: #0798BC;
+}
+
+.datepicker table tr td.active, 
+.datepicker table tr td.active.disabled, 
+.datepicker table tr td.active.disabled:hover, 
+.datepicker table tr td.active:hover {
+
+    background-image: linear-gradient(to bottom,#41a3bb,#0798BC) !important;
+}
+
+.form-control:focus {
+    border-color: #0798BC;
+}
+
+[type="radio"]:checked + label:after, [type="radio"]:not(:checked) + label:after {
+    background: #0798BC;
+}
+
+input[type="checkbox"]:checked + label .active {
+    background: #0798BC !important;
+}
+
+.badge {
+    background-color: #0798BC;
+}
+
+.au-cards i {
+    color: #0798BC;
+    border: 2px solid #0798BC;
+}
+
+.au-item-categorys:hover .au-cards i {
+    background-color: #0798BC;
+}
+
+.au-item-categorys:hover .au-cards .au-card-block h4 {
+    color: #0798BC;
+}
+
+.au-item-categorys:hover .au-cards {
+    border-bottom: 3px solid #0798BC;
+}
+
+.pagination li.active a, .pagination li.active span, .page-item.active .page-link {
+    background-color: #0798BC;
+    border-color: #0798BC;
+}
+
+/*-----------------------------------------
+AUCTION DETAILS PAGE - Pacific Blue #0798BC
+-------------------------------------------*/
+
+.text-blue {
+    color: #0798BC;
+}
+
+
+.btn-info {
+    color: #fff;
+    background-color: #0798BC;
+    border-color: #0798BC;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+    background-color: #0798BC;
+    border-color: #0798BC;
+}
+
+.au-social-links li a .au-common {
+    color: #0798BC;
+}
+
+.au-social-links li a .au-common:hover {
+    background-color: #0798BC;
+}
+
+.product-border {
+    border-top: 3px solid #82c7d8;
+}
+
+.product-tabs {
+    border-top: 4px solid #0798BC;
+}
+
+.au-product-tabs.nav-tabs .nav-item.show .nav-link, .au-product-tabs.nav-tabs .nav-link.active {
+    color: #0798BC;
+}
+
+.au-product-tabs.nav-tabs .nav-item.show .nav-link:before, .au-product-tabs.nav-tabs .nav-link.active:before {
+    background: #0798BC;
+}
+
+.au-product-tabs.nav-tabs a:hover {
+    color: #0798BC;
+}
+
+.form-control:focus {
+    border-color: #0798BC;
+}
+
+.au-btn-modren:hover, .au-btn-modren:focus {
+    background-color: #fff;
+    color: #0798BC !important;
+    border: 1px solid #0798BC;
+}
+
+/*-------------------------------------------
+    CONTACT US PAGE - Pacific Blue #0798BC
+---------------------------------------------*/
+.au-who-main h2 {
+    color: #0798BC;
+}
+
+.panel-login .panel-body {
+    border-top: 3px solid #0798BC;
+}
+
+.btn-info.disabled, .btn-info:disabled {
+    background-color: #0798BC;
+    border-color: #0798BC;
+}
+
+/*--------------------------------------
+    FAQS PAGE -  Pacific Blue #0798BC
+----------------------------------------*/
+
+.au-list-item li.active a {
+    background: #0798BC;
+}
+
+.au-list-item li a:hover, .au-list-item li a span:hover, .au-list-item li a:focus, .au-list-item li a span:focus {
+    color: #0798BC;
+}
+
+.faq-panel-title {
+    color: #0798BC;
+}
+
+a:hover {
+    color: #0798BC;
+}
+
+/*------------------------------------------
+    LOGIN PAGE - Pacific Blue #0798BC
+--------------------------------------------*/
+
+.modal-header a.active, .panel-login .panel-heading a.active {
+    background: #0798BC;
+}
+
+a {
+    color: #0798BC;
+}
+
+.login-bttn:hover {
+    color: #fff !important; 
+}
+
+/*-------------------------------------
+    LOGIN MODAL - Pacific Blue #0798BC
+---------------------------------------*/
+.modal-body {
+    border-top: 2px solid #0798BC;
+}
+
+/*--------------------------------------
+    BREADCRUMB - Pacific Blue #0798BC
+----------------------------------------*/
+.au-bread-crumbs {
+    background-color: #e5f5f9;
+}
+
+/*-------------------------------------------
+    BIDDER LEFT MENU - Pacific Blue #0798BC
+---------------------------------------------*/
+
+.au-onboard .au-middles {
+    color: #0798BC;
+}
+
+.accordion li.active i, .accordion li.active .link {
+    color: #0798BC;
+}
+
+.accordion li:hover i, .accordion li:hover .link {
+    color: #0798BC;
+}
+
+.submenu a:hover {
+    background: #0798BC;
+}
+
+
+/*--------------------------------------------
+    BIDDER PANEL - Pacific Blue #0798BC
+----------------------------------------------*/
+.submenu li.active a {
+    background: #0798BC;
+}
+
+.btn:hover {
+    color:#fff !important;
+}
+
+
+.login-bttn:hover {
+    color:#0798BC !important;
+}
+
+
+.btn-danger:hover {
+    color: #dc3545 !important;
+    background-color: #fff !important;
+    border-color: #c82333 !important;
+}
+
+.dataTables_length select:hover, .dataTables_length select:focus {
+    border: 1px solid #0798BC !important;
+}
+
+.dataTables_wrapper .dataTables_filter input:hover, .dataTables_filter input:focus {
+    border-color: #0798BC !important;
+}
+
+.paginate_button.current {
+    background: linear-gradient(to bottom, #0798BC 0%, #0798BC 100%) !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    border: 1px solid #0798BC !important;
+}
+
+
+.btn-info {
+    background-color: #3dacc7;
+    border-color: #3dacc7;
+}
+
+.msg-item:hover {
+    border-top: 2px solid #0798BC;
+}
+
+.panel.panel-custom {
+    border-top: 2px solid #0798BC;
+}
+
+.btn-primary.disabled:hover, .btn-primary:disabled:hover {
+    color: #fff !important;
+}
+
+/*--------------------------------
+    RECENT WINNERS DIV - Pacific Blue #0798BC
+----------------------------------*/
+
+.au-similar-card:hover {
+    border-bottom: 2px solid #0798BC;
+}
+
+/*--------------------------------
+    LATEST AUCTIONS DIV - Pacific Blue #0798BC
+----------------------------------*/
+.au-similar-card .au-similar-block h6:hover {
+    color: #0798BC;
+}
+
+.au-similar-card .like {
+    color: #0798BC;
+    border: 2px solid #0798BC;
+}
+
+.au-similar-card .like:hover {
+    background: #0798BC;
+}
+
+.au-similar-card:hover .like {
+    background: #0798BC;
+}

@@ -1,0 +1,413 @@
+/* Theme */
+
+#switcher .theme-click {
+	background-color:#111111;
+}
+
+.au-navbar, .au-notification, .au-header-btn .au-btn-white, .au-list-ietem span i, .nav-tabs .nav-item.show .nav-link, .au-nav-tabs .au-nav-item.active,.pagination-item:hover, .pagination-item.is-active, .au-bidding .au-btn-modren, .au-body-footer a i:hover, .au-subscribe button, .au-all-upcoming button {
+    background-color:#8bc34a;
+}
+
+.au-nav-inner .au-items .au-custom span, .au-deals h2, .au-deals-wrapper:hover .au-deal-card .card-title, .au-deals-wrapper:hover .au-deal-card label, .au-upcoming-body h4, .au-common-details .au-icon-media i, .au-links li a:hover{
+    color:#8bc34a;
+}
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background: #8bc34a !important;
+}
+
+.au-nav-tabs .au-nav-item {
+    border: 2px solid #8bc34a;
+    color: #8bc34a;
+}
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    border-color:#8bc34a #8bc34a #8bc34a;
+    background-color:#8bc34a;
+    color:#FFFFFF;
+}
+
+.au-nav-inner li a:hover{
+    color:#8bc34a !important;
+}
+
+.pagination-link--wide:hover {
+    color: #8bc34a;
+}
+
+.sf-menu > li, .sf-menu .single-dropdown {
+    border-right: 1px solid #8bc34a;
+}
+
+.au-list-ietem span i:hover {
+    border: 3px solid #8bc34a;
+    color: #8bc34a;;
+}
+
+.au-ads {
+    background: linear-gradient( rgba(139, 195, 74,0.9), rgba(139, 195, 74,0.9)), url(../images/ads-bg.png);
+}
+
+.au-clients {
+    background: linear-gradient( rgba(139, 195, 74,0.9), rgba(139, 195, 74,0.9)), url(../images/client-bg.png);
+}
+
+.btn:not([disabled]):not(.disabled).active, .btn:not([disabled]):not(.disabled):active {
+    background-image: none;
+    background-color: #8bc34a;
+}
+
+/*.btn:hover, .btn:focus {
+    color: #FFFFFF;
+    background-image: -webkit-linear-gradient(right, #111111, #8bc34a);
+    background-image: -ms-linear-gradient(right, #111111, #8bc34a);
+    background-image: -moz-linear-gradient(right, #111111, #8bc34a);
+    background-image: -o-linear-gradient(right, #111111, #8bc34a);
+    background-image: linear-gradient(to left, #111111, #8bc34a);
+    transition: ease 1s ease;
+}*/
+
+
+/*-----------------------------
+HOME PAGE-Sushi #8BC34A
+------------------------------*/
+.au-deals-wrapper:hover {
+    border-bottom: 3px solid #8bc34a !important;
+}
+
+
+.au-accordina:hover {
+    border-bottom: 3px solid #8bc34a;
+    transform: translateY(-5px);
+}
+
+.au-accordina:hover .card-title a {
+    color: #8bc34a;
+}
+
+.au-list-ietem i:hover {
+    color: #8bc34a;
+}
+
+.au-list-ietems .dropdown-menu i {
+    color: #8bc34a;
+}
+
+.au-list-ietems .dropdown-menu i:hover {
+    background-color: #8bc34a;
+}
+
+.au-bidding .au-btn-gray {
+    color: #FFFFFF;
+    background-color: #a5da67;
+}
+
+.btn:hover, .btn:focus {
+    background-color: #fff;
+    color: #8bc34a;
+    border: 1px solid #8bc34a;
+}
+
+
+.bar-line:hover {
+    border-right: 3px solid #8bc34a;
+}
+
+.btn-primary {
+    background-color: #8bc34a;
+    border-color: #8bc34a;
+}
+
+.btn-primary:hover {
+    color: #8bc34a;
+    background-color: #fff;
+    border-color: #8bc34a;
+}
+
+/*--------------------------------
+AUCTIONS PAGE - Sushi #8BC34A
+----------------------------------*/
+
+.au-all-category h6 {
+    background: #8bc34a;
+}
+
+#clear_date {
+    color: #8bc34a;
+}
+
+.datepicker table tr td.active, 
+.datepicker table tr td.active.disabled, 
+.datepicker table tr td.active.disabled:hover, 
+.datepicker table tr td.active:hover {
+
+    background-image: linear-gradient(to bottom,#95c161,#8bc34a) !important;
+}
+
+.form-control:focus {
+    border-color: #8bc34a;
+}
+
+[type="radio"]:checked + label:after, [type="radio"]:not(:checked) + label:after {
+    background: #8bc34a;
+}
+
+input[type="checkbox"]:checked + label .active {
+    background: #8bc34a !important;
+}
+
+.badge {
+    background-color: #8bc34a;
+}
+
+.au-cards i {
+    color: #8bc34a;
+    border: 2px solid #8bc34a;
+}
+
+.au-item-categorys:hover .au-cards i {
+    background-color: #8bc34a;
+}
+
+.au-item-categorys:hover .au-cards .au-card-block h4 {
+    color: #8bc34a;
+}
+
+.au-item-categorys:hover .au-cards {
+    border-bottom: 3px solid #8bc34a;
+}
+
+.pagination li.active a, .pagination li.active span, .page-item.active .page-link {
+    background-color: #8bc34a;
+    border-color: #8bc34a;
+}
+
+/*-----------------------------------
+AUCTION DETAILS PAGE - Sushi #8BC34A
+------------------------------------*/
+
+.text-blue {
+    color: #8BC34A;
+}
+
+
+.btn-info {
+    color: #fff;
+    background-color: #8BC34A;
+    border-color: #8BC34A;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+    background-color: #8BC34A;
+    border-color: #8BC34A;
+}
+
+.au-social-links li a .au-common {
+    color: #8BC34A;
+}
+
+.au-social-links li a .au-common:hover {
+    background-color: #8BC34A;
+}
+
+.product-border {
+    border-top: 3px solid #c9f597;
+}
+
+.product-tabs {
+    border-top: 4px solid #8BC34A;
+}
+
+.au-product-tabs.nav-tabs .nav-item.show .nav-link, .au-product-tabs.nav-tabs .nav-link.active {
+    color: #8BC34A;
+}
+
+.au-product-tabs.nav-tabs .nav-item.show .nav-link:before, .au-product-tabs.nav-tabs .nav-link.active:before {
+    background: #8BC34A;
+}
+
+.au-product-tabs.nav-tabs a:hover {
+    color: #8BC34A;
+}
+
+.form-control:focus {
+    border-color: #8BC34A;
+}
+
+.au-btn-modren:hover, .au-btn-modren:focus {
+    background-color: #fff;
+    color: #8BC34A !important;
+    border: 1px solid #8BC34A;
+}
+
+/*------------------------------------
+    CONTACT US PAGE - Sushi #8BC34A
+---------------------------------------*/
+.au-who-main h2 {
+    color: #8BC34A;
+}
+
+.panel-login .panel-body {
+    border-top: 3px solid #8BC34A;
+}
+
+.btn-info.disabled, .btn-info:disabled {
+    background-color: #8BC34A;
+    border-color: #8BC34A;
+}
+
+
+/*--------------------------------------
+    FAQS PAGE -  Sushi #8BC34A
+----------------------------------------*/
+
+.au-list-item li.active a {
+    background: #8BC34A;
+}
+
+.au-list-item li a:hover, .au-list-item li a span:hover, .au-list-item li a:focus, .au-list-item li a span:focus {
+    color: #8BC34A;
+}
+
+.faq-panel-title {
+    color: #8BC34A;
+}
+
+a:hover {
+    color: #8BC34A;
+}
+
+/*------------------------------------------
+    LOGIN PAGE - Sushi #8BC34A
+--------------------------------------------*/
+
+.modal-header a.active, .panel-login .panel-heading a.active {
+    background: #8BC34A;
+}
+
+a {
+    color: #8BC34A;
+}
+
+.login-bttn:hover {
+    color: #fff !important; 
+}
+
+/*-------------------------------------
+    LOGIN MODAL - Sushi #8BC34A
+---------------------------------------*/
+.modal-body {
+    border-top: 2px solid #8BC34A;
+}
+
+/*--------------------------------------
+    BREADCRUMB - Sushi #8BC34A
+----------------------------------------*/
+.au-bread-crumbs {
+    background-color: #eafbd7;
+}
+
+/*--------------------------------------
+    BIDDER LEFT MENU - Sushi #8BC34A
+----------------------------------------*/
+
+.au-onboard .au-middles {
+    color: #8BC34A;
+}
+
+.accordion li.active i, .accordion li.active .link {
+    color: #8BC34A;
+}
+
+.accordion li:hover i, .accordion li:hover .link {
+    color: #8BC34A;
+}
+
+.submenu a:hover {
+    background: #8BC34A;
+}
+
+/*--------------------------------------------
+    BIDDER PANEL - Sushi #8BC34A
+----------------------------------------------*/
+.submenu li.active a {
+    background: #8BC34A;
+}
+
+.btn:hover {
+    color:#fff !important;
+}
+
+
+.login-bttn:hover {
+    color:#8BC34A !important;
+}
+
+
+.btn-danger:hover {
+    color: #8BC34A !important;
+    background-color: #fff !important;
+    border-color: #8BC34A !important;
+}
+
+.dataTables_length select:hover, .dataTables_length select:focus {
+    border: 1px solid #8BC34A !important;
+}
+
+.dataTables_wrapper .dataTables_filter input:hover, .dataTables_filter input:focus {
+    border-color: #8BC34A !important;
+}
+
+.paginate_button.current {
+    background: linear-gradient(to bottom, #8BC34A 0%, #8BC34A 100%) !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    border: 1px solid #8BC34A !important;
+}
+
+
+.btn-info {
+    background-color: #94ce51;
+    border-color: #94ce51;
+}
+
+.msg-item:hover {
+    border-top: 2px solid #8BC34A;
+}
+
+.panel.panel-custom {
+    border-top: 2px solid #8BC34A;
+}
+
+.btn-primary.disabled:hover, .btn-primary:disabled:hover {
+    color: #fff !important;
+}
+
+/*--------------------------------
+    RECENT WINNERS DIV - Sushi #8BC34A
+----------------------------------*/
+
+.au-similar-card:hover {
+    border-bottom: 2px solid #8BC34A;
+}
+
+/*--------------------------------
+    LATEST AUCTIONS DIV - Sushi #8BC34A
+----------------------------------*/
+.au-similar-card .au-similar-block h6:hover {
+    color: #8BC34A;
+}
+
+.au-similar-card .like {
+    color: #8BC34A;
+    border: 2px solid #8BC34A;
+}
+
+.au-similar-card .like:hover {
+    background: #8BC34A;
+}
+
+.au-similar-card:hover .like {
+    background: #8BC34A;
+}

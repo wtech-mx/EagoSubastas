@@ -1,0 +1,35 @@
+/* set colors*/
+/*:root {
+  --color-1: forestgreen;
+  --color-2: lightskyblue;
+  --color-3: darksalmon;
+  --color-4: palegoldenrod;
+  --color-5: mediumvioletred;
+}*/
+
+.foo {
+  min-height: 33vh;
+  color:#ffffff;
+  text-transform: uppercase;
+}
+
+/* apply colors */
+.foo-1 {
+  background-color: var(--color-1);
+}
+
+.foo-2 {
+  background-color: var(--color-2);
+}
+
+.foo-3 {
+  background-color: var(--color-3);
+}
+
+.foo-4 {
+  background-color: var(--color-4);  
+}
+
+.foo-5 {
+  background-color: var(--color-5);
+}

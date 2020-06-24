@@ -1,0 +1,411 @@
+/* Theme */
+
+#switcher .theme-click {
+	background-color:#111111;
+}
+
+.au-navbar, .au-notification, .au-header-btn .au-btn-white, .au-list-ietem span i, .nav-tabs .nav-item.show .nav-link, .au-nav-tabs .au-nav-item.active,.pagination-item:hover, .pagination-item.is-active, .au-bidding .au-btn-modren, .au-body-footer a i:hover, .au-subscribe button, .au-all-upcoming button {
+    background-color:#ce0c21;
+}
+
+.au-nav-inner .au-items .au-custom span, .au-deals h2, .au-deals-wrapper:hover .au-deal-card .card-title, .au-deals-wrapper:hover .au-deal-card label, .au-upcoming-body h4, .au-common-details .au-icon-media i, .au-links li a:hover{
+    color:#ce0c21;
+}
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background: #ce0c21 !important;
+}
+
+.au-nav-tabs .au-nav-item {
+    border: 2px solid #ce0c21;
+    color: #ce0c21;
+}
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    border-color:#ce0c21 #ce0c21 #ce0c21;
+    background-color:#ce0c21;
+    color:#FFFFFF;
+}
+
+.au-nav-inner li a:hover{
+    color:#ce0c21 !important;
+}
+
+.pagination-link--wide:hover {
+    color: #ce0c21;
+}
+
+.sf-menu > li, .sf-menu .single-dropdown {
+    border-right: 1px solid #ce0c21;
+}
+
+.au-list-ietem span i:hover {
+    border: 3px solid #ce0c21;
+    color: #ce0c21;;
+}
+
+.au-ads {
+    background: linear-gradient( rgba(206, 12, 33,0.9), rgba(206, 12, 33,0.9)), url(../images/ads-bg.png);
+}
+
+.au-clients {
+    background: linear-gradient( rgba(206, 12, 33,0.9), rgba(206, 12, 33,0.9)), url(../images/client-bg.png);
+}
+
+.btn:not([disabled]):not(.disabled).active, .btn:not([disabled]):not(.disabled):active {
+    background-image: none;
+    background-color: #ce0c21;
+}
+
+/*.btn:hover, .btn:focus {
+    color: #FFFFFF;
+    background-image: -webkit-linear-gradient(right, #111111, #ce0c21);
+    background-image: -ms-linear-gradient(right, #111111, #ce0c21);
+    background-image: -moz-linear-gradient(right, #111111, #ce0c21);
+    background-image: -o-linear-gradient(right, #111111, #ce0c21);
+    background-image: linear-gradient(to left, #111111, #ce0c21);
+    transition: ease 1s ease;
+}*/
+
+/*-----------------------------
+HOME PAGE-Monza #ce0c21
+------------------------------*/
+.au-deals-wrapper:hover {
+    border-bottom: 3px solid #ce0c21 !important;
+}
+
+.au-accordina:hover {
+    border-bottom: 3px solid #ce0c21;
+    transform: translateY(-5px);
+}
+
+.au-accordina:hover .card-title a {
+    color: #ce0c21;
+}
+
+.au-list-ietem i:hover {
+    color: #ce0c21;
+}
+
+.au-list-ietems .dropdown-menu i {
+    color: #ce0c21;
+}
+
+.au-list-ietems .dropdown-menu i:hover {
+    background-color: #ce0c21;
+}
+
+.au-bidding .au-btn-gray {
+    color: #FFFFFF;
+    background-color: #e23e50;
+}
+
+.btn:hover, .btn:focus {
+    background-color: #fff;
+    color: #ce0c21;
+    border: 1px solid #ce0c21;
+}
+
+
+.bar-line:hover {
+    border-right: 3px solid #ce0c21;
+}
+
+.btn-primary {
+    background-color: #ce0c21;
+    border-color: #ce0c21;
+}
+
+.btn-primary:hover {
+    color: #ce0c21;
+    background-color: #fff;
+    border-color: #ce0c21;
+}
+
+/*--------------------------------
+AUCTIONS PAGE - Monza #ce0c21
+----------------------------------*/
+
+.au-all-category h6 {
+    background: #ce0c21;
+}
+
+#clear_date {
+    color: #ce0c21;
+}
+
+.datepicker table tr td.active, 
+.datepicker table tr td.active.disabled, 
+.datepicker table tr td.active.disabled:hover, 
+.datepicker table tr td.active:hover {
+
+    background-image: linear-gradient(to bottom,#e63548,#ce0c21) !important;
+}
+
+.form-control:focus {
+    border-color: #ce0c21;
+}
+
+[type="radio"]:checked + label:after, [type="radio"]:not(:checked) + label:after {
+    background: #ce0c21;
+}
+
+input[type="checkbox"]:checked + label .active {
+    background: #ce0c21 !important;
+}
+
+.badge {
+    background-color: #ce0c21;
+}
+
+.au-cards i {
+    color: #ce0c21;
+    border: 2px solid #ce0c21;
+}
+
+.au-item-categorys:hover .au-cards i {
+    background-color: #ce0c21;
+}
+
+.au-item-categorys:hover .au-cards .au-card-block h4 {
+    color: #ce0c21;
+}
+
+.au-item-categorys:hover .au-cards {
+    border-bottom: 3px solid #ce0c21;
+}
+
+.pagination li.active a, .pagination li.active span, .page-item.active .page-link {
+    background-color: #ce0c21;
+    border-color: #ce0c21;
+}
+
+/*------------------------------------
+AUCTION DETAILS PAGE - Monza #ce0c21
+-------------------------------------*/
+
+.text-blue {
+    color: #ce0c21;
+}
+
+
+.btn-info {
+    color: #fff;
+    background-color: #ce0c21;
+    border-color: #ce0c21;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+    background-color: #ce0c21;
+    border-color: #ce0c21;
+}
+
+.au-social-links li a .au-common {
+    color: #ce0c21;
+}
+
+.au-social-links li a .au-common:hover {
+    background-color: #ce0c21;
+}
+
+.product-border {
+    border-top: 3px solid #fbe7e5;
+}
+
+.product-tabs {
+    border-top: 4px solid #ce0c21;
+}
+
+.au-product-tabs.nav-tabs .nav-item.show .nav-link, .au-product-tabs.nav-tabs .nav-link.active {
+    color: #ce0c21;
+}
+
+.au-product-tabs.nav-tabs .nav-item.show .nav-link:before, .au-product-tabs.nav-tabs .nav-link.active:before {
+    background: #ce0c21;
+}
+
+.au-product-tabs.nav-tabs a:hover {
+    color: #ce0c21;
+}
+
+.form-control:focus {
+    border-color: #ce0c21;
+}
+
+.au-btn-modren:hover, .au-btn-modren:focus {
+    background-color: #fff;
+    color: #ce0c21 !important;
+    border: 1px solid #ce0c21;
+}
+
+
+/*------------------------------------
+    CONTACT US PAGE - Monza #ce0c21
+---------------------------------------*/
+.au-who-main h2 {
+    color: #ce0c21;
+}
+
+.panel-login .panel-body {
+    border-top: 3px solid #ce0c21;
+}
+
+.btn-info.disabled, .btn-info:disabled {
+    background-color: #ce0c21;
+    border-color: #ce0c21;
+}
+
+/*--------------------------------------
+    FAQS PAGE -  Monza #ce0c21
+----------------------------------------*/
+
+.au-list-item li.active a {
+    background: #ce0c21;
+}
+
+.au-list-item li a:hover, .au-list-item li a span:hover, .au-list-item li a:focus, .au-list-item li a span:focus {
+    color: #ce0c21;
+}
+
+.faq-panel-title {
+    color: #ce0c21;
+}
+
+a:hover {
+    color: #ce0c21;
+}
+
+/*------------------------------------------
+    LOGIN PAGE - Monza #ce0c21
+--------------------------------------------*/
+
+.modal-header a.active, .panel-login .panel-heading a.active {
+    background: #ce0c21;
+}
+
+a {
+    color: #ce0c21;
+}
+
+.login-bttn:hover {
+    color: #fff !important; 
+}
+
+/*-------------------------------------
+    LOGIN MODAL - Monza #ce0c21
+---------------------------------------*/
+.modal-body {
+    border-top: 2px solid #ce0c21;
+}
+
+/*--------------------------------------
+    BREADCRUMB - Monza #ce0c21
+----------------------------------------*/
+.au-bread-crumbs {
+    background-color: #fdf0f1;
+}
+
+/*--------------------------------------
+    BIDDER LEFT MENU - Monza #ce0c21
+----------------------------------------*/
+
+.au-onboard .au-middles {
+    color: #ce0c21;
+}
+
+.accordion li.active i, .accordion li.active .link {
+    color: #ce0c21;
+}
+
+.accordion li:hover i, .accordion li:hover .link {
+    color: #ce0c21;
+}
+
+.submenu a:hover {
+    background: #ce0c21;
+}
+
+/*--------------------------------------------
+    BIDDER PANEL - Monza #ce0c21
+----------------------------------------------*/
+.submenu li.active a {
+    background: #ce0c21;
+}
+
+.btn:hover {
+    color:#fff !important;
+}
+
+
+.login-bttn:hover {
+    color:#ce0c21 !important;
+}
+
+
+.btn-danger:hover {
+    color: #ce0c21 !important;
+    background-color: #fff !important;
+    border-color: #ce0c21 !important;
+}
+
+.dataTables_length select:hover, .dataTables_length select:focus {
+    border: 1px solid #ce0c21 !important;
+}
+
+.dataTables_wrapper .dataTables_filter input:hover, .dataTables_filter input:focus {
+    border-color: #ce0c21 !important;
+}
+
+.paginate_button.current {
+    background: linear-gradient(to bottom, #ce0c21 0%, #ce0c21 100%) !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    border: 1px solid #ce0c21 !important;
+}
+
+
+.btn-info {
+    background-color: #ef4153;
+    border-color: #ef4153;
+}
+
+.msg-item:hover {
+    border-top: 2px solid #ce0c21;
+}
+
+.panel.panel-custom {
+    border-top: 2px solid #ce0c21;
+}
+
+.btn-primary.disabled:hover, .btn-primary:disabled:hover {
+    color: #fff !important;
+}
+
+/*--------------------------------
+    RECENT WINNERS DIV - Monza #ce0c21
+----------------------------------*/
+
+.au-similar-card:hover {
+    border-bottom: 2px solid #ce0c21;
+}
+
+/*--------------------------------
+    LATEST AUCTIONS DIV - Monza #ce0c21
+----------------------------------*/
+.au-similar-card .au-similar-block h6:hover {
+    color: #ce0c21;
+}
+
+.au-similar-card .like {
+    color: #ce0c21;
+    border: 2px solid #ce0c21;
+}
+
+.au-similar-card .like:hover {
+    background: #ce0c21;
+}
+
+.au-similar-card:hover .like {
+    background: #ce0c21;
+}

@@ -1,0 +1,412 @@
+/* Theme */
+
+#switcher .theme-click {
+	background-color:#111111;
+}
+
+.au-navbar, .au-notification, .au-header-btn .au-btn-white, .au-list-ietem span i, .nav-tabs .nav-item.show .nav-link, .au-nav-tabs .au-nav-item.active,.pagination-item:hover, .pagination-item.is-active, .au-bidding .au-btn-modren, .au-body-footer a i:hover, .au-subscribe button, .au-all-upcoming button {
+    background-color:#7e57c2;
+}
+
+.au-nav-inner .au-items .au-custom span, .au-deals h2, .au-deals-wrapper:hover .au-deal-card .card-title, .au-deals-wrapper:hover .au-deal-card label, .au-upcoming-body h4, .au-common-details .au-icon-media i, .au-links li a:hover{
+    color:#7e57c2;
+}
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background: #7e57c2 !important;
+}
+
+.au-nav-tabs .au-nav-item {
+    border: 2px solid #7e57c2;
+    color: #7e57c2;
+}
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    border-color:#7e57c2 #7e57c2 #7e57c2;
+    background-color:#7e57c2;
+    color:#FFFFFF;
+}
+
+.au-nav-inner li a:hover{
+    color:#7e57c2 !important;
+}
+
+.pagination-link--wide:hover {
+    color: #7e57c2;
+}
+
+.sf-menu > li, .sf-menu .single-dropdown {
+    border-right: 1px solid #7e57c2;
+}
+
+.au-list-ietem span i:hover {
+    border: 3px solid #7e57c2;
+    color: #7e57c2;;
+}
+
+.au-ads {
+    background: linear-gradient( rgba(126, 87, 194,0.9), rgba(126, 87, 194,0.9)), url(../images/ads-bg.png);
+}
+
+.au-clients {
+    background: linear-gradient( rgba(126, 87, 194,0.9), rgba(126, 87, 194,0.9)), url(../images/client-bg.png);
+}
+
+.btn:not([disabled]):not(.disabled).active, .btn:not([disabled]):not(.disabled):active {
+    background-image: none;
+    background-color: #7e57c2;
+}
+
+/*.btn:hover, .btn:focus {
+    color: #FFFFFF;
+    background-image: -webkit-linear-gradient(right, #111111, #7e57c2);
+    background-image: -ms-linear-gradient(right, #111111, #7e57c2);
+    background-image: -moz-linear-gradient(right, #111111, #7e57c2);
+    background-image: -o-linear-gradient(right, #111111, #7e57c2);
+    background-image: linear-gradient(to left, #111111, #7e57c2);
+    transition: ease 1s ease;
+}*/
+
+/*-----------------------------
+HOME PAGE-Fushsia Blue #7e57c2
+------------------------------*/
+.au-deals-wrapper:hover {
+    border-bottom: 3px solid #7e57c2 !important;
+}
+
+
+.au-accordina:hover {
+    border-bottom: 3px solid #7e57c2;
+    transform: translateY(-5px);
+}
+
+.au-accordina:hover .card-title a {
+    color: #7e57c2;
+}
+
+.au-list-ietem i:hover {
+    color: #7e57c2;
+}
+
+.au-list-ietems .dropdown-menu i {
+    color: #7e57c2;
+}
+
+.au-list-ietems .dropdown-menu i:hover {
+    background-color: #7e57c2;
+}
+
+.au-bidding .au-btn-gray {
+    color: #FFFFFF;
+    background-color: #a174f1;
+}
+
+.btn:hover, .btn:focus {
+    background-color: #fff;
+    color: #7e57c2;
+    border: 1px solid #7e57c2;
+}
+
+
+.bar-line:hover {
+    border-right: 3px solid #7e57c2;
+}
+
+.btn-primary {
+    background-color: #7e57c2;
+    border-color: #7e57c2;
+}
+
+.btn-primary:hover {
+    color: #7e57c2;
+    background-color: #fff;
+    border-color: #7e57c2;
+}
+
+/*--------------------------------
+AUCTIONS PAGE - Fushsia Blue #7e57c2
+----------------------------------*/
+
+.au-all-category h6 {
+    background: #7e57c2;
+}
+
+#clear_date {
+    color: #7e57c2;
+}
+
+.datepicker table tr td.active, 
+.datepicker table tr td.active.disabled, 
+.datepicker table tr td.active.disabled:hover, 
+.datepicker table tr td.active:hover {
+
+    background-image: linear-gradient(to bottom,#8f6ccc,#7e57c2) !important;
+}
+
+.form-control:focus {
+    border-color: #7e57c2;
+}
+
+[type="radio"]:checked + label:after, [type="radio"]:not(:checked) + label:after {
+    background: #7e57c2;
+}
+
+input[type="checkbox"]:checked + label .active {
+    background: #7e57c2 !important;
+}
+
+.badge {
+    background-color: #7e57c2;
+}
+
+.au-cards i {
+    color: #7e57c2;
+    border: 2px solid #7e57c2;
+}
+
+.au-item-categorys:hover .au-cards i {
+    background-color: #7e57c2;
+}
+
+.au-item-categorys:hover .au-cards .au-card-block h4 {
+    color: #7e57c2;
+}
+
+.au-item-categorys:hover .au-cards {
+    border-bottom: 3px solid #7e57c2;
+}
+
+.pagination li.active a, .pagination li.active span, .page-item.active .page-link {
+    background-color: #7e57c2;
+    border-color: #7e57c2;
+}
+
+/*-------------------------------------------
+AUCTION DETAILS PAGE - Fushsia Blue #7e57c2
+----------------------------------------------*/
+
+.text-blue {
+    color: #7e57c2;
+}
+
+
+.btn-info {
+    color: #fff;
+    background-color: #7e57c2;
+    border-color: #7e57c2;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+    background-color: #7e57c2;
+    border-color: #7e57c2;
+}
+
+.au-social-links li a .au-common {
+    color: #7e57c2;
+}
+
+.au-social-links li a .au-common:hover {
+    background-color: #7e57c2;
+}
+
+.product-border {
+    border-top: 3px solid #c8adf7;
+}
+
+.product-tabs {
+    border-top: 4px solid #7e57c2;
+}
+
+.au-product-tabs.nav-tabs .nav-item.show .nav-link, .au-product-tabs.nav-tabs .nav-link.active {
+    color: #7e57c2;
+}
+
+.au-product-tabs.nav-tabs .nav-item.show .nav-link:before, .au-product-tabs.nav-tabs .nav-link.active:before {
+    background: #7e57c2;
+}
+
+.au-product-tabs.nav-tabs a:hover {
+    color: #7e57c2;
+}
+
+.form-control:focus {
+    border-color: #7e57c2;
+}
+
+.au-btn-modren:hover, .au-btn-modren:focus {
+    background-color: #fff;
+    color: #7e57c2 !important;
+    border: 1px solid #7e57c2;
+}
+
+/*------------------------------------------
+    CONTACT US PAGE - Fushsia Blue #7e57c2
+--------------------------------------------*/
+.au-who-main h2 {
+    color: #7e57c2;
+}
+
+.panel-login .panel-body {
+    border-top: 3px solid #7e57c2;
+}
+
+.btn-info.disabled, .btn-info:disabled {
+    background-color: #7e57c2;
+    border-color: #7e57c2;
+}
+
+
+/*--------------------------------------
+    FAQS PAGE -  Fushsia Blue #7e57c2
+----------------------------------------*/
+
+.au-list-item li.active a {
+    background: #7e57c2;
+}
+
+.au-list-item li a:hover, .au-list-item li a span:hover, .au-list-item li a:focus, .au-list-item li a span:focus {
+    color: #7e57c2;
+}
+
+.faq-panel-title {
+    color: #7e57c2;
+}
+
+a:hover {
+    color: #7e57c2;
+}
+
+/*------------------------------------------
+    LOGIN PAGE - Fushsia Blue #7e57c2
+--------------------------------------------*/
+
+.modal-header a.active, .panel-login .panel-heading a.active {
+    background: #7e57c2;
+}
+
+a {
+    color: #7e57c2;
+}
+
+.login-bttn:hover {
+    color: #fff !important; 
+}
+
+/*-------------------------------------
+    LOGIN MODAL - Fushsia Blue #7e57c2
+---------------------------------------*/
+.modal-body {
+    border-top: 2px solid #7e57c2;
+}
+
+/*--------------------------------------
+    BREADCRUMB - Fushsia Blue #7e57c2
+----------------------------------------*/
+.au-bread-crumbs {
+    background-color: #ece4f9;
+}
+
+/*--------------------------------------
+    BIDDER LEFT MENU - Fushsia Blue #7e57c2
+----------------------------------------*/
+
+.au-onboard .au-middles {
+    color: #7e57c2;
+}
+
+.accordion li.active i, .accordion li.active .link {
+    color: #7e57c2;
+}
+
+.accordion li:hover i, .accordion li:hover .link {
+    color: #7e57c2;
+}
+
+.submenu a:hover {
+    background: #7e57c2;
+}
+
+/*--------------------------------------------
+    BIDDER PANEL - Fushsia Blue #7e57c2
+----------------------------------------------*/
+.submenu li.active a {
+    background: #7e57c2;
+}
+
+.btn:hover {
+    color:#fff !important;
+}
+
+
+.login-bttn:hover {
+    color:#7e57c2 !important;
+}
+
+
+.btn-danger:hover {
+    color: #7e57c2 !important;
+    background-color: #fff !important;
+    border-color: #7e57c2 !important;
+}
+
+.dataTables_length select:hover, .dataTables_length select:focus {
+    border: 1px solid #7e57c2 !important;
+}
+
+.dataTables_wrapper .dataTables_filter input:hover, .dataTables_filter input:focus {
+    border-color: #7e57c2 !important;
+}
+
+.paginate_button.current {
+    background: linear-gradient(to bottom, #7e57c2 0%, #7e57c2 100%) !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    border: 1px solid #7e57c2 !important;
+}
+
+
+.btn-info {
+    background-color: #b289f9;
+    border-color: #b289f9;
+}
+
+.msg-item:hover {
+    border-top: 2px solid #7e57c2;
+}
+
+.panel.panel-custom {
+    border-top: 2px solid #7e57c2;
+}
+
+.btn-primary.disabled:hover, .btn-primary:disabled:hover {
+    color: #fff !important;
+}
+
+/*--------------------------------
+    RECENT WINNERS DIV - Fushsia Blue #7e57c2
+----------------------------------*/
+
+.au-similar-card:hover {
+    border-bottom: 2px solid #7e57c2;
+}
+
+/*--------------------------------
+    LATEST AUCTIONS DIV - Fushsia Blue #7e57c2
+----------------------------------*/
+.au-similar-card .au-similar-block h6:hover {
+    color: #7e57c2;
+}
+
+.au-similar-card .like {
+    color: #7e57c2;
+    border: 2px solid #7e57c2;
+}
+
+.au-similar-card .like:hover {
+    background: #7e57c2;
+}
+
+.au-similar-card:hover .like {
+    background: #7e57c2;
+}

@@ -1,0 +1,413 @@
+/* Theme */
+
+#switcher .theme-click {
+	background-color:#111111;
+}
+
+.au-navbar, .au-notification, .au-header-btn .au-btn-white, .au-list-ietem span i, .nav-tabs .nav-item.show .nav-link, .au-nav-tabs .au-nav-item.active,.pagination-item:hover, .pagination-item.is-active, .au-bidding .au-btn-modren, .au-body-footer a i:hover, .au-subscribe button, .au-all-upcoming button {
+    background-color:#ec407a;
+}
+
+.au-nav-inner .au-items .au-custom span, .au-deals h2, .au-deals-wrapper:hover .au-deal-card .card-title, .au-deals-wrapper:hover .au-deal-card label, .au-upcoming-body h4, .au-common-details .au-icon-media i, .au-links li a:hover{
+    color:#ec407a;
+}
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background: #ec407a !important;
+}
+
+.au-nav-tabs .au-nav-item {
+    border: 2px solid #ec407a;
+    color: #ec407a;
+}
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    border-color:#ec407a #ec407a #ec407a;
+    background-color:#ec407a;
+    color:#FFFFFF;
+}
+
+.au-nav-inner li a:hover{
+    color:#ec407a !important;
+}
+
+.pagination-link--wide:hover {
+    color: #ec407a;
+}
+
+.sf-menu > li, .sf-menu .single-dropdown {
+    border-right: 1px solid #ec407a;
+}
+
+.au-list-ietem span i:hover {
+    border: 3px solid #ec407a;
+    color: #ec407a;;
+}
+
+.au-ads {
+    background: linear-gradient( rgba(236, 64, 122,0.9), rgba(236, 64, 122,0.9)), url(../images/ads-bg.png);
+}
+
+.au-clients {
+    background: linear-gradient( rgba(236, 64, 122,0.9), rgba(236, 64, 122,0.9)), url(../images/client-bg.png);
+}
+
+.btn:not([disabled]):not(.disabled).active, .btn:not([disabled]):not(.disabled):active {
+    background-image: none;
+    background-color: #ec407a;
+}
+
+/*.btn:hover, .btn:focus {
+    color: #FFFFFF;
+    background-image: -webkit-linear-gradient(right, #111111, #ec407a);
+    background-image: -ms-linear-gradient(right, #111111, #ec407a);
+    background-image: -moz-linear-gradient(right, #111111, #ec407a);
+    background-image: -o-linear-gradient(right, #111111, #ec407a);
+    background-image: linear-gradient(to left, #111111, #ec407a);
+    transition: ease 1s ease;
+}*/
+
+
+/*-----------------------------
+HOME PAGE-French Rose #EC407A
+------------------------------*/
+.au-deals-wrapper:hover {
+    border-bottom: 3px solid #ec407a !important;
+}
+
+
+.au-accordina:hover {
+    border-bottom: 3px solid #ec407a;
+    transform: translateY(-5px);
+}
+
+.au-accordina:hover .card-title a {
+    color: #ec407a;
+}
+
+.au-list-ietem i:hover {
+    color: #ec407a;
+}
+
+.au-list-ietems .dropdown-menu i {
+    color: #ec407a;
+}
+
+.au-list-ietems .dropdown-menu i:hover {
+    background-color: #ec407a;
+}
+
+.au-bidding .au-btn-gray {
+    color: #FFFFFF;
+    background-color: #f785ab;
+}
+
+.btn:hover, .btn:focus {
+    background-color: #fff;
+    color: #ec407a;
+    border: 1px solid #ec407a;
+}
+
+
+.bar-line:hover {
+    border-right: 3px solid #ec407a;
+}
+
+.btn-primary {
+    background-color: #ec407a;
+    border-color: #ec407a;
+}
+
+.btn-primary:hover {
+    color: #ec407a;
+    background-color: #fff;
+    border-color: #ec407a;
+}
+
+/*----------------------------------
+AUCTIONS PAGE - French Rose #EC407A
+----------------------------------*/
+
+.au-all-category h6 {
+    background: #ec407a;
+}
+
+#clear_date {
+    color: #ec407a;
+}
+
+.datepicker table tr td.active, 
+.datepicker table tr td.active.disabled, 
+.datepicker table tr td.active.disabled:hover, 
+.datepicker table tr td.active:hover {
+
+    background-image: linear-gradient(to bottom,#f76a99,#ec407a) !important;
+}
+
+.form-control:focus {
+    border-color: #ec407a;
+}
+
+[type="radio"]:checked + label:after, [type="radio"]:not(:checked) + label:after {
+    background: #ec407a;
+}
+
+input[type="checkbox"]:checked + label .active {
+    background: #ec407a !important;
+}
+
+.badge {
+    background-color: #ec407a;
+}
+
+.au-cards i {
+    color: #ec407a;
+    border: 2px solid #ec407a;
+}
+
+.au-item-categorys:hover .au-cards i {
+    background-color: #ec407a;
+}
+
+.au-item-categorys:hover .au-cards .au-card-block h4 {
+    color: #ec407a;
+}
+
+.au-item-categorys:hover .au-cards {
+    border-bottom: 3px solid #ec407a;
+}
+
+.pagination li.active a, .pagination li.active span, .page-item.active .page-link {
+    background-color: #ec407a;
+    border-color: #ec407a;
+}
+
+/*----------------------------------------
+AUCTION DETAILS PAGE - French Rose #EC407A
+------------------------------------------*/
+
+.text-blue {
+    color: #EC407A;
+}
+
+
+.btn-info {
+    color: #fff;
+    background-color: #EC407A;
+    border-color: #EC407A;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+    background-color: #EC407A;
+    border-color: #EC407A;
+}
+
+.au-social-links li a .au-common {
+    color: #EC407A;
+}
+
+.au-social-links li a .au-common:hover {
+    background-color: #EC407A;
+}
+
+.product-border {
+    border-top: 3px solid #fbe7e5;
+}
+
+.product-tabs {
+    border-top: 4px solid #EC407A;
+}
+
+.au-product-tabs.nav-tabs .nav-item.show .nav-link, .au-product-tabs.nav-tabs .nav-link.active {
+    color: #EC407A;
+}
+
+.au-product-tabs.nav-tabs .nav-item.show .nav-link:before, .au-product-tabs.nav-tabs .nav-link.active:before {
+    background: #EC407A;
+}
+
+.au-product-tabs.nav-tabs a:hover {
+    color: #EC407A;
+}
+
+.form-control:focus {
+    border-color: #EC407A;
+}
+
+.au-btn-modren:hover, .au-btn-modren:focus {
+    background-color: #fff;
+    color: #EC407A !important;
+    border: 1px solid #EC407A;
+}
+
+/*---------------------------------------
+    CONTACT US PAGE - French Rose #EC407A
+-----------------------------------------*/
+.au-who-main h2 {
+    color: #EC407A;
+}
+
+.panel-login .panel-body {
+    border-top: 3px solid #EC407A;
+}
+
+.btn-info.disabled, .btn-info:disabled {
+    background-color: #EC407A;
+    border-color: #EC407A;
+}
+
+/*--------------------------------------
+    FAQS PAGE -  French Rose #EC407A
+----------------------------------------*/
+
+.au-list-item li.active a {
+    background: #EC407A;
+}
+
+.au-list-item li a:hover, .au-list-item li a span:hover, .au-list-item li a:focus, .au-list-item li a span:focus {
+    color: #EC407A;
+}
+
+.faq-panel-title {
+    color: #EC407A;
+}
+
+a:hover {
+    color: #EC407A;
+}
+
+/*------------------------------------------
+    LOGIN PAGE - French Rose #EC407A
+--------------------------------------------*/
+
+.modal-header a.active, .panel-login .panel-heading a.active {
+    background: #EC407A;
+}
+
+a {
+    color: #EC407A;
+}
+
+
+.login-bttn:hover {
+    color: #fff !important; 
+}
+
+/*-------------------------------------
+    LOGIN MODAL - French Rose #EC407A
+---------------------------------------*/
+.modal-body {
+    border-top: 2px solid #EC407A;
+}
+
+/*--------------------------------------
+    BREADCRUMB - French Rose #EC407A
+----------------------------------------*/
+.au-bread-crumbs {
+    background-color: #ffedf2;
+}
+
+/*--------------------------------------
+    BIDDER LEFT MENU - French Rose #EC407A
+----------------------------------------*/
+
+.au-onboard .au-middles {
+    color: #EC407A;
+}
+
+.accordion li.active i, .accordion li.active .link {
+    color: #EC407A;
+}
+
+.accordion li:hover i, .accordion li:hover .link {
+    color: #EC407A;
+}
+
+.submenu a:hover {
+    background: #EC407A;
+}
+
+/*--------------------------------------------
+    BIDDER PANEL - French Rose #EC407A
+----------------------------------------------*/
+.submenu li.active a {
+    background: #EC407A;
+}
+
+.btn:hover {
+    color:#fff !important;
+}
+
+
+.login-bttn:hover {
+    color:#EC407A !important;
+}
+
+
+.btn-danger:hover {
+    color: #EC407A !important;
+    background-color: #fff !important;
+    border-color: #EC407A !important;
+}
+
+.dataTables_length select:hover, .dataTables_length select:focus {
+    border: 1px solid #EC407A !important;
+}
+
+.dataTables_wrapper .dataTables_filter input:hover, .dataTables_filter input:focus {
+    border-color: #EC407A !important;
+}
+
+.paginate_button.current {
+    background: linear-gradient(to bottom, #EC407A 0%, #EC407A 100%) !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    border: 1px solid #EC407A !important;
+}
+
+
+.btn-info {
+    background-color: #f16091;
+    border-color: #f16091;
+}
+
+.msg-item:hover {
+    border-top: 2px solid #EC407A;
+}
+
+.panel.panel-custom {
+    border-top: 2px solid #EC407A;
+}
+
+.btn-primary.disabled:hover, .btn-primary:disabled:hover {
+    color: #fff !important;
+}
+
+/*--------------------------------
+    RECENT WINNERS DIV - French Rose #EC407A
+----------------------------------*/
+
+.au-similar-card:hover {
+    border-bottom: 2px solid #EC407A;
+}
+
+/*--------------------------------
+    LATEST AUCTIONS DIV - French Rose #EC407A
+----------------------------------*/
+.au-similar-card .au-similar-block h6:hover {
+    color: #EC407A;
+}
+
+.au-similar-card .like {
+    color: #EC407A;
+    border: 2px solid #EC407A;
+}
+
+.au-similar-card .like:hover {
+    background: #EC407A;
+}
+
+.au-similar-card:hover .like {
+    background: #EC407A;
+}

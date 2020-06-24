@@ -1,0 +1,99 @@
+/* Theme */
+
+#switcher .theme-click {
+    background-color: #111111;
+}
+
+.au-navbar,
+.au-notification,
+.au-header-btn .au-btn-white,
+.au-list-ietem span i,
+.nav-tabs .nav-item.show .nav-link,
+.au-nav-tabs .au-nav-item.active,
+.pagination-item:hover,
+.pagination-item.is-active,
+.au-bidding .au-btn-modren,
+.au-body-footer a i:hover,
+.au-subscribe button,
+.au-all-upcoming button {
+    background-color: #668ee6;
+}
+
+.au-nav-inner .au-items .au-custom span,
+.au-deals h2,
+.au-deals-wrapper:hover .au-deal-card .card-title,
+.au-deals-wrapper:hover .au-deal-card label,
+.au-upcoming-body h4,
+.au-common-details .au-icon-media i,
+.au-links li a:hover {
+    color: #668ee6;
+}
+
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+    background: #668ee6 !important;
+}
+
+.au-nav-tabs .au-nav-item {
+    border: 2px solid #668ee6;
+    color: #668ee6;
+}
+
+.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover {
+    border-color: #668ee6 #668ee6 #668ee6;
+    background-color: #668ee6;
+    color: #FFFFFF;
+}
+
+.au-nav-inner li a:hover {
+    color: #668ee6 !important;
+}
+
+.pagination-link--wide:hover {
+    color: #668ee6;
+}
+
+.sf-menu > li,
+.sf-menu .single-dropdown {
+    border-right: 1px solid #668ee6;
+}
+
+.au-list-ietem span i:hover {
+    border: 3px solid #668ee6;
+    color: #668ee6;
+}
+
+.au-ads {
+    background: -webkit-gradient( linear, left top, left bottom, from(rgba(102, 142, 230, 0.9)), to(rgba(102, 142, 230, 0.9))), url(../images/ads-bg.png);
+    background: linear-gradient( rgba(102, 142, 230, 0.9), rgba(102, 142, 230, 0.9)), url(../images/ads-bg.png);
+}
+
+.au-clients {
+    background: -webkit-gradient( linear, left top, left bottom, from(rgba(102, 142, 230, 0.9)), to(rgba(102, 142, 230, 0.9))), url(../images/client-bg.png);
+    background: linear-gradient( rgba(102, 142, 230, 0.9), rgba(102, 142, 230, 0.9)), url(../images/client-bg.png);
+}
+
+.btn:not([disabled]):not(.disabled).active,
+.btn:not([disabled]):not(.disabled):active {
+    background-image: none;
+    background-color: #668ee6;
+}
+
+.btn:hover,
+.btn:focus {
+    background: #fff;
+    color: #668ee6;
+    border: 1px solid #668ee6;
+}
+
+
+/*----------------------------------------------
+AUCTION DETAILS PAGE - Cornflower blue #668ee6
+------------------------------------------------*/
+
+.btn-info {
+    color: #fff;
+    background-color: #668ee6;
+    border-color: #668ee6;
+}

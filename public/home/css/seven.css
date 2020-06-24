@@ -1,0 +1,412 @@
+/* Theme */
+
+#switcher .theme-click {
+	background-color:#111111;
+}
+
+.au-navbar, .au-notification, .au-header-btn .au-btn-white, .au-list-ietem span i, .nav-tabs .nav-item.show .nav-link, .au-nav-tabs .au-nav-item.active,.pagination-item:hover, .pagination-item.is-active, .au-bidding .au-btn-modren, .au-body-footer a i:hover, .au-subscribe button, .au-all-upcoming button {
+    background-color:#009688;
+}
+
+.au-nav-inner .au-items .au-custom span, .au-deals h2, .au-deals-wrapper:hover .au-deal-card .card-title, .au-deals-wrapper:hover .au-deal-card label, .au-upcoming-body h4, .au-common-details .au-icon-media i, .au-links li a:hover{
+    color:#009688;
+}
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background: #009688 !important;
+}
+
+.au-nav-tabs .au-nav-item {
+    border: 2px solid #009688;
+    color: #009688;
+}
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    border-color:#009688 #009688 #009688;
+    background-color:#009688;
+    color:#FFFFFF;
+}
+
+.au-nav-inner li a:hover{
+    color:#009688 !important;
+}
+
+.pagination-link--wide:hover {
+    color: #009688;
+}
+
+.sf-menu > li, .sf-menu .single-dropdown {
+    border-right: 1px solid #009688;
+}
+
+.au-list-ietem span i:hover {
+    border: 3px solid #009688;
+    color: #009688;;
+}
+
+.au-ads {
+    background: linear-gradient( rgba(0, 150, 136,0.9), rgba(0, 150, 136,0.9)), url(../images/ads-bg.png);
+}
+
+.au-clients {
+    background: linear-gradient( rgba(0, 150, 136,0.9), rgba(0, 150, 136,0.9)), url(../images/client-bg.png);
+}
+
+.btn:not([disabled]):not(.disabled).active, .btn:not([disabled]):not(.disabled):active {
+    background-image: none;
+    background-color: #009688;
+}
+
+/*.btn:hover, .btn:focus {
+    color: #FFFFFF;
+    background-image: -webkit-linear-gradient(right, #111111, #009688);
+    background-image: -ms-linear-gradient(right, #111111, #009688);
+    background-image: -moz-linear-gradient(right, #111111, #009688);
+    background-image: -o-linear-gradient(right, #111111, #009688);
+    background-image: linear-gradient(to left, #111111, #009688);
+    transition: ease 1s ease;
+}*/
+
+
+/*-----------------------------
+HOME PAGE-Persian Green #009688
+------------------------------*/
+.au-deals-wrapper:hover {
+    border-bottom: 3px solid #009688 !important;
+}
+
+
+.au-accordina:hover {
+    border-bottom: 3px solid #009688;
+    transform: translateY(-5px);
+}
+
+.au-accordina:hover .card-title a {
+    color: #009688;
+}
+
+.au-list-ietem i:hover {
+    color: #009688;
+}
+
+.au-list-ietems .dropdown-menu i {
+    color: #009688;
+}
+
+.au-list-ietems .dropdown-menu i:hover {
+    background-color: #009688;
+}
+
+.au-bidding .au-btn-gray {
+    color: #FFFFFF;
+    background-color: #26b3a5;
+}
+
+.btn:hover, .btn:focus {
+    background-color: #fff;
+    color: #009688;
+    border: 1px solid #009688;
+}
+
+
+.bar-line:hover {
+    border-right: 3px solid #009688;
+}
+
+.btn-primary {
+    background-color: #009688;
+    border-color: #009688;
+}
+
+.btn-primary:hover {
+    color: #009688;
+    background-color: #fff;
+    border-color: #009688;
+}
+
+/*--------------------------------
+AUCTIONS PAGE - Persian Green #009688
+----------------------------------*/
+
+.au-all-category h6 {
+    background: #009688;
+}
+
+#clear_date {
+    color: #009688;
+}
+
+.datepicker table tr td.active, 
+.datepicker table tr td.active.disabled, 
+.datepicker table tr td.active.disabled:hover, 
+.datepicker table tr td.active:hover {
+
+    background-image: linear-gradient(to bottom,#0cafa0,#009688) !important;
+}
+
+.form-control:focus {
+    border-color: #009688;
+}
+
+[type="radio"]:checked + label:after, [type="radio"]:not(:checked) + label:after {
+    background: #009688;
+}
+
+input[type="checkbox"]:checked + label .active {
+    background: #009688 !important;
+}
+
+.badge {
+    background-color: #009688;
+}
+
+.au-cards i {
+    color: #009688;
+    border: 2px solid #009688;
+}
+
+.au-item-categorys:hover .au-cards i {
+    background-color: #009688;
+}
+
+.au-item-categorys:hover .au-cards .au-card-block h4 {
+    color: #009688;
+}
+
+.au-item-categorys:hover .au-cards {
+    border-bottom: 3px solid #009688;
+}
+
+.pagination li.active a, .pagination li.active span, .page-item.active .page-link {
+    background-color: #009688;
+    border-color: #009688;
+}
+
+/*--------------------------------------------
+AUCTION DETAILS PAGE - Persian Green #009688
+----------------------------------------------*/
+
+.text-blue {
+    color: #009688;
+}
+
+
+.btn-info {
+    color: #fff;
+    background-color: #009688;
+    border-color: #009688;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+    background-color: #009688;
+    border-color: #009688;
+}
+
+.au-social-links li a .au-common {
+    color: #009688;
+}
+
+.au-social-links li a .au-common:hover {
+    background-color: #009688;
+}
+
+.product-border {
+    border-top: 3px solid #87ded6;
+}
+
+.product-tabs {
+    border-top: 4px solid #009688;
+}
+
+.au-product-tabs.nav-tabs .nav-item.show .nav-link, .au-product-tabs.nav-tabs .nav-link.active {
+    color: #009688;
+}
+
+.au-product-tabs.nav-tabs .nav-item.show .nav-link:before, .au-product-tabs.nav-tabs .nav-link.active:before {
+    background: #009688;
+}
+
+.au-product-tabs.nav-tabs a:hover {
+    color: #009688;
+}
+
+.form-control:focus {
+    border-color: #009688;
+}
+
+.au-btn-modren:hover, .au-btn-modren:focus {
+    background-color: #fff;
+    color: #009688 !important;
+    border: 1px solid #009688;
+}
+
+/*-------------------------------------------
+    CONTACT US PAGE - Persian Green #009688
+---------------------------------------------*/
+.au-who-main h2 {
+    color: #009688;
+}
+
+.panel-login .panel-body {
+    border-top: 3px solid #009688;
+}
+
+.btn-info.disabled, .btn-info:disabled {
+    background-color: #009688;
+    border-color: #009688;
+}
+
+/*--------------------------------------
+    FAQS PAGE - Persian Green #009688
+----------------------------------------*/
+
+.au-list-item li.active a {
+    background: #009688;
+}
+
+.au-list-item li a:hover, .au-list-item li a span:hover, .au-list-item li a:focus, .au-list-item li a span:focus {
+    color: #009688;
+}
+
+.faq-panel-title {
+    color: #009688;
+}
+
+a:hover {
+    color: #009688;
+}
+
+/*------------------------------------------
+    LOGIN PAGE - Persian Green #009688
+--------------------------------------------*/
+
+.modal-header a.active, .panel-login .panel-heading a.active {
+    background: #009688;
+}
+
+a {
+    color: #009688;
+}
+
+.login-bttn:hover {
+    color: #fff !important; 
+}
+
+/*-------------------------------------
+    LOGIN MODAL - Persian Green #009688
+---------------------------------------*/
+.modal-body {
+    border-top: 2px solid #009688;
+}
+
+/*--------------------------------------
+    BREADCRUMB - Persian Green #009688
+----------------------------------------*/
+.au-bread-crumbs {
+    background-color: #e2fbf8;
+}
+
+/*--------------------------------------
+    BIDDER LEFT MENU - Persian Green #009688
+----------------------------------------*/
+
+.au-onboard .au-middles {
+    color: #009688;
+}
+
+.accordion li.active i, .accordion li.active .link {
+    color: #009688;
+}
+
+.accordion li:hover i, .accordion li:hover .link {
+    color: #009688;
+}
+
+.submenu a:hover {
+    background: #009688;
+}
+
+/*--------------------------------------------
+    BIDDER PANEL - Persian Green #009688
+----------------------------------------------*/
+.submenu li.active a {
+    background: #009688;
+}
+
+.btn:hover {
+    color:#fff !important;
+}
+
+
+.login-bttn:hover {
+    color:#009688 !important;
+}
+
+
+.btn-danger:hover {
+    color: #009688 !important;
+    background-color: #fff !important;
+    border-color: #009688 !important;
+}
+
+.dataTables_length select:hover, .dataTables_length select:focus {
+    border: 1px solid #009688 !important;
+}
+
+.dataTables_wrapper .dataTables_filter input:hover, .dataTables_filter input:focus {
+    border-color: #009688 !important;
+}
+
+.paginate_button.current {
+    background: linear-gradient(to bottom, #009688 0%, #009688 100%) !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    border: 1px solid #009688 !important;
+}
+
+
+.btn-info {
+    background-color: #0eb1a2;
+    border-color: #0eb1a2;
+}
+
+.msg-item:hover {
+    border-top: 2px solid #009688;
+}
+
+.panel.panel-custom {
+    border-top: 2px solid #009688;
+}
+
+.btn-primary.disabled:hover, .btn-primary:disabled:hover {
+    color: #fff !important;
+}
+
+/*--------------------------------
+    RECENT WINNERS DIV - Persian Green #009688
+----------------------------------*/
+
+.au-similar-card:hover {
+    border-bottom: 2px solid #009688;
+}
+
+/*--------------------------------
+    LATEST AUCTIONS DIV - Persian Green #009688
+----------------------------------*/
+.au-similar-card .au-similar-block h6:hover {
+    color: #009688;
+}
+
+.au-similar-card .like {
+    color: #009688;
+    border: 2px solid #009688;
+}
+
+.au-similar-card .like:hover {
+    background: #009688;
+}
+
+.au-similar-card:hover .like {
+    background: #009688;
+}

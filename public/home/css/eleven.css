@@ -1,0 +1,411 @@
+/* Theme */
+
+#switcher .theme-click {
+	background-color:#111111;
+}
+
+.au-navbar, .au-notification, .au-header-btn .au-btn-white, .au-list-ietem span i, .nav-tabs .nav-item.show .nav-link, .au-nav-tabs .au-nav-item.active,.pagination-item:hover, .pagination-item.is-active, .au-bidding .au-btn-modren, .au-body-footer a i:hover, .au-subscribe button, .au-all-upcoming button {
+    background-color:#ff9800;
+}
+
+.au-nav-inner .au-items .au-custom span, .au-deals h2, .au-deals-wrapper:hover .au-deal-card .card-title, .au-deals-wrapper:hover .au-deal-card label, .au-upcoming-body h4, .au-common-details .au-icon-media i, .au-links li a:hover{
+    color:#ff9800;
+}
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background: #ff9800 !important;
+}
+
+.au-nav-tabs .au-nav-item {
+    border: 2px solid #ff9800;
+    color: #ff9800;
+}
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    border-color:#ff9800 #ff9800 #ff9800;
+    background-color:#ff9800;
+    color:#FFFFFF;
+}
+
+.au-nav-inner li a:hover{
+    color:#ff9800 !important;
+}
+
+.pagination-link--wide:hover {
+    color: #ff9800;
+}
+
+.sf-menu > li, .sf-menu .single-dropdown {
+    border-right: 1px solid #ff9800;
+}
+
+.au-list-ietem span i:hover {
+    border: 3px solid #ff9800;
+    color: #ff9800;;
+}
+
+.au-ads {
+    background: linear-gradient( rgba(255, 152, 0,0.9), rgba(255, 152, 0,0.9)), url(../images/ads-bg.png);
+}
+
+.au-clients {
+    background: linear-gradient( rgba(255, 152, 0,0.9), rgba(255, 152, 0,0.9)), url(../images/client-bg.png);
+}
+
+.btn:not([disabled]):not(.disabled).active, .btn:not([disabled]):not(.disabled):active {
+    background-image: none;
+    background-color: #ff9800;
+}
+
+/*.btn:hover, .btn:focus {
+    color: #FFFFFF;
+    background-image: -webkit-linear-gradient(right, #111111, #ff9800);
+    background-image: -ms-linear-gradient(right, #111111, #ff9800);
+    background-image: -moz-linear-gradient(right, #111111, #ff9800);
+    background-image: -o-linear-gradient(right, #111111, #ff9800);
+    background-image: linear-gradient(to left, #111111, #ff9800);
+    transition: ease 1s ease;
+}*/
+
+/*-----------------------------
+HOME PAGE-Orange Peel #ff9800
+------------------------------*/
+.au-deals-wrapper:hover {
+    border-bottom: 3px solid #ff9800 !important;
+}
+
+.au-accordina:hover {
+    border-bottom: 3px solid #ff9800;
+    transform: translateY(-5px);
+}
+
+.au-accordina:hover .card-title a {
+    color: #ff9800;
+}
+
+.au-list-ietem i:hover {
+    color: #ff9800;
+}
+
+.au-list-ietems .dropdown-menu i {
+    color: #ff9800;
+}
+
+.au-list-ietems .dropdown-menu i:hover {
+    background-color: #ff9800;
+}
+
+.au-bidding .au-btn-gray {
+    color: #FFFFFF;
+    background-color: #f9a01ed4;
+}
+
+.btn:hover, .btn:focus {
+    background-color: #fff;
+    color: #ff9800;
+    border: 1px solid #ff9800;
+}
+
+
+.bar-line:hover {
+    border-right: 3px solid #ff9800;
+}
+
+.btn-primary {
+    background-color: #ff9800;
+    border-color: #ff9800;
+}
+
+.btn-primary:hover {
+    color: #ff9800;
+    background-color: #fff;
+    border-color: #ff9800;
+}
+
+
+/*--------------------------------
+AUCTIONS PAGE - Orange Peel #ff9800
+----------------------------------*/
+
+.au-all-category h6 {
+    background: #ff9800;
+}
+
+#clear_date {
+    color: #ff9800;
+}
+
+.datepicker table tr td.active, 
+.datepicker table tr td.active.disabled, 
+.datepicker table tr td.active.disabled:hover, 
+.datepicker table tr td.active:hover {
+
+    background-image: linear-gradient(to bottom,#e69723,#ff9800) !important;
+}
+
+.form-control:focus {
+    border-color: #ff9800;
+}
+
+[type="radio"]:checked + label:after, [type="radio"]:not(:checked) + label:after {
+    background: #ff9800;
+}
+
+input[type="checkbox"]:checked + label .active {
+    background: #ff9800 !important;
+}
+
+.badge {
+    background-color: #ff9800;
+}
+
+.au-cards i {
+    color: #ff9800;
+    border: 2px solid #ff9800;
+}
+
+.au-item-categorys:hover .au-cards i {
+    background-color: #ff9800;
+}
+
+.au-item-categorys:hover .au-cards .au-card-block h4 {
+    color: #ff9800;
+}
+
+.au-item-categorys:hover .au-cards {
+    border-bottom: 3px solid #ff9800;
+}
+
+.pagination li.active a, .pagination li.active span, .page-item.active .page-link {
+    background-color: #ff9800;
+    border-color: #ff9800;
+}
+
+/*----------------------------------------
+AUCTION DETAILS PAGE - Orange Peel #ff9800
+------------------------------------------*/
+
+.text-blue {
+    color: #ff9800;
+}
+
+
+.btn-info {
+    color: #fff;
+    background-color: #ff9800;
+    border-color: #ff9800;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+    background-color: #ff9800;
+    border-color: #ff9800;
+}
+
+.au-social-links li a .au-common {
+    color: #ff9800;
+}
+
+.au-social-links li a .au-common:hover {
+    background-color: #ff9800;
+}
+
+.product-border {
+    border-top: 3px solid #ffcd83;
+}
+
+.product-tabs {
+    border-top: 4px solid #ff9800;
+}
+
+.au-product-tabs.nav-tabs .nav-item.show .nav-link, .au-product-tabs.nav-tabs .nav-link.active {
+    color: #ff9800;
+}
+
+.au-product-tabs.nav-tabs .nav-item.show .nav-link:before, .au-product-tabs.nav-tabs .nav-link.active:before {
+    background: #ff9800;
+}
+
+.au-product-tabs.nav-tabs a:hover {
+    color: #ff9800;
+}
+
+.form-control:focus {
+    border-color: #ff9800;
+}
+
+.au-btn-modren:hover, .au-btn-modren:focus {
+    background-color: #fff;
+    color: #ff9800 !important;
+    border: 1px solid #ff9800;
+}
+
+/*-----------------------------------------
+    CONTACT US PAGE - Orange Peel #ff9800
+-------------------------------------------*/
+.au-who-main h2 {
+    color: #ff9800;
+}
+
+.panel-login .panel-body {
+    border-top: 3px solid #ff9800;
+}
+
+.btn-info.disabled, .btn-info:disabled {
+    background-color: #ff9800;
+    border-color: #ff9800;
+}
+
+/*--------------------------------------
+    FAQS PAGE -  Orange Peel #ff9800
+----------------------------------------*/
+
+.au-list-item li.active a {
+    background: #ff9800;
+}
+
+.au-list-item li a:hover, .au-list-item li a span:hover, .au-list-item li a:focus, .au-list-item li a span:focus {
+    color: #ff9800;
+}
+
+.faq-panel-title {
+    color: #ff9800;
+}
+
+a:hover {
+    color: #ff9800;
+}
+
+/*------------------------------------------
+    LOGIN PAGE - Orange Peel #ff9800
+--------------------------------------------*/
+
+.modal-header a.active, .panel-login .panel-heading a.active {
+    background: #ff9800;
+}
+
+a {
+    color: #ff9800;
+}
+
+.login-bttn:hover {
+    color: #fff !important; 
+}
+
+/*-------------------------------------
+    LOGIN MODAL - Orange Peel #ff9800
+---------------------------------------*/
+.modal-body {
+    border-top: 2px solid #ff9800;
+}
+
+/*--------------------------------------
+    BREADCRUMB - Orange Peel #ff9800
+----------------------------------------*/
+.au-bread-crumbs {
+    background-color: #f9efe0;
+}
+
+/*--------------------------------------
+    BIDDER LEFT MENU - Orange Peel #ff9800
+----------------------------------------*/
+
+.au-onboard .au-middles {
+    color: #ff9800;
+}
+
+.accordion li.active i, .accordion li.active .link {
+    color: #ff9800;
+}
+
+.accordion li:hover i, .accordion li:hover .link {
+    color: #ff9800;
+}
+
+.submenu a:hover {
+    background: #ff9800;
+}
+
+/*--------------------------------------------
+    BIDDER PANEL - Orange Peel #ff9800
+----------------------------------------------*/
+.submenu li.active a {
+    background: #ff9800;
+}
+
+.btn:hover {
+    color:#fff !important;
+}
+
+
+.login-bttn:hover {
+    color:#ff9800 !important;
+}
+
+
+.btn-danger:hover {
+    color: #ff9800 !important;
+    background-color: #fff !important;
+    border-color: #ff9800 !important;
+}
+
+.dataTables_length select:hover, .dataTables_length select:focus {
+    border: 1px solid #ff9800 !important;
+}
+
+.dataTables_wrapper .dataTables_filter input:hover, .dataTables_filter input:focus {
+    border-color: #ff9800 !important;
+}
+
+.paginate_button.current {
+    background: linear-gradient(to bottom, #ff9800 0%, #ff9800 100%) !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    border: 1px solid #ff9800 !important;
+}
+
+
+.btn-info {
+    background-color: #fba72c;
+    border-color: #fba72c;
+}
+
+.msg-item:hover {
+    border-top: 2px solid #ff9800;
+}
+
+.panel.panel-custom {
+    border-top: 2px solid #ff9800;
+}
+
+.btn-primary.disabled:hover, .btn-primary:disabled:hover {
+    color: #fff !important;
+}
+
+/*--------------------------------
+    RECENT WINNERS DIV - Orange Peel #ff9800
+----------------------------------*/
+
+.au-similar-card:hover {
+    border-bottom: 2px solid #ff9800;
+}
+
+/*--------------------------------
+    LATEST AUCTIONS DIV - Orange Peel #ff9800
+----------------------------------*/
+.au-similar-card .au-similar-block h6:hover {
+    color: #ff9800;
+}
+
+.au-similar-card .like {
+    color: #ff9800;
+    border: 2px solid #ff9800;
+}
+
+.au-similar-card .like:hover {
+    background: #ff9800;
+}
+
+.au-similar-card:hover .like {
+    background: #ff9800;
+}

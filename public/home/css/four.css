@@ -1,0 +1,412 @@
+/* Theme */
+
+#switcher .theme-click {
+	background-color:#111111;
+}
+
+.au-navbar, .au-notification, .au-header-btn .au-btn-white, .au-list-ietem span i, .nav-tabs .nav-item.show .nav-link, .au-nav-tabs .au-nav-item.active,.pagination-item:hover, .pagination-item.is-active, .au-bidding .au-btn-modren, .au-body-footer a i:hover, .au-subscribe button, .au-all-upcoming button {
+    background-color:#069a97;
+}
+
+.au-nav-inner .au-items .au-custom span, .au-deals h2, .au-deals-wrapper:hover .au-deal-card .card-title, .au-deals-wrapper:hover .au-deal-card label, .au-upcoming-body h4, .au-common-details .au-icon-media i, .au-links li a:hover{
+    color:#069a97;
+}
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background: #069a97 !important;
+}
+
+.au-nav-tabs .au-nav-item {
+    border: 2px solid #069a97;
+    color: #069a97;
+}
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    border-color:#069a97 #069a97 #069a97;
+    background-color:#069a97;
+    color:#FFFFFF;
+}
+
+.au-nav-inner li a:hover{
+    color:#069a97 !important;
+}
+
+.pagination-link--wide:hover {
+    color: #069a97;
+}
+
+.sf-menu > li, .sf-menu .single-dropdown {
+    border-right: 1px solid #069a97;
+}
+
+.au-list-ietem span i:hover {
+    border: 3px solid #069a97;
+    color: #069a97;
+}
+
+.au-ads {
+    background: linear-gradient( rgba(6, 154, 151,0.9), rgba(6, 154, 151,0.9)), url(../images/ads-bg.png);
+}
+
+.au-clients {
+    background: linear-gradient( rgba(6, 154, 151,0.9), rgba(6, 154, 151,0.9)), url(../images/client-bg.png);
+}
+
+.btn:not([disabled]):not(.disabled).active, .btn:not([disabled]):not(.disabled):active {
+    background-image: none;
+    background-color: #069a97;
+}
+
+/*.btn:hover, .btn:focus {
+    color: #FFFFFF;
+    background-image: -webkit-linear-gradient(right, #111111, #069a97);
+    background-image: -ms-linear-gradient(right, #111111, #069a97);
+    background-image: -moz-linear-gradient(right, #111111, #069a97);
+    background-image: -o-linear-gradient(right, #111111, #069a97);
+    background-image: linear-gradient(to left, #111111, #069a97);
+    transition: ease 1s ease;
+}*/
+
+/*-----------------------------
+HOME PAGE-Niagara #069a97
+------------------------------*/
+.au-deals-wrapper:hover {
+    border-bottom: 3px solid #069a97 !important;
+}
+
+
+.au-accordina:hover {
+    border-bottom: 3px solid #069a97;
+    transform: translateY(-5px);
+}
+
+.au-accordina:hover .card-title a {
+    color: #069a97;
+}
+
+.au-list-ietem i:hover {
+    color: #069a97;
+}
+
+.au-list-ietems .dropdown-menu i {
+    color: #069a97;
+}
+
+.au-list-ietems .dropdown-menu i:hover {
+    background-color: #069a97;
+}
+
+.au-bidding .au-btn-gray {
+    color: #FFFFFF;
+    background-color: #29cac6;
+}
+
+.btn:hover, .btn:focus {
+    background-color: #fff;
+    color: #069a97;
+    border: 1px solid #069a97;
+}
+
+
+.bar-line:hover {
+    border-right: 3px solid #069a97;
+}
+
+.btn-primary {
+    background-color: #069a97;
+    border-color: #069a97;
+}
+
+.btn-primary:hover {
+    color: #069a97;
+    background-color: #fff;
+    border-color: #069a97;
+}
+
+/*--------------------------------
+AUCTIONS PAGE - Niagara #069a97
+----------------------------------*/
+
+.au-all-category h6 {
+    background: #069a97;
+}
+
+#clear_date {
+    color: #069a97;
+}
+
+.datepicker table tr td.active, 
+.datepicker table tr td.active.disabled, 
+.datepicker table tr td.active.disabled:hover, 
+.datepicker table tr td.active:hover {
+
+    background-image: linear-gradient(to bottom,#35b9b7,#069a97) !important;
+}
+
+.form-control:focus {
+    border-color: #069a97;
+}
+
+[type="radio"]:checked + label:after, [type="radio"]:not(:checked) + label:after {
+    background: #069a97;
+}
+
+input[type="checkbox"]:checked + label .active {
+    background: #069a97 !important;
+}
+
+.badge {
+    background-color: #069a97;
+}
+
+.au-cards i {
+    color: #069a97;
+    border: 2px solid #069a97;
+}
+
+.au-item-categorys:hover .au-cards i {
+    background-color: #069a97;
+}
+
+.au-item-categorys:hover .au-cards .au-card-block h4 {
+    color: #069a97;
+}
+
+.au-item-categorys:hover .au-cards {
+    border-bottom: 3px solid #069a97;
+}
+
+.pagination li.active a, .pagination li.active span, .page-item.active .page-link {
+    background-color: #069a97;
+    border-color: #069a97;
+}
+
+/*-------------------------------------
+AUCTION DETAILS PAGE - Niagara #069a97
+---------------------------------------*/
+
+.text-blue {
+    color: #069a97;
+}
+
+
+.btn-info {
+    color: #fff;
+    background-color: #069a97;
+    border-color: #069a97;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+    background-color: #069a97;
+    border-color: #069a97;
+}
+
+.au-social-links li a .au-common {
+    color: #069a97;
+}
+
+.au-social-links li a .au-common:hover {
+    background-color: #069a97;
+}
+
+.product-border {
+    border-top: 3px solid #5ab7b6;
+}
+
+.product-tabs {
+    border-top: 4px solid #069a97;
+}
+
+.au-product-tabs.nav-tabs .nav-item.show .nav-link, .au-product-tabs.nav-tabs .nav-link.active {
+    color: #069a97;
+}
+
+.au-product-tabs.nav-tabs .nav-item.show .nav-link:before, .au-product-tabs.nav-tabs .nav-link.active:before {
+    background: #069a97;
+}
+
+.au-product-tabs.nav-tabs a:hover {
+    color: #069a97;
+}
+
+.form-control:focus {
+    border-color: #069a97;
+}
+
+.au-btn-modren:hover, .au-btn-modren:focus {
+    background-color: #fff;
+    color: #069a97 !important;
+    border: 1px solid #069a97;
+}
+
+
+/*------------------------------------
+    CONTACT US PAGE - Niagara #069a97
+---------------------------------------*/
+.au-who-main h2 {
+    color: #069a97;
+}
+
+.panel-login .panel-body {
+    border-top: 3px solid #069a97;
+}
+
+.btn-info.disabled, .btn-info:disabled {
+    background-color: #069a97;
+    border-color: #069a97;
+}
+
+/*--------------------------------------
+    FAQS PAGE -  Niagara #069a97
+----------------------------------------*/
+
+.au-list-item li.active a {
+    background: #069a97;
+}
+
+.au-list-item li a:hover, .au-list-item li a span:hover, .au-list-item li a:focus, .au-list-item li a span:focus {
+    color: #069a97;
+}
+
+.faq-panel-title {
+    color: #069a97;
+}
+
+a:hover {
+    color: #069a97;
+}
+
+/*------------------------------------------
+    LOGIN PAGE - Niagara #069a97
+--------------------------------------------*/
+
+.modal-header a.active, .panel-login .panel-heading a.active {
+    background: #069a97;
+}
+
+a {
+    color: #069a97;
+}
+
+.login-bttn:hover {
+    color: #fff !important; 
+}
+
+/*-------------------------------------
+    LOGIN MODAL - Niagara #069a97
+---------------------------------------*/
+.modal-body {
+    border-top: 2px solid #069a97;
+}
+
+/*--------------------------------------
+    BREADCRUMB - Niagara #069a97
+----------------------------------------*/
+.au-bread-crumbs {
+    background-color: #dcfbfa;
+}
+
+/*--------------------------------------
+    BIDDER LEFT MENU - Niagara #069a97
+----------------------------------------*/
+
+.au-onboard .au-middles {
+    color: #069a97;
+}
+
+.accordion li.active i, .accordion li.active .link {
+    color: #069a97;
+}
+
+.accordion li:hover i, .accordion li:hover .link {
+    color: #069a97;
+}
+
+.submenu a:hover {
+    background: #069a97;
+}
+
+/*--------------------------------------------
+    BIDDER PANEL - Niagara #069a97
+----------------------------------------------*/
+.submenu li.active a {
+    background: #069a97;
+}
+
+.btn:hover {
+    color:#fff !important;
+}
+
+
+.login-bttn:hover {
+    color:#069a97 !important;
+}
+
+
+.btn-danger:hover {
+    color: #dc3545 !important;
+    background-color: #fff !important;
+    border-color: #c82333 !important;
+}
+
+.dataTables_length select:hover, .dataTables_length select:focus {
+    border: 1px solid #069a97 !important;
+}
+
+.dataTables_wrapper .dataTables_filter input:hover, .dataTables_filter input:focus {
+    border-color: #069a97 !important;
+}
+
+.paginate_button.current {
+    background: linear-gradient(to bottom, #069a97 0%, #069a97 100%) !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    border: 1px solid #069a97 !important;
+}
+
+
+.btn-info {
+    background-color: #12aba8;
+    border-color: #12aba8;
+}
+
+.msg-item:hover {
+    border-top: 2px solid #069a97;
+}
+
+.panel.panel-custom {
+    border-top: 2px solid #069a97;
+}
+
+.btn-primary.disabled:hover, .btn-primary:disabled:hover {
+    color: #fff !important;
+}
+
+/*--------------------------------
+    RECENT WINNERS DIV - Niagara #069a97
+----------------------------------*/
+
+.au-similar-card:hover {
+    border-bottom: 2px solid #069a97;
+}
+
+/*--------------------------------
+    LATEST AUCTIONS DIV - Niagara #069a97
+----------------------------------*/
+.au-similar-card .au-similar-block h6:hover {
+    color: #069a97;
+}
+
+.au-similar-card .like {
+    color: #069a97;
+    border: 2px solid #069a97;
+}
+
+.au-similar-card .like:hover {
+    background: #069a97;
+}
+
+.au-similar-card:hover .like {
+    background: #069a97;
+}

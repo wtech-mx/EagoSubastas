@@ -1,0 +1,1399 @@
+<!doctype html>  
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="assets\images\fevicon.png">
+	<title>GLOBAL AUCTION SYSTEM</title>
+	
+	<meta name="description" content="">
+	<meta name="author" content="Samson">
+	<meta name="copyright" content="Samson">
+	
+	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
+	<script src="assets/js/jquery.js"></script>
+	
+	<script src="assets/js/jquery.scrollTo.js"></script>
+	<script src="assets/js/jquery.easing.js"></script>
+	
+	<script>document.createElement('section');var duration='500',easing='swing';</script>
+	<script src="assets/js/script.js"></script>
+	
+	<style>
+		p{
+		
+		font-size: 14px;
+		color: black;
+
+	}
+	h6{
+		
+		color: #964a7b;
+	}
+
+	h5{
+		
+		color: green;
+	}
+	h4{
+		
+	color: #057205;
+	}
+	h3{
+		
+		color: #668ee6;font-weight: 600;
+	}
+	h1{
+		
+		color: #26a59d ;
+	}
+	h2{
+		
+		color: #6ec382;
+	}
+	
+
+
+		html{background-color:#FFFFFF;color:#383838;}
+		::-moz-selection{background:#444444;color:#DDDDDD;}
+		::selection{background:#444444;color:#DDDDDD;}
+		#documenter_sidebar #documenter_logo{background-image:url(assets/images/logo.png);}
+		a{color:#0000FF;}
+		.btn {
+			border-radius:3px;
+		}
+		.btn-primary {
+			  background-image: -moz-linear-gradient(top, #0088CC, #0044CC);
+			  background-image: -ms-linear-gradient(top, #0088CC, #0044CC);
+			  background-image: -webkit-gradient(linear, 0 0, 0 0088CC%, from(#35425C), to(#0044CC));
+			  background-image: -webkit-linear-gradient(top, #0088CC, #0044CC);
+			  background-image: -o-linear-gradient(top, #0088CC, #0044CC);
+			  background-image: linear-gradient(top, #0088CC, #0044CC);
+			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088CC', endColorstr='#0044CC', GradientType=0);
+			  border-color: #0044CC #0044CC #bfbfbf;
+			  color:#FFFFFF;
+		}
+		.btn-primary:hover,
+		.btn-primary:active,
+		.btn-primary.active,
+		.btn-primary.disabled,
+		.btn-primary[disabled] {
+		  border-color: #0088CC #0088CC #bfbfbf;
+		  background-color: #0044CC;
+		}
+		hr{border-top:1px solid #EBEBEB;}
+		#documenter_sidebar, #documenter_sidebar ul a{background-color:#849dc79c;color:#FFFFFF;}
+		
+		
+	
+		#documenter_sidebar ul a:hover{background:#668ee6;color:#FFFFFF;}
+		#documenter_sidebar ul a.current{background:#668ee6;color:#FFFFFF;}
+		#documenter_copyright{display:block !important;visibility:visible !important;}
+		
+		
+		.btns {
+			padding: 270px !important;
+			font-size: 15px;
+		}
+	</style>
+	
+</head>
+<body class="documenter-project-doctors-find">
+	<div id="documenter_sidebar">
+		<a href="#documenter_cover"> <img src="assets/images/logo.png" alt="Hungry Duck" style="width:196px;"></a>
+		<ul id="documenter_nav">
+		
+			<li><a class="current" href="#documenter_cover">Start</a></li>	
+
+			<li><a href="#requirements" title="Requirements">Requirements</a></li>
+			
+			<li><a class="overview" href="#overview" title="Overview">Overview</a></li>
+			
+			<li><a href="#installation" title="Installation">Installation</a></li>
+			
+			<li><a href="#server_installation" title="Server Installation">Server Installation</a></li>
+			
+			<li><a href="#social_logins" title="Social Logins">Social Logins</a></li>
+			
+			<li><a href="#home" title="Home">Home</a></li>
+			
+			<li><a href="#login" title="Login">Login</a></li>
+			
+			<li><a href="#admin_dashboard" title="Admin Dashboard">Admin Dashboard</a></li>
+			
+			<li><a href="#user_management" title="User Management">User Management</a></li>
+			
+			<li><a href="#faq_management" title="FAQ Management">FAQ Management</a></li>
+			
+			<li><a href="#categories" title="Categories">Categories</a></li>
+			
+			<li><a href="#location_master" title="Location Master">Location Master</a></li>
+			
+			<li><a href="#languages" title="Languages">Languages</a></li>
+			
+			<li><a href="#content_management" title="Content Management">Content Management</a></li>
+			
+			<li><a href="#master_settings" title="Master Settings">Master Settings</a></li>
+			
+			<li><a href="#testimonials" title="Testimonials">Testimonials</a></li>
+			
+			<li><a href="#email_templates" title="Email templates">Email Templates</a></li>
+			
+			<li><a href="#auctions_admin" title="Auctions">Auctions</a></li>
+			
+			<li><a href="#news_letter" title="News Letter">News Letter</a></li>
+			
+			<li><a href="#reports" title="Reports">Reports</a></li>
+			
+			<li><a href="#admin_notifications" title="Notifications">Notifications</a></li>
+			
+			<li><a href="#sms" title="SMS">SMS</a></li>
+			
+			<li><a href="#admin_messages" title="Messages">Messages</a></li>
+			
+			<li><a href="#admin_payments" title="Payments">Payments</a></li>
+			
+			<li><a href="#seller_dashboard" title="Seller Dashboard">Seller Dashboard</a></li>
+			
+			
+			<li><a href="#auctions_seller" title="Auctions">Auctions</a></li>
+			
+			<li><a href="#seller_notifications" title="Notifications">Notifications</a></li>
+			
+			<li><a href="#seller_messages" title="Messages">Messages</a></li>
+		
+			<li><a href="#front_end" title="Front End">Front End</a></li>
+			
+			<li><a href="#auctions_page" title="Auctions Page">Auctions Page</a></li>
+			
+			<li><a href="#auction_details" title="Auction Details">Auction Details</a></li>
+			
+			<li><a href="#bidder_dashboard" title="Bidder Dashboard">Bidder Dashboard</a></li>
+			
+			<li><a href="#bidder_account" title="Bidder Account">Account</a></li>
+			
+			<li><a href="#bidder_auctions" title="Bidder Auctions">Auctions</a></li>
+			
+			<li><a href="#bidder_payments" title="Bidder Payments">Payments</a></li>
+			
+			<li><a href="#bidder_notifications" title="Bidder Notifications">Notifications</a></li>
+			
+			<li><a href="#bidder_messages" title="Bidder Messages">Messages</a></li>
+			
+			<li><a href="#live_auctions" title="Live Auctions"> Live Auctions</a></li>
+
+			<li><a href="#technologies_used" title="Technologies Used"> Technologies Used</a></li>
+			
+		</ul>
+		
+	</div>
+	<div id="documenter_content">
+	<section id="documenter_cover">
+	
+	<h1>GLOBAL AUCTION SYSTEM   
+	<span class="btns">
+	<a href="#admin_dashboard" class="btn btn-outline-primary">Admin</a> 
+	<a href="#seller_dashboard" class="btn btn-info">Seller</a> 
+	<a href="#bidder_dashboard" class="btn btn-info">Bidder</a>
+	<a href="#live_auctions" class="btn btn-info">Live Auction</a>
+	</span> </h1>
+	
+	
+	<hr>
+	<ul>
+<p>by:Conquerors Software Technologies Pvt. Ltd<br>
+	<a href="http://conquerorstech.net/">conquerorstech.net</a>
+	<br>email: <a href="mailto:&#115;&#97;&#109;&#115;&#111;&#110;&#64;&#99;&#111;&#110;&#113;&#117;&#101;&#114;&#111;&#114;&#115;&#116;&#101;&#99;&#104;&#46;&#110;&#101;&#116;">&#115;&#97;&#109;&#115;&#111;&#110;&#64;&#99;&#111;&#110;&#113;&#117;&#101;&#114;&#111;&#114;&#115;&#116;&#101;&#99;&#104;&#46;&#110;&#101;&#116;</a></p>
+	</ul>
+	<p>Thank you for purchasing my Project. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form here. Thanks so much!</p>
+	</section>
+	
+	
+	<section id="requirements">
+	<div class="page-header"><h3>Requirements</h3><hr class="notop"></div>
+		<ul>
+		<li>PHP 7.X.X</li>
+		<li>Mcrypt PHP Extension</li>
+		<li>OpenSSL PHP Extension</li>
+		<li>Mbstring PHP Extension</li>
+		<li>Tokenizer PHP Extension</li>
+		</ul>
+	</section>
+	
+	
+	<section id="overview">
+	<div class="page-header"><h3>Overview</h3><hr class="notop"></div>
+		<p>It is a bidding system, which fulfils the needs of user,
+		can perform bidding on items and win easily.</p>
+		
+		<p><strong>Live bidding implemented using <a href="https://socket.io/" target="_blank">socket.io</a></strong></p>
+		<p><img alt="Cpanel" src="assets/images/bidding.png"></p>
+	</section>
+	
+	
+	
+	
+	
+	<section id="installation">
+	<div class="page-header"><h3>Installation</h3><hr class="notop"></div>
+		<h6 style="color:black">
+			<h5>Easy Installation Process : Localhost</h5>
+		<h6>Set up Global Auction System through the following steps:<br></h6>
+		<h6 style="color:black">
+		<ul>
+		<li>Unzip and copy the script folder in your localhost.</li>
+		<li>Run the script path from any web browser. Ex : http://localhost/project_folder_name/install.</li>
+		<li>Provide database settings.</li>
+		<li>Run the installer.</li></ul></p>
+	
+		<p><img alt="hosting" src="assets/images/li_1.png" style="width: 713px; height: 600px;"></p>
+		
+		<p><img alt="please_wait" src="assets/images/li_2.png" style="width: 484px; height: 253px;"></p>
+		
+		<p><img alt="success" src="assets/images/li_3.png" style="width: 652px; height: 500px;"></p>
+		
+		<p>Create User account for the first time</p>
+		<p><img alt="create_user" src="assets/images/li_4.png" style="width: 529px; height: 578px;"></p>
+		
+		
+		
+		<p>Note: If database already exists, please edit the .env file which is at project_folder/.env</p>
+		
+		<h6>Update the following information in .env file</h6>
+		
+		<p>DB_HOST=localhost(default)</p>
+		<p>DB_PORT=3306(default)</p>
+		<p>DB_DATABASE=Your database name</p>
+		<p>DB_USERNAME=Database Username</p>
+		<p>DB_PASSWORD=Password</p>
+	</section>
+	
+	
+	
+	
+	
+	
+	<section id="server_installation">
+	<div class="page-header"><h3>Server Installation</h3><hr class="notop"></div>
+	<p>1.Cpanel Login</p>
+	<p><img alt="Cpanel" src="assets/images/si_1.png"></p>
+	<p>2.Go to File Manager</p>
+	<p><img alt="File Manager" src="assets/images/si_2.png"></p>
+	<p>3.Click on public_html folder</p>
+	<p><img alt="public_html" src="assets/images/si_3.png"></p>
+	
+	
+	<p>4.Upload the Project zip folder into public_html folder <br>
+	5.Extract the zip folder here<br>
+	6.Create the Database using MySQL Wizard</p>
+	
+	<p><img alt="public_html" src="assets/images/si_4.png"></p>
+	
+	
+	<p>Create Database</p>
+	<p><img alt="database" src="assets/images/si_5.png"></p>
+	
+	<p>7.Note down DB Name,DB Password, DB Username <br>
+	Type URL www.yourserverdomain/install and follow <a href="#installation" title="Installation">Installation Steps</a>
+	</p>
+	
+	
+	<h5>Manual Installation</h5>
+	<p><b>Note:</b> If you are installing the system manually, please do install the database with data as it has default admin user with credentials <b>admin@admin.com</b> and <b>password</b> </p>
+	
+	<p>8.Go to phpmyadmin (check whether database created or not ?)</p>
+	<p><img alt="database" src="assets/images/si_6.jpg" width="100%"></p>
+	
+	<p>9.If Database created upload the database file which is available in Project Folder/public/downloads/database/install_dummy_data.sql and click on Go</p>
+	
+	<p><img alt="database" src="assets/images/si_7.png" width="100%"></p>
+	
+	
+	<p>10.Edit the .env file in project folder and update with new Database credentials(which already created).</p>
+	
+	<p><img alt="env" src="assets/images/si_8.png"></p>
+	
+	<p>Still you’re facing Issues in Configuration Please Contact Us:</p>
+	<ul>
+	<li><strong>Support Portal:</strong> <a href="https://cstpl.freshdesk.com">  https://cstpl.freshdesk.com</a> </li>
+	<li><strong>Skype ID:</strong> <a href="#">dv.developer3</a></li>
+	</ul>
+	</section>
+	
+	
+	
+	
+	
+	
+	<section id="social_logins">
+	<div class="page-header"><h3>Social Logins</h3><hr class="notop"></div>
+	<h5>Facebook App Setup</h5>
+	<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/bOXZn5CZgZ8" allowfullscreen="" width="1000px" height="500px"></iframe>
+	<p>This document provides instructions on how to properly setup a Facebook application so that users can login/register via Facebook on your site.</p>
+	
+	<h5>Creating a new app</h5>
+	<ol>
+		<li>To allow users to login to your site with their Facebook account you need to create a Facebook app. To create a new Facebook app please do the following:</li>
+		<li>Go to the Facebook Developers site:<a href="https://developers.facebook.com/">https://developers.facebook.com/</a></li>
+		<li>If you are not logged in, login to the site using your Facebook account details</li>
+		<li>Once logged in, click on Create App button. Fill out the Display Name, Contact Email and choose a category for your app. Then click the Create App button.</li>
+	</ol>
+	
+	<p><img alt="fb_app_id" src="assets/images/sl_1.jpg"></p>
+	
+	<p>Note: After clicking this button you may be presented with a security check</p>
+	
+	<h5>Select "Set Up" for "Facebook Login"</h5>
+	
+	<p><img alt="select_product" src="assets/images/sl_2.jpg"></p>
+	
+	<h5>Select "Web Option"</h5>
+	<p><img alt="web_option" src="assets/images/sl_3.jpg"></p>
+	
+	<h5>Set your "Site URL"</h5>
+	<p><img alt="site_url" src="assets/images/sl_4.jpg"></p>
+	
+	
+	<p>Skip all others step of the process.</p>
+	<p><img alt="steps" src="assets/images/sl_5.jpg"></p>
+	
+	<p>Settings Tab ➔Basic</p>
+	<p><img alt="basic_settings" src="assets/images/sl_6.jpg"></p>
+	
+	<p>Settings Tab ➔Advanced</p>
+	<p>App Restrictions - You can restrict your app to specific age range and countries if your site references alcohol or an adult nature site.</p>
+	<p><img alt="advanced_settings" src="assets/images/sl_7.jpg"></p>
+	
+	<h5>Products Tab</h5>
+	<p>1.On the Products tab, click on +Add Product then click Get Started button on Facebook Login</p>
+	<p><img alt="product_setup" src="assets/images/sl_8.jpg"></p>
+	
+	
+	<p>2.After you clicked the Get Started button, click on Settings under Facebook Login</p>
+	<h5>Client OAuth Settings</h5>
+	<p>You just need to enter your site's login, register and account's social tab URIs into the Valid OAuth redirects URIs field.</p>
+	<p><img alt="oauth_settings" src="assets/images/sl_9.jpg"></p>
+	
+	<p>You can just leave the Deauthorize Callback URL blank then click on save changes.</p>
+	
+	<h5>App Review Tab</h5>
+	<p>Once you have done all these steps you can go to the App Review tab to make the app live. The app does not need to be submitted for approval as the app will only be requesting the standard data from users. To make the app live all you need to do is click the switch button from No to Yes:</p>
+	<p><img alt="app_public" src="assets/images/sl_10.jpg"></p>
+	
+	
+	<h5>App Setup Complete</h5>
+	<p>Once you have done all that, the app is now complete. You should now add the App ID and App Secret into the Site Settings→ Social Logins if you have not already done so.</p>
+	
+	
+	
+	<h4>Google + App Setup</h4>
+	<p>This document provides instructions on how to properly setup a Google+ application so that users can login/register via Google on your site.</p>
+	
+	
+	<p>Enabling API</p>
+	<p>To allow users to login to your site with their Google+ account you need to create a Google+ project and enable Google+ API. To enable API and create new Google+ project please do the following:</p>
+	
+	<ul>
+	<li>Login with your Google account and go to the developer console website:<a href="https://console.developers.google.com/">https://console.developers.google.com/</a></li>
+	<li>Click the “Enable and manage APIs" </li>
+	</ul>
+	<p><img alt="enable api" src="assets/images/sl_11.png" width="100%"></p>
+	
+	
+	
+	<p>Go to Social APIs - Google+ API</p>
+	<p><img alt="google plus" src="assets/images/sl_12.png" width="100%"></p>
+	
+	
+	<p>Enable Google + API</p>
+	<p><img alt="enable google plus api" src="assets/images/sl_13.png" width="100%"></p>	
+	
+	
+	<p>Creating new project and adding credentials</p>
+	<p><small>Enter the project details in the pop-up that appears and click the “create” button</small></p>
+	<p><img alt="enable google plus api" src="assets/images/sl_14.png" width="100%"></p>
+	
+	
+	<p>Go to Credentials sidebar and add credentials OAuth Client ID</p>
+	<p><img alt="google credentials" src="assets/images/sl_15.png" width="100%"></p>	
+	
+	<p>Which API are you using - Google+ API</p>
+	<p>Where you will be calling the API from - Web Browser</p>
+	<p><img alt="google credentials" src="assets/images/sl_16.png" width="100%"></p>
+	
+	
+	<p>Create client ID</p>
+	<p><img alt="google credentials" src="assets/images/sl_17.png" width="100%"></p>
+	
+	
+	<p>Credentials</p>
+	<p><img alt="google credentials" src="assets/images/sl_18.png" width="100%"></p>
+	
+	<p>After the client ID is created you will see some information appear on the page</p>
+	<p>Copy and paste the Client ID and Client Secret into the Google+ tab on the Settings>Site Settings > Social Login page to connect your site to your App.</p>
+	
+	<p><b>Note: Social Logins only for Bidder Accounts.</b></p>
+	</section>
+	
+	
+	<section id="home">
+	<div class="page-header"><h3>Home</h3><hr class="notop"></div>
+	<h4>Overview</h4>
+	<p>
+		Global Auction System is a project which is developed in Laravel and MySQL with the aim to develop an Online auction system where administrator/sellers of the site can login and add auction items, so that user can search and view details of auction items with images, address and auction date / time and then can bid or purchase auction items.
+	</p>
+	
+
+	<div align="center"><h4><u><b>Home</b></u></h4></div>
+	<img src="assets\images\home.png" style="width: 100%" >
+	
+	<img src="assets\images\home1.png" style="width: 100%" >
+	</section>
+	
+	
+	
+	
+	
+	
+	<section id="login">
+	<div class="page-header"><h3>Login</h3><hr class="notop"></div>
+	<p>Seller/Bidder can Register through web (<strong>social logins facebook, google plus only for bidder </strong>)</p>
+	
+	<div align="center"><h4><u><b>Login</b></u></h4></div>
+	<img src="assets\images\register.png" style="width: 100%" >
+	<br>
+
+
+	<p>Three types of Users are there</p>
+	<p> Admin  : Full control of System <br>
+		Seller : Sell an Auction <br>
+		Bidder : Bid or Buy an Auction </p>
+	</section>
+	
+	
+	<section id="admin_dashboard">
+		<div class="page-header"><h3>Admin Dashboard</h3><hr class="notop"></div>
+		<p>Admin have all the rights of Global Auction System.</p>
+		<p> Admin can update his account details.<br>
+		
+		Admin can change his account password.<br>
+		
+		Admin can view summary of all modules in his dashboard. <br>
+		
+		Admin can set cron job in his server like shown in below screenshot (cron job is for update auction status as closed automatically when auction end date time crosses). <br>
+		
+		Admin get notifications when users registered into site.<br>
+		
+		Admin get notifications when few actions occur like seller create an auction, seller update an auction, bidder paid bid amount or bidder purchase an auction item etc..
+		</p>
+		
+		
+		
+		<p>
+		<img src="assets\images\admin_dashboard.png" style="width: 100%" >
+		</p>
+	</section>
+	
+	
+	
+	
+	
+	<section id="user_management">
+		<div class="page-header"><h3>User Management</h3><hr class="notop"></div>
+		<p>With this module, admin can control all the users of the site</p>
+		<p>Admin can add,update,activate/de-activate a user</p>
+		<p>
+		<img src="assets\images\admin2.png" style="width: 100%">
+		</p>
+	</section>
+
+
+	
+	
+	
+	<section id="faq_management">
+		<div class="page-header"><h3>FAQ Management</h3><hr class="notop"></div>
+		<p>Admin can add,update,delete FAQ category</p>
+		<p>
+		<img src="assets\images\admin3.png" style="width: 100%">
+		</p>
+		
+		
+		
+		<p>Admin can add,update,delete FAQ under particular category</p>
+		<p>
+		<p>Which are active FAQs, reflects in front end, which clarifies user queries.</p>
+		<p>
+		<img src="assets\images\admin4.png" style="width: 100%">
+		</p>
+	</section>
+	
+	
+	
+	<section id="categories">
+		<div class="page-header"><h3>Categories</h3><hr class="notop"></div>
+		<p>Admin can add,update,delete auction category.</p>
+		<p>
+		<img src="assets\images\admin5.png" style="width: 100%">
+		</p>
+		
+		
+		
+		<p>Admin can add,update,delete sub category under particular auction category.</p>
+		<p>
+		<p>Categories, sub categories reflects in auctions module at the time of creating an auction.</p>
+		<p>Categories, sub categories reflects front end in Home page menu and in Auctions page </p>
+		<p>
+		<img src="assets\images\admin6.png" style="width: 100%">
+		</p>
+	</section>
+	
+	
+	
+	
+	
+	
+	<section id="location_master">
+		<div class="page-header"><h3>Location Master</h3><hr class="notop"></div>
+		<p>Admin can add,update country / state / city.</p>
+		<p>Locations reflects at the time of creating user.</p>
+		<p>Locations reflects front end in Auctions page </p>
+		<p><img src="assets\images\admin7.png" style="width: 100%">
+		</p>
+		
+		<p><img src="assets\images\admin8.png" style="width: 100%">
+		</p>
+		
+		<p><img src="assets\images\admin9.png" style="width: 100%">
+		</p>
+	</section>
+	
+	
+
+	<section id="languages">
+		<div class="page-header"><h3>Languages</h3><hr class="notop"></div>
+		<p>This module helps you to make your site multilingual</p>
+		<p>Here we provided flexibility for user to change the site language as per the requirement</p>
+		<p>In this, you can create, edit or delete the languages</p>
+		<p>At any point of time you can set any one language as the default language.</p>
+		<p>Support RTL languages also</p>
+		
+		 <h4>Features</h4>
+            <ul>
+                <!-- <li> <strong>Language strings created by it self </strong> -->
+                    <!-- <ul> -->
+                        <!-- <li> -->
+                            <!-- <div class="alert alert-info"> -->
+                                <!-- By creating any new language, no need to update the strings. Our algorithm will generates the language strings from your google API. For this you have to traverse the total site for the first time, so that our algorithm will fetch the strings from Google API and saves to database. From the next visit it will fetch the language strings from database</div> -->
+                        <!-- </li> -->
+                    <!-- </ul> -->
+                <!-- </li> -->
+                <li> <strong>Lazy loading</strong>
+                    <ul>
+                        <li>
+                            <div class="alert alert-info">
+                                As we are using <strong>Lazy Loading </strong>the language strings performance will be good.</div>
+                        </li>
+                    </ul>
+                </li>
+                <li> <strong>Option for edit strings</strong>
+                    <ul>
+                        <li>
+                            <div class="alert alert-info">
+                                With this option, if the strings are not meaningful as per the language specification then you can edit the strings manually as per your requirement</div>
+                        </li>
+                        <li>
+                            <div class="alert alert-info">
+                                Note: The Updated Language Strings are effected only when user re-set the default language</div>
+                        </li>
+                    </ul>
+                </li>
+                <li> <strong>Set the default language</strong>
+                    <ul>
+                        <li>
+                            <div class="alert alert-info">
+                                With a single click you can change the site to default language</div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+			
+		<p><img src="assets\images\admin10.png" style="width: 100%">
+		</p>
+	</section>
+	
+	
+	
+	<section id="content_management">
+		<div class="page-header"><h3>Content Management</h3><hr class="notop"></div>
+		<p>This module helps admin to convey site information to users. <br>
+		Which reflects in front end site footer as USEFUL LINKS.</p>
+		<p><img src="assets\images\admin11.png" style="width: 100%">
+		</p>
+	</section>
+	
+	
+
+	
+	<section id="master_settings">
+		<div class="page-header"><h3>Master Settings</h3><hr class="notop"></div>
+		<p>With this module admin can control the total site based on the requirement.</p>
+		
+		<div class="alert alert-info">
+            These settings are loaded to the site as Lazy Loading to improve the performance of the site i.e., load the settings what it requires instead of loading all settings at a time. We made it to hit the database as less as possible for getting the settings
+		</div>
+		
+		<p> It supports the settings for the following modules</p>
+		
+		<ul>
+			<li> Site Settings</li>
+			<li> Modules Management </li>
+			<li> Stripe Settings</li>
+			<li> Auction Settings</li>
+			<li> Email Settings</li>
+			<li> Social Logins</li>
+			<li> SEO Settings</li>
+			<li> Paypal Settings</li>
+			<li> Social Networks</li>
+			<li> SMS Settings</li>
+			<li> Payu Settings</li>
+		</ul>
+		
+		<p><img src="assets\images\admin12.png" style="width: 100%">
+		</p>
+		
+		
+		<h5>Site Settings</h5>
+		<p> Contains the settings for the site like title,logo,favicon,address,contact number,contact email,date formats etc..</p>
+		
+		<p>For API key for Google Map <a target="_blank" href="https://developers.google.com/maps/documentation/javascript/get-api-key">Refer</a> </p>
+		
+		<p><img src="assets\images\site_settings.png" style="width: 100%">
+		</p>
+		
+		
+		<h5>Modules Management</h5>
+		<p> This module gives flexibility to enable or disable few modules available in this system.</p>
+		
+		<p><img src="assets\images\modules_mngmnt.png" style="width: 100%">
+		</p>
+		
+		
+		
+		<h5>Stripe Settings</h5>
+		<p> Contains the settings of stripe payment gateway</p>
+		
+		<p><img src="assets\images\stripe_settings.png" style="width: 100%">
+		</p>
+		
+		
+		
+		<h5>Auction Settings</h5>
+		<p> Contains few settings related to auctions like <br>
+		<strong> Admin commission type - free or fixed or per auction ,<br> 
+		If admin set it as free - then seller need not to pay commission for his auctions <br>
+		If admin set it as fixed - then seller need to pay commission value only once for all of his auctions <br>
+		If admin set it as per auction - then seller need to pay commission value for each of his auction. </strong>
+		</p>
+		
+		<p> <strong> Note: currently no online mechanism implemented for seller for payment, <br>
+		seller can pay either manually or admin can take his commission value from bidders amount (i.e. bidders pay bid amount or buy now amount of auction through online which get transferred to admin who is maintaining the site ) </strong> </p>
+		
+		
+		<p><strong>Enable featured items </strong> - Yes or No <br>
+		If set it as Yes - then front end Featured Items will be shown (i.e. in home page - Bid Products - FEATURED tab, in Auctions page - Featured filter), <br> else if set it as No - then front end Featured Items will not be shown. 
+		<p>
+		
+		
+		
+		<p><strong>Active picture gallary </strong> - Yes or No <br>
+		If set it as Yes - then front end auction details page auction picture gallary will be shown, <br> else if set it as No - then front end auction details page auction picture gallary will not be shown. 
+		<p>
+		
+		
+		
+		
+		<p><strong>Max number of pictures</strong>  <br>
+		Set the number of pictures can be shown in auction picture gallary in front end auction details page. 
+		<p>
+		
+		
+		
+		<p><strong>Update auction status cron job</strong> - Yes or No <br>
+		It will update the auction status as closed automatically, when auction end datetime crosses through cron job.
+		<p>
+		
+		
+		<p><strong>Cron jobs run</strong> <br>
+		Set the cron job run time like every 5 mins or an hour etc..
+		<p>
+		
+		
+		<p><strong>Note: Please go through the <a href="http://www.expertphp.in/article/laravel-5-task-scheduling-with-cron-job-example" target="_blank">reference</a> how to set cron job in your server </strong> <br>
+		<p>
+		
+		<p><img src="assets\images\admin16.png" style="width: 100%">
+		</p>
+		
+		<p><img src="assets\images\admin17.png" style="width: 100%">
+		</p>
+		
+		
+		
+		
+		<h5>Email Settings</h5>
+		<p> This modules provides 8 mail drivers for sending emails. The supported drivers are: SMTP,  Mail, Sendmail, Mailgun, Mandrill, SES, Sparkpost, Log</p>
+		
+		<p> <strong>Mail Driver:</strong> Select any of the mail drivers from the available list</p>
+		
+		<p> <strong>Mail Host: </strong>Update your hosting server</p>
+		
+		<p> <strong>Mail Port: </strong>Port number</p>
+		
+		<p> <strong>Mail Username: </strong>Admin/user email for sending emails</p>
+		
+		<p> <strong>Mail Password: </strong>Email Password</p>
+		
+		<p> <strong>Mail Encryption: </strong>default set to null</p>
+		
+	
+		
+		<p><img src="assets\images\email_settings.png" style="width: 100%">
+		</p>
+		
+		
+		
+		<h5>Social Logins</h5>
+		<p> Contains the settings for the social logins facebook, google plus</p>
+		
+		<p><img src="assets\images\social_logins.png" style="width: 100%">
+		</p>
+		
+		
+		
+		<h5>SEO Settings</h5>
+		<p> Contains the seo settings which helps your website traffic.</p>
+		<p><img src="assets\images\admin20.png" style="width: 100%">
+		</p>
+		
+		
+		
+		<h5>Paypal Settings</h5>
+		<p> Contains the settings of paypal payment gateway</p>
+		
+		<p><img src="assets\images\paypal_settings.png" style="width: 100%">
+		</p>
+		
+		
+		
+		<h5>Social Networks</h5>
+		<p> Admin can set his site social networks, which reflects in front end, so that users can follow and get updates regarding site.</p>
+		<p><img src="assets\images\admin22.png" style="width: 100%">
+		</p>
+		
+		
+		
+		<h5>SMS Settings</h5>
+		<p> Providing three SMS drivers - NEXMO, PLIVO, TWILIO. <br>
+		Admin can set SMS settings and send SMS to users.</p>
+		<p><img src="assets\images\admin23.png" style="width: 100%">
+		</p>
+		
+		
+		<h5>PayU Settings</h5>
+		<p> Contains the settings of payu payment gateway</p>
+		<p><img src="assets\images\admin24.png" style="width: 100%">
+		</p>
+	</section>
+
+
+	
+	<section id="testimonials">
+		<div class="page-header"><h3>Testimonials</h3><hr class="notop"></div>
+		<p>Admin can add,update,delete testimonials, which reflects in front end.</p>
+		<p><img src="assets\images\admin25.png" style="width: 100%">
+		</p>
+	</section>
+
+
+
+
+
+	<section id="email_templates">
+		<div class="page-header"><h3>Email Templates</h3><hr class="notop"></div>
+		<p>Admin can edit the email templates as per requirement. </p>
+		<p>We have divided template into 3 parts <br>
+		1.Header <br>
+		2.Content <br>
+		3.Footer
+		</p>
+		
+		<p>Here the header and footer are common templates for all the email templates. Change at one place and it will be updated in all other templates. <br>
+		You can edit the content part as per your requirement in each template.</p>
+		<p><img src="assets\images\admin26.png" style="width: 100%">
+		</p>
+	</section>
+
+
+
+	
+	
+	
+	<section id="auctions_admin">
+		<div class="page-header"><h3>Auctions</h3><hr class="notop"></div>
+		<p>Admin can view,add,edit auctions.</p>
+		
+		<p>Auctions module is common for Admin and Seller, Admin has more rights (like auction status, admin status) than seller.</p>
+			
+		<p><img src="assets\images\admin27.png" style="width: 100%">
+		</p>
+		
+		<p>Admin/Seller can create an Auction.</p>
+		
+		<p>Explanation of each field of auctions module.</p>
+		
+		<p>Auction <strong> Title </strong> ,<br>
+		
+		<strong> Seller </strong> - if admin creating an auction - select seller from available sellers in site i.e. this auction belongs to which seller , else if seller creating an auction - by default it will consider that this auction belong to respective seller who is creating ,<br>
+		
+		<strong>Category, Sub Category </strong> - select from available list i.e. this auction comes under which category and sub category<br>
+		
+		<strong>Start Date, End Date </strong> - start datetime and end datetime of auction <br>
+		
+		<strong>Live Auction Date, Live Auction Start Time, Live Auction End Time </strong> - Users can perform live bidding during this time <br>
+		
+		<strong>Reserve Price </strong> - this is the price if bidder bid amount reaches or exceeds the reserve price then respective bidder is the winner of this auction <br>
+		
+		
+		<strong>Minimum Bid </strong> - this is the price if bidder would like to place bid amount for an auction which should be higher than this minimum bid <br>
+		
+		
+		<strong>Is It Bid Increment </strong> - Yes or No <br>
+		If set as Yes - bid amount of bidder should follow incremental process,
+		If set as No - then bidder no need to follow incremental process , can place any amount in bidding which is higher than previous bid amount <br>
+		
+		
+		<strong>Bid Increment</strong> -
+		If not set any price - then bidder need not to follow incremental process,
+		If set some price like 200 - then bidder should follow incremental process like 6400, 6600 etc. <br>
+		
+		
+		<strong>Is It Buy Now Item</strong> - Yes or No,
+		If this auction item can be sell directly then you can set as Yes else No <br>
+		
+		
+		<strong>Buy Now Price</strong>,
+		If it is sellable item, then you can set Buy Now price, so that if any bidder is interested to buy he can pay amount (buy now price) through online available payment gateways <br>
+		
+		
+		<strong>Description</strong>
+		Can describe auction information in detail, which helpful for bidders <br>
+		
+		
+		<strong>International Shipping</strong> - Yes or No,
+		If you have international shipping facility set it as Yes else No <br>
+		
+		
+		<strong>Payment and Shipping </strong>
+		Can describe regarding payment and shipping, which helpful for bidders <br>
+		
+		
+		<strong>Terms</strong>
+		Can describe regarding terms of an auction, which helpful for bidders <br>
+		
+		
+		<strong>Is Featured</strong> - Yes or No,
+		If it is featured item set it as Yes else No <br>
+		
+		
+		<strong>Auction Status</strong> - New, Open, Suspended, Closed <br>
+		<strong> New (Upcoming)</strong> - If the auction is upcoming auction, <br>
+		<strong> Open (Live) </strong> - If the auction is live now, <br>
+		<strong> Suspended </strong> - can suspend auction, which do not reflect in front end, <br>
+		<strong> Closed (Past) </strong> -  If the auction is already sold or bidding is over <br>
+		
+		
+		
+		<strong>Admin Status</strong> - Pending, Approved, Rejected <br>
+		Approved auctions - reflects in front end <br>
+		
+		Only Admin can change Auction Status and Admin Status <br>
+		
+		
+		<strong>Auction Image</strong> - Upload auction main image <br>
+		</p>
+		
+		
+		<p>Auction Notifications </p>
+		<ul>
+		<li>When admin create/update an auction respective auction seller get notification and vice versa.</li>
+		<li>When bidder buy an auction admin and bidder get notification</li>
+		<li>When bidder pay bid amount of an auction admin and bidder get notification</li>
+		<li>When admin send bid invoice to bidder, bidder get notification</li>
+		</ul>
+		
+		
+		
+		<p><img src="assets\images\admin28.png" style="width: 100%">
+		</p>
+		
+		
+		<p>Admin or Seller can view an auction.</p>
+		<p>View page - divided into 3 parts <br>
+		1.Auction Details <br>
+		2.Images <br>
+		3.Auction Bidders 
+		</p>
+		
+		<p> <strong> Auction Details tab </strong> - showing all the details of an auction </p> 
+		
+		<p>
+		<img src="assets\images\admin29.png" style="width: 100%">
+		</p>
+		
+		<p>
+		<strong> Images tab </strong> - Admin or Seller can upload auction images here, which reflects in front end auction details page (latest images) <br>
+		The number of images reflects in auction details page can be set in Auction Settings - Max Number of Pictures 
+		</p>
+		
+		<p>
+		<img src="assets\images\admin30.png" style="width: 100%">
+		</p>
+		
+		
+		<p>
+		<strong> Auction Bidders tab </strong> - in this tab showing all the bidders and their bidding history <br>
+		
+		If an Auction reaches Reserve Price then Admin can close the auction (update auction status as Closed) <br>
+		
+		Then Admin can send Invoice to Bidder regarding bid payment<br>
+		
+		If Admin send Invoice to first highest bidder, if this bidder do not pay till mentioned date, then Admin can send Invoice to second highest bidder etc..
+		</p>
+		
+		<p>
+		<img src="assets\images\admin31.png" style="width: 100%">
+		</p>
+		
+		<p>
+		<img src="assets\images\admin32.png" style="width: 100%">
+		</p>
+		
+		<p>
+		<img src="assets\images\admin33.png" style="width: 100%">
+		</p>
+	</section>
+	
+	
+	
+	<section id="news_letter">
+		<div class="page-header"><h3>News Letter</h3><hr class="notop"></div>
+		<p>Admin can send email regarding any updates or information to users who are subscribed to this site (in front end footer)</p>
+		
+		<p>
+		<img src="assets\images\admin34.png" style="width: 100%">
+		</p>
+		
+		<p>
+		<img src="assets\images\admin35.png" style="width: 100%">
+		</p>
+	</section>
+	
+	
+	<section id="reports">
+		<div class="page-header"><h3>Reports</h3><hr class="notop"></div>
+		
+	
+		
+		<p>Admin can view reports <br>
+		1.Seller wise (graph format) <br>
+		2.Year-Month wise (graph format) <br>
+		3.Seller auctions </p>
+		
+		<p>
+		<img src="assets\images\admin36.png" style="width: 100%">
+		</p>
+		
+		<p>
+		<img src="assets\images\admin37.png" style="width: 100%">
+		</p>
+		
+		
+		<p>
+		<img src="assets\images\admin38.png" style="width: 100%">
+		</p>
+	</section>
+	
+	
+	
+	<section id="admin_notifications">
+		<div class="page-header"><h3>Notifications</h3><hr class="notop"></div>
+		<p>Admin can view all his notifications</p>
+
+		<p>
+		<img src="assets\images\admin39.png" style="width: 100%">
+		</p>
+	</section>
+	
+	
+	
+	<section id="sms">
+		<div class="page-header"><h3>SMS</h3><hr class="notop"></div>
+		<p>Admin can send SMS to Sellers or Bidders </p>
+
+		<p>
+		<img src="assets\images\admin40.png" style="width: 100%">
+		</p>
+	</section>
+	
+	
+	<section id="admin_messages">
+		<div class="page-header"><h3>Messages</h3><hr class="notop"></div>
+		<p>This is Internal Messaging System through which Admin can send message to any seller or bidder </p>
+
+		<p>
+		<img src="assets\images\admin41.png" style="width: 100%">
+		</p>
+	</section>
+	
+	
+	<section id="admin_payments">
+		<div class="page-header"><h3>Payments</h3><hr class="notop"></div>
+		<p>Admin can view all payments history and complete details here </p>
+
+		<p>
+		<img src="assets\images\admin42.png" style="width: 100%">
+		</p>
+	</section>
+	
+	
+	
+	
+	
+	<section id="seller_dashboard">
+		<div class="page-header"><h3>Seller Dashboard</h3><hr class="notop"></div>
+		<p> Seller can update his account details.<br>
+		Seller can change his account password.<br>
+		Seller can view summary of modules in his dashboard. <br>
+		
+		Seller get notifications when admin create/update an auction which belong to him <br>
+		</p>
+		
+		<p>
+		<img src="assets\images\admin43.png" style="width: 100%" >
+		</p>
+	</section>
+
+
+	
+	
+	<section id="auctions_seller">
+		<div class="page-header"><h3>Auctions</h3><hr class="notop"></div>
+		<p> Seller Auctions module - same as <a href="#auctions_admin"> Admin Auctions </a> module <br>
+		</p>
+		
+		<p>
+		<img src="assets\images\admin44.png" style="width: 100%" >
+		</p>
+	</section>
+
+
+
+	<section id="seller_notifications">
+		<div class="page-header"><h3>Notifications</h3><hr class="notop"></div>
+		<p>Seller can view all his notifications</p>
+
+		<p>
+		<img src="assets\images\admin45.png" style="width: 100%">
+		</p>
+	</section>
+	
+	
+	<section id="seller_messages">
+		<div class="page-header"><h3>Messages</h3><hr class="notop"></div>
+		<p>This is Internal Messaging System through which Seller can send message to Admin </p>
+
+		<p>
+		<img src="assets\images\admin46.png" style="width: 100%">
+		</p>
+	</section>
+	
+	
+	<section id="front_end">
+		<div class="page-header"><h3>Front End</h3><hr class="notop"></div>
+		<p>Auctions - showing 3 types <br>
+		1.<strong> Regular/Normal </strong> - If Admin status is Approved, Auction status is Open, Todays date between Auction Start Datetime and End Datetime,  <br>
+		2.<strong> Upcoming </strong> - If Admin status is Approved, Auction status is New, Todays date between Auction Start Datetime and End Datetime, <br>
+		3.<strong> Past </strong> - If Admin status is Approved, Auction status is Closed <br>
+		</p>
+		
+		<p>Home page every thing is dynamic data, whatever admin set in his panel will reflects here. <br>
+		Sliders, text, logo, Categories etc..</p>
+		<p>
+		<img src="assets\images\admin47.png" style="width: 100%">
+		</p>
+		
+		
+		<p>Home page - Latest Auction Deals - The Auctions which are <strong> Regular/Normal </strong> can be shown here.
+		</p>
+		<p>
+		<img src="assets\images\admin48.png" style="width: 100%">
+		</p>
+		
+		
+		
+		<p>Home page - Bid Products - <br>
+		1.<strong> ON SALE </strong>  - Auctions which can be sale (Live and Buy Now Item) <br>
+		2.<strong> LATEST </strong>   - Admin status is Approved, Auction status is Open or New, Todays date between Auction Start datetime and End datetime<br>
+		3.<strong> PAST </strong>     - Admin status is Approved, Auction status is Closed <br> 
+		4.<strong> FEATURED </strong> - Admin status is Approved, Auction status is Open or New, Todays date between Auction Start datetime and End datetime  
+		</p>
+		<p>
+		<img src="assets\images\admin49.png" style="width: 100%">
+		</p>
+		
+		
+		
+		<p>Home page - Live Auctions - <br>
+		Admin status is Approved, Auction status is Open, Auction date is todays date.
+		<p>
+		<img src="assets\images\admin50.png" style="width: 100%">
+		</p> </p>
+		
+		
+		
+		
+		<p>Home page - Words From Our Clients - <br>
+		These are Testimonials which admin create in his panel.
+		<p>
+		<img src="assets\images\admin51.png" style="width: 100%">
+		</p> </p>
+		
+		
+		<p>Home page - Footer
+		<img src="assets\images\admin52.png" style="width: 100%">
+		</p>
+	</section>
+	
+	
+	
+	<section id="auctions_page">
+		<div class="page-header"><h3>Auctions</h3><hr class="notop"></div>
+		
+		<p>User can view all the Auctions available in site</p>
+			
+		
+		<p><strong>Item type</strong> All Items, Auctions, Buy Now <br>
+		<b>All Items</b> - Products which can be auctioned or bought<br>
+		<b>Auctions</b> - Products which can be auctioned only (regular/normal auction OR live bidding)<br>
+		
+		<b>Buy Now</b> - Products which can be bought only</p>
+		
+		
+		
+		<p><strong>Auction Status</strong> Regular/Normal, Upcoming, Past<br>
+		<b>Regular/Normal</b> - Todays date between Auction start date and end date, Auction status is open , Admin status is approved<br>
+		<b>Upcoming</b> - Todays date between Auction start date and end date, Auction status is new , Admin status is approved
+		<br>
+		<b>Past</b> - Todays date is greater than Auction start date and end date, Auction is over </p>
+		
+		
+		
+		<p>
+		<img src="assets\images\admin53.png" style="width: 100%">
+		</p>
+	</section>
+	
+	
+	
+	<section id="auction_details">
+		<div class="page-header"><h3>Auction Details</h3><hr class="notop"></div>
+		
+		<p>User can view complete auction details in this page</p>
+		
+		<p>
+		<img src="assets\images\admin54.png" style="width: 100%">
+		</p>
+		
+		<p>
+		<img src="assets\images\admin55.png" style="width: 100%">
+		</p>
+		
+	</section>
+	
+	
+	
+	
+	<section id="bidder_dashboard">
+		<div class="page-header"><h3>Bidder Dashboard</h3><hr class="notop"></div>
+		<p> Bidder can view summary of modules in his dashboard. <br>
+		
+		Bidder get notifications when admin send invoice etc.. <br>
+		</p>
+		
+		<p>
+		<img src="assets\images\admin56.png" style="width: 100%" >
+		</p>
+	</section>
+	
+	
+	
+	
+	
+	
+	<section id="bidder_account">
+		<div class="page-header"><h3>Bidder Account</h3><hr class="notop"></div>
+		<p> Bidder can update his profile details <br>
+		Bidder can update his billing,shipping address details <br>
+		Bidder can change his account password
+		</p>
+		
+		<p>
+		<img src="assets\images\admin57.png" style="width: 100%" >
+		</p>
+	</section>
+	
+	
+	
+	<section id="bidder_auctions">
+		<div class="page-header"><h3>Bidder Auctions</h3><hr class="notop"></div>
+		<p> Bidder can view all his favourite auctions</p>
+		
+		<p>
+		<img src="assets\images\admin58.png" style="width: 100%" >
+		</p>
+		
+		
+		<p> Bidder can view all the auctions which he participated</p>
+		<p> When Admin send Invoice to bidder regarding payment - Pay button enable here, so that bidder can pay bid amount through available payment gateways</p>
+		<p>Bidder can view bidding history</p>
+		<p>
+		<img src="assets\images\admin59.png" style="width: 100%" >
+		</p>
+		
+		
+		<p> Bidder can view the auctions which he bought</p>
+		<p>
+		<img src="assets\images\admin60.png" style="width: 100%" >
+		</p>
+	</section>
+	
+	
+	
+	
+	<section id="bidder_payments">
+		<div class="page-header"><h3>Payments</h3><hr class="notop"></div>
+		<p> Bidder can view all his payment history
+		</p>
+		
+		<p>
+		<img src="assets\images\admin61.png" style="width: 100%" >
+		</p>
+		
+		<p>
+		<img src="assets\images\admin62.png" style="width: 100%" >
+		</p>
+	</section>
+
+
+	
+	
+	<section id="bidder_notifications">
+		<div class="page-header"><h3>Notifications</h3><hr class="notop"></div>
+		<p> Bidder can view all his notifications
+		</p>
+		
+		<p>
+		<img src="assets\images\admin63.png" style="width: 100%" >
+		</p>
+		
+		<p>
+		<img src="assets\images\admin64.png" style="width: 100%" >
+		</p>
+	</section>
+	
+	
+	<section id="bidder_messages">
+		<div class="page-header"><h3>Messages</h3><hr class="notop"></div>
+		<p>This is Internal Messaging System through which Bidder can send message to Admin </p>
+
+		<p>
+		<img src="assets\images\admin65.png" style="width: 100%">
+		</p>
+	</section>
+	
+	
+	
+	<section id="live_auctions">
+		<div class="page-header"><h3>Live Auctions</h3><hr class="notop"></div>
+		
+		<p><strong>User can view all live auctions which are happening today.</strong><br>
+		Admin/Seller - Auctions module <br>
+		Set Live Auction Date = todays date, start time, end time <br>
+		When Live Auction takes place, Regular/Normal Auction can not be performed.
+		</p>
+		
+		<p>
+		<img src="assets\images\la1.png" style="width: 100%">
+		</p>
+		
+		
+		<p>
+		<img src="assets\images\la2.png" style="width: 100%">
+		</p>
+		
+		<p>
+		Incremental price 700 set to auction <br>
+		User X
+		<img src="assets\images\la3.png" style="width: 100%"> </p>
+		<p> User Y
+		<img src="assets\images\la4.png" style="width: 100%">
+		</p>
+		
+		<p>Users can not place bid,If bidding time is over.</p>
+		<p>If any user reached Reserve price, Bidding time is still not yet over, then users can continue place bid until unless bidding time is over</p>
+		
+		
+		
+		
+		<p><strong>Note : Few servers supports socket.io like Amazon Web Services, Heroku, Cloudflare </strong></p>
+		
+	</section>
+
+
+
+
+
+	<section id="technologies_used">
+		<div class="page-header"><h3>Technologies</h3><hr class="notop"></div>
+		
+		<p><strong>CSS3</strong></p>
+		<p><strong>HTML5</strong></p>
+		<p><strong>BOOTSTRAP 4</strong></p>
+		<p><strong>AngularJS 2</strong></p>
+		<p><strong>Laravel 5.5.*</strong></p>
+		<p><strong>Socket.IO</strong></p>
+
+
+		<p><b>Socket.IO in localhost</b><br>
+		After installing Global Auction in localhost, To perform live bidding need to run socket io commands in terminal.</p>
+		<p>Go to project folder in htdocs, then execute command <b>node socket.js</b> </p>
+
+		<p> <img src="assets\images\s1.png" style="width: 100%"></p>
+
+
+		<p><b>Socket.IO in server</b><br>
+			Each server has its own configuration, Please contact server support at the time of hosting.
+		</p>
+
+	</section>
+
+
+	
+	</div>
+</body>
+</html>
