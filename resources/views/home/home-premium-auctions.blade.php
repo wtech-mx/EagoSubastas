@@ -73,7 +73,7 @@ $past_records     = Auction::getHomePastAuctions(8);
 
 
                                       <li> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-share-alt" title="Share Auction"></i> </a>
-                                                            
+
 
                                       <div class="dropdown-menu">
 
@@ -102,7 +102,7 @@ $past_records     = Auction::getHomePastAuctions(8);
 
                                       </ul>
                               </div>
-                            </div> 
+                            </div>
                         @endforeach
 
                         <div class="col-lg-12 col-md-12 col-sm-12"> 

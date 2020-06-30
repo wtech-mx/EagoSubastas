@@ -12,7 +12,7 @@
 
 @include('home/ads')
 
-{{--@include('home/upcoming-auctions')--}}
+@include('home/upcoming-auctions')
 
 @include('home/live-auctions')
 

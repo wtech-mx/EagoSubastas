@@ -21,7 +21,7 @@
 
 
 <!-- PRELOADER -->
-<div id="preloader"> <img src="{{IMAGES_HOME}}loader.gif" alt="pre loader" class="img-responsive"> </div>
+<div id="preloader"> <img src="{{IMAGES_HOME}}loader.gif" alt="pre loader" class="img-responsive"style="width:10%"> </div>
 <!-- /PRELOADER -->
 
 
@@ -201,7 +201,13 @@
 
 
       <div class="modal-body">
-
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+            <img id="" src="public/images/logo-animado.gif" alt="Eago-Logo" style="width: 200PX;">
+            </div>
+          </div>
+        </div>
 
         <div class="form-auth-style">
 

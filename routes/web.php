@@ -1,6 +1,5 @@
 <?php
-
-if(version_compare(PHP_VERSION, '7.3.9', '>=')) {
+if(version_compare(PHP_VERSION, '7.3.1', '>=')) {
     error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
 }
 /*
