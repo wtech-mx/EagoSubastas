@@ -178,13 +178,7 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    <div class="alert alert-info" role="alert"><p>
-                        <p><strong> add one cron job on server using the crontab -e command</strong> <a href="https://laravel.com/docs/5.6/scheduling" target="_blank" title="Cron Job">Reference</a></p>
-                        <pre> * * * * * php /<?php echo e(PREFIX); ?> artisan auction:run >> /dev/null 2>&1</pre>
-
-                       </p>
-
-                    </div>
+                    
 
 
 
@@ -214,4 +208,5 @@
  <?php echo $__env->make('common.chart', array('chart_data'=>$seller_auctions,'ids' =>array('demanding_paid_quizzes')), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make($layout, array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

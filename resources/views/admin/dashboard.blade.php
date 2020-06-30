@@ -180,13 +180,13 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    <div class="alert alert-info" role="alert"><p>
+                    {{-- <div class="alert alert-info" role="alert"><p>
                         <p><strong> add one cron job on server using the crontab -e command</strong> <a href="https://laravel.com/docs/5.6/scheduling" target="_blank" title="Cron Job">Reference</a></p>
                         <pre> * * * * * php /{{PREFIX}} artisan auction:run >> /dev/null 2>&1</pre>
 
                        </p>
 
-                    </div>
+                    </div> --}}
 
 
 
