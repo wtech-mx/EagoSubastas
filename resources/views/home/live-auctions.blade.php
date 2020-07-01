@@ -18,7 +18,7 @@ $live_auctions = \App\Auction::getHomeLiveAuctions();
             @if (count($live_auctions))
 
             @foreach ($live_auctions as $auction)
-            <?php 
+            <?php
             $live_auction_start_time = strtotime($auction->live_auction_start_time);
             $live_auction_end_time   = strtotime($auction->live_auction_end_time);
 
@@ -28,7 +28,7 @@ $live_auctions = \App\Auction::getHomeLiveAuctions();
 
             <!--if current_time>=start_time && current_time<=end_time - will happen today-->
 
-           
+
 
             <div class="row au-line-bottom bar-line">
                 <div class="col-lg-9 col-md-9 col-sm-12 au-no-margin">
@@ -36,10 +36,10 @@ $live_auctions = \App\Auction::getHomeLiveAuctions();
                         <div class="media-body au-upcoming-body">
                              <h4 class="au-card-title pt-3"> {!! str_limit($auction->title,80,'..') !!} </h4>
                             <label>{{getPhrase('by')}} {{$auction->username}}</label>
-                            <p class="au-card-text"> 
+                            <p class="au-card-text">
 
                                 <i class="fa fa-clock-o"></i>{{$auction->live_auction_start_time}} - {{$auction->live_auction_end_time}} | {{$auction->city}}, {{$auction->state}}</p>
-                                
+
                         </div>
                     </div>
                 </div>
