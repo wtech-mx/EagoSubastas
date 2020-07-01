@@ -5,10 +5,19 @@ $categories = \App\Category::getHomeCategories(6);
 
 
 ?>
+
+<style>
+@media (min-width: 1200px){
+.container {
+    max-width: 100%;
+}
+}
+</style>
+
 <section class="au-navbar">
-        <div class="container">
+        <div class="container" >
             <div class="row">
-                <div class="sf-contener clearfix col-lg-12" id="block_top_menu">
+                <div class="sf-contener clearfix col-lg-12" id="block_top_menu" >
                     <nav class="navbar navbar-expand-lg" style="background-color: transparent">
                       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"><i class="fa fa-bars au-icon"></i></span>
