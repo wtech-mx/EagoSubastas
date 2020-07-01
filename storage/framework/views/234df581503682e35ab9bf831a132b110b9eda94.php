@@ -146,13 +146,13 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                 <h4><?php echo e($auction->title); ?></h4>
 
                 <?php if(!$live_auction): ?> <!--normal auction happening-->
-                  <p title="Auction End Date"> Regular auction ends on <?php echo date(getSetting('date_format','site_settings').' H:i:s', strtotime($auction->end_date));?> </p>
+                  <p title="Auction End Date"> La subasta regular finaliza el <?php echo date(getSetting('date_format','site_settings').' H:i:s', strtotime($auction->end_date));?> </p>
                 <?php endif; ?>
 
 
 
                 <?php if($live_auction_starts): ?>
-                  <p title="Auction End Date"> Live auction starts at <i class="fa fa-clock-o"></i><?php echo e($auction->live_auction_start_time); ?>, Be ready to participate</p>
+                  <p title="Auction End Date"> La subasta en vivo comienza en <i class="fa fa-clock-o"></i><?php echo e($auction->live_auction_start_time); ?>, Be ready to participate</p>
                 <?php endif; ?>
 
 
