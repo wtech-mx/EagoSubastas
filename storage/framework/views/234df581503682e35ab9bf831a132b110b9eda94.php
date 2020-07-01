@@ -1,6 +1,8 @@
 <?php $__env->startSection('header_scripts'); ?>
+
 <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -23,8 +25,6 @@ $active_picture_gallary = getSetting('active_picture_gallary','auction_settings'
 $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings');
 
 ?>
-
-
 
  <!--CATEGORY BODY SECTION-->
 
@@ -71,10 +71,8 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                         </ul>
                     </div> -->
 
-
-
                     <div class="sm-product-show">
-                      
+
                         <div class="sm-product-slider-img">
                             <img src="<?php echo e(getAuctionImage($auction->image)); ?>" id="sm-product-zoom" class="img-responsive" data-zoom-image="<?php echo e(getAuctionImage($auction->image,'auction')); ?>" alt="">
                             <i class="sm-zoom-icn fa fa-expand"></i>
@@ -94,7 +92,7 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                           <?php $i=0;?>
                           <?php $__currentLoopData = $auction_images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                           <?php $i=$i+1;
-                          
+
                           if ($i==$max_number_of_pictures)
                             break;
                           ?>
@@ -105,7 +103,7 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                                 </a>
                             </li>
                             <?php endif; ?>
-                          
+
 
                           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
@@ -151,7 +149,7 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                   <p title="Auction End Date"> Regular auction ends on <?php echo date(getSetting('date_format','site_settings').' H:i:s', strtotime($auction->end_date));?> </p>
                 <?php endif; ?>
 
-              
+
 
                 <?php if($live_auction_starts): ?>
                   <p title="Auction End Date"> Live auction starts at <i class="fa fa-clock-o"></i><?php echo e($auction->live_auction_start_time); ?>, Be ready to participate</p>
@@ -162,16 +160,16 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
               <?php if($live_auction): ?> <!--live auction happening-->
 
               <div>
-                  <p title="Auction End Date"> Live auction happening now! from <i class="fa fa-clock-o"></i><?php echo e($auction->live_auction_start_time); ?> to <i class="fa fa-clock-o"></i><?php echo e($auction->live_auction_end_time); ?></p>
+                  <p title="Auction End Date"> ¡Subasta en vivo ahora! de <i class="fa fa-clock-o"></i><?php echo e($auction->live_auction_start_time); ?> a <i class="fa fa-clock-o"></i><?php echo e($auction->live_auction_end_time); ?></p>
               </div>
 
               <div class="">
-                <?php if(!Auth::check()): ?>  
+                <?php if(!Auth::check()): ?>
                   <a class="btn btn-info au-btn-modren login-bttn" href="javascript:void(0);" onclick="showModal('loginModal')"><?php echo e(getPhrase('participate_in_live_auction')); ?></a>
                 <?php else: ?>
-                  <a class="btn btn-info au-btn-modren login-bttn" href="javascript:void(0);" onclick="liveAuction('<?php echo e($auction->slug); ?>')"><?php echo e(getPhrase('participate_in_live_auction')); ?></a>
+                  <a class="btn btn-info au-btn-modren login-bttn live" href="javascript:void(0);" onclick="liveAuction('<?php echo e($auction->slug); ?>')"><?php echo e(getPhrase('participate_in_live_auction')); ?></a>
                 <?php endif; ?>
-              </div> 
+              </div>
               <?php endif; ?>
 
 
@@ -188,19 +186,21 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                         <?php echo e(strtoUpper(getAuctionDaysLeft($auction->start_date,$auction->end_date))); ?></b></p>
 
                     <h4>
-                      <?php echo e($currency_code); ?><?php echo e($auction->reserve_price); ?>  
-                      <span class="badge"> 
-                        <?php if($total_bids>1): ?> 
+                      <?php echo e($currency_code); ?><?php echo e($auction->reserve_price); ?>
+
+                      <span class="badge">
+                        <?php if($total_bids>1): ?>
                             <?php echo e($total_bids); ?> <?php echo e(getPhrase('bids')); ?>
 
-                        <?php elseif($total_bids==1): ?> 
+                        <?php elseif($total_bids==1): ?>
                             <?php echo e($total_bids); ?> <?php echo e(getPhrase('bid')); ?>
 
-                        <?php else: ?> 
-                            0 <?php echo e(getPhrase('bids')); ?> 
+                        <?php else: ?>
+                            0 <?php echo e(getPhrase('bids')); ?>
+
                         <?php endif; ?>
                       </span>
-                      
+
                     </h4>
 
                   <?php if($bid_options): ?>
@@ -321,8 +321,9 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                     <p class="text-blue"><b><i class="pe-7s-timer"></i> <?php echo e(strtoUpper(getAuctionDaysLeft($auction->start_date,$auction->end_date))); ?></b></p>
 
                      <h4>
-                      <?php echo e($currency_code); ?><?php echo e($auction->reserve_price); ?>  
-                      <span class="badge"> 
+                      <?php echo e($currency_code); ?><?php echo e($auction->reserve_price); ?>
+
+                      <span class="badge">
                        <?php echo e($auction->getAuctionBiddersCount()); ?> <?php echo e(getPhrase('bids')); ?>
 
                       </span>
@@ -334,11 +335,12 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                  <div>
                      <p class="text-blue"><b> <?php echo e(getPhrase('auction_ended')); ?> </b></p>
 
-                    <h4><?php echo e($currency_code); ?><?php echo e($auction->reserve_price); ?>  
+                    <h4><?php echo e($currency_code); ?><?php echo e($auction->reserve_price); ?>
+
                       <span class="badge">
                         <?php echo e($auction->getAuctionBiddersCount()); ?> <?php echo e(getPhrase('bids')); ?>
 
-                      </span> 
+                      </span>
                     </h4>
 
                 </div>
@@ -355,7 +357,7 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                 <div>
 
                   <?php if(Auth::user()): ?>
-                    <a href="javascript:void(0);" ng-click="addtoFavourites(<?php echo e($auction->id); ?>)" title="Add to Wishlist" class="btn btn-info au-btn-modren login-bttn"><i class="pe-7s-plus"></i> 
+                    <a href="javascript:void(0);" ng-click="addtoFavourites(<?php echo e($auction->id); ?>)" title="Add to Wishlist" class="btn btn-info au-btn-modren login-bttn"><i class="pe-7s-plus"></i>
                     <?php echo e(getPhrase('add_to_wish_list')); ?></a>
                   <?php else: ?>
                    <a href="javascript:void(0);" onclick="showModal('loginModal')" title="Add to Wishlist" class="btn btn-info au-btn-modren login-bttn"><i class="pe-7s-plus"></i> <?php echo e(getPhrase('add_to_wish_list')); ?> </a>
@@ -402,11 +404,6 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
             </div>
 
           </div>
-
-
-
-
-
 
     <!--AUCTION DETAILS SECTION-->
     <section class="au-premium-product">
@@ -485,10 +482,11 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                                       <li class="list-group-item d-flex justify-content-between align-items-center">
                                       <?php echo e(getPhrase('is_bid_incremental')); ?>
 
-                                        <span> 
-                                        <?php if($auction->is_bid_increment==1): ?> 
-                                            <?php echo e(getPhrase('yes')); ?> 
-                                        <?php else: ?> 
+                                        <span>
+                                        <?php if($auction->is_bid_increment==1): ?>
+                                            <?php echo e(getPhrase('yes')); ?>
+
+                                        <?php else: ?>
                                             <?php echo e(getPhrase('no')); ?>
 
                                         <?php endif; ?>
@@ -506,10 +504,11 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                                      <li class="list-group-item d-flex justify-content-between align-items-center">
                                       <?php echo e(getPhrase('is_it_buynow_item')); ?>
 
-                                        <span> 
-                                        <?php if($auction->is_buynow==1): ?> 
-                                            <?php echo e(getPhrase('yes')); ?> 
-                                        <?php else: ?> 
+                                        <span>
+                                        <?php if($auction->is_buynow==1): ?>
+                                            <?php echo e(getPhrase('yes')); ?>
+
+                                        <?php else: ?>
                                             <?php echo e(getPhrase('no')); ?>
 
                                         <?php endif; ?>
@@ -525,7 +524,7 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                                       </li>
 
                                      <?php endif; ?>
-                                   
+
                                   </ul>
                               </div>
 
@@ -598,19 +597,6 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                                </div>
 
                               <?php endif; ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                                <!--  <div class="col-lg-7 col-md-7 col-sm-12 au-terms">
@@ -694,9 +680,6 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                           </div>
                           <!--auction details tab end-->
 
-                       
-
-
                         <!--shipping and payment tab start-->
                         <div class="tab-pane fade" id="nav-shipping" role="tabpanel" aria-labelledby="nav-shipping-tab">
 
@@ -712,14 +695,6 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                           </div>
                         </div>
                         <!--Shipping and payment tab end-->
-
-
-
-
-
-
-
-
 
                         <!--Auctiont terms and info tab start-->
                         <div class="tab-pane fade" id="nav-terms" role="tabpanel" aria-labelledby="nav-terms-tab">
@@ -738,10 +713,6 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                            </div>
                         </div>
                         <!--auction terms and info tab end-->
-
-
-
-
 
                         <!--Bidding history Tab Start-->
                         <div class="tab-pane fade" id="nav-bid" role="tabpanel" aria-labelledby="nav-bid-tab">
@@ -787,16 +758,6 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
     </section>
     <!--AUCTION DETAILS SECTION END-->
 
-
-
-
-
-
-
-
-
-
-
     <!--SAME CATEGORY AUCTIONS SECTION-->
     <?php echo $__env->make('home.pages.auctions.category-auctions', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
@@ -818,8 +779,8 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 <?php echo $__env->make('common.alertify', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('home.pages.auctions.auctions-js-script', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
- <script src="<?php echo e(JS_HOME); ?>jquery.elevatezoom.js"></script> 
-  <script src="<?php echo e(JS_HOME); ?>elevationzoom.js"></script>  
+ <script src="<?php echo e(JS_HOME); ?>jquery.elevatezoom.js"></script>
+  <script src="<?php echo e(JS_HOME); ?>elevationzoom.js"></script>
 
 
 <!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> -->
@@ -827,7 +788,7 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 <script src="<?php echo e(JS); ?>share.js"></script>
 
 <script type="text/javascript">
-  
+
   if ($('#sm-product-zoom').length) {
         $("#sm-product-zoom").elevateZoom({
             gallery: 'gallery_01',
@@ -860,8 +821,9 @@ $(document).ready(function() {
 
  <script>
   function liveAuction(auction_slug) {
-    
+
     window.open("<?php echo e(URL_LIVE_AUCTION); ?>/"+auction_slug, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=300,width=800,height=500");
+    console.log("<?php echo e(URL_LIVE_AUCTION); ?>/"+auction_slug, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=300,width=800,height=500");
   }
  </script>
 <?php $__env->stopSection(); ?>

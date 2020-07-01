@@ -12,7 +12,7 @@
             <?php if(count($live_auctions)): ?>
 
             <?php $__currentLoopData = $live_auctions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $auction): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <?php 
+            <?php
             $live_auction_start_time = strtotime($auction->live_auction_start_time);
             $live_auction_end_time   = strtotime($auction->live_auction_end_time);
 
@@ -22,7 +22,7 @@
 
             <!--if current_time>=start_time && current_time<=end_time - will happen today-->
 
-           
+
 
             <div class="row au-line-bottom bar-line">
                 <div class="col-lg-9 col-md-9 col-sm-12 au-no-margin">
@@ -30,10 +30,10 @@
                         <div class="media-body au-upcoming-body">
                              <h4 class="au-card-title pt-3"> <?php echo str_limit($auction->title,80,'..'); ?> </h4>
                             <label><?php echo e(getPhrase('by')); ?> <?php echo e($auction->username); ?></label>
-                            <p class="au-card-text"> 
+                            <p class="au-card-text">
 
                                 <i class="fa fa-clock-o"></i><?php echo e($auction->live_auction_start_time); ?> - <?php echo e($auction->live_auction_end_time); ?> | <?php echo e($auction->city); ?>, <?php echo e($auction->state); ?></p>
-                                
+
                         </div>
                     </div>
                 </div>

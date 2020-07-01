@@ -1,8 +1,10 @@
 @extends($layout)
 
 @section('header_scripts')
+
 <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+
 @endsection
 
 @section('content')
@@ -25,8 +27,6 @@ $active_picture_gallary = getSetting('active_picture_gallary','auction_settings'
 $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings');
 
 ?>
-
-
 
  <!--CATEGORY BODY SECTION-->
 
@@ -73,10 +73,8 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                         </ul>
                     </div> -->
 
-
-
                     <div class="sm-product-show">
-                      
+
                         <div class="sm-product-slider-img">
                             <img src="{{getAuctionImage($auction->image)}}" id="sm-product-zoom" class="img-responsive" data-zoom-image="{{getAuctionImage($auction->image,'auction')}}" alt="">
                             <i class="sm-zoom-icn fa fa-expand"></i>
@@ -96,7 +94,7 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                           <?php $i=0;?>
                           @foreach ($auction_images as $image)
                           <?php $i=$i+1;
-                          
+
                           if ($i==$max_number_of_pictures)
                             break;
                           ?>
@@ -107,7 +105,7 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                                 </a>
                             </li>
                             @endif
-                          
+
 
                           @endforeach
 
@@ -153,7 +151,7 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                   <p title="Auction End Date"> Regular auction ends on <?php echo date(getSetting('date_format','site_settings').' H:i:s', strtotime($auction->end_date));?> </p>
                 @endif
 
-              
+
 
                 @if ($live_auction_starts)
                   <p title="Auction End Date"> Live auction starts at <i class="fa fa-clock-o"></i>{{$auction->live_auction_start_time}}, Be ready to participate</p>
@@ -164,16 +162,16 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
               @if ($live_auction) <!--live auction happening-->
 
               <div>
-                  <p title="Auction End Date"> Live auction happening now! from <i class="fa fa-clock-o"></i>{{$auction->live_auction_start_time}} to <i class="fa fa-clock-o"></i>{{$auction->live_auction_end_time}}</p>
+                  <p title="Auction End Date"> ¡Subasta en vivo ahora! de <i class="fa fa-clock-o"></i>{{$auction->live_auction_start_time}} a <i class="fa fa-clock-o"></i>{{$auction->live_auction_end_time}}</p>
               </div>
 
               <div class="">
-                @if (!Auth::check())  
+                @if (!Auth::check())
                   <a class="btn btn-info au-btn-modren login-bttn" href="javascript:void(0);" onclick="showModal('loginModal')">{{getPhrase('participate_in_live_auction')}}</a>
                 @else
-                  <a class="btn btn-info au-btn-modren login-bttn" href="javascript:void(0);" onclick="liveAuction('{{$auction->slug}}')">{{getPhrase('participate_in_live_auction')}}</a>
+                  <a class="btn btn-info au-btn-modren login-bttn live" href="javascript:void(0);" onclick="liveAuction('{{$auction->slug}}')">{{getPhrase('participate_in_live_auction')}}</a>
                 @endif
-              </div> 
+              </div>
               @endif
 
 
@@ -190,17 +188,17 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                         {{strtoUpper(getAuctionDaysLeft($auction->start_date,$auction->end_date))}}</b></p>
 
                     <h4>
-                      {{$currency_code}}{{$auction->reserve_price}}  
-                      <span class="badge"> 
-                        @if ($total_bids>1) 
+                      {{$currency_code}}{{$auction->reserve_price}}
+                      <span class="badge">
+                        @if ($total_bids>1)
                             {{$total_bids}} {{getPhrase('bids')}}
-                        @elseif ($total_bids==1) 
+                        @elseif ($total_bids==1)
                             {{$total_bids}} {{getPhrase('bid')}}
-                        @else 
-                            0 {{getPhrase('bids')}} 
+                        @else
+                            0 {{getPhrase('bids')}}
                         @endif
                       </span>
-                      
+
                     </h4>
 
                   @if ($bid_options)
@@ -315,8 +313,8 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                     <p class="text-blue"><b><i class="pe-7s-timer"></i> {{strtoUpper(getAuctionDaysLeft($auction->start_date,$auction->end_date))}}</b></p>
 
                      <h4>
-                      {{$currency_code}}{{$auction->reserve_price}}  
-                      <span class="badge"> 
+                      {{$currency_code}}{{$auction->reserve_price}}
+                      <span class="badge">
                        {{$auction->getAuctionBiddersCount()}} {{getPhrase('bids')}}
                       </span>
                     </h4>
@@ -327,10 +325,10 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                  <div>
                      <p class="text-blue"><b> {{getPhrase('auction_ended')}} </b></p>
 
-                    <h4>{{$currency_code}}{{$auction->reserve_price}}  
+                    <h4>{{$currency_code}}{{$auction->reserve_price}}
                       <span class="badge">
                         {{$auction->getAuctionBiddersCount()}} {{getPhrase('bids')}}
-                      </span> 
+                      </span>
                     </h4>
 
                 </div>
@@ -347,7 +345,7 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                 <div>
 
                   @if (Auth::user())
-                    <a href="javascript:void(0);" ng-click="addtoFavourites({{$auction->id}})" title="Add to Wishlist" class="btn btn-info au-btn-modren login-bttn"><i class="pe-7s-plus"></i> 
+                    <a href="javascript:void(0);" ng-click="addtoFavourites({{$auction->id}})" title="Add to Wishlist" class="btn btn-info au-btn-modren login-bttn"><i class="pe-7s-plus"></i>
                     {{getPhrase('add_to_wish_list')}}</a>
                   @else
                    <a href="javascript:void(0);" onclick="showModal('loginModal')" title="Add to Wishlist" class="btn btn-info au-btn-modren login-bttn"><i class="pe-7s-plus"></i> {{getPhrase('add_to_wish_list')}} </a>
@@ -399,11 +397,6 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
             </div>
 
           </div>
-
-
-
-
-
 
     <!--AUCTION DETAILS SECTION-->
     <section class="au-premium-product">
@@ -477,10 +470,10 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 
                                       <li class="list-group-item d-flex justify-content-between align-items-center">
                                       {{getPhrase('is_bid_incremental')}}
-                                        <span> 
-                                        @if ($auction->is_bid_increment==1) 
-                                            {{getPhrase('yes')}} 
-                                        @else 
+                                        <span>
+                                        @if ($auction->is_bid_increment==1)
+                                            {{getPhrase('yes')}}
+                                        @else
                                             {{getPhrase('no')}}
                                         @endif
                                         </span>
@@ -495,10 +488,10 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 
                                      <li class="list-group-item d-flex justify-content-between align-items-center">
                                       {{getPhrase('is_it_buynow_item')}}
-                                        <span> 
-                                        @if ($auction->is_buynow==1) 
-                                            {{getPhrase('yes')}} 
-                                        @else 
+                                        <span>
+                                        @if ($auction->is_buynow==1)
+                                            {{getPhrase('yes')}}
+                                        @else
                                             {{getPhrase('no')}}
                                         @endif
                                         </span>
@@ -512,7 +505,7 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                                       </li>
 
                                      @endif
-                                   
+
                                   </ul>
                               </div>
 
@@ -579,19 +572,6 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                                </div>
 
                               @endif
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                                <!--  <div class="col-lg-7 col-md-7 col-sm-12 au-terms">
@@ -675,9 +655,6 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                           </div>
                           <!--auction details tab end-->
 
-                       
-
-
                         <!--shipping and payment tab start-->
                         <div class="tab-pane fade" id="nav-shipping" role="tabpanel" aria-labelledby="nav-shipping-tab">
 
@@ -693,14 +670,6 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                           </div>
                         </div>
                         <!--Shipping and payment tab end-->
-
-
-
-
-
-
-
-
 
                         <!--Auctiont terms and info tab start-->
                         <div class="tab-pane fade" id="nav-terms" role="tabpanel" aria-labelledby="nav-terms-tab">
@@ -719,10 +688,6 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                            </div>
                         </div>
                         <!--auction terms and info tab end-->
-
-
-
-
 
                         <!--Bidding history Tab Start-->
                         <div class="tab-pane fade" id="nav-bid" role="tabpanel" aria-labelledby="nav-bid-tab">
@@ -768,16 +733,6 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
     </section>
     <!--AUCTION DETAILS SECTION END-->
 
-
-
-
-
-
-
-
-
-
-
     <!--SAME CATEGORY AUCTIONS SECTION-->
     @include('home.pages.auctions.category-auctions')
 
@@ -799,8 +754,8 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 @include('common.alertify')
 @include('home.pages.auctions.auctions-js-script')
 
- <script src="{{JS_HOME}}jquery.elevatezoom.js"></script> 
-  <script src="{{JS_HOME}}elevationzoom.js"></script>  
+ <script src="{{JS_HOME}}jquery.elevatezoom.js"></script>
+  <script src="{{JS_HOME}}elevationzoom.js"></script>
 
 
 <!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> -->
@@ -808,7 +763,7 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 <script src="{{JS}}share.js"></script>
 
 <script type="text/javascript">
-  
+
   if ($('#sm-product-zoom').length) {
         $("#sm-product-zoom").elevateZoom({
             gallery: 'gallery_01',
@@ -841,8 +796,9 @@ $(document).ready(function() {
 
  <script>
   function liveAuction(auction_slug) {
-    
+
     window.open("{{URL_LIVE_AUCTION}}/"+auction_slug, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=300,width=800,height=500");
+    console.log("{{URL_LIVE_AUCTION}}/"+auction_slug, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=300,width=800,height=500");
   }
  </script>
 @endsection
