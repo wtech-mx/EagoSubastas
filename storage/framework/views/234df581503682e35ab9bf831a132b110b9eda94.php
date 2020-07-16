@@ -379,24 +379,24 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 
 
 
-                 <ul class="list-inline au-social-links">
 
-                   <li class="list-inline-item">
-                     <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo e(URL_HOME_AUCTION_DETAILS); ?>/<?php echo e($auction->slug); ?>"> <i class="fa fa-facebook-f au-common"></i></a>
-                   </li>
 
-                   <li class="list-inline-item">
-                     <a href="https://twitter.com/intent/tweet?text=<?php echo e(getSetting('site_title','site_settings')); ?>&amp;url=<?php echo e(URL_HOME_AUCTION_DETAILS); ?>/<?php echo e($auction->slug); ?>"><i class="fa fa-twitter au-common"></i></a>
-                   </li>
 
-                    <li class="list-inline-item">
-                     <a href="https://plus.google.com/share?url=<?php echo e(PREFIX); ?>"><i class="fa fa-google au-common"></i></a>
-                   </li>
 
-                   <li class="list-inline-item">
-                     <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo e(PREFIX); ?>&amp;title=<?php echo e(getSetting('site_title','site_settings')); ?>&amp;summary=<?php echo e($auction->title); ?>"><i class="fa fa-linkedin au-common"></i></a>
-                   </li>
-                 </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 </div>
 
 

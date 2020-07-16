@@ -121,7 +121,7 @@
                     </div>
 
 
-                     <!--document-->
+                     <!--document
     <a href="<?php echo e(PREFIX); ?>Documentation" target="_blank" class="documentation-btn"><?php echo getPhrase('documentation');?></a>
          <style type="text/css">
             .documentation-btn{
@@ -143,7 +143,7 @@
     transform: rotate(90deg);
     letter-spacing: 1.5px;
             }.documentation-btn:hover{color: #fff}
-         </style>
+         </style>-->
          <!--document-->
 
 

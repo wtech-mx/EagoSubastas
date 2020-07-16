@@ -47,32 +47,32 @@ $networks = \App\Settings::getSettingRecord('social_networks');
             </div>
             <!--footer body section-->
             <div class="row au-footer-areas">
-                <div class="col-lg-4 col-md-12 col-sm-12 au-body-footer">
-                    <h4><?php echo e(getPhrase('about_us')); ?></h4>
-                    <p> <?php echo str_limit($aboutus,200,'...'); ?> </p>
-
-
-                    <?php if($networks->facebook->value): ?>
-                    <a href="<?php echo e($networks->facebook->value); ?>" target="_blank"> <i class="fa fa-facebook-f"></i> </a>
-                    <?php endif; ?>
-
-                    <?php if($networks->google_plus->value): ?>
-                    <a href="<?php echo e($networks->google_plus->value); ?>" target="_blank"> <i class="fa fa-google"></i> </a>
-                    <?php endif; ?>
-
-                    <?php if($networks->twitter->value): ?>
-                    <a href="<?php echo e($networks->twitter->value); ?>" target="_blank"> <i class="fa fa-twitter"></i> </a>
-                    <?php endif; ?>
-
-                    <?php if($networks->instagram->value): ?>
-                    <a href="<?php echo e($networks->instagram->value); ?>" target="_blank"> <i class="fa fa-instagram"></i> </a>
-                    <?php endif; ?>
-
-                    <?php if($networks->linkedin->value): ?>
-                    <a href="<?php echo e($networks->linkedin->value); ?>" target="_blank"> <i class="fa fa-linkedin"></i> </a>
-                    <?php endif; ?>
-
-                </div>
+<!--                <div class="col-lg-4 col-md-12 col-sm-12 au-body-footer">-->
+<!--                    <h4>--><?php //echo e(getPhrase('about_us')); ?><!--</h4>-->
+<!--                    <p> --><?php //echo str_limit($aboutus,200,'...'); ?><!-- </p>-->
+<!---->
+<!---->
+<!--                    --><?php //if($networks->facebook->value): ?>
+<!--                    <a href="--><?php //echo e($networks->facebook->value); ?><!--" target="_blank"> <i class="fa fa-facebook-f"></i> </a>-->
+<!--                    --><?php //endif; ?>
+<!---->
+<!--                    --><?php //if($networks->google_plus->value): ?>
+<!--                    <a href="--><?php //echo e($networks->google_plus->value); ?><!--" target="_blank"> <i class="fa fa-google"></i> </a>-->
+<!--                    --><?php //endif; ?>
+<!---->
+<!--                    --><?php //if($networks->twitter->value): ?>
+<!--                    <a href="--><?php //echo e($networks->twitter->value); ?><!--" target="_blank"> <i class="fa fa-twitter"></i> </a>-->
+<!--                    --><?php //endif; ?>
+<!---->
+<!--                    --><?php //if($networks->instagram->value): ?>
+<!--                    <a href="--><?php //echo e($networks->instagram->value); ?><!--" target="_blank"> <i class="fa fa-instagram"></i> </a>-->
+<!--                    --><?php //endif; ?>
+<!---->
+<!--                    --><?php //if($networks->linkedin->value): ?>
+<!--                    <a href="--><?php //echo e($networks->linkedin->value); ?><!--" target="_blank"> <i class="fa fa-linkedin"></i> </a>-->
+<!--                    --><?php //endif; ?>
+<!---->
+<!--                </div>-->
                 <div class="col-lg-4 col-md-6 col-sm-12 au-body-footer">
                     <h4> <?php echo e(getPhrase('useful_links')); ?> </h4>
                     <div class="row">
