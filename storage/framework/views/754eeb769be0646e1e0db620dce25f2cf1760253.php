@@ -1,10 +1,4 @@
-<?php
-//Live Auctions
-$live_auctions = \App\Auction::getHomeLiveAuctions();
-
-// dd($live_auctions);
-
-?>
+<?php $__env->startSection('content'); ?>
 <!--Upcoming Auction-->
     <section class="au-upcoming-auction">
         <div class="container">
@@ -75,14 +69,6 @@ $live_auctions = \App\Auction::getHomeLiveAuctions();
 
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-            <div class="row mt-4">
-                <div class="col-lg-12 col-md-12 col-sm-12 au-all-upcoming">
-                   <div class="text-center">
-                    <a href="<?php echo e(URL_LIVE_AUCTIONS); ?>" class="btn btn-primary au-space au-btn-gray login-bttn"><?php echo e(getPhrase('view_all_live_auctions')); ?></a>
-                       </div>
-                </div>
-            </div>
-
             <?php else: ?>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
@@ -99,3 +85,7 @@ $live_auctions = \App\Auction::getHomeLiveAuctions();
     </section>
     <!--Upcoming Auction-->
 
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('layouts.home', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

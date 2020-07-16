@@ -35,7 +35,7 @@
 
                       array('class' => 'form-control',
 
-                      'placeholder' => 'Name',
+                      'placeholder' => 'Nombre',
 
                       'ng-model' => 'name',
 
@@ -72,7 +72,7 @@
 
                     array('class' => 'form-control',
 
-                    'placeholder' => 'Email',
+                    'placeholder' => 'Correo',
 
                     'ng-model' => 'contact_email',
 
@@ -102,7 +102,7 @@
 
                       array('class' => 'form-control',
 
-                      'placeholder' => 'Subject',
+                      'placeholder' => 'Asunto',
 
                       'ng-model' => 'subject',
 
@@ -146,7 +146,7 @@
 
                     'cols'=>'5',
 
-                    'placeholder' => 'Message',
+                    'placeholder' => 'Mensaje',
 
                     'ng-model' => 'message',
 

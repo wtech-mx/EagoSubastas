@@ -27,28 +27,28 @@
 
 
  <!-- Color Swicher -->
-<div class="theme-settings" id="switcher"> 
-    <span class="theme-click"><i class="fa fa-cog fa-spin" aria-hidden="true"></i></span> 
+<div class="theme-settings" id="switcher">
+    <span class="theme-click"><i class="fa fa-cog fa-spin" aria-hidden="true"></i></span>
 
 
-   <!--  <span class="theme-color theme-default theme-active" data-color="<?php echo e(CSS_HOME); ?>one"></span> 
-    <span class="theme-color theme-color-two" data-color="<?php echo e(CSS_HOME); ?>two"></span> 
-    <span class="theme-color theme-color-three" data-color="<?php echo e(CSS_HOME); ?>three"></span> 
-    <span class="theme-color theme-color-four" data-color="<?php echo e(CSS_HOME); ?>four"></span> 
-    <span class="theme-color theme-color-five" data-color="<?php echo e(CSS_HOME); ?>five"></span> 
-    <span class="theme-color theme-color-six" data-color="<?php echo e(CSS_HOME); ?>six"></span> 
-    <span class="theme-color theme-color-seven" data-color="<?php echo e(CSS_HOME); ?>seven"></span> 
-    <span class="theme-color theme-color-eight" data-color="<?php echo e(CSS_HOME); ?>eight"></span> 
-    <span class="theme-color theme-color-nine" data-color="<?php echo e(CSS_HOME); ?>nine"></span> 
-    <span class="theme-color theme-color-ten" data-color="<?php echo e(CSS_HOME); ?>ten"></span> 
-    <span class="theme-color theme-color-eleven" data-color="<?php echo e(CSS_HOME); ?>eleven"></span> 
-    <span class="theme-color theme-color-twelve" data-color="<?php echo e(CSS_HOME); ?>twelve"></span> 
-    <span class="theme-color theme-color-thirteen" data-color="<?php echo e(CSS_HOME); ?>thirteen"></span> 
-    <span class="theme-color theme-color-fourteen" data-color="<?php echo e(CSS_HOME); ?>fourteen"></span> 
+   <!--  <span class="theme-color theme-default theme-active" data-color="<?php echo e(CSS_HOME); ?>one"></span>
+    <span class="theme-color theme-color-two" data-color="<?php echo e(CSS_HOME); ?>two"></span>
+    <span class="theme-color theme-color-three" data-color="<?php echo e(CSS_HOME); ?>three"></span>
+    <span class="theme-color theme-color-four" data-color="<?php echo e(CSS_HOME); ?>four"></span>
+    <span class="theme-color theme-color-five" data-color="<?php echo e(CSS_HOME); ?>five"></span>
+    <span class="theme-color theme-color-six" data-color="<?php echo e(CSS_HOME); ?>six"></span>
+    <span class="theme-color theme-color-seven" data-color="<?php echo e(CSS_HOME); ?>seven"></span>
+    <span class="theme-color theme-color-eight" data-color="<?php echo e(CSS_HOME); ?>eight"></span>
+    <span class="theme-color theme-color-nine" data-color="<?php echo e(CSS_HOME); ?>nine"></span>
+    <span class="theme-color theme-color-ten" data-color="<?php echo e(CSS_HOME); ?>ten"></span>
+    <span class="theme-color theme-color-eleven" data-color="<?php echo e(CSS_HOME); ?>eleven"></span>
+    <span class="theme-color theme-color-twelve" data-color="<?php echo e(CSS_HOME); ?>twelve"></span>
+    <span class="theme-color theme-color-thirteen" data-color="<?php echo e(CSS_HOME); ?>thirteen"></span>
+    <span class="theme-color theme-color-fourteen" data-color="<?php echo e(CSS_HOME); ?>fourteen"></span>
     <span class="theme-color theme-color-fifteen" data-color="<?php echo e(CSS_HOME); ?>fifteen"></span>  -->
 
 
-    <a class="theme theme-one" href="<?php echo e(CHANGE_THEME); ?>/one.css"></a> 
+    <a class="theme theme-one" href="<?php echo e(CHANGE_THEME); ?>/one.css"></a>
     <a class="theme theme-two" href="<?php echo e(CHANGE_THEME); ?>/two.css"></a>
     <a class="theme theme-three" href="<?php echo e(CHANGE_THEME); ?>/three.css"></a>
     <a class="theme theme-four" href="<?php echo e(CHANGE_THEME); ?>/four.css"></a>
@@ -63,7 +63,7 @@
     <a class="theme theme-thirteen" href="<?php echo e(CHANGE_THEME); ?>/thirteen.css"></a>
     <a class="theme theme-fourteen" href="<?php echo e(CHANGE_THEME); ?>/fourteen.css"></a>
     <a class="theme theme-fifteen" href="<?php echo e(CHANGE_THEME); ?>/fifteen.css"></a>
-  
+
 
 </div>
 <!-- /Color Swicher -->
@@ -97,15 +97,6 @@
 
     </div>
 </div>
-
-
-
-
-
-
-
-
-
 
 <!--FORGOT PASSWORD MODAL-->
 
@@ -310,12 +301,12 @@
                     </div>
                     <div class="form-group col-lg-6">
 
-<?php 
+<?php
 $fb_login = getSetting('facebook_login','module');
 $google_login = getSetting('google_plus_login','module');
 
 ?>
-  
+
                     <div class="text-right login-icons">
 
                             <?php if($google_login): ?>
@@ -562,12 +553,7 @@ $google_login = getSetting('google_plus_login','module');
 
 
                                 <div class="form-group row">
-                                    <div class="col-md-6">
-                                    <?php echo e(Form::radio('user_type','seller', true, array('id'=>'seller_modal', 'name'=>'user_type'))); ?>
 
-
-                                        <label for="seller_modal"> <span class="radio-button"> <i class="mdi mdi-check active"></i> </span> <?php echo e(getPhrase('seller')); ?></label>
-                                    </div>
                                     <div class="col-md-6">
                                     <?php echo e(Form::radio('user_type','bidder', false, array('id'=>'bidder_modal', 'name'=>'user_type'))); ?>
 
@@ -575,6 +561,10 @@ $google_login = getSetting('google_plus_login','module');
 
                                         </label>
                                     </div>
+
+                                    
+
+
                                 </div>
 
                             </div>
@@ -582,11 +572,11 @@ $google_login = getSetting('google_plus_login','module');
 
 
                   <div class="form-group  col-lg-12">
-<div class="text-center login-btn">
-                        <button type="submit" class="btn btn-primary login-bttn" ng-disabled='!registrationFormModal.$valid'>
-                                       <?php echo e(getPhrase('register')); ?>
+                        <div class="text-center login-btn">
+                            <button type="submit" class="btn btn-primary login-bttn" ng-disabled='!registrationFormModal.$valid'>
+                                <?php echo e(getPhrase('register')); ?>
 
-                                    </button>
+                            </button>
                       </div>
 
                   </div>
