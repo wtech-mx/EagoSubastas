@@ -10,7 +10,8 @@ $upcoming_auctions = \App\Auction::getHomeUpcomingAuctions();
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 au-deals">
 
-                    <h2 class="text-center"> {{getPhrase('upcoming_auctions')}} </h2>
+{{--                    <h2 class="text-center"> {{getPhrase('upcoming_auctions')}} </h2>--}}
+                    <h2 class="text-center"> Próximas subastas</h2>
                 </div>
             </div>
 
@@ -34,8 +35,10 @@ $upcoming_auctions = \App\Auction::getHomeUpcomingAuctions();
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-12">
                     <div class="au-bidding live">
-                        <a href="{{URL_HOME_AUCTION_DETAILS}}/{{$auction->slug}}" title="Auction Details" class="btn btn-default rounded au-space au-btn-modren login-bttn"> {{getPhrase('happening_now')}}</a>
-                        <label>{{getPhrase('live_auction')}}</label>
+{{--                        <a href="{{URL_HOME_AUCTION_DETAILS}}/{{$auction->slug}}" title="Auction Details" class="btn btn-default rounded au-space au-btn-modren login-bttn"> {{getPhrase('happening_now')}}</a>--}}
+                        <a href="{{URL_HOME_AUCTION_DETAILS}}/{{$auction->slug}}" title="Auction Details" class="btn btn-default rounded au-space au-btn-modren login-bttn"> sucediendo ahora</a>
+{{--                        <label>{{getPhrase('live_auction')}}</label>--}}
+                        <label>Subasta en Vivo</label>
                     </div>
                 </div>
             </div>
@@ -55,11 +58,13 @@ $upcoming_auctions = \App\Auction::getHomeUpcomingAuctions();
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-3 col-md-3 col-sm-12">
-<div class="au-bidding">
+                    <div class="au-bidding">
 
                     <a href="{{URL_HOME_AUCTION_DETAILS}}/{{$auction->slug}}" title="Auction Details" class="btn btn-default au-space au-btn-gray login-bttn">{{getPhrase('view_details')}}</a>
-                    <label>{{getPhrase('upcoming_auction')}}</label>
+                    {{-- <label>{{getPhrase('upcoming_auction')}}</label>--}}
+                    <label>próxima subasta</label>
                     </div>
                 </div>
             </div>
@@ -70,7 +75,8 @@ $upcoming_auctions = \App\Auction::getHomeUpcomingAuctions();
             <div class="row mt-4">
                 <div class="col-lg-12 col-md-12 col-sm-12 au-all-upcoming">
                    <div class="text-center">
-                    <a href="{{URL_HOME_AUCTIONS}}" class="btn btn-primary au-space au-btn-gray login-bttn">{{getPhrase('view_all_upcoming_auctions')}}</a>
+{{--                    <a href="{{URL_HOME_AUCTIONS}}" class="btn btn-primary au-space au-btn-gray login-bttn">{{getPhrase('view_all_upcoming_auctions')}}</a>--}}
+                       <a href="{{URL_HOME_AUCTIONS}}" class="btn btn-primary au-space au-btn-gray login-bttn">ver todas las próximas subastas</a>
                        </div>
                 </div>
             </div>

@@ -20,7 +20,8 @@
 
 
     <div class="col-lg-9 col-md-8 col-sm-12 au-onboard">
-            <a href="{{URL_HOME}}" class="au-middles justify-content-start"> {{getPhrase('home')}} &nbsp;<span> / {{getPhrase('profile')}} </span></a>
+{{--            <a href="{{URL_HOME}}" class="au-middles justify-content-start"> {{getPhrase('home')}} Inicio &nbsp;<span> / {{getPhrase('profile')}} Perfil </span></a>--}}
+        <a href="{{URL_HOME}}" class="au-middles justify-content-start">  Inicio &nbsp;<span> /  Perfil </span></a>
 
             <div class="au-left-side form-auth-style">
 

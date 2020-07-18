@@ -247,7 +247,7 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                         <input type="hidden" name="bid_auction_id" value="<?php echo e($auction->id); ?>">
 
 
-                            <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Identificación del lugar</button>
+                            <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
 
                      </div>
 
@@ -300,7 +300,7 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                         <input type="hidden" name="bid_auction_id" value="<?php echo e($auction->id); ?>">
 
 
-                            <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Identificación del lugar</button>
+                            <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
 
                      </div>
 
