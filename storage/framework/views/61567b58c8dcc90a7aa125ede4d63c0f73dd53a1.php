@@ -1,21 +1,20 @@
-@extends($layout)
+ <?php $__env->startSection('header_scripts'); ?>
+<link href="<?php echo e(CSS); ?>dropzone/basic.css" rel="stylesheet">
 
- @section('header_scripts')
-<link href="{{CSS}}dropzone/basic.css" rel="stylesheet">
+<script src="<?php echo e(JS); ?>dropzone.js"></script>
+<?php $__env->stopSection(); ?>
 
-<script src="{{JS}}dropzone.js"></script>
-@stop
-
-@section('custom_div')
+<?php $__env->startSection('custom_div'); ?>
 <div ng-controller="prepareAuctionData">
-@stop
+<?php $__env->stopSection(); ?>
 
-@section('content')
-    <h3 class="page-title"> {{getPhrase('auctions')}} </h3>
+<?php $__env->startSection('content'); ?>
+    <h3 class="page-title"> <?php echo e(getPhrase('auctions')); ?> </h3>
 
     <div class="panel panel-default">
         <div class="panel-heading">
-           {{ getPhrase('view') }}
+           <?php echo e(getPhrase('view')); ?>
+
         </div>
 
 
@@ -27,16 +26,16 @@
          <!-- Nav tabs -->
 <ul class="nav nav-tabs nav-justified">
     <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab"><i class="fa fa-list"></i> {{getPhrase('auction_details')}} </a>
+        <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab"><i class="fa fa-list"></i> <?php echo e(getPhrase('auction_details')); ?> </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#panel2" role="tab"><i class="far fa-image"></i> {{getPhrase('images')}} </a>
+        <a class="nav-link" data-toggle="tab" href="#panel2" role="tab"><i class="far fa-image"></i> <?php echo e(getPhrase('images')); ?> </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#panel4" role="tab"><i class="fas fa-envelope"></i> {{getPhrase('invitacion')}} </a>
+        <a class="nav-link" data-toggle="tab" href="#panel4" role="tab"><i class="fas fa-envelope"></i> <?php echo e(getPhrase('invitacion')); ?> </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#panel3" role="tab"><i class="fa fa-user"></i> {{getPhrase('auction_bidders')}} </a>
+        <a class="nav-link" data-toggle="tab" href="#panel3" role="tab"><i class="fa fa-user"></i> <?php echo e(getPhrase('auction_bidders')); ?> </a>
     </li>
 </ul>
 
@@ -59,140 +58,144 @@
 
                     <table class="table table-bordered table-striped">
                         <tr>
-                           <!-- <th> {{getPhrase('title')}} </th> -->
-                            <td field-key='title'>{{ $record->title }}</td>
+                           <!-- <th> <?php echo e(getPhrase('title')); ?> </th> -->
+                            <td field-key='title'><?php echo e($record->title); ?></td>
                         </tr>
                        
                         <tr>
-                           <!-- <th> {{getPhrase('image')}} </th> -->
-                            <td field-key='image'> <a href="{{getAuctionImage($record->image,'auction')}}" target="_blank"> <img src="{{getAuctionImage($record->image)}}" alt="{{$record->title}}" width="50"> </a> </td>
+                           <!-- <th> <?php echo e(getPhrase('image')); ?> </th> -->
+                            <td field-key='image'> <a href="<?php echo e(getAuctionImage($record->image,'auction')); ?>" target="_blank"> <img src="<?php echo e(getAuctionImage($record->image)); ?>" alt="<?php echo e($record->title); ?>" width="50"> </a> </td>
                         </tr>
 
 
                         <tr>
-                           <!-- <th> {{getPhrase('category')}}  </th> -->
-                            <td field-key='category'> {{ $record->category }} </td>
+                           <!-- <th> <?php echo e(getPhrase('category')); ?>  </th> -->
+                            <td field-key='category'> <?php echo e($record->category); ?> </td>
                         </tr>
 
 
                         <tr>
-                            <!--<th> {{getPhrase('sub_category')}}  </th> -->
-                            <td field-key='sub_category'> {{ $record->sub_category }} </td>
+                            <!--<th> <?php echo e(getPhrase('sub_category')); ?>  </th> -->
+                            <td field-key='sub_category'> <?php echo e($record->sub_category); ?> </td>
                         </tr>
 
 
                         <tr>
-                            <!--<th> {{getPhrase('seller')}}  </th> -->
-                            <td field-key='seller'> {{ $record->username }} </td>
+                            <!--<th> <?php echo e(getPhrase('seller')); ?>  </th> -->
+                            <td field-key='seller'> <?php echo e($record->username); ?> </td>
                         </tr>
 
 
                         <tr>
-                          <!--  <th> {{getPhrase('start_date')}}  </th> -->
-                            <td field-key='start_date'>  @if ($record->start_date) <?php echo date(getSetting('date_format','site_settings').' H:i:s', strtotime($record->start_date));?> @endif </td>
+                          <!--  <th> <?php echo e(getPhrase('start_date')); ?>  </th> -->
+                            <td field-key='start_date'>  <?php if($record->start_date): ?> <?php echo date(getSetting('date_format','site_settings').' H:i:s', strtotime($record->start_date));?> <?php endif; ?> </td>
                         </tr>
 
                         <tr>
-                          <!--  <th> {{getPhrase('end_date')}}  </th> -->
-                            <td field-key='end_date'>  @if ($record->end_date) <?php echo date(getSetting('date_format','site_settings').' H:i:s', strtotime($record->end_date));?> @endif </td>
+                          <!--  <th> <?php echo e(getPhrase('end_date')); ?>  </th> -->
+                            <td field-key='end_date'>  <?php if($record->end_date): ?> <?php echo date(getSetting('date_format','site_settings').' H:i:s', strtotime($record->end_date));?> <?php endif; ?> </td>
                         </tr>
 
 
                         <tr>
-                         <!--  <th> {{getPhrase('live_auction_date')}}  </th>-->
-                            <td>  @if ($record->live_auction_date) <?php echo date(getSetting('date_format','site_settings'), strtotime($record->live_auction_date));?> @endif </td>
+                         <!--  <th> <?php echo e(getPhrase('live_auction_date')); ?>  </th>-->
+                            <td>  <?php if($record->live_auction_date): ?> <?php echo date(getSetting('date_format','site_settings'), strtotime($record->live_auction_date));?> <?php endif; ?> </td>
                         </tr>
 
                         <tr>
-                          <!--  <th> {{getPhrase('live_auction_start_time')}}  </th>-->
-                            <td>  {{ $record->live_auction_start_time }} </td>
+                          <!--  <th> <?php echo e(getPhrase('live_auction_start_time')); ?>  </th>-->
+                            <td>  <?php echo e($record->live_auction_start_time); ?> </td>
                         </tr>
 
 
                          <tr>
-                           <!-- <th> {{getPhrase('live_auction_end_time')}}  </th>-->
-                            <td>  {{ $record->live_auction_end_time }} </td>
+                           <!-- <th> <?php echo e(getPhrase('live_auction_end_time')); ?>  </th>-->
+                            <td>  <?php echo e($record->live_auction_end_time); ?> </td>
                         </tr>
 
                         <tr>
-                           <!-- <th> {{getPhrase('minimum_bid')}}  </th>-->
-                            <td field-key='minimum_bid'> {{$currency}}{{ $record->minimum_bid }} </td>
+                           <!-- <th> <?php echo e(getPhrase('minimum_bid')); ?>  </th>-->
+                            <td field-key='minimum_bid'> <?php echo e($currency); ?><?php echo e($record->minimum_bid); ?> </td>
                         </tr>
 
                         <tr>
-                          <!--  <th> {{getPhrase('reserve_price')}}  </th>-->
-                            <td field-key='reserve_price'> {{$currency}}{{ $record->reserve_price }} </td>
+                          <!--  <th> <?php echo e(getPhrase('reserve_price')); ?>  </th>-->
+                            <td field-key='reserve_price'> <?php echo e($currency); ?><?php echo e($record->reserve_price); ?> </td>
                         </tr>
 
                         <tr>
-                          <!--  <th> {{getPhrase('buy_now_price')}}  </th>-->
-                            <td field-key='buy_now_price'> {{$currency}}{{ $record->buy_now_price }} </td>
+                          <!--  <th> <?php echo e(getPhrase('buy_now_price')); ?>  </th>-->
+                            <td field-key='buy_now_price'> <?php echo e($currency); ?><?php echo e($record->buy_now_price); ?> </td>
                         </tr>
 
                          <tr>
-                           <!-- <th> {{getPhrase('bid_increment')}}  </th>-->
-                            <td field-key='bid_increment'> {{$currency}}{{ $record->bid_increment }} </td>
+                           <!-- <th> <?php echo e(getPhrase('bid_increment')); ?>  </th>-->
+                            <td field-key='bid_increment'> <?php echo e($currency); ?><?php echo e($record->bid_increment); ?> </td>
                         </tr>
 
                         <tr>
-                          <!--  <th> {{getPhrase('description')}}  </th>-->
-                            <td field-key='description'> {!! $record->description !!} </td>
+                          <!--  <th> <?php echo e(getPhrase('description')); ?>  </th>-->
+                            <td field-key='description'> <?php echo $record->description; ?> </td>
                         </tr>
 
                         <tr>
-                          <!-- <th> {{getPhrase('shipping_conditions')}}  </th>-->
-                            <td field-key='shipping_conditions'> {!! $record->shipping_conditions !!} </td>
+                          <!-- <th> <?php echo e(getPhrase('shipping_conditions')); ?>  </th>-->
+                            <td field-key='shipping_conditions'> <?php echo $record->shipping_conditions; ?> </td>
                         </tr>
 
                         <tr>
-                          <!--  <th> {{getPhrase('international_shipping')}}  </th>-->
+                          <!--  <th> <?php echo e(getPhrase('international_shipping')); ?>  </th>-->
                             <td field-key='international_shipping'> 
-                                @if ($record->international_shipping==1)
-                                {{ getPhrase('yes') }}
-                                @else
-                                {{ getPhrase('no') }}
-                                @endif
+                                <?php if($record->international_shipping==1): ?>
+                                <?php echo e(getPhrase('yes')); ?>
+
+                                <?php else: ?>
+                                <?php echo e(getPhrase('no')); ?>
+
+                                <?php endif; ?>
                             </td>
                         </tr>
 
 
                         <tr>
-                          <!--  <th> {{getPhrase('shipping_terms')}}  </th>-->
-                            <td field-key='shipping_terms'> {!! $record->shipping_terms !!} </td>
+                          <!--  <th> <?php echo e(getPhrase('shipping_terms')); ?>  </th>-->
+                            <td field-key='shipping_terms'> <?php echo $record->shipping_terms; ?> </td>
                         </tr>
 
 
                         <tr>
-                         <!-- <th> {{getPhrase('featured')}}  </th>-->
+                         <!-- <th> <?php echo e(getPhrase('featured')); ?>  </th>-->
                             <td field-key='make_featured'> 
-                                @if ($record->make_featured==1)
-                                {{ getPhrase('yes') }}
-                                @else
-                                {{ getPhrase('no') }}
-                                @endif
+                                <?php if($record->make_featured==1): ?>
+                                <?php echo e(getPhrase('yes')); ?>
+
+                                <?php else: ?>
+                                <?php echo e(getPhrase('no')); ?>
+
+                                <?php endif; ?>
                             </td>
                         </tr>
 
 
                         <tr>
-                          <!-- <th> {{getPhrase('auction_status')}}  </th>-->
-                            <td field-key='auction_status'> {{ ucfirst($record->auction_status) }} </td>
+                          <!-- <th> <?php echo e(getPhrase('auction_status')); ?>  </th>-->
+                            <td field-key='auction_status'> <?php echo e(ucfirst($record->auction_status)); ?> </td>
                         </tr>
 
                         <tr>
-                           <!-- <th> {{getPhrase('admin_status')}}  </th>-->
-                            <td field-key='admin_status'> {{ ucfirst($record->admin_status) }} </td>
+                           <!-- <th> <?php echo e(getPhrase('admin_status')); ?>  </th>-->
+                            <td field-key='admin_status'> <?php echo e(ucfirst($record->admin_status)); ?> </td>
                         </tr>
 
 
                         <tr>
-                          <!--  <th> {{getPhrase('created_by')}}  </th>-->
-                            <td field-key='created_by'> {{ $record->created_by }} </td>
+                          <!--  <th> <?php echo e(getPhrase('created_by')); ?>  </th>-->
+                            <td field-key='created_by'> <?php echo e($record->created_by); ?> </td>
                         </tr>
 
                          <tr>
-                          <!--  <th> {{getPhrase('last_updated_by')}}  </th>-->
-                            <td field-key='updated_by_name'> {{ $record->updated_by_name }} </td>
+                          <!--  <th> <?php echo e(getPhrase('last_updated_by')); ?>  </th>-->
+                            <td field-key='updated_by_name'> <?php echo e($record->updated_by_name); ?> </td>
                         </tr>
 
 
@@ -202,21 +205,23 @@
                        
 
                         <tr>
-                          <!--  <th> {{getPhrase('admin_commission_type')}}  </th> -->
+                          <!--  <th> <?php echo e(getPhrase('admin_commission_type')); ?>  </th> -->
                             <td field-key='admin_commission_type'>
-                                @if ($record->admin_commission_type=='auction')
-                                {{ getPhrase('per_auction')}}
-                                @else
-                                {{ ucfirst($record->admin_commission_type) }}
-                                @endif
+                                <?php if($record->admin_commission_type=='auction'): ?>
+                                <?php echo e(getPhrase('per_auction')); ?>
+
+                                <?php else: ?>
+                                <?php echo e(ucfirst($record->admin_commission_type)); ?>
+
+                                <?php endif; ?>
                                  </td>
                         </tr>
 
 
 
                         <tr>
-                          <!--  <th> {{getPhrase('commission_value')}}  </th> -->
-                            <td field-key='commission_value'> @if ($record->commission_value>0) {{$currency}}{{ $record->commission_value }} @endif </td>
+                          <!--  <th> <?php echo e(getPhrase('commission_value')); ?>  </th> -->
+                            <td field-key='commission_value'> <?php if($record->commission_value>0): ?> <?php echo e($currency); ?><?php echo e($record->commission_value); ?> <?php endif; ?> </td>
                         </tr>
 
 
@@ -241,11 +246,11 @@
         <div class="row">
 
         <div class="col-md-12">
-                <h4>{{getPhrase('upload_images')}}</h4>
+                <h4><?php echo e(getPhrase('upload_images')); ?></h4>
 
-                    {!! Form::open(array('url' => URL_AUCTIONS_UPLOAD_IMAGES.$record->slug, 'method' => 'POST', 'novalidate'=>'','name'=>'formUsers', 
-                        'files'=>'true','class'=>"dropzone", 'id'=>"real-dropzone",'multiple'=>true)) 
-                    !!}
+                    <?php echo Form::open(array('url' => URL_AUCTIONS_UPLOAD_IMAGES.$record->slug, 'method' => 'POST', 'novalidate'=>'','name'=>'formUsers', 
+                        'files'=>'true','class'=>"dropzone", 'id'=>"real-dropzone",'multiple'=>true)); ?>
+
 
                     <div class="row">
         
@@ -258,10 +263,10 @@
 
                              <div class="instuctions-block mt-3">
                                 <ul>
-                                    <li>{{getPhrase('only_image_files_are_accepted')}}</li>
-                                    <li>{{getPhrase('files_are_uploaded_as_soon_as_you_drop_them')}}</li>
-                                    <li>{{getPhrase('maximum_allowed_size_is_5MB')}}</li>
-                                    <li style="color:red;">{{getPhrase('for_good_resolution_image_width_height_950x650')}}</li>
+                                    <li><?php echo e(getPhrase('only_image_files_are_accepted')); ?></li>
+                                    <li><?php echo e(getPhrase('files_are_uploaded_as_soon_as_you_drop_them')); ?></li>
+                                    <li><?php echo e(getPhrase('maximum_allowed_size_is_5MB')); ?></li>
+                                    <li style="color:red;"><?php echo e(getPhrase('for_good_resolution_image_width_height_950x650')); ?></li>
                                 </ul>
 
                             </div>
@@ -270,7 +275,7 @@
 
                         <div class="col-sm-6">
                             <div class="scroll-height">
-                            <h3 class="files-title">{{getPhrase('total_uploaded_files')}} <span id="photoCounter"></span></h3>
+                            <h3 class="files-title"><?php echo e(getPhrase('total_uploaded_files')); ?> <span id="photoCounter"></span></h3>
                             <div class="dropzone-previews" id="dropzonePreview"></div>
                             </div>
                          </div>
@@ -283,7 +288,8 @@
                     </div>
 
 
-                    {!! Form::close() !!}
+                    <?php echo Form::close(); ?>
+
 
             </div>
 
@@ -300,7 +306,7 @@
                 <div class="dz-size"><span data-dz-size=""></span></div>
                 <div class="dz-filename"><span data-dz-name=""></span></div>
             </div>
-            {{-- <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress=""></span></div> --}}
+            
             <div class="dz-error-message"><span data-dz-errormessage=""></span></div>
 
             <div class="dz-success-mark">
@@ -377,21 +383,21 @@
 
                     <tr>    
                         <th>#</th>
-                        <th> {{getPhrase('username')}} </th>
-                        <th> {{getPhrase('email')}} </th>
-                        <th> {{getPhrase('image')}} </th>
-                        <th> {{getPhrase('no_of_times')}} </th>
-                        <th> {{getPhrase('highest_bid')}} </th>
+                        <th> <?php echo e(getPhrase('username')); ?> </th>
+                        <th> <?php echo e(getPhrase('email')); ?> </th>
+                        <th> <?php echo e(getPhrase('image')); ?> </th>
+                        <th> <?php echo e(getPhrase('no_of_times')); ?> </th>
+                        <th> <?php echo e(getPhrase('highest_bid')); ?> </th>
 
                         
                         <th>&nbsp;</th> 
 
                     </tr>
                 </thead>
-               @if (isset($bidders) && count($bidders))
+               <?php if(isset($bidders) && count($bidders)): ?>
                 <tbody>
-                   @if (count($bidders))
-                       @foreach ($bidders as $user)
+                   <?php if(count($bidders)): ?>
+                       <?php $__currentLoopData = $bidders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
                        <?php 
                        $highest_bid='';
@@ -406,45 +412,46 @@
                             <tr>
                                 <td>#</td>
                                 <td field-key='name'>
-                                @if (checkRole(getUserGrade(1)))    
-                                <a href="{{URL_USERS_VIEW}}/{{$user->slug}}">{{$user->username}}</a>
-                                @else
-                                {{$user->username}}
-                                @endif
+                                <?php if(checkRole(getUserGrade(1))): ?>    
+                                <a href="<?php echo e(URL_USERS_VIEW); ?>/<?php echo e($user->slug); ?>"><?php echo e($user->username); ?></a>
+                                <?php else: ?>
+                                <?php echo e($user->username); ?>
+
+                                <?php endif; ?>
                                 </td>
 
-                                <td field-key='email'> {{ $user->email }} </td>
+                                <td field-key='email'> <?php echo e($user->email); ?> </td>
 
-                                <td field-key='image'> <img style="width:30px;" src="{{getProfilePath($user->image)}}"  />  </td>
+                                <td field-key='image'> <img style="width:30px;" src="<?php echo e(getProfilePath($user->image)); ?>"  />  </td>
 
-                                <td> {{$user->no_of_times}} </td>
+                                <td> <?php echo e($user->no_of_times); ?> </td>
 
-                                <td> @if ($highest_bid) {{$currency}}{{$highest_bid}} @endif </td>
+                                <td> <?php if($highest_bid): ?> <?php echo e($currency); ?><?php echo e($highest_bid); ?> <?php endif; ?> </td>
 
 
                                 <td> 
-                                    <a href="#" ng-click="getBidHistory({{$user->id}})" data-toggle="modal" data-target="#bidHistoryModal" title="view total bid history of {{$user->username}}" class="btn btn-xs btn-primary"> {{getPhrase('bid_history')}} </a>
+                                    <a href="#" ng-click="getBidHistory(<?php echo e($user->id); ?>)" data-toggle="modal" data-target="#bidHistoryModal" title="view total bid history of <?php echo e($user->username); ?>" class="btn btn-xs btn-primary"> <?php echo e(getPhrase('bid_history')); ?> </a>
                                    
 
-                                    @if (checkRole(['admin']))
+                                    <?php if(checkRole(['admin'])): ?>
                                     
-                                    @if ($send_email)
-                                    <a href="#" onclick="auctionBidder({{$user->id}})" data-toggle="tooltip" data-placement="bottom" class="btn btn-xs btn-info" title="send email to {{$user->username}} regarding bidding payment"> {{getPhrase('send_email')}} </a>
-                                    @endif 
+                                    <?php if($send_email): ?>
+                                    <a href="#" onclick="auctionBidder(<?php echo e($user->id); ?>)" data-toggle="tooltip" data-placement="bottom" class="btn btn-xs btn-info" title="send email to <?php echo e($user->username); ?> regarding bidding payment"> <?php echo e(getPhrase('send_email')); ?> </a>
+                                    <?php endif; ?> 
 
-                                    @endif
+                                    <?php endif; ?>
 
                                 </td>
                             </tr>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-                        @else
+                        <?php else: ?>
                             <tr>
-                                <td colspan="6"> {{ getPhrase('no_entries_in_table') }}</td>
+                                <td colspan="6"> <?php echo e(getPhrase('no_entries_in_table')); ?></td>
                             </tr>
-                        @endif
+                        <?php endif; ?>
                 </tbody>
-                @endif
+                <?php endif; ?>
             </table>
 
 
@@ -463,7 +470,7 @@
 
         <p>&nbsp;</p>
 
-        <a href="{{ URL_LIST_AUCTIONS }}" class="btn btn-default"> {{ getPhrase('back_to_list') }} </a>
+        <a href="<?php echo e(URL_LIST_AUCTIONS); ?>" class="btn btn-default"> <?php echo e(getPhrase('back_to_list')); ?> </a>
 
         </div>
 
@@ -480,7 +487,7 @@
                                           
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{{getPhrase('bid_history')}}</h5>
+        <h5 class="modal-title" id="exampleModalLabel"><?php echo e(getPhrase('bid_history')); ?></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -492,20 +499,20 @@
         <ul class="list-group z-depth-0">
 
             <li class="list-group-item justify-content-between">
-                <span><b>{{getPhrase('bid_amount')}}</b></span>
-                <span style="float:right;"><b>{{getPhrase('datetime')}}</b></span> 
+                <span><b><?php echo e(getPhrase('bid_amount')); ?></b></span>
+                <span style="float:right;"><b><?php echo e(getPhrase('datetime')); ?></b></span> 
             </li>
 
             <li ng-repeat="bid in bid_history" class="list-group-item justify-content-between">
-                <span>{{$currency}}@{{bid.bid_amount}}</span>
-                <span style="float:right;">@{{bid.created_at}}</span>
+                <span><?php echo e($currency); ?>{{bid.bid_amount}}</span>
+                <span style="float:right;">{{bid.created_at}}</span>
             </li>
         </ul>
 
     </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{getPhrase('close')}}</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php echo e(getPhrase('close')); ?></button>
         
       </div>
     </div>
@@ -523,7 +530,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{{getPhrase('send_invoice_email_to_bidder_regarding_payment')}}</h5>
+        <h5 class="modal-title" id="exampleModalLabel"><?php echo e(getPhrase('send_invoice_email_to_bidder_regarding_payment')); ?></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -533,16 +540,17 @@
 
       <div class="modal-body form-auth-style">
 
-        {!! Form::open(array('url' => URL_BID_EMAIL_NOTIFICATION, 'method' => 'POST','name'=>'formValidate','novalidate'=>'')) !!}
+        <?php echo Form::open(array('url' => URL_BID_EMAIL_NOTIFICATION, 'method' => 'POST','name'=>'formValidate','novalidate'=>'')); ?>
+
 
         <input type="hidden" name="ab_id" id="ab_id" value="">
-        <input type="hidden" name="auction_id" value="{{$record->id}}">
+        <input type="hidden" name="auction_id" value="<?php echo e($record->id); ?>">
 
         <p>Send Email notification to User regarding payment of Auction</p>
 
          <div class="form-group">
 
-            {{ Form::textarea('message', old('message'), $attributes = 
+            <?php echo e(Form::textarea('message', old('message'), $attributes = 
 
                 array('class' => 'form-control ckeditor', 
 
@@ -556,11 +564,13 @@
 
                 'ng-class'=>'{"has-error": formValidate.message.$touched && formValidate.message.$invalid}',
 
-                )) }}
+                ))); ?>
+
 
             <div class="validation-error" ng-messages="formValidate.message.$error" >
 
-                {!! getValidationMessage()!!}
+                <?php echo getValidationMessage(); ?>
+
 
             </div>
 
@@ -568,11 +578,12 @@
 
            <div class="form-group">
 
-            {!! Form::label('sent_at', getPhrase('start_date'), ['class' => 'control-label']) !!}
+            <?php echo Form::label('sent_at', getPhrase('start_date'), ['class' => 'control-label']); ?>
+
 
                 <span class="text-red">*</span>
 
-                {{ Form::text('sent_at', old('sent_at') , $attributes = 
+                <?php echo e(Form::text('sent_at', old('sent_at') , $attributes = 
 
                 array('class' => 'form-control', 
 
@@ -582,7 +593,8 @@
 
                 'ng-model' => 'sent_at',
 
-                )) }}
+                ))); ?>
+
 
 
             </div>
@@ -590,13 +602,14 @@
 
             <div class="form-group">
 
-                {!! Form::label('end_date', getPhrase('end_date'), ['class' => 'control-label']) !!}
+                <?php echo Form::label('end_date', getPhrase('end_date'), ['class' => 'control-label']); ?>
+
 
                 <span class="text-red">*</span>
 
 
 
-                {{ Form::text('ended_at', old('ended_at') , $attributes = 
+                <?php echo e(Form::text('ended_at', old('ended_at') , $attributes = 
 
                 array('class' => 'form-control', 
 
@@ -607,7 +620,8 @@
                 'ng-model' => 'ended_at', 
 
                
-                )) }}
+                ))); ?>
+
 
 
             </div>
@@ -616,15 +630,16 @@
 
         <div class="modal-footer">
 
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{getPhrase('close')}}</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php echo e(getPhrase('close')); ?></button>
 
-        <button type="submit" name="send_email" class="btn btn-primary" ng-disabled="!formValidate.$valid">{{getPhrase('send')}}</button>
+        <button type="submit" name="send_email" class="btn btn-primary" ng-disabled="!formValidate.$valid"><?php echo e(getPhrase('send')); ?></button>
 
       </div>
 
 
 
-        {!! Form::close() !!}
+        <?php echo Form::close(); ?>
+
 
      
 
@@ -646,17 +661,17 @@
 
 
     </div>
-@stop
+<?php $__env->stopSection(); ?>
 
 
 
 
 
 
-@section('footer_scripts')
-@include('common.validations')
-@include('common.alertify')
-@include('admin.auctions.scripts.auction-js-scripts')
+<?php $__env->startSection('footer_scripts'); ?>
+<?php echo $__env->make('common.validations', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('common.alertify', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('admin.auctions.scripts.auction-js-scripts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <script>
  
  
@@ -698,14 +713,14 @@ Dropzone.options.realDropzone = {
            // mockFile.previewElement.classList.add('dz-complete');
            
         }
-            // $('.dz-image').css('background-image', 'url({{AUCTION_IMAGES_PATH_URL}})'+mockFile.filename);
+            // $('.dz-image').css('background-image', 'url(<?php echo e(AUCTION_IMAGES_PATH_URL); ?>)'+mockFile.filename);
 
          $("#photoCounter").text( "(" + photo_counter + ")");
 
         this.on("removedfile", function(file) {
             $.ajax({
                 type: 'POST',
-                url: '{{URL_AUCTIONS_DELETE_IMAGES}}'+ file.id,
+                url: '<?php echo e(URL_AUCTIONS_DELETE_IMAGES); ?>'+ file.id,
                 data: {id: file.id, _token: $('[name="_token"]').val()},
                 dataType: 'html',
                 success: function(data){
@@ -745,7 +760,7 @@ Dropzone.options.realDropzone = {
     switch (file.type) {
       case 'application/pdf':
       
-        thumbnail.css('background-image', 'url({{IMAGES}}pdf.png)');
+        thumbnail.css('background-image', 'url(<?php echo e(IMAGES); ?>pdf.png)');
         break;
       case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
         thumbnail.css('background', 'url(img/doc.png)');
@@ -757,8 +772,8 @@ Dropzone.options.realDropzone = {
 }
  </script>
 
-<script src="{{JS}}moment.min.js"></script>
-<script src="{{JS}}bootstrap-datetimepicker.min.js"></script>
+<script src="<?php echo e(JS); ?>moment.min.js"></script>
+<script src="<?php echo e(JS); ?>bootstrap-datetimepicker.min.js"></script>
 
 <script>
     $(function () {
@@ -792,10 +807,12 @@ function auctionBidder(id)
 }
 </script>
 
-@stop
+<?php $__env->stopSection(); ?>
 
 
 
-@section('custom_div_end')
+<?php $__env->startSection('custom_div_end'); ?>
 </div>
-@stop
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make($layout, array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
