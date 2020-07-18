@@ -377,7 +377,7 @@
                   <div class="form-group">
 
                     {!! Form::label('tiros', getPhrase('tiros'), ['class' => 'control-label']) !!}
-                    ({{ $currency_code }})
+                    
                     <span class="text-red">*</span>
 
                     <?php

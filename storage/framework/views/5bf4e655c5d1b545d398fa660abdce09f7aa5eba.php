@@ -404,7 +404,7 @@
 
                     <?php echo Form::label('tiros', getPhrase('tiros'), ['class' => 'control-label']); ?>
 
-                    (<?php echo e($currency_code); ?>)
+                    
                     <span class="text-red">*</span>
 
                     <?php
