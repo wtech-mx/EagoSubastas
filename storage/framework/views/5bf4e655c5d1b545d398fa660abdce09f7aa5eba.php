@@ -355,19 +355,6 @@
 
                 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
                   <div class="form-group">
 
                     <?php echo Form::label('reserve_price', getPhrase('reserve_price'), ['class' => 'control-label']); ?>
@@ -402,6 +389,51 @@
 
 
                     <div class="validation-error" ng-messages="formValidate.reserve_price.$error" >
+
+                            <?php echo getValidationMessage(); ?>
+
+
+                            <?php echo getValidationMessage('pattern'); ?>
+
+
+                    </div>
+
+                </div>
+
+                  <div class="form-group">
+
+                    <?php echo Form::label('tiros', getPhrase('tiros'), ['class' => 'control-label']); ?>
+
+                    (<?php echo e($currency_code); ?>)
+                    <span class="text-red">*</span>
+
+                    <?php
+                        $val=old('tiros');
+                        if ($record)
+                         $val = $record->tiros;
+
+                    ?>
+
+                    <?php echo e(Form::text('tiros', old('tiros'), $attributes =
+
+                    array('class' => 'form-control',
+
+                    'placeholder' => 'Tiros',
+
+                    'ng-model' => 'tiros',
+
+                    'required' => 'true',
+
+                    'ng-pattern' => getRegexPattern("price"),
+
+                    'ng-init'=>'tiros="'.$val.'"',
+
+                    'ng-class'=>'{"has-error": formValidate.tiros.$touched && formValidate.tiros.$invalid}',
+
+                    ))); ?>
+
+
+                    <div class="validation-error" ng-messages="formValidate.tiros.$error" >
 
                             <?php echo getValidationMessage(); ?>
 

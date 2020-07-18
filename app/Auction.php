@@ -27,6 +27,7 @@ use DB;
  * @property string $end_date
  * @property decimal $minimum_bid
  * @property decimal $reserve_price
+ * @property int $tiros
  * @property decimal $buy_now_price
  * @property decimal $bid_increment
  * @property string $shipping_conditions
@@ -41,7 +42,7 @@ class Auction extends Model implements HasMedia
 {
     use HasMediaTrait;
 
-    protected $fillable = ['title', 'description', 'start_date', 'end_date', 'minimum_bid', 'reserve_price', 'buy_now_price', 'bid_increment', 'shipping_conditions', 'international_shipping', 'shipping_terms', 'make_featured', 'auction_status', 'admin_status' , 'category_id', 'sub_category_id', 'created_by_id', 'user_id'];
+    protected $fillable = ['title', 'description', 'start_date', 'end_date', 'minimum_bid', 'reserve_price','tiros', 'buy_now_price', 'bid_increment', 'shipping_conditions', 'international_shipping', 'shipping_terms', 'make_featured', 'auction_status', 'admin_status' , 'category_id', 'sub_category_id', 'created_by_id', 'user_id'];
     
     
     public static function boot()
@@ -147,6 +148,16 @@ class Auction extends Model implements HasMedia
     public function setReservePriceAttribute($input)
     {
         $this->attributes['reserve_price'] = $input ? $input : null;
+    }
+
+    /**
+     * Set attribute to money format
+     * @param $input
+     */
+
+    public function setTirosAttribute($input)
+    {
+        $this->attributes['tiros'] = $input ? $input : null;
     }
 
     /**
@@ -349,7 +360,7 @@ class Auction extends Model implements HasMedia
                         ->join('sub_catogories','auctions.sub_category_id','sub_catogories.id')
                         ->select(['auctions.id','auctions.title','auctions.slug',
                                   'auctions.description','auctions.image',
-                                  'auctions.reserve_price'])
+                                  'auctions.reserve_price','auctions.tiros'])
                         ->where('auctions.admin_status','approved')
                         ->where('auctions.auction_status','open')
                         ->where('users.role_id',getRoleData('seller'))
@@ -380,7 +391,7 @@ class Auction extends Model implements HasMedia
                         ->join('cities','users.city_id','cities.id')
                         ->select(['auctions.id','auctions.title','auctions.slug',
                                   'auctions.description','auctions.image',
-                                  'auctions.reserve_price','auctions.auction_status','auctions.created_at','users.slug as user_slug','users.username','countries.title as country','states.state','cities.city'])
+                                  'auctions.reserve_price','auctions.tiros','auctions.auction_status','auctions.created_at','users.slug as user_slug','users.username','countries.title as country','states.state','cities.city'])
                         ->where('auctions.admin_status','approved')
                         ->where('auctions.start_date','<=',NOW())
                         ->where('auctions.end_date','>=',NOW())
@@ -416,7 +427,7 @@ class Auction extends Model implements HasMedia
                         ->join('cities','users.city_id','cities.id')
                         ->select(['auctions.id','auctions.title','auctions.slug',
                                   'auctions.description','auctions.image',
-                                  'auctions.reserve_price','auctions.auction_status',
+                                  'auctions.reserve_price','auctions.tiros','auctions.auction_status',
                                   'auctions.created_at','auctions.live_auction_date',
                                   'auctions.live_auction_start_time',
                                   'auctions.live_auction_end_time',
@@ -464,7 +475,7 @@ class Auction extends Model implements HasMedia
                         ->join('sub_catogories','auctions.sub_category_id','sub_catogories.id')
                         ->select(['auctions.id','auctions.title','auctions.slug',
                                   'auctions.description','auctions.image',
-                                  'auctions.reserve_price','auctions.auction_status'])
+                                  'auctions.reserve_price','auctions.tiros','auctions.auction_status'])
                         ->where('auctions.make_featured',1)
                         ->where('auctions.admin_status','approved')
                         ->where('users.role_id',getRoleData('seller'))
@@ -497,7 +508,7 @@ class Auction extends Model implements HasMedia
                         ->join('sub_catogories','auctions.sub_category_id','sub_catogories.id')
                         ->select(['auctions.id','auctions.title','auctions.slug',
                                   'auctions.description','auctions.image',
-                                  'auctions.reserve_price','auctions.auction_status','auctions.buy_now_price'])
+                                  'auctions.reserve_price','auctions.tiros','auctions.auction_status','auctions.buy_now_price'])
                         ->where('auctions.is_buynow',1)
                         ->where('buy_now_price','>',0)
                         ->where('auctions.admin_status','approved')
@@ -528,7 +539,7 @@ class Auction extends Model implements HasMedia
                         ->join('sub_catogories','auctions.sub_category_id','sub_catogories.id')
                         ->select(['auctions.id','auctions.title','auctions.slug',
                                   'auctions.description','auctions.image',
-                                  'auctions.reserve_price','auctions.auction_status'])
+                                  'auctions.reserve_price','auctions.tiros','auctions.auction_status'])
                         ->where('auctions.admin_status','approved')
                         ->where('users.role_id',getRoleData('seller'))
                         ->where('users.approved',1)
@@ -560,7 +571,7 @@ class Auction extends Model implements HasMedia
                         ->join('sub_catogories','auctions.sub_category_id','sub_catogories.id')
                         ->select(['auctions.id','auctions.title','auctions.slug',
                                   'auctions.description','auctions.image',
-                                  'auctions.reserve_price'])
+                                  'auctions.reserve_price','auctions.tiros'])
                         ->where('auctions.auction_status','closed')
                         ->where('auctions.admin_status','approved')
                         ->where('users.role_id',getRoleData('seller'))
@@ -585,7 +596,7 @@ class Auction extends Model implements HasMedia
                         ->join('sub_catogories','auctions.sub_category_id','sub_catogories.id')
                         ->select(['auctions.id','auctions.title','auctions.slug',
                                   'auctions.description','auctions.image',
-                                  'auctions.reserve_price'])
+                                  'auctions.reserve_price','auctions.tiros'])
                         ->where('auctions.auction_status',$status)
                         ->where('auctions.admin_status','approved')
                         /*->where('auctions.start_date','<=',DATE('Y-m-d'))
@@ -647,7 +658,7 @@ class Auction extends Model implements HasMedia
                       ->join('users','auctions.user_id','users.id')
                       ->select(['auctions.id','auctions.title','auctions.slug',
                                   'auctions.description','auctions.image',
-                                  'auctions.reserve_price','auctions.auction_status'])
+                                  'auctions.reserve_price','auctions.tiros','auctions.auction_status'])
                       ->where('auctions.category_id',$category_id)
                       ->where('users.role_id',getRoleData('seller'))
                       ->where('users.approved',1)
@@ -670,7 +681,7 @@ class Auction extends Model implements HasMedia
                       ->join('sub_catogories','auctions.sub_category_id','sub_catogories.id')
                       ->select(['auctions.id','auctions.title','auctions.slug',
                                   'auctions.description','auctions.image',
-                                  'auctions.reserve_price','auctions.auction_status'])
+                                  'auctions.reserve_price','auctions.tiros','auctions.auction_status'])
                       ->where('users.id',$seller_id)
                       ->where('users.role_id',getRoleData('seller'))
                       ->where('users.approved',1)
@@ -693,7 +704,7 @@ class Auction extends Model implements HasMedia
                         ->join('sub_catogories','auctions.sub_category_id','sub_catogories.id')
                         ->select(['auctions.id','auctions.title','auctions.slug',
                                   'auctions.description','auctions.image',
-                                  'auctions.reserve_price'])
+                                  'auctions.reserve_price','auctions.tiros'])
                         ->where('auctions.admin_status','approved')
                         ->where('users.role_id',getRoleData('seller'))
                         ->where('users.approved',1)

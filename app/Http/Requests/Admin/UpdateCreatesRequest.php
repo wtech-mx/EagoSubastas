@@ -32,6 +32,7 @@ class UpdateCreatesRequest extends FormRequest
             'end_date' => 'required|date_format:'.config('app.date_format').' H:i:s',
             'minimum_bid' => 'required',
             'reserve_price' => 'required',
+            'tiros' => 'required',
             'shipping_conditions' => 'required',
             'status' => 'required',
             'user_id' => 'required',

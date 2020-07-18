@@ -333,19 +333,6 @@
 
                 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
                   <div class="form-group">
 
                     {!! Form::label('reserve_price', getPhrase('reserve_price'), ['class' => 'control-label']) !!}
@@ -378,6 +365,47 @@
                     )) }}
 
                     <div class="validation-error" ng-messages="formValidate.reserve_price.$error" >
+
+                            {!! getValidationMessage()!!}
+
+                            {!! getValidationMessage('pattern')!!}
+
+                    </div>
+
+                </div>
+
+                  <div class="form-group">
+
+                    {!! Form::label('tiros', getPhrase('tiros'), ['class' => 'control-label']) !!}
+                    ({{ $currency_code }})
+                    <span class="text-red">*</span>
+
+                    <?php
+                        $val=old('tiros');
+                        if ($record)
+                         $val = $record->tiros;
+
+                    ?>
+
+                    {{ Form::text('tiros', old('tiros'), $attributes =
+
+                    array('class' => 'form-control',
+
+                    'placeholder' => 'Tiros',
+
+                    'ng-model' => 'tiros',
+
+                    'required' => 'true',
+
+                    'ng-pattern' => getRegexPattern("price"),
+
+                    'ng-init'=>'tiros="'.$val.'"',
+
+                    'ng-class'=>'{"has-error": formValidate.tiros.$touched && formValidate.tiros.$invalid}',
+
+                    )) }}
+
+                    <div class="validation-error" ng-messages="formValidate.tiros.$error" >
 
                             {!! getValidationMessage()!!}
 

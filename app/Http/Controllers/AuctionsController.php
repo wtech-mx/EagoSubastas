@@ -59,7 +59,7 @@ class AuctionsController extends Controller
 
         $auctions = Auction::join('users','auctions.user_id','users.id')
                             ->join('users as created_by', 'auctions.created_by_id', 'created_by.id')
-                            ->select(['auctions.id','auctions.slug','auctions.image','auctions.reserve_price','auctions.title','auctions.auction_status','auctions.admin_status','auctions.start_date','auctions.end_date','auctions.live_auction_date','auctions.live_auction_start_time','auctions.live_auction_end_time','users.username','users.slug as seller_slug','created_by.username as created_by'])
+                            ->select(['auctions.id','auctions.slug','auctions.image','auctions.reserve_price','auctions.tiros','auctions.title','auctions.auction_status','auctions.admin_status','auctions.start_date','auctions.end_date','auctions.live_auction_date','auctions.live_auction_start_time','auctions.live_auction_end_time','users.username','users.slug as seller_slug','created_by.username as created_by'])
                             ->where($where)
                             ->orderBy('auctions.id','desc')
                             ->get();
@@ -128,6 +128,7 @@ class AuctionsController extends Controller
          'start_date'       => 'bail|required',
          'end_date'         => 'bail|required',
          'reserve_price'    => 'bail|required',
+         'tiros'    => 'bail|required',
          'description'      => 'bail|required',
         );
 
@@ -198,6 +199,8 @@ class AuctionsController extends Controller
         $record->end_date               = date('Y-m-d H:i:s',strtotime($request->end_date));
 
         $record->reserve_price          = $request->reserve_price;
+
+        $record->tiros                  = $request->tiros;
 
         $record->minimum_bid            = $request->minimum_bid;
        
@@ -367,6 +370,7 @@ class AuctionsController extends Controller
          'start_date'       => 'bail|required',
          'end_date'         => 'bail|required',
          'reserve_price'    => 'bail|required',
+         'tiros'            => 'bail|required',
          'description'      => 'bail|required',
         );
 
@@ -447,6 +451,8 @@ class AuctionsController extends Controller
         $record->end_date               = date('Y-m-d H:i:s',strtotime($request->end_date));
 
         $record->reserve_price          = $request->reserve_price;
+
+        $record->tiros                  = $request->tiros;
 
         $record->minimum_bid            = $request->minimum_bid;
         
