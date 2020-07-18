@@ -3,11 +3,12 @@
 
 @section('content')
     <h3 class="page-title"> {{$title}} </h3>
-    {{--@can('content_page_create')
+    @can('content_page_create')
     <p>
-        <a href="{{URL_PAGES_ADD}}" class="btn btn-success"> {{getPhrase('add_new')}} </a>
+{{--        <a href="{{URL_PAGES_ADD}}" class="btn btn-success"> {{getPhrase('add_new')}} </a>--}}
+        <a href="{{URL_PAGES_ADD}}" class="btn btn-success"> Agregar </a>
     </p>
-    @endcan--}}
+    @endcan
 
     
 
@@ -22,8 +23,11 @@
                     <tr>
                        <th style="text-align:center;">S.no.</th>
 
-                        <th> {{getPhrase('title')}} </th>
-                        <th> {{getPhrase('status')}} </th>
+{{--                        <th> {{getPhrase('title')}} </th>--}}
+                        <th> Titulo </th>
+
+{{--                        <th> {{getPhrase('status')}} </th>--}}
+                         <th> Estatus </th>
                         
                         <th>&nbsp;</th>
 
@@ -47,10 +51,12 @@
 
                                 <td>
                                     @can('content_page_view')
-                                    <a href="{{URL_PAGES_VIEW}}/{{$content_page->slug}}" class="btn btn-xs btn-primary"> {{getPhrase('view')}} </a>
+{{--                                    <a href="{{URL_PAGES_VIEW}}/{{$content_page->slug}}" class="btn btn-xs btn-primary"> {{getPhrase('view')}} </a>--}}
+                                         <a href="{{URL_PAGES_VIEW}}/{{$content_page->slug}}" class="btn btn-xs btn-primary"> Ver </a>
                                     @endcan
                                     @can('content_page_edit')
-                                    <a href="{{ URL_PAGES_EDIT }}/{{$content_page->slug}}" class="btn btn-xs btn-info"> {{getPhrase('edit')}} </a>
+{{--                                    <a href="{{ URL_PAGES_EDIT }}/{{$content_page->slug}}" class="btn btn-xs btn-info"> {{getPhrase('edit')}} </a>--}}
+                                        <a href="{{ URL_PAGES_EDIT }}/{{$content_page->slug}}" class="btn btn-xs btn-info"> Editar </a>
                                     @endcan
 
                                 </td>

@@ -12,7 +12,8 @@
             {{getPhrase('list')}}
 
              @can('country_create')
-                <a href="{{ URL_COUNTRIES_ADD }}" class="btn btn-success btn-add pull-right">{{getPhrase('add_new')}}</a>
+{{--                <a href="{{ URL_COUNTRIES_ADD }}" class="btn btn-success btn-add pull-right">{{getPhrase('add_new')}}</a>--}}
+                  <a href="{{ URL_COUNTRIES_ADD }}" class="btn btn-success btn-add pull-right">Agregar</a>
             @endcan
 
         </div>
@@ -24,10 +25,14 @@
 
                        <th style="text-align:center;">S.no.</th>
 
-                        <th> {{getPhrase('shortcode')}} </th>
-                        <th> {{getPhrase('title')}} </th>
+{{--                        <th> {{getPhrase('shortcode')}} </th>--}}
+                        <th> Código corto </th>
+
+{{--                        <th> {{getPhrase('title')}} </th>--}}
+                         <th> Titulo </th>
+
                        
-                        <th>&nbsp;</th>
+                        <th>&nbsp;Acciones</th>
                         
                     </tr>
                 </thead>
@@ -47,15 +52,18 @@
                                 
                                 <td>
                                     @can('country_view')
-                                    <a href="{{ URL_COUNTRIES_VIEW }}/{{$country->slug}}" class="btn btn-xs btn-primary"> {{getPhrase('view')}} </a>
+{{--                                    <a href="{{ URL_COUNTRIES_VIEW }}/{{$country->slug}}" class="btn btn-xs btn-primary"> {{getPhrase('view')}} </a>--}}
+                                        <a href="{{ URL_COUNTRIES_VIEW }}/{{$country->slug}}" class="btn btn-xs btn-primary"> Ver </a>
                                     @endcan
 
                                     @can('country_edit')
-                                    <a href="{{ URL_COUNTRIES_EDIT }}/{{$country->slug}}" class="btn btn-xs btn-info"> {{getPhrase('edit')}} </a>
+{{--                                    <a href="{{ URL_COUNTRIES_EDIT }}/{{$country->slug}}" class="btn btn-xs btn-info"> {{getPhrase('edit')}} </a>--}}
+                                        <a href="{{ URL_COUNTRIES_EDIT }}/{{$country->slug}}" class="btn btn-xs btn-info">Editar </a>
                                     @endcan
 
                                     @can('country_delete')
-                                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$country->id}}')"> {{ getPhrase('delete') }} </a>
+{{--                                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$country->id}}')"> {{ getPhrase('delete') }} </a>--}}
+                                        <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$country->id}}')"> Eliminar </a>
                                     @endcan
                                 </td>
                                

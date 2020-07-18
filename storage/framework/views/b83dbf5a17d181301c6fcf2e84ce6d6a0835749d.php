@@ -11,8 +11,9 @@ $latest_auctions = \App\Auction::getHomeLatestAuctions();
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 au-deals">
-                  <!--p class="text-center">Dummy text of the printing industry</p-->
-                  <h2 class="text-center"> <?php echo e(getPhrase('latest_auction_deals')); ?> </h2>
+
+
+                    <h2 class="text-center"> Últimas ofertas de subasta</h2>
                  </div>
 
 
@@ -183,7 +184,8 @@ $latest_auctions = \App\Auction::getHomeLatestAuctions();
 
                 <?php else: ?>
                 <div class="col-lg-12">
-                <h4> <?php echo e(getPhrase('no_auctions_available')); ?> </h4>
+
+                    <h4 class="text-white">No hay subastas disponibles</h4>
             </div>
                 <?php endif; ?>
 

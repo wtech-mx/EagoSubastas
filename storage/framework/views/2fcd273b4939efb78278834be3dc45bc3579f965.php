@@ -23,14 +23,22 @@
                 <thead>
                     <tr>
                         <th style="text-align:center;">S.no.</th>
-                        <th> <?php echo e(getPhrase('username')); ?> </th>
-                        <th> <?php echo e(getPhrase('email')); ?> </th>
-                        <th> <?php echo e(getPhrase('image')); ?> </th>
-                        <th> <?php echo e(getPhrase('role')); ?> </th>
-                        
-                        <th> <?php echo e(getPhrase('status')); ?> </th>
 
-                        <th>&nbsp;</th>
+                        <th> Username </th>
+
+
+                         <th> Email </th>
+
+
+                         <th> Imagen </th>
+
+
+                        <th> Rol </th>
+
+
+                        <th> Estatus </th>
+
+                        <th>&nbsp;Acciones</th>
 
                     </tr>
                 </thead>
@@ -65,9 +73,11 @@
 
                                 <td field-key='status'>
                                    <?php if($user->approved==1): ?>
-                                   <a data-toggle="tooltip" title="Approved" href="<?php echo e(URL_USERS_STATUS); ?>/<?php echo e($user->slug); ?>/block" class="btn btn-danger btn-xs"><?php echo e(getPhrase('block')); ?></a>
+
+                                   <a data-toggle="tooltip" title="Approved" href="<?php echo e(URL_USERS_STATUS); ?>/<?php echo e($user->slug); ?>/block" class="btn btn-danger btn-xs">Bloquear</a>
                                    <?php elseif($user->approved==0): ?>
-                                   <a data-toggle="tooltip" title="Disapproved" href="<?php echo e(URL_USERS_STATUS); ?>/<?php echo e($user->slug); ?>/unblock" class="btn btn-info btn-xs"><?php echo e(getPhrase('unblock')); ?></a>
+
+                                    <a data-toggle="tooltip" title="Disapproved" href="<?php echo e(URL_USERS_STATUS); ?>/<?php echo e($user->slug); ?>/unblock" class="btn btn-info btn-xs">Desbloquear</a>
                                    <?php endif; ?>
                                 </td>
 

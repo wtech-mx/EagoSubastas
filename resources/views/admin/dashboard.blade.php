@@ -18,7 +18,8 @@
                             </div>
                             <div class="media-body">
                             <h4 class="card-title">{{ App\User::get()->count()}}</h4>
-                            <a href="{{URL_USERS}}">{{ getPhrase('users')}}</a>
+{{--                            <a href="{{URL_USERS}}">{{ getPhrase('users')}}</a>--}}
+                            <a href="{{URL_USERS}}">Usuarios</a>
                             </div>
                         </div>
                     </div>
@@ -32,7 +33,8 @@
                             </div>
                             <div class="media-body">
                             <h4 class="card-title">{{ App\Auction::get()->count()}}</h4>
-                            <a href="{{URL_LIST_AUCTIONS}}">{{ getPhrase('auctions')}}</a>
+{{--                            <a href="{{URL_LIST_AUCTIONS}}">{{ getPhrase('auctions')}}</a>--}}
+                             <a href="{{URL_LIST_AUCTIONS}}">Subastas</a>
                             </div>
                         </div>
                     </div>
@@ -45,7 +47,8 @@
                             </div>
                             <div class="media-body">
                             <h4 class="card-title">{{ App\Category::get()->count()}}</h4>
-                            <a href="{{URL_CATEGORIES}}">{{ getPhrase('categories')}}</a>
+{{--                            <a href="{{URL_CATEGORIES}}">{{ getPhrase('categories')}}</a>--}}
+                            <a href="{{URL_CATEGORIES}}">Catagorias</a>
                             </div>
                         </div>
                     </div>
@@ -58,7 +61,8 @@
                             </div>
                             <div class="media-body">
                             <h4 class="card-title">{{ App\FaqQuestion::get()->count()}}</h4>
-                            <a href="{{URL_FAQ_QUESTIONS}}">{{ getPhrase('faqs')}}</a>
+{{--                            <a href="{{URL_FAQ_QUESTIONS}}">{{ getPhrase('faqs')}}</a>--}}
+                                <a href="{{URL_FAQ_QUESTIONS}}">Preguntas y Respuestas</a>
                             </div>
                         </div>
                     </div>
@@ -71,7 +75,8 @@
                             </div>
                             <div class="media-body">
                             <h4 class="card-title">{{ App\City::get()->count()}}</h4>
-                            <a href="{{URL_CITIES}}">{{ getPhrase('cities')}}</a>
+{{--                            <a href="{{URL_CITIES}}">{{ getPhrase('cities')}}</a>--}}
+                                <a href="{{URL_CITIES}}">Ciudad</a>
                             </div>
                         </div>
                     </div>
@@ -84,7 +89,8 @@
                             </div>
                             <div class="media-body">
                             <h4 class="card-title">{{ App\Language::get()->count()}}</h4>
-                            <a href="{{URL_LANGUAGES_LIST}}">{{ getPhrase('languages')}}</a>
+{{--                            <a href="{{URL_LANGUAGES_LIST}}">{{ getPhrase('languages')}}</a>--}}
+                                <a href="{{URL_LANGUAGES_LIST}}">Lenguaje</a>
                             </div>
                         </div>
                     </div>
@@ -97,7 +103,8 @@
                             </div>
                             <div class="media-body">
                             <h4 class="card-title">{{ App\ContentPage::get()->count()}}</h4>
-                            <a href="{{URL_PAGES}}">{{ getPhrase('pages')}}</a>
+{{--                            <a href="{{URL_PAGES}}">{{ getPhrase('pages')}}</a>--}}
+                                <a href="{{URL_PAGES}}">Paginas</a>
                             </div>
                         </div>
                     </div>
@@ -110,7 +117,8 @@
                             </div>
                             <div class="media-body">
                             <h4 class="card-title">{{ App\Settings::get()->count()}}</h4>
-                            <a href="{{URL_SETTINGS_LIST}}">{{ getPhrase('settings')}}</a>
+{{--                            <a href="{{URL_SETTINGS_LIST}}">{{ getPhrase('settings')}}</a>--}}
+                                <a href="{{URL_SETTINGS_LIST}}">Configuraciones</a>
                             </div>
                         </div>
                     </div>
@@ -155,7 +163,8 @@
 
                 <div class="col-md-6">
                   <div class="panel panel-primary dsPanel">
-                    <div class="panel-heading"><i class="fa fa-bar-chart-o"></i> {{getPhrase('auctions_statistics')}}</div>
+{{--                    <div class="panel-heading"><i class="fa fa-bar-chart-o"></i> {{getPhrase('auctions_statistics')}}</div>--}}
+                      <div class="panel-heading"><i class="fa fa-bar-chart-o"></i> Estadisticas de Subasta</div>
                     <div class="panel-body" >
                         <canvas id="payments_chart" width="100" height="60"></canvas>
                     </div>
@@ -166,7 +175,8 @@
 
                 <div class="col-md-6">
                   <div class="panel panel-primary dsPanel">
-                    <div class="panel-heading"><i class="fa fa-pie-chart"></i> {{getPhrase('seller_auctions')}}</div>
+{{--                    <div class="panel-heading"><i class="fa fa-pie-chart"></i> {{getPhrase('seller_auctions')}}</div>--}}
+                      <div class="panel-heading"><i class="fa fa-pie-chart"></i> Subastas del vendedor</div>
                     <div class="panel-body" >
                         <canvas id="demanding_paid_quizzes" width="100" height="60"></canvas>
                     </div>

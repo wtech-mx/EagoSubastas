@@ -13,7 +13,8 @@
             {{getPhrase('list')}}
 
             @can('state_create')
-                <a href="{{URL_STATES_ADD}}" class="btn btn-success btn-add pull-right"> {{getPhrase('add_new')}} </a>
+{{--                <a href="{{URL_STATES_ADD}}" class="btn btn-success btn-add pull-right"> {{getPhrase('add_new')}} </a>--}}
+                 <a href="{{URL_STATES_ADD}}" class="btn btn-success btn-add pull-right"> Agregar </a>
             @endcan
 
         </div>
@@ -24,10 +25,14 @@
                     <tr>
                        <th style="text-align:center;">S.no.</th>
 
-                        <th> {{getPhrase('state')}} </th>
-                        <th> {{getPhrase('country')}} </th>
+{{--                        <th> {{getPhrase('state')}} </th>--}}
+                        <th> Estado </th>
+
+{{--                        <th> {{getPhrase('country')}} </th>--}}
+                         <th> Ciudad </th>
+
                         
-                        <th>&nbsp;</th>
+                        <th>&nbsp;Acciones</th>
                        
                     </tr>
                 </thead>
@@ -46,16 +51,19 @@
                                
                                 <td>
                                     @can('state_view')
-                                    <a href="{{ URL_STATES_VIEW }}/{{$state->slug}}" class="btn btn-xs btn-primary"> {{getPhrase('view')}} </a>
+{{--                                    <a href="{{ URL_STATES_VIEW }}/{{$state->slug}}" class="btn btn-xs btn-primary"> {{getPhrase('view')}} </a>--}}
+                                        <a href="{{ URL_STATES_VIEW }}/{{$state->slug}}" class="btn btn-xs btn-primary"> Ver </a>
                                     @endcan
 
                                     @can('state_edit')
-                                    <a href="{{ URL_STATES_EDIT }}/{{$state->slug}}" class="btn btn-xs btn-info"> {{getPhrase('edit')}} </a>
+{{--                                    <a href="{{ URL_STATES_EDIT }}/{{$state->slug}}" class="btn btn-xs btn-info"> {{getPhrase('edit')}} </a>--}}
+                                        <a href="{{ URL_STATES_EDIT }}/{{$state->slug}}" class="btn btn-xs btn-info"> Editar </a>
                                     @endcan
 
 
                                     @can('state_delete')
-                                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$state->id}}')"> {{ getPhrase('delete') }}</a>
+{{--                                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$state->id}}')"> {{ getPhrase('delete') }}</a>--}}
+                                        <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$state->id}}')"> Eliminar</a>
                                     @endcan
                                 </td>
                                

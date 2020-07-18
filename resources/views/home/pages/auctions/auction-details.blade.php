@@ -167,9 +167,11 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 
               <div class="">
                 @if (!Auth::check())
-                  <a class="btn btn-info au-btn-modren login-bttn" href="javascript:void(0);" onclick="showModal('loginModal')">{{getPhrase('participate_in_live_auction')}}</a>
+{{--                  <a class="btn btn-info au-btn-modren login-bttn" href="javascript:void(0);" onclick="showModal('loginModal')">{{getPhrase('participate_in_live_auction')}}</a>--}}
+                     <a class="btn btn-info au-btn-modren login-bttn" href="javascript:void(0);" onclick="showModal('loginModal')">participar en una subasta en vivo</a>
                 @else
-                  <a class="btn btn-info au-btn-modren login-bttn live" href="javascript:void(0);" onclick="liveAuction('{{$auction->slug}}')">{{getPhrase('participate_in_live_auction')}}</a>
+{{--                  <a class="btn btn-info au-btn-modren login-bttn live" href="javascript:void(0);" onclick="liveAuction('{{$auction->slug}}')">{{getPhrase('participate_in_live_auction')}}</a>--}}
+                     <a class="btn btn-info au-btn-modren login-bttn live" href="javascript:void(0);" onclick="liveAuction('{{$auction->slug}}')">participar en una subasta en vivo</a>
                 @endif
               </div>
               @endif
@@ -191,9 +193,11 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                       {{$currency_code}}{{$auction->reserve_price}}
                       <span class="badge">
                         @if ($total_bids>1)
-                            {{$total_bids}} {{getPhrase('bids')}}
+{{--                            {{$total_bids}} {{getPhrase('bids')}}--}}
+                             {{$total_bids}}ofertas
                         @elseif ($total_bids==1)
-                            {{$total_bids}} {{getPhrase('bid')}}
+{{--                            {{$total_bids}} {{getPhrase('bid')}}--}}
+                            {{$total_bids}} oferta
                         @else
                             0 {{getPhrase('bids')}}
                         @endif
@@ -203,7 +207,8 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 
                   @if ($bid_options)
 
-                  <p>{{getPhrase('select_maximum_bid')}}</p>
+{{--                  <p>{{getPhrase('select_maximum_bid')}}</p>--}}
+                    <p>seleccione oferta máxima</p>
                   <div class="row">
                   <div class="col-lg-6">
 
@@ -239,7 +244,8 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 
                         <input type="hidden" name="bid_auction_id" value="{{$auction->id}}">
 
-                        <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>{{getPhrase('place_bid')}}</button>
+{{--                        <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>{{getPhrase('place_bid')}}</button>--}}
+                            <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Identificación del lugar</button>
 
                      </div>
 
@@ -288,7 +294,8 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 
                         <input type="hidden" name="bid_auction_id" value="{{$auction->id}}">
 
-                        <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>{{getPhrase('place_bid')}}</button>
+{{--                        <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>{{getPhrase('place_bid')}}</button>--}}
+                            <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Identificación del lugar</button>
 
                      </div>
 
@@ -315,7 +322,8 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                      <h4>
                       {{$currency_code}}{{$auction->reserve_price}}
                       <span class="badge">
-                       {{$auction->getAuctionBiddersCount()}} {{getPhrase('bids')}}
+{{--                       {{$auction->getAuctionBiddersCount()}} {{getPhrase('bids')}}--}}
+                           {{$auction->getAuctionBiddersCount()}} ofertas
                       </span>
                     </h4>
                 </div>
@@ -323,11 +331,16 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                 @elseif ($auction->auction_status=='closed')
                 <!--if auction status is closed start-->
                  <div>
-                     <p class="text-blue"><b> {{getPhrase('auction_ended')}} </b></p>
+                     <p class="text-blue">
+{{--                         <b> {{getPhrase('auction_ended')}} </b>--}}
+                         <b> Subasta finalizada </b>
+                     </p>
 
                     <h4>{{$currency_code}}{{$auction->reserve_price}}
                       <span class="badge">
-                        {{$auction->getAuctionBiddersCount()}} {{getPhrase('bids')}}
+{{--                        {{$auction->getAuctionBiddersCount()}} {{getPhrase('bids')}}--}}
+                           {{$auction->getAuctionBiddersCount()}} ofertas
+
                       </span>
                     </h4>
 
@@ -346,18 +359,24 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 
                   @if (Auth::user())
                     <a href="javascript:void(0);" ng-click="addtoFavourites({{$auction->id}})" title="Add to Wishlist" class="btn btn-info au-btn-modren login-bttn"><i class="pe-7s-plus"></i>
-                    {{getPhrase('add_to_wish_list')}}</a>
+{{--                    {{getPhrase('add_to_wish_list')}}</a>--}}
+                        añadir a la lista de deseos</a>
                   @else
-                   <a href="javascript:void(0);" onclick="showModal('loginModal')" title="Add to Wishlist" class="btn btn-info au-btn-modren login-bttn"><i class="pe-7s-plus"></i> {{getPhrase('add_to_wish_list')}} </a>
+                   <a href="javascript:void(0);" onclick="showModal('loginModal')" title="Add to Wishlist" class="btn btn-info au-btn-modren login-bttn">
+{{--                       <i class="pe-7s-plus"></i> {{getPhrase('add_to_wish_list')}} --}}
+                       <i class="pe-7s-plus"></i> añadir a la lista de deseos
+                   </a>
                   @endif
 
 
                   @if ($auction->is_buynow==1 && $auction->buy_now_price && $is_already_sold=='No')
                   @if ($bid_div)
                   @if (Auth::user())
-                    <a href="{{URL_BID_AUCTION_PAYMENT}}/{{$auction->slug}}" title="Buy Auction" class="btn btn-info au-btn-modren login-bttn"> {{getPhrase('buy_now')}}</a>
+{{--                    <a href="{{URL_BID_AUCTION_PAYMENT}}/{{$auction->slug}}" title="Buy Auction" class="btn btn-info au-btn-modren login-bttn"> {{getPhrase('buy_now')}}</a>--}}
+                      <a href="{{URL_BID_AUCTION_PAYMENT}}/{{$auction->slug}}" title="Buy Auction" class="btn btn-info au-btn-modren login-bttn"> compra ahora</a>
                   @else
-                   <a href="javascript:void(0);" onclick="showModal('loginModal')" title="Buy Auction" class="btn btn-info au-btn-modren login-bttn"> {{getPhrase('buy_now')}} </a>
+{{--                   <a href="javascript:void(0);" onclick="showModal('loginModal')" title="Buy Auction" class="btn btn-info au-btn-modren login-bttn"> {{getPhrase('buy_now')}} </a>--}}
+                      <a href="javascript:void(0);" onclick="showModal('loginModal')" title="Buy Auction" class="btn btn-info au-btn-modren login-bttn">compra ahora </a>
                   @endif
                   @endif
                   @endif
@@ -411,13 +430,20 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                     <nav class="au-tabs">
                       <div class="nav au-product-tabs nav-tabs" id="nav-tab" role="tablist">
 
-                        <a class="nav-item au-product-nav nav-link active" id="nav-auction-tab" data-toggle="tab" href="#nav-auction" role="tab" aria-controls="nav-auction" aria-selected="true"> {{getPhrase('auction_details')}} </a>
+{{--                        <a class="nav-item au-product-nav nav-link active" id="nav-auction-tab" data-toggle="tab" href="#nav-auction" role="tab" aria-controls="nav-auction" aria-selected="true"> {{getPhrase('auction_details')}} </a>--}}
+                          <a class="nav-item au-product-nav nav-link active" id="nav-auction-tab" data-toggle="tab" href="#nav-auction" role="tab" aria-controls="nav-auction" aria-selected="true"> detalles de la subasta </a>
 
-                        <a class="nav-item au-product-nav nav-link" id="nav-shipping-tab" data-toggle="tab" href="#nav-shipping" role="tab" aria-controls="nav-shipping" aria-selected="false"> {{getPhrase('shipping')}} & {{getPhrase('payment')}}</a>
+{{--                        <a class="nav-item au-product-nav nav-link" id="nav-shipping-tab" data-toggle="tab" href="#nav-shipping" role="tab" aria-controls="nav-shipping" aria-selected="false"> {{getPhrase('shipping')}} & {{getPhrase('payment')}}</a>--}}
 
-                        <a class="nav-item au-product-nav nav-link" id="nav-terms-tab" data-toggle="tab" href="#nav-terms" role="tab" aria-controls="nav-terms" aria-selected="false"> {{getPhrase('auction_terms')}} & {{getPhrase('info')}} </a>
+                        <a class="nav-item au-product-nav nav-link" id="nav-shipping-tab" data-toggle="tab" href="#nav-shipping" role="tab" aria-controls="nav-shipping" aria-selected="false"> Envío & pago</a>
 
-                        <a class="nav-item au-product-nav nav-link" id="nav-bid-tab" data-toggle="tab" href="#nav-bid" role="tab" aria-controls="nav-bid" aria-selected="false"> {{getPhrase('bid_history')}} </a>
+{{--                        <a class="nav-item au-product-nav nav-link" id="nav-terms-tab" data-toggle="tab" href="#nav-terms" role="tab" aria-controls="nav-terms" aria-selected="false"> {{getPhrase('auction_terms')}} & {{getPhrase('info')}} </a>--}}
+
+                          <a class="nav-item au-product-nav nav-link" id="nav-terms-tab" data-toggle="tab" href="#nav-terms" role="tab" aria-controls="nav-terms" aria-selected="false"> condiciones de subasta & informacion </a>
+
+{{--                        <a class="nav-item au-product-nav nav-link" id="nav-bid-tab" data-toggle="tab" href="#nav-bid" role="tab" aria-controls="nav-bid" aria-selected="false"> {{getPhrase('bid_history')}} </a>--}}
+
+                          <a class="nav-item au-product-nav nav-link" id="nav-bid-tab" data-toggle="tab" href="#nav-bid" role="tab" aria-controls="nav-bid" aria-selected="false"> historial de ofertas </a>
 
                       </div>
                     </nav>
@@ -445,54 +471,71 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                                 <ul class="list-group">
 
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                      {{getPhrase('start_date')}}
+{{--                                      {{getPhrase('start_date')}}--}}
+                                        Fecha de inicio
                                       <span> <?php echo date(getSetting('date_format','site_settings').' H:i:s', strtotime($auction->start_date));?></span>
                                     </li>
 
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                      {{getPhrase('end_date')}}
+{{--                                      {{getPhrase('end_date')}}--}}
+                                        Fecha final
                                       <span> <?php echo date(getSetting('date_format','site_settings').' H:i:s', strtotime($auction->end_date));?> </span>
                                     </li>
 
 
                                      <li class="list-group-item d-flex justify-content-between align-items-center">
-                                      {{getPhrase('reserve_price')}}
-                                      <span>@if($auction->reserve_price) {{$currency_code}}{{$auction->reserve_price}} @endif</span>
+{{--                                      {{getPhrase('reserve_price')}}--}}
+                                         Precio de reserva
+                                      <span>@if($auction->reserve_price) {{$currency_code}} {{$auction->reserve_price}} @endif</span>
+                                     </li>
+
+                                     <li class="list-group-item d-flex justify-content-between align-items-center">
+{{--                                      {{getPhrase('reserve_price')}}--}}
+                                         Tiros
+                                      <span>@if($auction->tiros) {{$auction->tiros}} @endif</span>
                                      </li>
 
 
 
                                      <li class="list-group-item d-flex justify-content-between align-items-center">
-                                      {{getPhrase('bid_start')}}
+{{--                                      {{getPhrase('bid_start')}}--}}
+                                          Inicio de oferta
                                       <span>@if ($auction->minimum_bid) {{$currency_code}}{{$auction->minimum_bid}} @endif</span>
                                      </li>
 
 
                                       <li class="list-group-item d-flex justify-content-between align-items-center">
-                                      {{getPhrase('is_bid_incremental')}}
+{{--                                      {{getPhrase('is_bid_incremental')}}--}}
+                                          Es el incremento de la oferta
                                         <span>
                                         @if ($auction->is_bid_increment==1)
-                                            {{getPhrase('yes')}}
+{{--                                            {{getPhrase('yes')}}--}}
+                                            Si
                                         @else
-                                            {{getPhrase('no')}}
+{{--                                            {{getPhrase('no')}}--}}
+                                            No
                                         @endif
                                         </span>
                                      </li>
 
 
                                      <li class="list-group-item d-flex justify-content-between align-items-center">
-                                      {{getPhrase('bid_increment')}}
-                                      <span>@if ($auction->bid_increment) {{$currency_code}}{{$auction->bid_increment}} @endif</span>
+{{--                                      {{getPhrase('bid_increment')}}--}}
+                                         aumento de oferta
+                                      <span>@if ($auction->bid_increment) {{$currency_code}} {{$auction->bid_increment}} @endif</span>
                                     </li>
 
 
                                      <li class="list-group-item d-flex justify-content-between align-items-center">
-                                      {{getPhrase('is_it_buynow_item')}}
+{{--                                      {{getPhrase('is_it_buynow_item')}}--}}
+                                         comprar ahora artículo
                                         <span>
                                         @if ($auction->is_buynow==1)
-                                            {{getPhrase('yes')}}
+{{--                                            {{getPhrase('yes')}}--}}
+                                            SI
                                         @else
-                                            {{getPhrase('no')}}
+{{--                                            {{getPhrase('no')}}--}}
+                                            NO
                                         @endif
                                         </span>
                                      </li>
@@ -500,8 +543,9 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 
                                      @if ($auction->is_buynow==1)
                                       <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        {{getPhrase('buy_now_price')}}
-                                        <span>@if ($auction->buy_now_price) {{$currency_code}}{{$auction->buy_now_price}} @endif</span>
+{{--                                        {{getPhrase('buy_now_price')}}--}}
+                                          comprar ahora precio
+                                        <span>@if ($auction->buy_now_price) {{$currency_code}} {{$auction->buy_now_price}} @endif</span>
                                       </li>
 
                                      @endif
@@ -516,32 +560,44 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 
                                 <ul class="list-group">
 
-                                    <li class="list-group-item"><strong>{{getPhrase('seller_information')}}</strong></li>
+                                    <li class="list-group-item">
+{{--                                        <strong>{{getPhrase('seller_information')}}</strong>--}}
+                                         <strong>Información del vendedor</strong>
+                                    </li>
 
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                      {{getPhrase('seller_name')}}
+{{--                                      {{getPhrase('seller_name')}}--}}
+                                        Nombre del vendedor
                                       <span>{{$seller->username}}</span>
                                     </li>
 
 
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                      {{getPhrase('email')}}
+{{--                                      {{getPhrase('email')}}--}}
+                                        Email
                                       <span>{{$seller->email}}</span>
                                     </li>
 
 
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                      {{getPhrase('phone')}}
+{{--                                      {{getPhrase('phone')}}--}}
+                                         Telefono
                                       <span>{{$seller->phone}}</span>
                                     </li>
 
 
                                     <!--live auction date&time-->
                                     @if ($auction->live_auction_date)
-                                    <li class="list-group-item"><strong>{{getPhrase('live_auction')}}</strong></li>
+                                    <li class="list-group-item">
+                                        <strong>
+{{--                                            {{getPhrase('live_auction')}}--}}
+                                            Subasta en vivo
+                                        </strong>
+                                    </li>
 
                                       <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        {{getPhrase('date')}}
+{{--                                        {{getPhrase('date')}}--}}
+                                        Fecha
                                         @if ($auction->live_auction_date)
                                         <span>
                                           <?php echo date(getSetting('date_format','site_settings'),  strtotime($auction->live_auction_date));?>
@@ -551,7 +607,8 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 
 
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                      {{getPhrase('start_time')}}
+{{--                                      {{getPhrase('start_time')}}--}}
+                                       Hora de inicio
                                       @if ($auction->live_auction_start_time)
                                       <span>{{$auction->live_auction_start_time}}</span>
                                       @endif
@@ -559,7 +616,8 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 
 
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                      {{getPhrase('end_time')}}
+{{--                                      {{getPhrase('end_time')}}--}}
+                                       Hora de finalización
                                       @if ($auction->live_auction_end_time)
                                       <span>{{$auction->live_auction_end_time}}</span>
                                       @endif
@@ -702,13 +760,15 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                                   <ul class="list-group z-depth-0">
 
                                       <li class="list-group-item justify-content-between">
-                                          <span><b>{{getPhrase('username')}}</b></span>
-                                          <span style="float:right;"><b>{{getPhrase('bid_amount')}}</b></span>
+{{--                                          <span><b>{{getPhrase('username')}}</b></span>--}}
+                                          <span><b>Usuario</b></span>
+{{--                                          <span style="float:right;"><b>{{getPhrase('bid_amount')}}</b></span>--}}
+                                           <span style="float:right;"><b>Monto de la oferta</b></span>
                                       </li>
                                       @foreach ($bidding_history as $bid)
                                       <li class="list-group-item justify-content-between">
                                         <span>{{$bid->username}}</span>
-                                        <span style="float:right;">{{$currency_code}}{{$bid->bid_amount}}</span>
+                                        <span style="float:right;">{{$currency_code}} {{$bid->bid_amount}}</span>
                                       </li>
                                       @endforeach
                                   </ul>

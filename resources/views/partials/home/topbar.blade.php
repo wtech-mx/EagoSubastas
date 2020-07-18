@@ -31,10 +31,11 @@ $categories = \App\Category::getHomeCategories(6);
 
                             <ul class="navbar-nav mr-auto mt-2 mt-lg-0 sf-menu">
 
-                                <li><a href="{{URL_HOME}}"> {{getPhrase('home')}} </a></li>
+{{--                                <li><a href="{{URL_HOME}}"> {{getPhrase('home')}} </a></li>--}}
+                                <li><a href="{{URL_HOME}}"> Inicio </a></li>
 
-                                <li><a href="{{URL_HOME_AUCTIONS}}"> {{getPhrase('auctions')}} </a></li>
-
+{{--                                <li><a href="{{URL_HOME_AUCTIONS}}"> {{getPhrase('auctions')}} </a></li>--}}
+                                <li><a href="{{URL_HOME_AUCTIONS}}"> Subastas </a></li>
                                 @if ($categories)
                                 @foreach ($categories as $category)
 
@@ -44,6 +45,7 @@ $categories = \App\Category::getHomeCategories(6);
                                 <li class="single-dropdown"><span class="menu-mobile-grover au-listts"><i class="fa fa-chevron-circle-down au-icon"></i></span>
 
 
+{{--                                    <a href="javascript:void(0)"> {{$category->category}} </a>--}}
                                     <a href="javascript:void(0)"> {{$category->category}} </a>
 
                                     <ul class="submenu-container clearfix first-in-line-xs menu-mobile">
@@ -70,26 +72,31 @@ $categories = \App\Category::getHomeCategories(6);
                                     @endforeach
                                     @endif
 
-                                    <li><a href="{{URL_LIVE_AUCTIONS}}"> {{getPhrase('live_auctions')}} </a></li>
+{{--                                    <li><a href="{{URL_LIVE_AUCTIONS}}"> {{getPhrase('live_auctions')}} </a></li>--}}
+                                        <li><a href="{{URL_LIVE_AUCTIONS}}"> Subastas en Vivo </a></li>
 
                                        @if (Auth::check())
                                        @include('bidder.common.notifications')
                                        @endif
 
                                        <li class="nav-item au-items">
-                                           <a  href="{{URL_CONTACT_US}}" title="Contact Us"> {{getPhrase('contact_us')}} </a>
+{{--                                           <a  href="{{URL_CONTACT_US}}" title="Contact Us"> {{getPhrase('contact_us')}} </a>--}}
+                                                <a  href="{{URL_CONTACT_US}}" title="Contact Us"> Contactanos</a>
                                        </li>
 
                                        @if (Auth::check())
                                        <li>
-                                           <a href="{{URL_DASHBOARD}}" title="Dashboard" > {{getPhrase('dashboard')}} </a>
+{{--                                           <a href="{{URL_DASHBOARD}}" title="Dashboard" > {{getPhrase('dashboard')}} </a>--}}
+                                               <a href="{{URL_DASHBOARD}}" title="Dashboard" > Panel Cotrol</a>
+
                                        </li>
                                        @endif
 
 
                                        @if (!Auth::check())
                                        <li>
-                                           <a href="javascript:void(0);" onclick="showModal('loginModal')" title="Login" >{{getPhrase('login')}}</a>
+{{--                                           <a href="javascript:void(0);" onclick="showModal('loginModal')" title="Login" >{{getPhrase('login')}}</a>--}}
+                                                <a href="javascript:void(0);" onclick="showModal('loginModal')" title="Login" >Login</a>
                                        </li>
                                        @endif
                             </ul>

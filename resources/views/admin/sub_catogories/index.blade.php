@@ -12,8 +12,11 @@
             {{getPhrase('list')}}
 
             @can('sub_catogory_create')
+{{--                <a href="{{URL_SUB_CATEGORIES_ADD}}" class="btn btn-success btn-add pull-right">--}}
+{{--                    {{getPhrase('add_new')}}--}}
+{{--                </a>--}}
                 <a href="{{URL_SUB_CATEGORIES_ADD}}" class="btn btn-success btn-add pull-right">
-                    {{getPhrase('add_new')}}
+                    Agregar
                 </a>
             @endcan
 
@@ -29,14 +32,17 @@
                         <th style="text-align:center;">S.no.</th>
 
                        
-                        <th>{{getPhrase('sub_category')}}</th>
+{{--                        <th>{{getPhrase('sub_category')}}</th>--}}
+                        <th>Subcategoria</th>
                         
-                        <th>{{getPhrase('category')}}</th>
+{{--                        <th>{{getPhrase('category')}}</th>--}}
+                        <th>Categoria</th>
 
-                        <th>{{getPhrase('status')}}</th>
+{{--                        <th>{{getPhrase('status')}}</th>--}}
+                        <th>Status</th>
 
                        
-                        <th>&nbsp;</th>
+                        <th>&nbsp;Acciones</th>
                         
                     </tr>
                 </thead>
@@ -60,14 +66,17 @@
                                 
                                 <td>
                                     @can('category_view')
-                                     <a href="{{ URL_SUB_CATEGORIES_VIEW }}/{{$category->slug}} " class="btn btn-xs btn-primary"> {{getPhrase('view')}} </a>
+{{--                                     <a href="{{ URL_SUB_CATEGORIES_VIEW }}/{{$category->slug}} " class="btn btn-xs btn-primary"> {{getPhrase('view')}} </a>--}}
+                                        <a href="{{ URL_SUB_CATEGORIES_VIEW }}/{{$category->slug}} " class="btn btn-xs btn-primary"> Ver </a>
                                     @endcan
                                     @can('category_edit')
-                                    <a href="{{ URL_SUB_CATEGORIES_EDIT }}/{{$category->slug}}" class="btn btn-xs btn-info">{{getPhrase('edit')}}</a>
+{{--                                    <a href="{{ URL_SUB_CATEGORIES_EDIT }}/{{$category->slug}}" class="btn btn-xs btn-info">{{getPhrase('edit')}}</a>--}}
+                                        <a href="{{ URL_SUB_CATEGORIES_EDIT }}/{{$category->slug}}" class="btn btn-xs btn-info">Editar</a>
                                     @endcan
 
                                     @can('category_delete')
-                                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$category->id}}')"> {{ getPhrase('delete') }}</a>
+{{--                                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$category->id}}')"> {{ getPhrase('delete') }}</a>--}}
+                                        <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$category->id}}')"> Eliminar</a>
                                     @endcan
                                 </td>
                                 

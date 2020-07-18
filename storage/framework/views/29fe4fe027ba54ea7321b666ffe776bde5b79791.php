@@ -5,7 +5,8 @@
 
                 <div class="form-group">
 
-                    {!! Form::label('country', getPhrase('country'), ['class' => 'control-label']) !!}
+                    <?php echo Form::label('country', getPhrase('country'), ['class' => 'control-label']); ?>
+
 
                     <span class="text-red">*</span>
 
@@ -25,7 +26,7 @@
 
                     
 
-                    {{Form::select('country_id', $countries, $selected, ['placeholder' => getPhrase('select_country'),'class'=>'form-control select2',
+                    <?php echo e(Form::select('country_id', $countries, $selected, ['placeholder' => getPhrase('select_country'),'class'=>'form-control select2',
 
                             'ng-model'=>'country_id',
 
@@ -37,13 +38,15 @@
 
                             'ng-class'=>'{"has-error": formValidate.country_id.$touched && formValidate.country_id.$invalid}'
 
-                         ])}}
+                         ])); ?>
+
 
 
                     
                     <div class="validation-error" ng-messages="formValidate.country_id.$error" >
 
-                            {!! getValidationMessage()!!}
+                            <?php echo getValidationMessage(); ?>
+
 
 
                         </div>
@@ -56,7 +59,7 @@
                      
                 <div class="form-group">
 
-                        <label for="name"> {{ getPhrase('state') }} <span class="text-red">*</span></label>
+                        <label for="name"> <?php echo e(getPhrase('state')); ?> <span class="text-red">*</span></label>
 
 
                         <?php 
@@ -68,7 +71,7 @@
 
                         ?>
 
-                        <select ng-init="state_id={id:{{$val}} }" name="state_id" ng-model="state_id" class="form-control select2" ng-options="item.id as item.state for item in states track by item.id" required="true">
+                        <select ng-init="state_id={id:<?php echo e($val); ?> }" name="state_id" ng-model="state_id" class="form-control select2" ng-options="item.id as item.state for item in states track by item.id" required="true">
 
                           <option value="">Select</option>  
 
@@ -79,7 +82,8 @@
 
                           <div class="validation-error" ng-messages="formValidate.state_id.$error">
 
-                                {!! getValidationMessage()!!}
+                                <?php echo getValidationMessage(); ?>
+
 
 
                             </div>
@@ -89,7 +93,8 @@
 
                  <div class="form-group">
 
-                    {!! Form::label('city', getPhrase('city'), ['class' => 'control-label']) !!}
+                    <?php echo Form::label('city', getPhrase('city'), ['class' => 'control-label']); ?>
+
 
                     <span class="text-red">*</span>
 
@@ -102,7 +107,7 @@
                     ?>
 
 
-                    {{ Form::text('city', old('city'), $attributes = 
+                    <?php echo e(Form::text('city', old('city'), $attributes = 
 
                     array('class' => 'form-control', 
 
@@ -124,19 +129,24 @@
 
 
 
-                    )) }}
+                    ))); ?>
+
 
 
                     
                     <div class="validation-error" ng-messages="formValidate.city.$error" >
 
-                            {!! getValidationMessage()!!}
+                            <?php echo getValidationMessage(); ?>
 
-                            {!! getValidationMessage('minlength')!!}
 
-                            {!! getValidationMessage('maxlength')!!}
+                            <?php echo getValidationMessage('minlength'); ?>
 
-                            {!! getValidationMessage('pattern')!!}
+
+                            <?php echo getValidationMessage('maxlength'); ?>
+
+
+                            <?php echo getValidationMessage('pattern'); ?>
+
 
                     </div>
 
@@ -145,7 +155,8 @@
 
                   <div class="form-group">
 
-                    {!! Form::label('status', getPhrase('status'), ['class' => 'control-label']) !!}
+                    <?php echo Form::label('status', getPhrase('status'), ['class' => 'control-label']); ?>
+
 
                     <span class="text-red">*</span>
 
@@ -161,7 +172,7 @@
 
                     
 
-                    {{Form::select('status', activeinactive(), $selected, ['placeholder' => getPhrase('select'),'class'=>'form-control select2',
+                    <?php echo e(Form::select('status', activeinactive(), $selected, ['placeholder' => getPhrase('select'),'class'=>'form-control select2',
 
                             'ng-model'=>'status',
 
@@ -171,13 +182,15 @@
 
                             'ng-class'=>'{"has-error": formValidate.status.$touched && formValidate.status.$invalid}'
 
-                         ])}}
+                         ])); ?>
+
 
 
                     
                         <div class="validation-error" ng-messages="formValidate.status.$error" >
 
-                            {!! getValidationMessage()!!}
+                            <?php echo getValidationMessage(); ?>
+
 
                         </div>
 
@@ -187,8 +200,8 @@
 
                <div class="form-group pull-right">
 
-{{--					<button class="btn btn-success" ng-disabled='!formValidate.$valid'>{{ getPhrase('save') }}</button>--}}
-                   <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$city->id}}')"> Guardar </a>
+
+                   <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('<?php echo e($city->id); ?>')"> Guardar </a>
 
 				</div>
 

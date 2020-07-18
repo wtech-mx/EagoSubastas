@@ -599,8 +599,8 @@
 
                <div class="form-group pull-right">
 
-					<button class="btn btn-success" ng-disabled='!formValidate.$valid'>{{ getPhrase('save') }}</button>
-
+{{--					<button class="btn btn-success" ng-disabled='!formValidate.$valid'>{{ getPhrase('save') }}</button>--}}
+                    <button class="btn btn-success" ng-disabled='!formValidate.$valid'>Guardar</button>
 				</div>
 
 			</div>

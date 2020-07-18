@@ -2,22 +2,16 @@
 			<div class="col-xs-6"> 	
 
 				<div class="form-group">
-                    <?php echo Form::label('title', getPhrase('title'), ['class' => 'control-label']); ?>
+                    <?php echo Form::label('category', getPhrase('category'), ['class' => 'control-label']); ?>
 
 
                     <span class="text-red">*</span>
-                    <?php 
-                    $readonly='';
-                    if (!empty($record)) 
-                        $readonly = 'readonly';
-                    ?>
-
 
                     <?php echo e(Form::text('title', old('title'), $attributes = 
 
                     array('class' => 'form-control', 
 
-                    'placeholder' => 'Title',
+                    'placeholder' => 'Category',
 
                     'ng-model' => 'title', 
 
@@ -28,8 +22,6 @@
 					'ng-minlength' => '2',
 
 					'ng-maxlength' => '50',
-
-                    $readonly,
 
 					'ng-class'=>'{"has-error": formValidate.title.$touched && formValidate.title.$invalid}',
 
@@ -59,42 +51,7 @@
                 </div>
 
 
-
-
-                <div class="form-group">
-
-                    <?php echo Form::label('description', getPhrase('description'), ['class' => 'control-label']); ?>
-
-
-                     <span class="text-red">*</span>
-                   
-                    <?php echo e(Form::textarea('page_text', old('page_text'), $attributes = 
-
-                    array('class' => 'form-control ckeditor', 
-
-                    'placeholder' => 'Description',
-
-                    'ng-model' => 'page_text',
-
-                    'required' => 'true',
-
-                    'ng-class'=>'{"has-error": formValidate.page_text.$touched && formValidate.page_text.$invalid}',
-
-                    ))); ?>
-
-
-
-                    
-                    <div class="validation-error" ng-messages="formValidate.page_text.$error" >
-
-	    				<?php echo getValidationMessage(); ?>
-
-
-					</div>
-
-                </div>
-
-
+                
                 <div class="form-group">
 
                     <?php echo Form::label('status', getPhrase('status'), ['class' => 'control-label']); ?>
@@ -114,13 +71,13 @@
 
                     
 
-                    <?php echo e(Form::select('status', activeinactive() , $selected, ['placeholder' => getPhrase('select'),'class'=>'form-control select2',
+                    <?php echo e(Form::select('status', activeinactive(), $selected, ['placeholder' => getPhrase('select'),'class'=>'form-control select2',
 
                             'ng-model'=>'status',
 
                             'required'=> 'true',
 
-                            'ng-init'=>'status="'.$val.'"',
+                            'ng-init'=>'status="'.$val.'"', 
 
                             'ng-class'=>'{"has-error": formValidate.status.$touched && formValidate.status.$invalid}'
 
@@ -139,12 +96,10 @@
                 </div>
 
 
+               <div class="form-group pull-right">
 
 
-               <div class="form-groupp pull-right">
-
-
-                   <button class="btn btn-success" ng-disabled='!formValidate.$valid'>Guardar</button>
+                   <button class="btn btn-success" ng-disabled='!formValidate.$valid'>Gauardar</button>
 
 				</div>
 

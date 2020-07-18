@@ -16,7 +16,8 @@
                             </div>
                             <div class="media-body">
                             <h4 class="card-title"><?php echo e(App\User::get()->count()); ?></h4>
-                            <a href="<?php echo e(URL_USERS); ?>"><?php echo e(getPhrase('users')); ?></a>
+
+                            <a href="<?php echo e(URL_USERS); ?>">Usuarios</a>
                             </div>
                         </div>
                     </div>
@@ -30,7 +31,8 @@
                             </div>
                             <div class="media-body">
                             <h4 class="card-title"><?php echo e(App\Auction::get()->count()); ?></h4>
-                            <a href="<?php echo e(URL_LIST_AUCTIONS); ?>"><?php echo e(getPhrase('auctions')); ?></a>
+
+                             <a href="<?php echo e(URL_LIST_AUCTIONS); ?>">Subastas</a>
                             </div>
                         </div>
                     </div>
@@ -43,7 +45,8 @@
                             </div>
                             <div class="media-body">
                             <h4 class="card-title"><?php echo e(App\Category::get()->count()); ?></h4>
-                            <a href="<?php echo e(URL_CATEGORIES); ?>"><?php echo e(getPhrase('categories')); ?></a>
+
+                            <a href="<?php echo e(URL_CATEGORIES); ?>">Catagorias</a>
                             </div>
                         </div>
                     </div>
@@ -56,7 +59,8 @@
                             </div>
                             <div class="media-body">
                             <h4 class="card-title"><?php echo e(App\FaqQuestion::get()->count()); ?></h4>
-                            <a href="<?php echo e(URL_FAQ_QUESTIONS); ?>"><?php echo e(getPhrase('faqs')); ?></a>
+
+                                <a href="<?php echo e(URL_FAQ_QUESTIONS); ?>">Preguntas y Respuestas</a>
                             </div>
                         </div>
                     </div>
@@ -69,7 +73,8 @@
                             </div>
                             <div class="media-body">
                             <h4 class="card-title"><?php echo e(App\City::get()->count()); ?></h4>
-                            <a href="<?php echo e(URL_CITIES); ?>"><?php echo e(getPhrase('cities')); ?></a>
+
+                                <a href="<?php echo e(URL_CITIES); ?>">Ciudad</a>
                             </div>
                         </div>
                     </div>
@@ -82,7 +87,8 @@
                             </div>
                             <div class="media-body">
                             <h4 class="card-title"><?php echo e(App\Language::get()->count()); ?></h4>
-                            <a href="<?php echo e(URL_LANGUAGES_LIST); ?>"><?php echo e(getPhrase('languages')); ?></a>
+
+                                <a href="<?php echo e(URL_LANGUAGES_LIST); ?>">Lenguaje</a>
                             </div>
                         </div>
                     </div>
@@ -95,7 +101,8 @@
                             </div>
                             <div class="media-body">
                             <h4 class="card-title"><?php echo e(App\ContentPage::get()->count()); ?></h4>
-                            <a href="<?php echo e(URL_PAGES); ?>"><?php echo e(getPhrase('pages')); ?></a>
+
+                                <a href="<?php echo e(URL_PAGES); ?>">Paginas</a>
                             </div>
                         </div>
                     </div>
@@ -108,7 +115,8 @@
                             </div>
                             <div class="media-body">
                             <h4 class="card-title"><?php echo e(App\Settings::get()->count()); ?></h4>
-                            <a href="<?php echo e(URL_SETTINGS_LIST); ?>"><?php echo e(getPhrase('settings')); ?></a>
+
+                                <a href="<?php echo e(URL_SETTINGS_LIST); ?>">Configuraciones</a>
                             </div>
                         </div>
                     </div>
@@ -153,7 +161,8 @@
 
                 <div class="col-md-6">
                   <div class="panel panel-primary dsPanel">
-                    <div class="panel-heading"><i class="fa fa-bar-chart-o"></i> <?php echo e(getPhrase('auctions_statistics')); ?></div>
+
+                      <div class="panel-heading"><i class="fa fa-bar-chart-o"></i> Estadisticas de Subasta</div>
                     <div class="panel-body" >
                         <canvas id="payments_chart" width="100" height="60"></canvas>
                     </div>
@@ -164,7 +173,8 @@
 
                 <div class="col-md-6">
                   <div class="panel panel-primary dsPanel">
-                    <div class="panel-heading"><i class="fa fa-pie-chart"></i> <?php echo e(getPhrase('seller_auctions')); ?></div>
+
+                      <div class="panel-heading"><i class="fa fa-pie-chart"></i> Subastas del vendedor</div>
                     <div class="panel-body" >
                         <canvas id="demanding_paid_quizzes" width="100" height="60"></canvas>
                     </div>

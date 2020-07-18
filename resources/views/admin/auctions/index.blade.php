@@ -18,7 +18,8 @@ $date_format = getSetting('date_format','site_settings');
         <div class="panel-heading">
             {{getPhrase('list')}}
 
-             <a href="{{ URL_AUCTIONS_ADD }}" class="btn btn-success btn-add pull-right">{{getPhrase('add_new')}}</a>
+{{--             <a href="{{ URL_AUCTIONS_ADD }}" class="btn btn-success btn-add pull-right">{{getPhrase('add_new')}}</a>--}}
+            <a href="{{ URL_AUCTIONS_ADD }}" class="btn btn-success btn-add pull-right">Agregar</a>
 
         </div>
 
@@ -28,22 +29,37 @@ $date_format = getSetting('date_format','site_settings');
                     <tr>
                         
                         <th style="text-align:center;">S.no.</th>
-                        <th> {{getPhrase('image')}} </th>
-                        <th> {{getPhrase('title')}} </th>
-                        <th> {{getPhrase('start_date')}} </th>
-                        <th> {{getPhrase('end_date')}} </th>
+{{--                        <th> {{getPhrase('image')}} </th>--}}
+                        <th> IMAGEN</th>
+
+{{--                        <th> {{getPhrase('title')}} </th>--}}
+                        <th> TITULO</th>
+
+{{--                        <th> {{getPhrase('start_date')}} </th>--}}
+                        <th> FECHA INICIO</th>
+
+{{--                        <th> {{getPhrase('end_date')}} </th>--}}
+                         <th> FECHA FIN </th>
+
 
                         <th> {{getPhrase('reserve_price')}} ({{getSetting('currency_code','site_settings')}}) </th>
                         @if (checkRole(['admin']))
                         <th> {{getPhrase('seller')}} </th>
                         @endif
-                        <th> {{getPhrase('created_by')}} </th>
-                        <th> {{getPhrase('auction_status')}} </th>
-                        <th> {{getPhrase('admin_status')}} </th>
+{{--                        <th> {{getPhrase('created_by')}} </th>--}}
+                         <th> CREADO POR </th>
 
-                        <th> {{getPhrase('live_auction')}} </th>
+{{--                        <th> {{getPhrase('auction_status')}} </th>--}}
+                        <th> ESTADO SUBASTA </th>
+
+{{--                        <th> {{getPhrase('admin_status')}} </th>--}}
+                        <th> ESTADO ADMINISTRADOR </th>
+
+{{--                        <th> {{getPhrase('live_auction')}} </th>--}}
+                        <th> SUBASTA ENVIVO</th>
                        
-                        <th>&nbsp;</th>
+{{--                        <th>&nbsp;</th>--}}
+                        <th>ACCIONES</th>
                         
 
                     </tr>
@@ -94,9 +110,11 @@ $date_format = getSetting('date_format','site_settings');
 
                                 <td>
                                     
-                                    <a href="{{URL_AUCTIONS_VIEW}}{{$auction->slug}}" class="btn btn-xs btn-primary"> {{getPhrase('view')}} </a>
+{{--                                    <a href="{{URL_AUCTIONS_VIEW}}{{$auction->slug}}" class="btn btn-xs btn-primary"> {{getPhrase('view')}} </a>--}}
+                                    <a href="{{URL_AUCTIONS_VIEW}}{{$auction->slug}}" class="btn btn-xs btn-primary"> Ver</a>
                                    
-                                    <a href="{{ URL_AUCTIONS_EDIT }}/{{$auction->slug}}" class="btn btn-xs btn-info"> {{getPhrase('edit')}} </a>
+{{--                                    <a href="{{ URL_AUCTIONS_EDIT }}/{{$auction->slug}}" class="btn btn-xs btn-info"> {{getPhrase('edit')}} </a>--}}
+                                    <a href="{{ URL_AUCTIONS_EDIT }}/{{$auction->slug}}" class="btn btn-xs btn-info"> Editar</a>
                                     
                                 </td>
 

@@ -17,7 +17,8 @@ $total_bidders = \App\User::getTotalBidders();
                       <div class="media au-notify-media mt-3"> 
                         <div class="media-body">
                             <h5 class="au-owl-card"><?php echo e($total_auctions); ?></h5>
-                            <p class="au-owl-sub"><?php echo e(getPhrase('auctions_available')); ?></p>
+
+                                <p class="au-owl-sub">Subastas disponibles</p>
                         </div>
                     </div>
                   </div>    
@@ -27,7 +28,8 @@ $total_bidders = \App\User::getTotalBidders();
                      <div class="media au-notify-media mt-3"> 
                         <div class="media-body">
                             <h5 class="au-owl-card"><?php echo e($total_bidders); ?></h5>
-                            <p class="au-owl-sub"><?php echo e(getPhrase('bidders')); ?></p>
+
+                            <p class="au-owl-sub">postores</p>
                         </div>
                     </div>
                   </div>
@@ -37,7 +39,8 @@ $total_bidders = \App\User::getTotalBidders();
                     <div class="media au-notify-media mt-3">
                         <div class="media-body">
                             <h5 class="au-owl-card"><?php echo e($total_sale_auctions); ?></h5>
-                            <p class="au-owl-sub"><?php echo e(getPhrase('sale_auctions')); ?></p>
+
+                            <p class="au-owl-sub">venta subastas</p>
                         </div>
                     </div>
                   </div>    
@@ -47,7 +50,8 @@ $total_bidders = \App\User::getTotalBidders();
                     <div class="media au-notify-media mt-3"> 
                         <div class="media-body">
                             <h5 class="au-owl-card"><?php echo e($total_live_auctions); ?></h5>
-                            <p class="au-owl-sub"><?php echo e(getPhrase('live_auctions')); ?></p>
+
+                            <p class="au-owl-sub">subastas en vivo</p>
                         </div>
                     </div>
                   </div>

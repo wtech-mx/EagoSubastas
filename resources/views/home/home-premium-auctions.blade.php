@@ -30,14 +30,18 @@ $past_records     = Auction::getHomePastAuctions(8);
 
                         <div class="nav au-nav-tabs nav-tabs justify-content-center" id="nav-tab" role="tablist"> 
 
-                          <a class="nav-item au-nav-item nav-link active" id="nav-sale-tab" data-toggle="tab" href="#onsale-auctions" role="tab" aria-controls="nav-sale" aria-selected="true"> {{getPhrase('on_sale')}} </a> 
+{{--                          <a class="nav-item au-nav-item nav-link active" id="nav-sale-tab" data-toggle="tab" href="#onsale-auctions" role="tab" aria-controls="nav-sale" aria-selected="true"> {{getPhrase('on_sale')}} </a> --}}
+                            <a class="nav-item au-nav-item nav-link active" id="nav-sale-tab" data-toggle="tab" href="#onsale-auctions" role="tab" aria-controls="nav-sale" aria-selected="true"> En Venta </a>
 
-                          <a class="nav-item au-nav-item nav-link" id="nav-latest-tab" data-toggle="tab" href="#latest-auctions" role="tab" aria-controls="nav-latest" aria-selected="false"> {{getPhrase('latest')}} </a> 
+{{--                          <a class="nav-item au-nav-item nav-link" id="nav-latest-tab" data-toggle="tab" href="#latest-auctions" role="tab" aria-controls="nav-latest" aria-selected="false"> {{getPhrase('latest')}} </a> --}}
+                             <a class="nav-item au-nav-item nav-link" id="nav-latest-tab" data-toggle="tab" href="#latest-auctions" role="tab" aria-controls="nav-latest" aria-selected="false"> Último </a>
 
-                          <a class="nav-item au-nav-item nav-link" id="nav-past-tab" data-toggle="tab" href="#past-auctions" role="tab" aria-controls="nav-past" aria-selected="false"> {{getPhrase('past')}} </a> 
+{{--                          <a class="nav-item au-nav-item nav-link" id="nav-past-tab" data-toggle="tab" href="#past-auctions" role="tab" aria-controls="nav-past" aria-selected="false"> {{getPhrase('past')}} </a> --}}
+                             <a class="nav-item au-nav-item nav-link" id="nav-past-tab" data-toggle="tab" href="#past-auctions" role="tab" aria-controls="nav-past" aria-selected="false"> Pasada </a>
 
                           @if ($featured_enable=='Yes') 
-                          <a class="nav-item au-nav-item nav-link" id="nav-feature-tab" data-toggle="tab" href="#featured-auctions" role="tab" aria-controls="nav-featured" aria-selected="false"> {{getPhrase('featured')}} </a> 
+{{--                          <a class="nav-item au-nav-item nav-link" id="nav-feature-tab" data-toggle="tab" href="#featured-auctions" role="tab" aria-controls="nav-featured" aria-selected="false"> {{getPhrase('featured')}} </a> --}}
+                              <a class="nav-item au-nav-item nav-link" id="nav-feature-tab" data-toggle="tab" href="#featured-auctions" role="tab" aria-controls="nav-featured" aria-selected="false"> Destacadas </a>
                           @endif 
 
                         </div>
@@ -59,7 +63,9 @@ $past_records     = Auction::getHomePastAuctions(8);
                                         <div class="au-thumb"><a href="{{URL_HOME_AUCTION_DETAILS}}/{{$auction->slug}}"> <img src="{{getAuctionImage($auction->image,'auction')}}" alt="{{$auction->title}}" class="img-fluid premium-img"></a> </div>
 
                                         <div class="au-acord-secret">
-                                            <h6 class="card-title text-center" data-toggle="tooltip" title="{{$auction->title}}" data-placement="bottom"><a href="{{URL_HOME_AUCTION_DETAILS}}/{{$auction->slug}}">{!! str_limit($auction->title,25,'..') !!}</a></h6>
+                                            <h6 class="card-title text-center" data-toggle="tooltip" title="{{$auction->title}}" data-placement="bottom">
+                                                <a href="{{URL_HOME_AUCTION_DETAILS}}/{{$auction->slug}}">{!! str_limit($auction->title,25,'..') !!}</a>
+                                            </h6>
                                            <!--  <p class="au-card-text text-center"> {!! str_limit($auction->description,60,'...') !!} </p> -->
                                         </div>
 
@@ -69,8 +75,6 @@ $past_records     = Auction::getHomePastAuctions(8);
                                       <ul class="au-list-ietem au-list-ietems">
 
                                       <li> <a href="{{URL_HOME_AUCTION_DETAILS}}/{{$auction->slug}}" data-toggle="tooltip" title="view Auction"><i class="fa fa-eye"></i> </a> </li>
-
-
 
                                       <li> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-share-alt" title="Share Auction"></i> </a>
 
@@ -116,7 +120,8 @@ $past_records     = Auction::getHomePastAuctions(8);
                             @else
                             <div class="row">
                               <div class="col-lg-12 col-md-12 col-sm-12">
-                                <h4 class="text-center"> {{getPhrase('no_auctions_available')}} </h4> 
+{{--                                <h4 class="text-center"> {{getPhrase('no_auctions_available')}} </h4> --}}
+                                  <h4 class="text-center"> No hay subastas disponibles </h4>
                               </div>
                             </div> 
                           @endif 
@@ -184,7 +189,8 @@ $past_records     = Auction::getHomePastAuctions(8);
 
                                    <div class="col-lg-12 col-md-12 col-sm-12"> 
                                     <div class="text-center">
-                                      <a href="{{URL_HOME_AUCTIONS}}" class="btn btn-primary login-bttn">{{getPhrase('view_more')}}</a> 
+{{--                                      <a href="{{URL_HOME_AUCTIONS}}" class="btn btn-primary login-bttn">{{getPhrase('view_more')}}</a> --}}
+                                          <a href="{{URL_HOME_AUCTIONS}}" class="btn btn-primary login-bttn">Ver mas</a>
                                     </div>
                                   </div>
 
@@ -193,7 +199,8 @@ $past_records     = Auction::getHomePastAuctions(8);
                             @else
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
-                                  <h4 class="text-center"> {{getPhrase('no_auctions_available')}} </h4> 
+{{--                                  <h4 class="text-center"> {{getPhrase('no_auctions_available')}} </h4> --}}
+                                      <h4 class="text-center"> No hay subastas disponibles </h4>
                                 </div>
                             </div> 
                             @endif 
@@ -267,7 +274,8 @@ $past_records     = Auction::getHomePastAuctions(8);
 
                                  <div class="col-lg-12 col-md-12 col-sm-12"> 
                                   <div class="text-center">
-                                    <a href="{{URL_HOME_AUCTIONS}}" class="btn btn-primary login-bttn">{{getPhrase('view_more')}}</a> 
+                                    <a href="{{URL_HOME_AUCTIONS}}" class="btn btn-primary login-bttn">{{getPhrase('view_more')}}</a>
+                                    <a href="{{URL_HOME_AUCTIONS}}" class="btn btn-primary login-bttn">Ver mas</a>
                                   </div>
                                  </div>
 
@@ -276,7 +284,8 @@ $past_records     = Auction::getHomePastAuctions(8);
                             @else
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-6">
-                                  <h4 class="text-center"> {{getPhrase('no_auctions_available')}} </h4> 
+{{--                                  <h4 class="text-center"> {{getPhrase('no_auctions_available')}} </h4> --}}
+                                      <h4 class="text-center">No hay subastas disponibles </h4>
                                 </div>
                             </div> 
                             @endif 
@@ -351,7 +360,8 @@ $past_records     = Auction::getHomePastAuctions(8);
 
                                 <div class="col-lg-12 col-md-12 col-sm-12"> 
                                   <div class="text-center">
-                                    <a href="{{URL_HOME_AUCTIONS}}" class="btn btn-primary login-bttn">{{getPhrase('view_more')}}</a> 
+{{--                                    <a href="{{URL_HOME_AUCTIONS}}" class="btn btn-primary login-bttn">{{getPhrase('view_more')}}</a> --}}
+                                    <a href="{{URL_HOME_AUCTIONS}}" class="btn btn-primary login-bttn">Ver mas</a>
                                   </div>
                                 </div>
 
@@ -360,7 +370,8 @@ $past_records     = Auction::getHomePastAuctions(8);
                             @else
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
-                                  <h4 class="text-center"> {{getPhrase('no_auctions_available')}} </h4> 
+{{--                                  <h4 class="text-center"> {{getPhrase('no_auctions_available')}} </h4>--}}
+                                  <h4 class="text-center"> No hay subastas disponibles </h4>
                                 </div>
                             </div> 
                             @endif 

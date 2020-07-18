@@ -12,7 +12,9 @@
 
 
             @can('category_create')
-                <a href="{{ URL_CATEGORIES_ADD }}" class="btn btn-success btn-add pull-right">{{getPhrase('add_new')}}</a>
+{{--                <a href="{{ URL_CATEGORIES_ADD }}" class="btn btn-success btn-add pull-right">{{getPhrase('add_new')}}</a>--}}
+             <a href="{{ URL_CATEGORIES_ADD }}" class="btn btn-success btn-add pull-right">Agregar</a>
+
             @endcan
 
         </div>
@@ -24,10 +26,15 @@
                 <thead>
                     <tr>
                         <th style="text-align:center;">S.no.</th>
-                        <th> {{getPhrase('category')}} </th>
-                        <th> {{getPhrase('status')}} </th>
+
+{{--                        <th> {{getPhrase('category')}} </th>--}}
+                        <th> Categorias </th>
+
+{{--                        <th> {{getPhrase('status')}} </th>--}}
+                        <th> Estatus </th>
+
                         
-                        <th>&nbsp;</th>
+                        <th>Acciones</th>
                         
                     </tr>
                 </thead>
@@ -47,14 +54,17 @@
                                 
                                 <td>
                                     @can('category_view')
-                                     <a href="{{ URL_CATEGORIES_VIEW }}/{{$category->slug}} " class="btn btn-xs btn-primary"> {{getPhrase('view')}} </a>
+{{--                                     <a href="{{ URL_CATEGORIES_VIEW }}/{{$category->slug}} " class="btn btn-xs btn-primary"> {{getPhrase('view')}} </a>--}}
+                                         <a href="{{ URL_CATEGORIES_VIEW }}/{{$category->slug}} " class="btn btn-xs btn-primary"> ver </a>
                                     @endcan
                                     @can('category_edit')
-                                    <a href="{{ URL_CATEGORIES_EDIT }}/{{$category->slug}}" class="btn btn-xs btn-info">{{getPhrase('edit')}}</a>
+{{--                                    <a href="{{ URL_CATEGORIES_EDIT }}/{{$category->slug}}" class="btn btn-xs btn-info">{{getPhrase('edit')}}</a>--}}
+                                        <a href="{{ URL_CATEGORIES_EDIT }}/{{$category->slug}}" class="btn btn-xs btn-info">Editar</a>
                                     @endcan
 
                                     @can('category_delete')
-                                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$category->id}}')"> {{ getPhrase('delete') }}</a>
+{{--                                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$category->id}}')"> {{ getPhrase('delete') }}</a>--}}
+                                        <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$category->id}}')"> Eliminar</a>
                                     @endcan
                                 </td>
                                 

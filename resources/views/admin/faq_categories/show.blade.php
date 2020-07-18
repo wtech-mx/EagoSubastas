@@ -31,9 +31,15 @@
 <table class="table table-bordered table-striped {{ count($faq_questions) > 0 ? 'datatable' : '' }}">
     <thead>
         <tr>
-            <th> {{getPhrase('category')}} </th>
-            <th> {{getPhrase('question')}} </th>
-            <th> {{getPhrase('answer')}} </th>
+{{--            <th> {{getPhrase('category')}} </th>--}}
+            <th> Categoria </th>
+
+{{--            <th> {{getPhrase('question')}} </th>--}}
+            <th> Pregunta </th>
+
+{{--            <th> {{getPhrase('answer')}} </th>--}}
+            <th> Respuesta </th>
+
             <th>&nbsp;</th>
 
         </tr>
@@ -48,14 +54,17 @@
                                 <td field-key='answer_text'>{!! $faq_question->answer_text !!}</td>
                                                                 <td>
                                     @can('view')
-                                    <a href="{{URL_FAQ_QUESTIONS_VIEW}}/{{$faq_question->slug}}" class="btn btn-xs btn-primary"> {{getPhrase('view')}} </a>
+{{--                                    <a href="{{URL_FAQ_QUESTIONS_VIEW}}/{{$faq_question->slug}}" class="btn btn-xs btn-primary"> {{getPhrase('view')}} </a>--}}
+                                        <a href="{{URL_FAQ_QUESTIONS_VIEW}}/{{$faq_question->slug}}" class="btn btn-xs btn-primary"> Ver </a>
                                     @endcan
                                     @can('edit')
-                                    <a href="{{URL_FAQ_QUESTIONS_EDIT}}/{{$faq_question->slug}}" class="btn btn-xs btn-info"> {{getPhrase('edit')}} </a>
+{{--                                    <a href="{{URL_FAQ_QUESTIONS_EDIT}}/{{$faq_question->slug}}" class="btn btn-xs btn-info"> {{getPhrase('edit')}} </a>--}}
+                                        <a href="{{URL_FAQ_QUESTIONS_EDIT}}/{{$faq_question->slug}}" class="btn btn-xs btn-info">Editar </a>
                                     @endcan
                                     @can('delete')
                                     
-                                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$faq_question->id}}')"> {{ getPhrase('delete') }} </a>
+{{--                                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$faq_question->id}}')"> {{ getPhrase('delete') }} </a>--}}
+                                         <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$faq_question->id}}')"> Borrar </a>
                                     @endcan
                                 </td>
 

@@ -29,7 +29,8 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
 
               <!--Auction Date-->
               <div class="au-all-category">
-                <h6><?php echo e(getPhrase('auction_date')); ?></h6>
+
+                  <h6>Dia Subasta</h6>
 
 
                 <div class="form-group">
@@ -53,7 +54,8 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
 
               <!--Item Type-->
               <div class="au-all-category">
-                <h6><?php echo e(getPhrase('item_type')); ?></h6>
+
+                   <h6>Tipo de artículo</h6>
 
                 <div class="form-group">
                  <?php echo e(Form::radio('item_type','all_items',true,
@@ -62,7 +64,8 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
 
                  ))); ?>
 
-                 <label for="all_items"> <?php echo e(getPhrase('all_items')); ?>  </label>
+
+                    <label for="all_items"> Todos los artículos  </label>
                 </div>
 
                 <div class="form-group">
@@ -72,7 +75,8 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
 
                  ))); ?>
 
-                 <label for="auction_items"> <?php echo e(getPhrase('auctions')); ?>  </label>
+
+                     <label for="auction_items"> Subastas  </label>
                 </div>
 
                  <div class="form-group">
@@ -82,7 +86,8 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
 
                   ))); ?>
 
-                 <label for="buynow_items"> <?php echo e(getPhrase('buy_now')); ?>  </label>
+
+                      <label for="buynow_items"> Compra ahora  </label>
                 </div>
 
               </div>
@@ -97,21 +102,33 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
 
                  <?php echo e(Form::checkbox('auction_status','open', true , array('id'=>'open', 'name'=>'auction_status','class'=>'auction-status'))); ?>
 
-                 <label for="open"> <span class="fa-stack radio-button"> <i class="fa fa-check active"></i> </span> <?php echo e(getPhrase('regular')); ?> <span class="badge"><?php echo e($open_auctions_count); ?></span> </label>
+                 <label for="open"> <span class="fa-stack radio-button"> <i class="fa fa-check active"></i> </span>
+
+                     Regular
+                     <span class="badge"><?php echo e($open_auctions_count); ?></span>
+                 </label>
                 </div>
 
 
                 <div class="form-group">
                  <?php echo e(Form::checkbox('auction_status','new', null , array('id'=>'new', 'name'=>'auction_status','class'=>'auction-status'))); ?>
 
-                 <label for="new"> <span class="fa-stack radio-button"> <i class="fa fa-check active"></i> </span> <?php echo e(getPhrase('upcoming')); ?> <span class="badge"><?php echo e($new_auctions_count); ?></span> </label>
+                 <label for="new"> <span class="fa-stack radio-button"> <i class="fa fa-check active"></i> </span>
+
+                     próxima
+                     <span class="badge"><?php echo e($new_auctions_count); ?></span>
+                 </label>
                 </div>
 
 
                  <div class="form-group">
                  <?php echo e(Form::checkbox('auction_status','closed', null , array('id'=>'closed', 'name'=>'auction_status','class'=>'auction-status'))); ?>
 
-                 <label for="closed"> <span class="fa-stack radio-button"> <i class="fa fa-check active"></i> </span> <?php echo e(getPhrase('past')); ?> <span class="badge"><?php echo e($closed_auctions_count); ?></span> </label>
+                 <label for="closed"> <span class="fa-stack radio-button"> <i class="fa fa-check active"></i> </span>
+
+                     Pasada
+                     <span class="badge"><?php echo e($closed_auctions_count); ?></span>
+                 </label>
                 </div>
 
 
@@ -119,12 +136,12 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
               <!--Auction STATUS-->
 
 
-
               <!--Categories-->
               <?php if(count($categories)): ?>
 
               <div class="au-all-category">
-                <h6><?php echo e(getPhrase('categories')); ?></h6>
+
+                  <h6>Categorias</h6>
                 <div class="option-scroll">
                 <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
@@ -166,8 +183,6 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
 
                     ?>
 
-
-
                     <li>
 
                       <?php echo e(Form::checkbox('sub_categories',$sub_category->id,null, array('id'=>$sub_category->sub_category, 'name'=>'sub_categories','class'=>'auction-categories', $checked))); ?>
@@ -200,11 +215,11 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
               <!--Categories-->
 
 
-
-
                <!--Seller Location-->
-              <div class="au-all-category">
-                <h6><?php echo e(getPhrase('location')); ?></h6>
+            <div class="au-all-category">
+
+
+                <h6>Localizacion</h6>
                  <div class="option-scroll">
                 <?php $cities = \App\City::getAuctionPageCities();
 
@@ -230,7 +245,7 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
 
               <!--Sellers-->
                <div class="au-all-category">
-                <h6>Sellers</h6>
+                <h6>Vendedores</h6>
 
                 <?php $sellers = \App\Auction::getSellers();
 
@@ -252,26 +267,24 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
               </div>
               <!--Sellers-->
 
-
-
               <!--Featured-->
               <?php if($featured_enable=='Yes'): ?>
               <div class="au-all-category">
-                <h6><?php echo e(getPhrase('featured')); ?></h6>
+
+                   <h6>Destacados</h6>
                 <div class="form-group">
                  <?php echo e(Form::checkbox('featured',null,null, array('id'=>'featured_yes', 'name'=>'featured'))); ?>
 
-                 <label for="featured_yes"> <span class="fa-stack radio-button"> <i class="fa fa-check active"></i> </span>  <?php echo e(getPhrase('featured_auctions')); ?> </label>
+                 <label for="featured_yes"> <span class="fa-stack radio-button"> <i class="fa fa-check active"></i> </span>
+
+                     Subastas destacadas
+                 </label>
                 </div>
               </div>
               <?php endif; ?>
               <!--Featured-->
 
             </div>
-
-
-
-
 
             <!--PRODUCTS SECTION-->
              <div class="col-lg-9 col-md-8 col-sm-12 au-wrapper-main">
@@ -302,15 +315,8 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
 
                 </div>
 
-
-
-
-
             </div>
             <!--PRODUCTS SECTION-->
-
-
-
 
          </div>
       </div>

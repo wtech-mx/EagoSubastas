@@ -37,7 +37,8 @@
                             <label>{{getPhrase('by')}} {{$auction->username}}</label>
                             <p class="au-card-text">
 
-                                <i class="fa fa-clock-o"></i>{{$auction->live_auction_start_time}} - {{$auction->live_auction_end_time}} | {{$auction->city}}, {{$auction->state}}</p>
+                                <i class="fa fa-clock-o"></i>{{$auction->live_auction_start_time}} - {{$auction->live_auction_end_time}} | {{$auction->city}}, {{$auction->state}}
+                            </p>
 
                         </div>
                     </div>

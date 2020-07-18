@@ -3,7 +3,12 @@
 
 <?php $__env->startSection('content'); ?>
     <h3 class="page-title"> <?php echo e($title); ?> </h3>
-    
+    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('content_page_create')): ?>
+    <p>
+
+        <a href="<?php echo e(URL_PAGES_ADD); ?>" class="btn btn-success"> Agregar </a>
+    </p>
+    <?php endif; ?>
 
     
 
@@ -19,8 +24,11 @@
                     <tr>
                        <th style="text-align:center;">S.no.</th>
 
-                        <th> <?php echo e(getPhrase('title')); ?> </th>
-                        <th> <?php echo e(getPhrase('status')); ?> </th>
+
+                        <th> Titulo </th>
+
+
+                         <th> Estatus </th>
                         
                         <th>&nbsp;</th>
 
@@ -44,10 +52,12 @@
 
                                 <td>
                                     <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('content_page_view')): ?>
-                                    <a href="<?php echo e(URL_PAGES_VIEW); ?>/<?php echo e($content_page->slug); ?>" class="btn btn-xs btn-primary"> <?php echo e(getPhrase('view')); ?> </a>
+
+                                         <a href="<?php echo e(URL_PAGES_VIEW); ?>/<?php echo e($content_page->slug); ?>" class="btn btn-xs btn-primary"> Ver </a>
                                     <?php endif; ?>
                                     <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('content_page_edit')): ?>
-                                    <a href="<?php echo e(URL_PAGES_EDIT); ?>/<?php echo e($content_page->slug); ?>" class="btn btn-xs btn-info"> <?php echo e(getPhrase('edit')); ?> </a>
+
+                                        <a href="<?php echo e(URL_PAGES_EDIT); ?>/<?php echo e($content_page->slug); ?>" class="btn btn-xs btn-info"> Editar </a>
                                     <?php endif; ?>
 
                                 </td>

@@ -22,14 +22,22 @@
                 <thead>
                     <tr>
                         <th style="text-align:center;">S.no.</th>
-                        <th> {{getPhrase('username')}} </th>
-                        <th> {{getPhrase('email')}} </th>
-                        <th> {{getPhrase('image')}} </th>
-                        <th> {{getPhrase('role')}} </th>
-                        
-                        <th> {{getPhrase('status')}} </th>
+{{--                        <th> {{getPhrase('username')}} </th>--}}
+                        <th> Username </th>
 
-                        <th>&nbsp;</th>
+{{--                        <th> {{getPhrase('email')}} </th>--}}
+                         <th> Email </th>
+
+{{--                        <th> {{getPhrase('image')}} </th>--}}
+                         <th> Imagen </th>
+
+{{--                        <th> {{getPhrase('role')}} </th>--}}
+                        <th> Rol </th>
+
+{{--                        <th> {{getPhrase('status')}} </th>--}}
+                        <th> Estatus </th>
+
+                        <th>&nbsp;Acciones</th>
 
                     </tr>
                 </thead>
@@ -62,9 +70,11 @@
 
                                 <td field-key='status'>
                                    @if ($user->approved==1)
-                                   <a data-toggle="tooltip" title="Approved" href="{{URL_USERS_STATUS}}/{{$user->slug}}/block" class="btn btn-danger btn-xs">{{getPhrase('block')}}</a>
+{{--                                   <a data-toggle="tooltip" title="Approved" href="{{URL_USERS_STATUS}}/{{$user->slug}}/block" class="btn btn-danger btn-xs">{{getPhrase('block')}}</a>--}}
+                                   <a data-toggle="tooltip" title="Approved" href="{{URL_USERS_STATUS}}/{{$user->slug}}/block" class="btn btn-danger btn-xs">Bloquear</a>
                                    @elseif ($user->approved==0)
-                                   <a data-toggle="tooltip" title="Disapproved" href="{{URL_USERS_STATUS}}/{{$user->slug}}/unblock" class="btn btn-info btn-xs">{{getPhrase('unblock')}}</a>
+{{--                                   <a data-toggle="tooltip" title="Disapproved" href="{{URL_USERS_STATUS}}/{{$user->slug}}/unblock" class="btn btn-info btn-xs">{{getPhrase('unblock')}}</a>--}}
+                                    <a data-toggle="tooltip" title="Disapproved" href="{{URL_USERS_STATUS}}/{{$user->slug}}/unblock" class="btn btn-info btn-xs">Desbloquear</a>
                                    @endif
                                 </td>
 

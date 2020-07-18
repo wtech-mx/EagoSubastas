@@ -2,36 +2,26 @@
 			<div class="col-xs-6"> 	
 
 				<div class="form-group">
-                    <?php echo Form::label('title', getPhrase('title'), ['class' => 'control-label']); ?>
+                    <?php echo Form::label('category', getPhrase('category'), ['class' => 'control-label']); ?>
 
 
                     <span class="text-red">*</span>
-                    <?php 
-                    $readonly='';
-                    if (!empty($record)) 
-                        $readonly = 'readonly';
-                    ?>
 
-
-                    <?php echo e(Form::text('title', old('title'), $attributes = 
+                    <?php echo e(Form::text('category', old('category'), $attributes = 
 
                     array('class' => 'form-control', 
 
-                    'placeholder' => 'Title',
+                    'placeholder' => 'Category',
 
-                    'ng-model' => 'title', 
+                    'ng-model' => 'category', 
 
                     'required' => 'true',
-
-                    'ng-pattern' => getRegexPattern("name"),
 
 					'ng-minlength' => '2',
 
 					'ng-maxlength' => '50',
 
-                    $readonly,
-
-					'ng-class'=>'{"has-error": formValidate.title.$touched && formValidate.title.$invalid}',
+					'ng-class'=>'{"has-error": formValidate.category.$touched && formValidate.category.$invalid}',
 
 
 
@@ -40,7 +30,7 @@
 
 
                     
-                    <div class="validation-error" ng-messages="formValidate.title.$error" >
+                    <div class="validation-error" ng-messages="formValidate.category.$error" >
 
 	    					<?php echo getValidationMessage(); ?>
 
@@ -51,8 +41,6 @@
 	    					<?php echo getValidationMessage('maxlength'); ?>
 
 
-	    					<?php echo getValidationMessage('pattern'); ?>
-
 
 					</div>
 
@@ -62,32 +50,28 @@
 
 
                 <div class="form-group">
-
                     <?php echo Form::label('description', getPhrase('description'), ['class' => 'control-label']); ?>
 
 
-                     <span class="text-red">*</span>
                    
-                    <?php echo e(Form::textarea('page_text', old('page_text'), $attributes = 
+                    <?php echo e(Form::textarea('description', old('description'), $attributes = 
 
-                    array('class' => 'form-control ckeditor', 
+                    array('class' => 'form-control', 
 
                     'placeholder' => 'Description',
 
-                    'ng-model' => 'page_text',
+                    'ng-model' => 'description', 
 
-                    'required' => 'true',
-
-                    'ng-class'=>'{"has-error": formValidate.page_text.$touched && formValidate.page_text.$invalid}',
+					'ng-maxlength' => '200',
 
                     ))); ?>
 
 
 
                     
-                    <div class="validation-error" ng-messages="formValidate.page_text.$error" >
+                    <div class="validation-error" ng-messages="formValidate.description.$error" >
 
-	    				<?php echo getValidationMessage(); ?>
+	    				<?php echo getValidationMessage('maxlength'); ?>
 
 
 					</div>
@@ -95,6 +79,7 @@
                 </div>
 
 
+                 
                 <div class="form-group">
 
                     <?php echo Form::label('status', getPhrase('status'), ['class' => 'control-label']); ?>
@@ -114,13 +99,13 @@
 
                     
 
-                    <?php echo e(Form::select('status', activeinactive() , $selected, ['placeholder' => getPhrase('select'),'class'=>'form-control select2',
+                    <?php echo e(Form::select('status', activeinactive(), $selected, ['placeholder' => getPhrase('select'),'class'=>'form-control select2',
 
                             'ng-model'=>'status',
 
                             'required'=> 'true',
 
-                            'ng-init'=>'status="'.$val.'"',
+                            'ng-init'=>'status="'.$val.'"', 
 
                             'ng-class'=>'{"has-error": formValidate.status.$touched && formValidate.status.$invalid}'
 
@@ -141,11 +126,10 @@
 
 
 
-               <div class="form-groupp pull-right">
+               <div class="form-group pull-right">
 
 
-                   <button class="btn btn-success" ng-disabled='!formValidate.$valid'>Guardar</button>
-
+                    <button class="btn btn-success" ng-disabled='!formValidate.$valid'>Guardar</button>
 				</div>
 
 			</div>

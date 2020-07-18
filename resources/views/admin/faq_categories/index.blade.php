@@ -14,7 +14,8 @@
             {{ getPhrase('list') }}
 
             @can('faq_category_create')
-            <a href="{{ URL_FAQ_CATEGORIES_ADD }}" class="btn btn-success btn-add pull-right">{{ getPhrase('add_new') }}</a>
+{{--            <a href="{{ URL_FAQ_CATEGORIES_ADD }}" class="btn btn-success btn-add pull-right">{{ getPhrase('add_new') }}</a>--}}
+                <a href="{{ URL_FAQ_CATEGORIES_ADD }}" class="btn btn-success btn-add pull-right">Agregar</a>
             @endcan
         </div>
 
@@ -26,8 +27,12 @@
                         <th style="text-align:center;">S.no.</th>
                        
 
-                        <th> {{getPhrase('category')}} </th>
-                        <th> {{getPhrase('status')}} </th>
+{{--                        <th> {{getPhrase('category')}} </th>--}}
+                        <th> Categoria </th>
+
+{{--                        <th> {{getPhrase('status')}} </th>--}}
+                        <th> Estatus</th>
+
                         <th>&nbsp;</th>
 
                     </tr>
@@ -49,13 +54,16 @@
 
                                     <td>
                                     @can('faq_category_view')
-                                    <a href="{{URL_FAQ_CATEGORIES_VIEW}}/{{$faq_category->slug}}" class="btn btn-xs btn-primary"> {{getPhrase('view')}} </a>
+{{--                                    <a href="{{URL_FAQ_CATEGORIES_VIEW}}/{{$faq_category->slug}}" class="btn btn-xs btn-primary"> {{getPhrase('view')}} </a>--}}
+                                   <a href="{{URL_FAQ_CATEGORIES_VIEW}}/{{$faq_category->slug}}" class="btn btn-xs btn-primary"> Ver </a>
                                     @endcan
                                     @can('faq_category_edit')
-                                    <a href="{{URL_FAQ_CATEGORIES_EDIT}}/{{$faq_category->slug}}" class="btn btn-xs btn-info"> {{getPhrase('edit')}} </a>
+{{--                                    <a href="{{URL_FAQ_CATEGORIES_EDIT}}/{{$faq_category->slug}}" class="btn btn-xs btn-info"> {{getPhrase('edit')}} </a>--}}
+                                        <a href="{{URL_FAQ_CATEGORIES_EDIT}}/{{$faq_category->slug}}" class="btn btn-xs btn-info"> Editar </a>
                                     @endcan
                                     @can('faq_category_delete')
-                                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$faq_category->id}}')"> {{ getPhrase('delete') }} </a>
+                                        <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$faq_category->id}}')"> Eliminar </a>
+{{--                                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$faq_category->id}}')"> {{ getPhrase('delete') }} </a>--}}
                                     @endcan
                                 </td>
 

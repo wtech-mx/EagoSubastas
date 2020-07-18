@@ -404,7 +404,7 @@
 
                     <?php echo Form::label('tiros', getPhrase('tiros'), ['class' => 'control-label']); ?>
 
-                    
+
                     <span class="text-red">*</span>
 
                     <?php
@@ -913,7 +913,9 @@
 
                <div class="form-group pull-right">
 
-					<button class="btn btn-success" ng-disabled='!formValidate.$valid'><?php echo e(getPhrase('save')); ?></button>
+					<button class="btn btn-success" ng-disabled='!formValidate.$valid'>Guardar</button>
+
+
 
 				</div>
 

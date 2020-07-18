@@ -165,9 +165,11 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 
               <div class="">
                 <?php if(!Auth::check()): ?>
-                  <a class="btn btn-info au-btn-modren login-bttn" href="javascript:void(0);" onclick="showModal('loginModal')"><?php echo e(getPhrase('participate_in_live_auction')); ?></a>
+
+                     <a class="btn btn-info au-btn-modren login-bttn" href="javascript:void(0);" onclick="showModal('loginModal')">participar en una subasta en vivo</a>
                 <?php else: ?>
-                  <a class="btn btn-info au-btn-modren login-bttn live" href="javascript:void(0);" onclick="liveAuction('<?php echo e($auction->slug); ?>')"><?php echo e(getPhrase('participate_in_live_auction')); ?></a>
+
+                     <a class="btn btn-info au-btn-modren login-bttn live" href="javascript:void(0);" onclick="liveAuction('<?php echo e($auction->slug); ?>')">participar en una subasta en vivo</a>
                 <?php endif; ?>
               </div>
               <?php endif; ?>
@@ -190,11 +192,11 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 
                       <span class="badge">
                         <?php if($total_bids>1): ?>
-                            <?php echo e($total_bids); ?> <?php echo e(getPhrase('bids')); ?>
 
+                             <?php echo e($total_bids); ?>ofertas
                         <?php elseif($total_bids==1): ?>
-                            <?php echo e($total_bids); ?> <?php echo e(getPhrase('bid')); ?>
 
+                            <?php echo e($total_bids); ?> oferta
                         <?php else: ?>
                             0 <?php echo e(getPhrase('bids')); ?>
 
@@ -205,7 +207,8 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 
                   <?php if($bid_options): ?>
 
-                  <p><?php echo e(getPhrase('select_maximum_bid')); ?></p>
+
+                    <p>seleccione oferta máxima</p>
                   <div class="row">
                   <div class="col-lg-6">
 
@@ -243,7 +246,8 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 
                         <input type="hidden" name="bid_auction_id" value="<?php echo e($auction->id); ?>">
 
-                        <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'><?php echo e(getPhrase('place_bid')); ?></button>
+
+                            <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Identificación del lugar</button>
 
                      </div>
 
@@ -295,7 +299,8 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 
                         <input type="hidden" name="bid_auction_id" value="<?php echo e($auction->id); ?>">
 
-                        <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'><?php echo e(getPhrase('place_bid')); ?></button>
+
+                            <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Identificación del lugar</button>
 
                      </div>
 
@@ -324,8 +329,8 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                       <?php echo e($currency_code); ?><?php echo e($auction->reserve_price); ?>
 
                       <span class="badge">
-                       <?php echo e($auction->getAuctionBiddersCount()); ?> <?php echo e(getPhrase('bids')); ?>
 
+                           <?php echo e($auction->getAuctionBiddersCount()); ?> ofertas
                       </span>
                     </h4>
                 </div>
@@ -333,12 +338,16 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                 <?php elseif($auction->auction_status=='closed'): ?>
                 <!--if auction status is closed start-->
                  <div>
-                     <p class="text-blue"><b> <?php echo e(getPhrase('auction_ended')); ?> </b></p>
+                     <p class="text-blue">
+
+                         <b> Subasta finalizada </b>
+                     </p>
 
                     <h4><?php echo e($currency_code); ?><?php echo e($auction->reserve_price); ?>
 
                       <span class="badge">
-                        <?php echo e($auction->getAuctionBiddersCount()); ?> <?php echo e(getPhrase('bids')); ?>
+
+                           <?php echo e($auction->getAuctionBiddersCount()); ?> ofertas
 
                       </span>
                     </h4>
@@ -358,18 +367,24 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 
                   <?php if(Auth::user()): ?>
                     <a href="javascript:void(0);" ng-click="addtoFavourites(<?php echo e($auction->id); ?>)" title="Add to Wishlist" class="btn btn-info au-btn-modren login-bttn"><i class="pe-7s-plus"></i>
-                    <?php echo e(getPhrase('add_to_wish_list')); ?></a>
+
+                        añadir a la lista de deseos</a>
                   <?php else: ?>
-                   <a href="javascript:void(0);" onclick="showModal('loginModal')" title="Add to Wishlist" class="btn btn-info au-btn-modren login-bttn"><i class="pe-7s-plus"></i> <?php echo e(getPhrase('add_to_wish_list')); ?> </a>
+                   <a href="javascript:void(0);" onclick="showModal('loginModal')" title="Add to Wishlist" class="btn btn-info au-btn-modren login-bttn">
+
+                       <i class="pe-7s-plus"></i> añadir a la lista de deseos
+                   </a>
                   <?php endif; ?>
 
 
                   <?php if($auction->is_buynow==1 && $auction->buy_now_price && $is_already_sold=='No'): ?>
                   <?php if($bid_div): ?>
                   <?php if(Auth::user()): ?>
-                    <a href="<?php echo e(URL_BID_AUCTION_PAYMENT); ?>/<?php echo e($auction->slug); ?>" title="Buy Auction" class="btn btn-info au-btn-modren login-bttn"> <?php echo e(getPhrase('buy_now')); ?></a>
+
+                      <a href="<?php echo e(URL_BID_AUCTION_PAYMENT); ?>/<?php echo e($auction->slug); ?>" title="Buy Auction" class="btn btn-info au-btn-modren login-bttn"> compra ahora</a>
                   <?php else: ?>
-                   <a href="javascript:void(0);" onclick="showModal('loginModal')" title="Buy Auction" class="btn btn-info au-btn-modren login-bttn"> <?php echo e(getPhrase('buy_now')); ?> </a>
+
+                      <a href="javascript:void(0);" onclick="showModal('loginModal')" title="Buy Auction" class="btn btn-info au-btn-modren login-bttn">compra ahora </a>
                   <?php endif; ?>
                   <?php endif; ?>
                   <?php endif; ?>
@@ -418,13 +433,20 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                     <nav class="au-tabs">
                       <div class="nav au-product-tabs nav-tabs" id="nav-tab" role="tablist">
 
-                        <a class="nav-item au-product-nav nav-link active" id="nav-auction-tab" data-toggle="tab" href="#nav-auction" role="tab" aria-controls="nav-auction" aria-selected="true"> <?php echo e(getPhrase('auction_details')); ?> </a>
 
-                        <a class="nav-item au-product-nav nav-link" id="nav-shipping-tab" data-toggle="tab" href="#nav-shipping" role="tab" aria-controls="nav-shipping" aria-selected="false"> <?php echo e(getPhrase('shipping')); ?> & <?php echo e(getPhrase('payment')); ?></a>
+                          <a class="nav-item au-product-nav nav-link active" id="nav-auction-tab" data-toggle="tab" href="#nav-auction" role="tab" aria-controls="nav-auction" aria-selected="true"> detalles de la subasta </a>
 
-                        <a class="nav-item au-product-nav nav-link" id="nav-terms-tab" data-toggle="tab" href="#nav-terms" role="tab" aria-controls="nav-terms" aria-selected="false"> <?php echo e(getPhrase('auction_terms')); ?> & <?php echo e(getPhrase('info')); ?> </a>
 
-                        <a class="nav-item au-product-nav nav-link" id="nav-bid-tab" data-toggle="tab" href="#nav-bid" role="tab" aria-controls="nav-bid" aria-selected="false"> <?php echo e(getPhrase('bid_history')); ?> </a>
+
+                        <a class="nav-item au-product-nav nav-link" id="nav-shipping-tab" data-toggle="tab" href="#nav-shipping" role="tab" aria-controls="nav-shipping" aria-selected="false"> Envío & pago</a>
+
+
+
+                          <a class="nav-item au-product-nav nav-link" id="nav-terms-tab" data-toggle="tab" href="#nav-terms" role="tab" aria-controls="nav-terms" aria-selected="false"> condiciones de subasta & informacion </a>
+
+
+
+                          <a class="nav-item au-product-nav nav-link" id="nav-bid-tab" data-toggle="tab" href="#nav-bid" role="tab" aria-controls="nav-bid" aria-selected="false"> historial de ofertas </a>
 
                       </div>
                     </nav>
@@ -452,65 +474,71 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                                 <ul class="list-group">
 
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                      <?php echo e(getPhrase('start_date')); ?>
 
+                                        Fecha de inicio
                                       <span> <?php echo date(getSetting('date_format','site_settings').' H:i:s', strtotime($auction->start_date));?></span>
                                     </li>
 
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                      <?php echo e(getPhrase('end_date')); ?>
 
+                                        Fecha final
                                       <span> <?php echo date(getSetting('date_format','site_settings').' H:i:s', strtotime($auction->end_date));?> </span>
                                     </li>
 
 
                                      <li class="list-group-item d-flex justify-content-between align-items-center">
-                                      <?php echo e(getPhrase('reserve_price')); ?>
 
-                                      <span><?php if($auction->reserve_price): ?> <?php echo e($currency_code); ?><?php echo e($auction->reserve_price); ?> <?php endif; ?></span>
+                                         Precio de reserva
+                                      <span><?php if($auction->reserve_price): ?> <?php echo e($currency_code); ?> <?php echo e($auction->reserve_price); ?> <?php endif; ?></span>
+                                     </li>
+
+                                     <li class="list-group-item d-flex justify-content-between align-items-center">
+
+                                         Tiros
+                                      <span><?php if($auction->tiros): ?> <?php echo e($auction->tiros); ?> <?php endif; ?></span>
                                      </li>
 
 
 
                                      <li class="list-group-item d-flex justify-content-between align-items-center">
-                                      <?php echo e(getPhrase('bid_start')); ?>
 
+                                          Inicio de oferta
                                       <span><?php if($auction->minimum_bid): ?> <?php echo e($currency_code); ?><?php echo e($auction->minimum_bid); ?> <?php endif; ?></span>
                                      </li>
 
 
                                       <li class="list-group-item d-flex justify-content-between align-items-center">
-                                      <?php echo e(getPhrase('is_bid_incremental')); ?>
 
+                                          Es el incremento de la oferta
                                         <span>
                                         <?php if($auction->is_bid_increment==1): ?>
-                                            <?php echo e(getPhrase('yes')); ?>
 
+                                            Si
                                         <?php else: ?>
-                                            <?php echo e(getPhrase('no')); ?>
 
+                                            No
                                         <?php endif; ?>
                                         </span>
                                      </li>
 
 
                                      <li class="list-group-item d-flex justify-content-between align-items-center">
-                                      <?php echo e(getPhrase('bid_increment')); ?>
 
-                                      <span><?php if($auction->bid_increment): ?> <?php echo e($currency_code); ?><?php echo e($auction->bid_increment); ?> <?php endif; ?></span>
+                                         aumento de oferta
+                                      <span><?php if($auction->bid_increment): ?> <?php echo e($currency_code); ?> <?php echo e($auction->bid_increment); ?> <?php endif; ?></span>
                                     </li>
 
 
                                      <li class="list-group-item d-flex justify-content-between align-items-center">
-                                      <?php echo e(getPhrase('is_it_buynow_item')); ?>
 
+                                         comprar ahora artículo
                                         <span>
                                         <?php if($auction->is_buynow==1): ?>
-                                            <?php echo e(getPhrase('yes')); ?>
 
+                                            SI
                                         <?php else: ?>
-                                            <?php echo e(getPhrase('no')); ?>
 
+                                            NO
                                         <?php endif; ?>
                                         </span>
                                      </li>
@@ -518,9 +546,9 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 
                                      <?php if($auction->is_buynow==1): ?>
                                       <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <?php echo e(getPhrase('buy_now_price')); ?>
 
-                                        <span><?php if($auction->buy_now_price): ?> <?php echo e($currency_code); ?><?php echo e($auction->buy_now_price); ?> <?php endif; ?></span>
+                                          comprar ahora precio
+                                        <span><?php if($auction->buy_now_price): ?> <?php echo e($currency_code); ?> <?php echo e($auction->buy_now_price); ?> <?php endif; ?></span>
                                       </li>
 
                                      <?php endif; ?>
@@ -535,36 +563,44 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 
                                 <ul class="list-group">
 
-                                    <li class="list-group-item"><strong><?php echo e(getPhrase('seller_information')); ?></strong></li>
+                                    <li class="list-group-item">
+
+                                         <strong>Información del vendedor</strong>
+                                    </li>
 
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                      <?php echo e(getPhrase('seller_name')); ?>
 
+                                        Nombre del vendedor
                                       <span><?php echo e($seller->username); ?></span>
                                     </li>
 
 
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                      <?php echo e(getPhrase('email')); ?>
 
+                                        Email
                                       <span><?php echo e($seller->email); ?></span>
                                     </li>
 
 
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                      <?php echo e(getPhrase('phone')); ?>
 
+                                         Telefono
                                       <span><?php echo e($seller->phone); ?></span>
                                     </li>
 
 
                                     <!--live auction date&time-->
                                     <?php if($auction->live_auction_date): ?>
-                                    <li class="list-group-item"><strong><?php echo e(getPhrase('live_auction')); ?></strong></li>
+                                    <li class="list-group-item">
+                                        <strong>
+
+                                            Subasta en vivo
+                                        </strong>
+                                    </li>
 
                                       <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <?php echo e(getPhrase('date')); ?>
 
+                                        Fecha
                                         <?php if($auction->live_auction_date): ?>
                                         <span>
                                           <?php echo date(getSetting('date_format','site_settings'),  strtotime($auction->live_auction_date));?>
@@ -574,8 +610,8 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 
 
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                      <?php echo e(getPhrase('start_time')); ?>
 
+                                       Hora de inicio
                                       <?php if($auction->live_auction_start_time): ?>
                                       <span><?php echo e($auction->live_auction_start_time); ?></span>
                                       <?php endif; ?>
@@ -583,8 +619,8 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 
 
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                      <?php echo e(getPhrase('end_time')); ?>
 
+                                       Hora de finalización
                                       <?php if($auction->live_auction_end_time): ?>
                                       <span><?php echo e($auction->live_auction_end_time); ?></span>
                                       <?php endif; ?>
@@ -727,13 +763,15 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                                   <ul class="list-group z-depth-0">
 
                                       <li class="list-group-item justify-content-between">
-                                          <span><b><?php echo e(getPhrase('username')); ?></b></span>
-                                          <span style="float:right;"><b><?php echo e(getPhrase('bid_amount')); ?></b></span>
+
+                                          <span><b>Usuario</b></span>
+
+                                           <span style="float:right;"><b>Monto de la oferta</b></span>
                                       </li>
                                       <?php $__currentLoopData = $bidding_history; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                       <li class="list-group-item justify-content-between">
                                         <span><?php echo e($bid->username); ?></span>
-                                        <span style="float:right;"><?php echo e($currency_code); ?><?php echo e($bid->bid_amount); ?></span>
+                                        <span style="float:right;"><?php echo e($currency_code); ?> <?php echo e($bid->bid_amount); ?></span>
                                       </li>
                                       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                   </ul>

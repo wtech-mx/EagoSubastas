@@ -13,7 +13,8 @@
             {{getPhrase('list')}}
 
             @can('city_create')
-                <a href="{{URL_CITIES_ADD}}" class="btn btn-success btn-add pull-right"> {{getPhrase('add_new')}} </a>
+{{--                <a href="{{URL_CITIES_ADD}}" class="btn btn-success btn-add pull-right"> {{getPhrase('add_new')}} </a>--}}
+                 <a href="{{URL_CITIES_ADD}}" class="btn btn-success btn-add pull-right"> Agregar </a>
             @endcan
 
         </div>
@@ -25,11 +26,18 @@
 
                         <th style="text-align:center;">S.no.</th>
 
-                        <th> {{getPhrase('city')}} </th>
-                        <th> {{getPhrase('country')}} </th>
-                        <th> {{getPhrase('state')}} </th>
-                        <th> {{getPhrase('status')}} </th>
-                        <th>&nbsp;</th>
+{{--                        <th> {{getPhrase('city')}} </th>--}}
+                        <th>Ciudad </th>
+
+{{--                        <th> {{getPhrase('country')}} </th>--}}
+                        <th>  Pais</th>
+
+{{--                        <th> {{getPhrase('state')}} </th>--}}
+                        <th> Estado </th>
+
+{{--                        <th> {{getPhrase('status')}} </th>--}}
+                        <th> Estatus </th>
+                        <th>&nbsp;Acciones</th>
                        
                     </tr>
                 </thead>
@@ -50,14 +58,17 @@
                                 
                                 <td>
                                     @can('city_view')
-                                    <a href="{{URL_CITIES_VIEW}}/{{$city->slug}}" class="btn btn-xs btn-primary"> {{getPhrase('view')}} </a>
+{{--                                    <a href="{{URL_CITIES_VIEW}}/{{$city->slug}}" class="btn btn-xs btn-primary"> {{getPhrase('view')}} </a>--}}
+                                        <a href="{{URL_CITIES_VIEW}}/{{$city->slug}}" class="btn btn-xs btn-primary"> Ver </a>
                                     @endcan
                                     @can('city_edit')
-                                    <a href="{{URL_CITIES_EDIT}}/{{$city->slug}}" class="btn btn-xs btn-info"> {{getPhrase('edit')}} </a>
+{{--                                    <a href="{{URL_CITIES_EDIT}}/{{$city->slug}}" class="btn btn-xs btn-info"> {{getPhrase('edit')}} </a>--}}
+                                        <a href="{{URL_CITIES_EDIT}}/{{$city->slug}}" class="btn btn-xs btn-info"> Editar </a>
                                     @endcan
 
                                     @can('city_delete')
-                                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$city->id}}')"> {{ getPhrase('delete') }} </a>
+{{--                                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$city->id}}')"> {{ getPhrase('delete') }} </a>--}}
+                                        <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$city->id}}')"> Borrar </a>
                                     @endcan
                                 </td>
                                 

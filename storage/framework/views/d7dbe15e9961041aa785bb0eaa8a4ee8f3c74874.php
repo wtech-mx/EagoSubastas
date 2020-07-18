@@ -4,7 +4,8 @@
 
                 <div class="form-group">
 
-                    {!! Form::label('country', getPhrase('country'), ['class' => 'control-label']) !!}
+                    <?php echo Form::label('country', getPhrase('country'), ['class' => 'control-label']); ?>
+
 
                     <span class="text-red">*</span>
 
@@ -24,7 +25,7 @@
 
                     
 
-                    {{Form::select('country_id', $countries, $selected, ['placeholder' => getPhrase('select_country'),'class'=>'form-control select2',
+                    <?php echo e(Form::select('country_id', $countries, $selected, ['placeholder' => getPhrase('select_country'),'class'=>'form-control select2',
 
                             'ng-model'=>'country_id',
 
@@ -34,24 +35,27 @@
 
                             'ng-class'=>'{"has-error": formValidate.country_id.$touched && formValidate.country_id.$invalid}'
 
-                         ])}}
+                         ])); ?>
+
 
 
                     
                         <div class="validation-error" ng-messages="formValidate.country_id.$error" >
 
-                            {!! getValidationMessage()!!}
+                            <?php echo getValidationMessage(); ?>
+
 
                         </div>
 
                 </div>
 
 				<div class="form-group">
-                    {!! Form::label('state', getPhrase('state'), ['class' => 'control-label']) !!}
+                    <?php echo Form::label('state', getPhrase('state'), ['class' => 'control-label']); ?>
+
 
                     <span class="text-red">*</span>
 
-                    {{ Form::text('state', old('state'), $attributes = 
+                    <?php echo e(Form::text('state', old('state'), $attributes = 
 
                     array('class' => 'form-control', 
 
@@ -69,17 +73,22 @@
 
 					'ng-class'=>'{"has-error": formValidate.state.$touched && formValidate.state.$invalid}',
 
-                    )) }}
+                    ))); ?>
+
 
                     <div class="validation-error" ng-messages="formValidate.state.$error" >
 
-	    					{!! getValidationMessage()!!}
+	    					<?php echo getValidationMessage(); ?>
 
-	    					{!! getValidationMessage('minlength')!!}
 
-	    					{!! getValidationMessage('maxlength')!!}
+	    					<?php echo getValidationMessage('minlength'); ?>
 
-	    					{!! getValidationMessage('pattern')!!}
+
+	    					<?php echo getValidationMessage('maxlength'); ?>
+
+
+	    					<?php echo getValidationMessage('pattern'); ?>
+
 
 					</div>
 
@@ -88,7 +97,7 @@
 
                <div class="form-group pull-right">
 
-{{--					<button class="btn btn-success" ng-disabled='!formValidate.$valid'>{{ getPhrase('save') }}</button>--}}
+
                    <button class="btn btn-success" ng-disabled='!formValidate.$valid'>Guardar</button>
 
 				</div>

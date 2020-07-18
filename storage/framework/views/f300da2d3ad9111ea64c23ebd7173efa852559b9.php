@@ -3,11 +3,12 @@
 
 				
                 <div class="form-group">
-                    {!! Form::label('title', getPhrase('title'), ['class' => 'control-label']) !!}
+                    <?php echo Form::label('title', getPhrase('title'), ['class' => 'control-label']); ?>
+
 
                     <span class="text-red">*</span>
 
-                    {{ Form::text('title', old('title'), $attributes = 
+                    <?php echo e(Form::text('title', old('title'), $attributes = 
 
                     array('class' => 'form-control', 
 
@@ -27,19 +28,24 @@
 
 
 
-                    )) }}
+                    ))); ?>
+
 
 
                     
                     <div class="validation-error" ng-messages="formValidate.title.$error" >
 
-                            {!! getValidationMessage()!!}
+                            <?php echo getValidationMessage(); ?>
 
-                            {!! getValidationMessage('minlength')!!}
 
-                            {!! getValidationMessage('maxlength')!!}
+                            <?php echo getValidationMessage('minlength'); ?>
 
-                            {!! getValidationMessage('pattern')!!}
+
+                            <?php echo getValidationMessage('maxlength'); ?>
+
+
+                            <?php echo getValidationMessage('pattern'); ?>
+
 
                     </div>
 
@@ -47,11 +53,12 @@
 
 
                 <div class="form-group">
-                    {!! Form::label('shortcode', getPhrase('shortcode'), ['class' => 'control-label']) !!}
+                    <?php echo Form::label('shortcode', getPhrase('shortcode'), ['class' => 'control-label']); ?>
+
 
                     <span class="text-red">*</span>
 
-                    {{ Form::text('shortcode', old('category'), $attributes = 
+                    <?php echo e(Form::text('shortcode', old('category'), $attributes = 
 
                     array('class' => 'form-control', 
 
@@ -71,19 +78,24 @@
 
 
 
-                    )) }}
+                    ))); ?>
+
 
 
                     
                     <div class="validation-error" ng-messages="formValidate.shortcode.$error" >
 
-                            {!! getValidationMessage()!!}
+                            <?php echo getValidationMessage(); ?>
 
-                            {!! getValidationMessage('minlength')!!}
 
-                            {!! getValidationMessage('maxlength')!!}
+                            <?php echo getValidationMessage('minlength'); ?>
 
-                            {!! getValidationMessage('pattern')!!}
+
+                            <?php echo getValidationMessage('maxlength'); ?>
+
+
+                            <?php echo getValidationMessage('pattern'); ?>
+
 
                     </div>
 
@@ -92,7 +104,7 @@
 
                <div class="form-group pull-right">
 
-{{--					<button class="btn btn-success" ng-disabled='!formValidate.$valid'>{{ getPhrase('save') }}</button>--}}
+
                    <button class="btn btn-success" ng-disabled='!formValidate.$valid'>Guardar</button>
 
 				</div>

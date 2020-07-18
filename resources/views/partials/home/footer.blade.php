@@ -18,29 +18,35 @@ $networks = \App\Settings::getSettingRecord('social_networks');
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-12 au-details">
-                    <p>{{getPhrase('contact_details')}}</p>
+{{--                    <p>{{getPhrase('contact_details')}}</p>--}}
+                    <p>Detalles de contacto</p>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-12 au-common-details">
                     <div class="media au-icon-media"> <i class="pe-7s-map"></i>
                         <div class="media-body au-media-body">
-                            <h4 class="au-card-title">{{getPhrase('visit_us')}}</h4>
-                            <p class="au-card-text">{{getSetting('site_address','site_settings')}}</p>
+{{--                            <h4 class="au-card-title">{{getPhrase('visit_us')}}</h4>--}}
+                            <h4 class="au-card-title">Visítanos</h4>
+{{--                            <p class="au-card-text">{{getSetting('site_address','site_settings')}}</p>--}}
+                            <p class="au-card-text">Dirección del sitio, configuración del sitio</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-12 au-common-details">
                     <div class="media au-icon-media"> <i class="pe-7s-mail-open-file"></i>
                         <div class="media-body au-media-body">
-                            <h4 class="au-card-title">{{getPhrase('email_us')}}</h4>
-                            <p class="au-card-text">{{getSetting('contact_email','site_settings')}}</p>
+{{--                            <h4 class="au-card-title">{{getPhrase('email_us')}}</h4>--}}
+                            <h4 class="au-card-title">Email</h4>
+                            <p class="au-card-text">Email de contacto, configuración del sitio</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-12 au-common-details">
                     <div class="media au-icon-media"> <i class="pe-7s-phone"></i>
                         <div class="media-body au-media-body">
-                            <h4 class="au-card-title">{{getPhrase('call_us')}}</h4>
-                            <p class="au-card-text">{{getSetting('site_phone','site_settings')}}</p>
+{{--                            <h4 class="au-card-title">{{getPhrase('call_us')}}</h4>--}}
+                            <h4 class="au-card-title">llámanos</h4>
+{{--                            <p class="au-card-text">{{getSetting('site_phone','site_settings')}}</p>--}}
+                            <p class="au-card-text">teléfono del sitio, configuración del sitio</p>
                         </div>
                     </div>
                 </div>
@@ -48,7 +54,8 @@ $networks = \App\Settings::getSettingRecord('social_networks');
             <!--footer body section-->
             <div class="row au-footer-areas">
                 <div class="col-lg-4 col-md-12 col-sm-12 au-body-footer">
-                    <h4>{{getPhrase('about_us')}}</h4>
+{{--                    <h4>{{getPhrase('about_us')}}</h4>--}}
+                    <h4>Nosotros</h4>
                     <p> {!! str_limit($aboutus,200,'...') !!} </p>
 
 
@@ -78,13 +85,24 @@ $networks = \App\Settings::getSettingRecord('social_networks');
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
                             <ul class="au-links">
-                                <li><a href="{{URL_CONTACT_US}}">{{getPhrase('contact_us')}}</a></li>
-                                <li><a href="{{URL_HOME_AUCTIONS}}">{{getPhrase('upcoming_auctions')}}</a></li>
-                                <li><a href="{{URL_HOME_AUCTIONS}}">{{getPhrase('auctions_near_you')}}</a></li>
-                                <li><a href="{{URL_HOME_AUCTIONS}}">{{getPhrase('past_auctions')}}</a></li>
-                                <li><a href="{{URL_FAQS}}">{{getPhrase('faqs')}}</a></li>
+{{--                                <li><a href="{{URL_CONTACT_US}}">{{getPhrase('contact_us')}}</a></li>--}}
+                                <li><a href="{{URL_CONTACT_US}}">Contactanos</a></li>
+
+{{--                                <li><a href="{{URL_HOME_AUCTIONS}}">{{getPhrase('upcoming_auctions')}}</a></li>--}}
+                                <li><a href="{{URL_HOME_AUCTIONS}}">próximas subastas</a></li>
+
+{{--                                <li><a href="{{URL_HOME_AUCTIONS}}">{{getPhrase('auctions_near_you')}}</a></li>--}}
+                                <li><a href="{{URL_HOME_AUCTIONS}}">subastas cerca de usted</a></li>
+
+{{--                                <li><a href="{{URL_HOME_AUCTIONS}}">{{getPhrase('past_auctions')}}</a></li>--}}
+                                 <li><a href="{{URL_HOME_AUCTIONS}}">subastas pasadas</a></li>
+
+{{--                                <li><a href="{{URL_FAQS}}">{{getPhrase('faqs')}}</a></li>--}}
+                                 <li><a href="{{URL_FAQS}}">preguntas frecuentes</a></li>
+
                                 @if (!Auth::check())
-                                <li><a href="{{URL_USERS_LOGIN}}">{{getPhrase('login')}}</a></li>
+{{--                                <li><a href="{{URL_USERS_LOGIN}}">{{getPhrase('login')}}</a></li>--}}
+                                    <li><a href="{{URL_USERS_LOGIN}}">Login</a></li>
                                 @endif
                                 
                             </ul>

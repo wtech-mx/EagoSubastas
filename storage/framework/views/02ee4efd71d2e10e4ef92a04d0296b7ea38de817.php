@@ -31,10 +31,11 @@ $categories = \App\Category::getHomeCategories(6);
 
                             <ul class="navbar-nav mr-auto mt-2 mt-lg-0 sf-menu">
 
-                                <li><a href="<?php echo e(URL_HOME); ?>"> <?php echo e(getPhrase('home')); ?> </a></li>
 
-                                <li><a href="<?php echo e(URL_HOME_AUCTIONS); ?>"> <?php echo e(getPhrase('auctions')); ?> </a></li>
+                                <li><a href="<?php echo e(URL_HOME); ?>"> Inicio </a></li>
 
+
+                                <li><a href="<?php echo e(URL_HOME_AUCTIONS); ?>"> Subastas </a></li>
                                 <?php if($categories): ?>
                                 <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
@@ -42,6 +43,7 @@ $categories = \App\Category::getHomeCategories(6);
 
                                 <?php if(count($sub_categories)): ?>
                                 <li class="single-dropdown"><span class="menu-mobile-grover au-listts"><i class="fa fa-chevron-circle-down au-icon"></i></span>
+
 
 
                                     <a href="javascript:void(0)"> <?php echo e($category->category); ?> </a>
@@ -70,26 +72,31 @@ $categories = \App\Category::getHomeCategories(6);
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     <?php endif; ?>
 
-                                    <li><a href="<?php echo e(URL_LIVE_AUCTIONS); ?>"> <?php echo e(getPhrase('live_auctions')); ?> </a></li>
+
+                                        <li><a href="<?php echo e(URL_LIVE_AUCTIONS); ?>"> Subastas en Vivo </a></li>
 
                                        <?php if(Auth::check()): ?>
                                        <?php echo $__env->make('bidder.common.notifications', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                                        <?php endif; ?>
 
                                        <li class="nav-item au-items">
-                                           <a  href="<?php echo e(URL_CONTACT_US); ?>" title="Contact Us"> <?php echo e(getPhrase('contact_us')); ?> </a>
+
+                                                <a  href="<?php echo e(URL_CONTACT_US); ?>" title="Contact Us"> Contactanos</a>
                                        </li>
 
                                        <?php if(Auth::check()): ?>
                                        <li>
-                                           <a href="<?php echo e(URL_DASHBOARD); ?>" title="Dashboard" > <?php echo e(getPhrase('dashboard')); ?> </a>
+
+                                               <a href="<?php echo e(URL_DASHBOARD); ?>" title="Dashboard" > Panel Cotrol</a>
+
                                        </li>
                                        <?php endif; ?>
 
 
                                        <?php if(!Auth::check()): ?>
                                        <li>
-                                           <a href="javascript:void(0);" onclick="showModal('loginModal')" title="Login" ><?php echo e(getPhrase('login')); ?></a>
+
+                                                <a href="javascript:void(0);" onclick="showModal('loginModal')" title="Login" >Login</a>
                                        </li>
                                        <?php endif; ?>
                             </ul>
