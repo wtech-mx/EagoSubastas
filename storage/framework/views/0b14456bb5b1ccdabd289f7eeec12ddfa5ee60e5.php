@@ -32,7 +32,9 @@
                             <label><?php echo e(getPhrase('by')); ?> <?php echo e($auction->username); ?></label>
                             <p class="au-card-text">
 
-                                <i class="fa fa-clock-o"></i><?php echo e($auction->live_auction_start_time); ?> - <?php echo e($auction->live_auction_end_time); ?> | <?php echo e($auction->city); ?>, <?php echo e($auction->state); ?></p>
+                                <i class="fa fa-clock-o"></i><?php echo e($auction->live_auction_start_time); ?> - <?php echo e($auction->live_auction_end_time); ?> | <?php echo e($auction->city); ?>, <?php echo e($auction->state); ?>
+
+                            </p>
 
                         </div>
                     </div>

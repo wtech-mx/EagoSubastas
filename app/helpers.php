@@ -586,51 +586,63 @@ function activeinactive()
 
 function auctionstatusoptions()
 {
-   return array('new'   => getPhrase('new'),
-                'open'  => getPhrase('open'),
-                'suspended' => getPhrase('suspended'),
-                'closed'    => getPhrase('closed')
+//   return array('new'   => getPhrase('new'),
+//                'open'  => getPhrase('open'),
+//                'suspended' => getPhrase('suspended'),
+//                'closed'    => getPhrase('closed')
+//              );
+
+
+   return array('new'   => 'new',
+                'open'  => 'open',
+                'suspended' => 'suspended',
+                'closed'    => 'closed'
               );
-   
 }
 
 
 function adminstatusoptions()
 {
-   return array('pending'   => getPhrase('pending'),
-                'approved'  => getPhrase('approved'),
-                'rejected'  => getPhrase('rejected'));
+//   return array('pending'   => getPhrase('pending'),
+//                'approved'  => getPhrase('approved'),
+//                'rejected'  => getPhrase('rejected'));
+   return array('pending'   => 'pending',
+                'approved'  => 'approved',
+                'rejected'  => 'rejected');
 }
 
 function templatetypes()
 {
-   return array('Content'   => getPhrase('content'),
-                'Header' => getPhrase('header'),
-                'Footer'=> getPhrase('footer')
-              );
+//   return array('Content'   => getPhrase('content'),
+//                'Header' => getPhrase('header'),
+//                'Footer'=> getPhrase('footer')
+//              );
+
+   return array('Content'   => 'content',
+                'Header' => 'header',
+                'Footer'=> 'footer');
    
 }
 
 
 function pricebidoptions()
 {
-  return array('applicable'  => getPhrase('applicable'),
-            'not_applicable' => getPhrase('not_applicable'));
+  return array('applicable'  => 'applicable',
+            'not_applicable' => 'not_applicable');
 }
 
 function yesnooptions()
 {
-  return array('Yes'  => getPhrase('yes'),
-              'No'    => getPhrase('no'));
+  return array('Yes'  => 'yes',
+              'No'    => 'no');
   
 }
 
 function bidderstatusoptions()
 {
-  return array('pending' => getPhrase('pending'),
-              'approved' => getPhrase('approved'),
-              'rejected' => getPhrase('rejected')
-            );
+  return array('pending' => 'pending',
+              'approved' => 'approved',
+              'rejected' => 'rejected');
   
 }
 

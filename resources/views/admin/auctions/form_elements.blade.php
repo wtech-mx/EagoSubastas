@@ -143,7 +143,8 @@
 
                 <div class="form-group">
 
-                        <label for="name"> {{ getPhrase('sub_category') }} <span class="text-red">*</span></label>
+{{--                        <label for="name"> {{ getPhrase('sub_category') }} <span class="text-red">*</span></label>--}}
+                     <label for="name">Subcategoria <span class="text-red">*</span></label>
 
 
                         <?php 
@@ -463,11 +464,16 @@
                         <div class="col-md-6">
                         {{ Form::radio('is_bid_increment', 0, false, array('id'=>'bid_increment_no', 'name'=>'is_bid_increment')) }}
                             
-                            <label for="bid_increment_no"> <span class="fa-stack radio-button"> <i class="mdi mdi-check active"></i> </span> {{getPhrase('No')}}</label> 
+                            <label for="bid_increment_no"> <span class="fa-stack radio-button"> <i class="mdi mdi-check active"></i> </span>
+{{--                                {{getPhrase('No')}}--}}
+                                NO
+                            </label>
                         </div>
                         <div class="col-md-6">
                         {{ Form::radio('is_bid_increment', 1, true, array('id'=>'bid_increment_yes', 'name'=>'is_bid_increment')) }}
-                            <label for="bid_increment_yes"> <span class="fa-stack radio-button"> <i class="mdi mdi-check active"></i> </span> {{getPhrase('Yes')}} 
+                            <label for="bid_increment_yes"> <span class="fa-stack radio-button"> <i class="mdi mdi-check active"></i> </span>
+{{--                                {{getPhrase('Yes')}} --}}
+                                SI
                             </label>
                         </div>
                     </div>
@@ -525,11 +531,16 @@
                         <div class="col-md-6">
                         {{ Form::radio('is_buynow', 0, false, array('id'=>'buynow_no', 'name'=>'is_buynow')) }}
                             
-                            <label for="buynow_no"> <span class="fa-stack radio-button"> <i class="mdi mdi-check active"></i> </span> {{getPhrase('No')}}</label> 
+                            <label for="buynow_no"> <span class="fa-stack radio-button"> <i class="mdi mdi-check active"></i> </span>
+{{--                                {{getPhrase('No')}}--}}
+                                NO
+                            </label>
                         </div>
                         <div class="col-md-6">
                         {{ Form::radio('is_buynow', 1, true, array('id'=>'buynow_yes', 'name'=>'is_buynow')) }}
-                            <label for="buynow_yes"> <span class="fa-stack radio-button"> <i class="mdi mdi-check active"></i> </span> {{getPhrase('Yes')}} 
+                            <label for="buynow_yes"> <span class="fa-stack radio-button"> <i class="mdi mdi-check active"></i> </span>
+{{--                                {{getPhrase('Yes')}} --}}
+                                SI
                             </label>
                         </div>
                     </div>
@@ -716,12 +727,13 @@
                         <div class="col-md-6">
                         {{ Form::radio('make_featured', 0, false, array('id'=>'featured_no', 'name'=>'make_featured')) }}
                             
-                            <label for="featured_no"> <span class="fa-stack radio-button"> <i class="mdi mdi-check active"></i> </span> {{getPhrase('No')}}</label> 
+{{--                            <label for="featured_no"> <span class="fa-stack radio-button"> <i class="mdi mdi-check active"></i> </span> {{getPhrase('No')}}</label> --}}
+                            <label for="featured_no"> <span class="fa-stack radio-button"> <i class="mdi mdi-check active"></i> </span> No</label>
                         </div>
                         <div class="col-md-6">
                         {{ Form::radio('make_featured', 1, true, array('id'=>'featured_yes', 'name'=>'make_featured')) }}
-                            <label for="featured_yes"> <span class="fa-stack radio-button"> <i class="mdi mdi-check active"></i> </span> {{getPhrase('Yes')}} 
-                            </label>
+{{--                            <label for="featured_yes"> <span class="fa-stack radio-button"> <i class="mdi mdi-check active"></i> </span> {{getPhrase('Yes')}}</label>--}}
+                            <label for="featured_yes"> <span class="fa-stack radio-button"> <i class="mdi mdi-check active"></i> </span> Si</label>
                         </div>
                     </div>
                 </div>
@@ -730,7 +742,8 @@
                 @if (checkRole(['admin']))
                 <div class="form-group">
 
-                    {!! Form::label('auction_status', getPhrase('auction_status'), ['class' => 'control-label']) !!}
+{{--                    {!! Form::label('auction_status', getPhrase('auction_status'), ['class' => 'control-label']) !!}--}}
+                         {!! Form::label('auction_status', 'Estado de Subasta', ['class' => 'control-label']) !!}
 
                     <span class="text-red">*</span>
 
@@ -741,12 +754,14 @@
 
                         $selected = null;
                         if($record)
-                        $selected = $record->auction_status;      
+                        $selected = $record->auction_status;
                     ?>
 
-                    
 
+
+{{--                    {{Form::select('auction_status', auctionstatusoptions() , $selected, ['placeholder' => getPhrase('select'),'class'=>'form-control select2',--}}
                     {{Form::select('auction_status', auctionstatusoptions() , $selected, ['placeholder' => getPhrase('select'),'class'=>'form-control select2',
+
 
                             'ng-model'=>'auction_status',
 
@@ -758,8 +773,6 @@
 
                          ])}}
 
-
-                    
                         <div class="validation-error" ng-messages="formValidate.auction_status.$error" >
 
                             {!! getValidationMessage()!!}
@@ -773,7 +786,8 @@
 
                  <div class="form-group">
 
-                    {!! Form::label('admin_status', getPhrase('admin_status'), ['class' => 'control-label']) !!}
+{{--                    {!! Form::label('admin_status', getPhrase('admin_status'), ['class' => 'control-label']) !!}--}}
+                          {!! Form::label('admin_status','Estado de administrador', ['class' => 'control-label']) !!}
 
                     <span class="text-red">*</span>
 
@@ -786,8 +800,6 @@
                         if($record)
                         $selected = $record->admin_status;      
                     ?>
-
-                    
 
                     {{Form::select('admin_status', adminstatusoptions() , $selected, ['placeholder' => getPhrase('select'),'class'=>'form-control select2',
 
