@@ -71,7 +71,8 @@ Route::get('/test', function () {
     // return view('test');
 });*/
 
-
+// Enviar Invitaciones
+Route::post('import-list-exel', 'invitacionesController@importExcel')->name('email.import.excel');
 
 
 // Change Password Routes...

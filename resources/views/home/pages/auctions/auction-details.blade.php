@@ -283,6 +283,7 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                         <div class="validation-error" ng-messages="formBid.bid_amount.$error" >
 
 
+
                         </div>
 
                     </div>

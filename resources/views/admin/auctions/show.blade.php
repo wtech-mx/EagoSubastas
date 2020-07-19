@@ -27,17 +27,25 @@
          <!-- Nav tabs -->
 <ul class="nav nav-tabs nav-justified">
     <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab"><i class="fa fa-list"></i> {{getPhrase('auction_details')}} </a>
+{{--        <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab"><i class="fa fa-list"></i> {{getPhrase('auction_details')}} </a>--}}
+        <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab"><i class="fa fa-list"></i> Detalles de subasta </a>
     </li>
+
     <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#panel2" role="tab"><i class="far fa-image"></i> {{getPhrase('images')}} </a>
+{{--        <a class="nav-link" data-toggle="tab" href="#panel2" role="tab"><i class="far fa-image"></i> {{getPhrase('images')}} </a>--}}
+         <a class="nav-link" data-toggle="tab" href="#panel2" role="tab"><i class="fa fa-image"></i>Imagenes </a>
     </li>
+
     <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#panel4" role="tab"><i class="fas fa-envelope"></i> {{getPhrase('invitacion')}} </a>
+{{--        <a class="nav-link" data-toggle="tab" href="#panel3" role="tab"><i class="fa fa-user"></i> {{getPhrase('auction_bidders')}} </a>--}}
+        <a class="nav-link" data-toggle="tab" href="#panel3" role="tab"><i class="fa fa-user"></i> Licitadores de subasta </a>
     </li>
+
     <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#panel3" role="tab"><i class="fa fa-user"></i> {{getPhrase('auction_bidders')}} </a>
+{{--        <a class="nav-link" data-toggle="tab" href="#panel4" role="tab"><i class="fas fa-envelope"></i> {{getPhrase('invitacion')}} </a>--}}
+        <a class="nav-link" data-toggle="tab" href="#panel4" role="tab"><i class="fa fa-send"></i> Invitacion </a>
     </li>
+
 </ul>
 
 
@@ -241,7 +249,8 @@
         <div class="row">
 
         <div class="col-md-12">
-                <h4>{{getPhrase('upload_images')}}</h4>
+{{--                <h4>{{getPhrase('upload_images')}}</h4>--}}
+                     <h4>Subir imagenes </h4>
 
                     {!! Form::open(array('url' => URL_AUCTIONS_UPLOAD_IMAGES.$record->slug, 'method' => 'POST', 'novalidate'=>'','name'=>'formUsers', 
                         'files'=>'true','class'=>"dropzone", 'id'=>"real-dropzone",'multiple'=>true)) 
@@ -252,16 +261,23 @@
                         <div class="col-lg-4">
                             <div class="dragble-area">
                                  <div class="dz-message">
-                                <h4 style="text-align: center;color:#428bca;">Drop files in this area  <span class="glyphicon glyphicon-hand-down"></span></h4>
+                                    <h4 style="text-align: center;color:#428bca;">Soltar archivos en esta área<span class="glyphicon glyphicon-hand-down"></span></h4>
                                 </div>
                             </div>
 
                              <div class="instuctions-block mt-3">
                                 <ul>
-                                    <li>{{getPhrase('only_image_files_are_accepted')}}</li>
-                                    <li>{{getPhrase('files_are_uploaded_as_soon_as_you_drop_them')}}</li>
-                                    <li>{{getPhrase('maximum_allowed_size_is_5MB')}}</li>
-                                    <li style="color:red;">{{getPhrase('for_good_resolution_image_width_height_950x650')}}</li>
+{{--                                    <li>{{getPhrase('only_image_files_are_accepted')}}</li>--}}
+                                    <li>solo se aceptan archivos de imagen</li>
+
+{{--                                    <li>{{getPhrase('files_are_uploaded_as_soon_as_you_drop_them')}}</li>--}}
+                                    <li>los archivos se cargan para que puedas soltarlos</li>
+
+{{--                                    <li>{{getPhrase('maximum_allowed_size_is_5MB')}}</li>--}}
+                                    <li>{{getPhrase('tamaño máximo permitido de 5 MB')}}</li>
+
+{{--                                    <li style="color:red;">{{getPhrase('for_good_resolution_image_width_height_950x650')}}</li>--}}
+                                      <li style="color:red;">para una buena resolución ancho de imagen altura 950x650</li>
                                 </ul>
 
                             </div>
@@ -340,13 +356,21 @@
     <div class="tab-pane fade" id="panel4" role="tabpanel">
         <div class="row">
             <div class="col-md-12">
-               <form method="POST" action="">
-
+               <form action="{{route('email.import.excel')}}" method="POST" enctype="multipart/form-data">
+                    {{csrf_field()}}
+                    <h1>Correos de Invitacion  </h1>
                    <div class="form-group">
-                       <h1>Correos de Invitacion</h1>
-                            <div class="col-md-6">
-                                 <input id="name" type="text" class="form-control" name="name">
+
+
+                            <input type="hidden" name="auction_id" value="{{ $record->id }}">
+
+                            <div class="col-md-8">
+                                 <input  type="file" class="form-control"  name="file">
                             </div>
+                       <div class="col-4">
+                           <button class="btn btn-success">Importar Usuarios</button>
+                       </div>
+
                    </div>
                </form>
             </div>
@@ -377,14 +401,26 @@
 
                     <tr>    
                         <th>#</th>
-                        <th> {{getPhrase('username')}} </th>
-                        <th> {{getPhrase('email')}} </th>
-                        <th> {{getPhrase('image')}} </th>
-                        <th> {{getPhrase('no_of_times')}} </th>
-                        <th> {{getPhrase('highest_bid')}} </th>
+
+{{--                        <th> {{getPhrase('username')}} </th>--}}
+                         <th> User </th>
+
+{{--                        <th> {{getPhrase('email')}} </th>--}}
+                        <th> Email</th>
+
+
+{{--                        <th> {{getPhrase('image')}} </th>--}}
+                        <th> Imagen </th>
+
+{{--                        <th> {{getPhrase('no_of_times')}} </th>--}}
+                        <th> no de veces </th>
+
+{{--                        <th> {{getPhrase('highest_bid')}} </th>--}}
+                         <th> apuesta más alta </th>
+
 
                         
-                        <th>&nbsp;</th> 
+                        <th>&nbsp;Acciones</th>
 
                     </tr>
                 </thead>
@@ -423,13 +459,15 @@
 
 
                                 <td> 
-                                    <a href="#" ng-click="getBidHistory({{$user->id}})" data-toggle="modal" data-target="#bidHistoryModal" title="view total bid history of {{$user->username}}" class="btn btn-xs btn-primary"> {{getPhrase('bid_history')}} </a>
+{{--                                    <a href="#" ng-click="getBidHistory({{$user->id}})" data-toggle="modal" data-target="#bidHistoryModal" title="view total bid history of {{$user->username}}" class="btn btn-xs btn-primary"> {{getPhrase('bid_history')}} </a>--}}
+                                    <a href="#" ng-click="getBidHistory({{$user->id}})" data-toggle="modal" data-target="#bidHistoryModal" title="view total bid history of {{$user->username}}" class="btn btn-xs btn-primary"> historial de ofertas </a>
                                    
 
                                     @if (checkRole(['admin']))
                                     
                                     @if ($send_email)
-                                    <a href="#" onclick="auctionBidder({{$user->id}})" data-toggle="tooltip" data-placement="bottom" class="btn btn-xs btn-info" title="send email to {{$user->username}} regarding bidding payment"> {{getPhrase('send_email')}} </a>
+{{--                                    <a href="#" onclick="auctionBidder({{$user->id}})" data-toggle="tooltip" data-placement="bottom" class="btn btn-xs btn-info" title="send email to {{$user->username}} regarding bidding payment"> {{getPhrase('send_email')}} </a>--}}
+                                         <a href="#" onclick="auctionBidder({{$user->id}})" data-toggle="tooltip" data-placement="bottom" class="btn btn-xs btn-info" title="send email to {{$user->username}} regarding bidding payment"> enviar correo electrónico </a>
                                     @endif 
 
                                     @endif
@@ -440,7 +478,8 @@
 
                         @else
                             <tr>
-                                <td colspan="6"> {{ getPhrase('no_entries_in_table') }}</td>
+{{--                                <td colspan="6"> {{ getPhrase('no_entries_in_table') }}</td>--}}
+                                <td colspan="6"> no hay entradas en la tabla</td>
                             </tr>
                         @endif
                 </tbody>
@@ -463,7 +502,8 @@
 
         <p>&nbsp;</p>
 
-        <a href="{{ URL_LIST_AUCTIONS }}" class="btn btn-default"> {{ getPhrase('back_to_list') }} </a>
+{{--        <a href="{{ URL_LIST_AUCTIONS }}" class="btn btn-default"> {{ getPhrase('back_to_list') }} </a>--}}
+            <a href="{{ URL_LIST_AUCTIONS }}" class="btn btn-default"> volver a la lista </a>
 
         </div>
 
@@ -480,7 +520,8 @@
                                           
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{{getPhrase('bid_history')}}</h5>
+{{--        <h5 class="modal-title" id="exampleModalLabel">{{getPhrase('bid_history')}}</h5>--}}
+          <h5 class="modal-title" id="exampleModalLabel">Historial de ofertas</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -492,12 +533,14 @@
         <ul class="list-group z-depth-0">
 
             <li class="list-group-item justify-content-between">
-                <span><b>{{getPhrase('bid_amount')}}</b></span>
-                <span style="float:right;"><b>{{getPhrase('datetime')}}</b></span> 
+{{--                <span><b>{{getPhrase('bid_amount')}}</b></span>--}}
+                <span><b>monto de la oferta</b></span>
+{{--                <span style="float:right;"><b>{{getPhrase('datetime')}}</b></span> --}}
+                <span style="float:right;"><b>fecha y hora</b></span>
             </li>
 
             <li ng-repeat="bid in bid_history" class="list-group-item justify-content-between">
-                <span>{{$currency}}@{{bid.bid_amount}}</span>
+                <span>{{$currency}} @{{bid.bid_amount}}</span>
                 <span style="float:right;">@{{bid.created_at}}</span>
             </li>
         </ul>
@@ -505,7 +548,8 @@
     </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{getPhrase('close')}}</button>
+{{--        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{getPhrase('close')}}</button>--}}
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         
       </div>
     </div>
@@ -538,7 +582,7 @@
         <input type="hidden" name="ab_id" id="ab_id" value="">
         <input type="hidden" name="auction_id" value="{{$record->id}}">
 
-        <p>Send Email notification to User regarding payment of Auction</p>
+        <p>Enviar notificación por correo electrónico al usuario sobre el pago de la subasta</p>
 
          <div class="form-group">
 
@@ -616,9 +660,11 @@
 
         <div class="modal-footer">
 
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{getPhrase('close')}}</button>
+{{--        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{getPhrase('close')}}</button>--}}
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 
-        <button type="submit" name="send_email" class="btn btn-primary" ng-disabled="!formValidate.$valid">{{getPhrase('send')}}</button>
+{{--        <button type="submit" name="send_email" class="btn btn-primary" ng-disabled="!formValidate.$valid">{{getPhrase('send')}}</button>--}}
+             <button type="submit" name="send_email" class="btn btn-primary" ng-disabled="!formValidate.$valid">Enviar</button>
 
       </div>
 

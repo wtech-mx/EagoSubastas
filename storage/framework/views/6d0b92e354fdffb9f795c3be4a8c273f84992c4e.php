@@ -26,14 +26,25 @@
          <!-- Nav tabs -->
 <ul class="nav nav-tabs nav-justified">
     <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab"><i class="fa fa-list"></i> <?php echo e(getPhrase('auction_details')); ?> </a>
+
+        <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab"><i class="fa fa-list"></i> Detalles de subasta </a>
     </li>
+
     <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#panel2" role="tab"><i class="far fa-image"></i> <?php echo e(getPhrase('images')); ?> </a>
+
+         <a class="nav-link" data-toggle="tab" href="#panel2" role="tab"><i class="fa fa-image"></i>Imagenes </a>
     </li>
+
     <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#panel3" role="tab"><i class="fa fa-user"></i> <?php echo e(getPhrase('auction_bidders')); ?> </a>
+
+        <a class="nav-link" data-toggle="tab" href="#panel3" role="tab"><i class="fa fa-user"></i> Licitadores de subasta </a>
     </li>
+
+    <li class="nav-item">
+
+        <a class="nav-link" data-toggle="tab" href="#panel4" role="tab"><i class="fa fa-send"></i> Invitacion </a>
+    </li>
+
 </ul>
 
 
@@ -55,93 +66,93 @@
 
                     <table class="table table-bordered table-striped">
                         <tr>
-                            <th> <?php echo e(getPhrase('title')); ?> </th>
+                           <!-- <th> <?php echo e(getPhrase('title')); ?> </th> -->
                             <td field-key='title'><?php echo e($record->title); ?></td>
                         </tr>
                        
                         <tr>
-                            <th> <?php echo e(getPhrase('image')); ?> </th>
+                           <!-- <th> <?php echo e(getPhrase('image')); ?> </th> -->
                             <td field-key='image'> <a href="<?php echo e(getAuctionImage($record->image,'auction')); ?>" target="_blank"> <img src="<?php echo e(getAuctionImage($record->image)); ?>" alt="<?php echo e($record->title); ?>" width="50"> </a> </td>
                         </tr>
 
 
                         <tr>
-                            <th> <?php echo e(getPhrase('category')); ?>  </th>
+                           <!-- <th> <?php echo e(getPhrase('category')); ?>  </th> -->
                             <td field-key='category'> <?php echo e($record->category); ?> </td>
                         </tr>
 
 
                         <tr>
-                            <th> <?php echo e(getPhrase('sub_category')); ?>  </th>
+                            <!--<th> <?php echo e(getPhrase('sub_category')); ?>  </th> -->
                             <td field-key='sub_category'> <?php echo e($record->sub_category); ?> </td>
                         </tr>
 
 
                         <tr>
-                            <th> <?php echo e(getPhrase('seller')); ?>  </th>
+                            <!--<th> <?php echo e(getPhrase('seller')); ?>  </th> -->
                             <td field-key='seller'> <?php echo e($record->username); ?> </td>
                         </tr>
 
 
                         <tr>
-                            <th> <?php echo e(getPhrase('start_date')); ?>  </th>
+                          <!--  <th> <?php echo e(getPhrase('start_date')); ?>  </th> -->
                             <td field-key='start_date'>  <?php if($record->start_date): ?> <?php echo date(getSetting('date_format','site_settings').' H:i:s', strtotime($record->start_date));?> <?php endif; ?> </td>
                         </tr>
 
                         <tr>
-                            <th> <?php echo e(getPhrase('end_date')); ?>  </th>
+                          <!--  <th> <?php echo e(getPhrase('end_date')); ?>  </th> -->
                             <td field-key='end_date'>  <?php if($record->end_date): ?> <?php echo date(getSetting('date_format','site_settings').' H:i:s', strtotime($record->end_date));?> <?php endif; ?> </td>
                         </tr>
 
 
                         <tr>
-                            <th> <?php echo e(getPhrase('live_auction_date')); ?>  </th>
+                         <!--  <th> <?php echo e(getPhrase('live_auction_date')); ?>  </th>-->
                             <td>  <?php if($record->live_auction_date): ?> <?php echo date(getSetting('date_format','site_settings'), strtotime($record->live_auction_date));?> <?php endif; ?> </td>
                         </tr>
 
                         <tr>
-                            <th> <?php echo e(getPhrase('live_auction_start_time')); ?>  </th>
+                          <!--  <th> <?php echo e(getPhrase('live_auction_start_time')); ?>  </th>-->
                             <td>  <?php echo e($record->live_auction_start_time); ?> </td>
                         </tr>
 
 
                          <tr>
-                            <th> <?php echo e(getPhrase('live_auction_end_time')); ?>  </th>
+                           <!-- <th> <?php echo e(getPhrase('live_auction_end_time')); ?>  </th>-->
                             <td>  <?php echo e($record->live_auction_end_time); ?> </td>
                         </tr>
 
                         <tr>
-                            <th> <?php echo e(getPhrase('minimum_bid')); ?>  </th>
+                           <!-- <th> <?php echo e(getPhrase('minimum_bid')); ?>  </th>-->
                             <td field-key='minimum_bid'> <?php echo e($currency); ?><?php echo e($record->minimum_bid); ?> </td>
                         </tr>
 
                         <tr>
-                            <th> <?php echo e(getPhrase('reserve_price')); ?>  </th>
+                          <!--  <th> <?php echo e(getPhrase('reserve_price')); ?>  </th>-->
                             <td field-key='reserve_price'> <?php echo e($currency); ?><?php echo e($record->reserve_price); ?> </td>
                         </tr>
 
                         <tr>
-                            <th> <?php echo e(getPhrase('buy_now_price')); ?>  </th>
+                          <!--  <th> <?php echo e(getPhrase('buy_now_price')); ?>  </th>-->
                             <td field-key='buy_now_price'> <?php echo e($currency); ?><?php echo e($record->buy_now_price); ?> </td>
                         </tr>
 
                          <tr>
-                            <th> <?php echo e(getPhrase('bid_increment')); ?>  </th>
+                           <!-- <th> <?php echo e(getPhrase('bid_increment')); ?>  </th>-->
                             <td field-key='bid_increment'> <?php echo e($currency); ?><?php echo e($record->bid_increment); ?> </td>
                         </tr>
 
                         <tr>
-                            <th> <?php echo e(getPhrase('description')); ?>  </th>
+                          <!--  <th> <?php echo e(getPhrase('description')); ?>  </th>-->
                             <td field-key='description'> <?php echo $record->description; ?> </td>
                         </tr>
 
                         <tr>
-                            <th> <?php echo e(getPhrase('shipping_conditions')); ?>  </th>
+                          <!-- <th> <?php echo e(getPhrase('shipping_conditions')); ?>  </th>-->
                             <td field-key='shipping_conditions'> <?php echo $record->shipping_conditions; ?> </td>
                         </tr>
 
                         <tr>
-                            <th> <?php echo e(getPhrase('international_shipping')); ?>  </th>
+                          <!--  <th> <?php echo e(getPhrase('international_shipping')); ?>  </th>-->
                             <td field-key='international_shipping'> 
                                 <?php if($record->international_shipping==1): ?>
                                 <?php echo e(getPhrase('yes')); ?>
@@ -155,13 +166,13 @@
 
 
                         <tr>
-                            <th> <?php echo e(getPhrase('shipping_terms')); ?>  </th>
+                          <!--  <th> <?php echo e(getPhrase('shipping_terms')); ?>  </th>-->
                             <td field-key='shipping_terms'> <?php echo $record->shipping_terms; ?> </td>
                         </tr>
 
 
                         <tr>
-                            <th> <?php echo e(getPhrase('featured')); ?>  </th>
+                         <!-- <th> <?php echo e(getPhrase('featured')); ?>  </th>-->
                             <td field-key='make_featured'> 
                                 <?php if($record->make_featured==1): ?>
                                 <?php echo e(getPhrase('yes')); ?>
@@ -175,23 +186,23 @@
 
 
                         <tr>
-                            <th> <?php echo e(getPhrase('auction_status')); ?>  </th>
+                          <!-- <th> <?php echo e(getPhrase('auction_status')); ?>  </th>-->
                             <td field-key='auction_status'> <?php echo e(ucfirst($record->auction_status)); ?> </td>
                         </tr>
 
                         <tr>
-                            <th> <?php echo e(getPhrase('admin_status')); ?>  </th>
+                           <!-- <th> <?php echo e(getPhrase('admin_status')); ?>  </th>-->
                             <td field-key='admin_status'> <?php echo e(ucfirst($record->admin_status)); ?> </td>
                         </tr>
 
 
                         <tr>
-                            <th> <?php echo e(getPhrase('created_by')); ?>  </th>
+                          <!--  <th> <?php echo e(getPhrase('created_by')); ?>  </th>-->
                             <td field-key='created_by'> <?php echo e($record->created_by); ?> </td>
                         </tr>
 
                          <tr>
-                            <th> <?php echo e(getPhrase('last_updated_by')); ?>  </th>
+                          <!--  <th> <?php echo e(getPhrase('last_updated_by')); ?>  </th>-->
                             <td field-key='updated_by_name'> <?php echo e($record->updated_by_name); ?> </td>
                         </tr>
 
@@ -202,7 +213,7 @@
                        
 
                         <tr>
-                            <th> <?php echo e(getPhrase('admin_commission_type')); ?>  </th>
+                          <!--  <th> <?php echo e(getPhrase('admin_commission_type')); ?>  </th> -->
                             <td field-key='admin_commission_type'>
                                 <?php if($record->admin_commission_type=='auction'): ?>
                                 <?php echo e(getPhrase('per_auction')); ?>
@@ -217,7 +228,7 @@
 
 
                         <tr>
-                            <th> <?php echo e(getPhrase('commission_value')); ?>  </th>
+                          <!--  <th> <?php echo e(getPhrase('commission_value')); ?>  </th> -->
                             <td field-key='commission_value'> <?php if($record->commission_value>0): ?> <?php echo e($currency); ?><?php echo e($record->commission_value); ?> <?php endif; ?> </td>
                         </tr>
 
@@ -243,7 +254,8 @@
         <div class="row">
 
         <div class="col-md-12">
-                <h4><?php echo e(getPhrase('upload_images')); ?></h4>
+
+                     <h4>Subir imagenes </h4>
 
                     <?php echo Form::open(array('url' => URL_AUCTIONS_UPLOAD_IMAGES.$record->slug, 'method' => 'POST', 'novalidate'=>'','name'=>'formUsers', 
                         'files'=>'true','class'=>"dropzone", 'id'=>"real-dropzone",'multiple'=>true)); ?>
@@ -254,16 +266,23 @@
                         <div class="col-lg-4">
                             <div class="dragble-area">
                                  <div class="dz-message">
-                                <h4 style="text-align: center;color:#428bca;">Drop files in this area  <span class="glyphicon glyphicon-hand-down"></span></h4>
+                                    <h4 style="text-align: center;color:#428bca;">Soltar archivos en esta área<span class="glyphicon glyphicon-hand-down"></span></h4>
                                 </div>
                             </div>
 
                              <div class="instuctions-block mt-3">
                                 <ul>
-                                    <li><?php echo e(getPhrase('only_image_files_are_accepted')); ?></li>
-                                    <li><?php echo e(getPhrase('files_are_uploaded_as_soon_as_you_drop_them')); ?></li>
-                                    <li><?php echo e(getPhrase('maximum_allowed_size_is_5MB')); ?></li>
-                                    <li style="color:red;"><?php echo e(getPhrase('for_good_resolution_image_width_height_950x650')); ?></li>
+
+                                    <li>solo se aceptan archivos de imagen</li>
+
+
+                                    <li>los archivos se cargan para que puedas soltarlos</li>
+
+
+                                    <li><?php echo e(getPhrase('tamaño máximo permitido de 5 MB')); ?></li>
+
+
+                                      <li style="color:red;">para una buena resolución ancho de imagen altura 950x650</li>
                                 </ul>
 
                             </div>
@@ -339,6 +358,33 @@
     </div>
     <!--/.Panel 2-->
 
+        <!--Panel 2-->
+    <div class="tab-pane fade" id="panel4" role="tabpanel">
+        <div class="row">
+            <div class="col-md-12">
+               <form action="<?php echo e(route('email.import.excel')); ?>" method="POST" enctype="multipart/form-data">
+                    <?php echo e(csrf_field()); ?>
+
+                    <h1>Correos de Invitacion  </h1>
+                   <div class="form-group">
+
+
+                            <input type="hidden" name="auction_id" value="<?php echo e($record->id); ?>">
+
+                            <div class="col-md-8">
+                                 <input  type="file" class="form-control"  name="file">
+                            </div>
+                       <div class="col-4">
+                           <button class="btn btn-success">Importar Usuarios</button>
+                       </div>
+
+                   </div>
+               </form>
+            </div>
+        </div>
+    </div>
+    <!--/.Panel 2-->
+
 
 
 
@@ -362,14 +408,26 @@
 
                     <tr>    
                         <th>#</th>
-                        <th> <?php echo e(getPhrase('username')); ?> </th>
-                        <th> <?php echo e(getPhrase('email')); ?> </th>
-                        <th> <?php echo e(getPhrase('image')); ?> </th>
-                        <th> <?php echo e(getPhrase('no_of_times')); ?> </th>
-                        <th> <?php echo e(getPhrase('highest_bid')); ?> </th>
+
+
+                         <th> User </th>
+
+
+                        <th> Email</th>
+
+
+
+                        <th> Imagen </th>
+
+
+                        <th> no de veces </th>
+
+
+                         <th> apuesta más alta </th>
+
 
                         
-                        <th>&nbsp;</th> 
+                        <th>&nbsp;Acciones</th>
 
                     </tr>
                 </thead>
@@ -409,13 +467,15 @@
 
 
                                 <td> 
-                                    <a href="#" ng-click="getBidHistory(<?php echo e($user->id); ?>)" data-toggle="modal" data-target="#bidHistoryModal" title="view total bid history of <?php echo e($user->username); ?>" class="btn btn-xs btn-primary"> <?php echo e(getPhrase('bid_history')); ?> </a>
+
+                                    <a href="#" ng-click="getBidHistory(<?php echo e($user->id); ?>)" data-toggle="modal" data-target="#bidHistoryModal" title="view total bid history of <?php echo e($user->username); ?>" class="btn btn-xs btn-primary"> historial de ofertas </a>
                                    
 
                                     <?php if(checkRole(['admin'])): ?>
                                     
                                     <?php if($send_email): ?>
-                                    <a href="#" onclick="auctionBidder(<?php echo e($user->id); ?>)" data-toggle="tooltip" data-placement="bottom" class="btn btn-xs btn-info" title="send email to <?php echo e($user->username); ?> regarding bidding payment"> <?php echo e(getPhrase('send_email')); ?> </a>
+
+                                         <a href="#" onclick="auctionBidder(<?php echo e($user->id); ?>)" data-toggle="tooltip" data-placement="bottom" class="btn btn-xs btn-info" title="send email to <?php echo e($user->username); ?> regarding bidding payment"> enviar correo electrónico </a>
                                     <?php endif; ?> 
 
                                     <?php endif; ?>
@@ -426,7 +486,8 @@
 
                         <?php else: ?>
                             <tr>
-                                <td colspan="6"> <?php echo e(getPhrase('no_entries_in_table')); ?></td>
+
+                                <td colspan="6"> no hay entradas en la tabla</td>
                             </tr>
                         <?php endif; ?>
                 </tbody>
@@ -449,7 +510,8 @@
 
         <p>&nbsp;</p>
 
-        <a href="<?php echo e(URL_LIST_AUCTIONS); ?>" class="btn btn-default"> <?php echo e(getPhrase('back_to_list')); ?> </a>
+
+            <a href="<?php echo e(URL_LIST_AUCTIONS); ?>" class="btn btn-default"> volver a la lista </a>
 
         </div>
 
@@ -466,7 +528,8 @@
                                           
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><?php echo e(getPhrase('bid_history')); ?></h5>
+
+          <h5 class="modal-title" id="exampleModalLabel">Historial de ofertas</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -478,12 +541,14 @@
         <ul class="list-group z-depth-0">
 
             <li class="list-group-item justify-content-between">
-                <span><b><?php echo e(getPhrase('bid_amount')); ?></b></span>
-                <span style="float:right;"><b><?php echo e(getPhrase('datetime')); ?></b></span> 
+
+                <span><b>monto de la oferta</b></span>
+
+                <span style="float:right;"><b>fecha y hora</b></span>
             </li>
 
             <li ng-repeat="bid in bid_history" class="list-group-item justify-content-between">
-                <span><?php echo e($currency); ?>{{bid.bid_amount}}</span>
+                <span><?php echo e($currency); ?> {{bid.bid_amount}}</span>
                 <span style="float:right;">{{bid.created_at}}</span>
             </li>
         </ul>
@@ -491,7 +556,8 @@
     </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php echo e(getPhrase('close')); ?></button>
+
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         
       </div>
     </div>
@@ -525,7 +591,7 @@
         <input type="hidden" name="ab_id" id="ab_id" value="">
         <input type="hidden" name="auction_id" value="<?php echo e($record->id); ?>">
 
-        <p>Send Email notification to User regarding payment of Auction</p>
+        <p>Enviar notificación por correo electrónico al usuario sobre el pago de la subasta</p>
 
          <div class="form-group">
 
@@ -609,9 +675,11 @@
 
         <div class="modal-footer">
 
-        <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php echo e(getPhrase('close')); ?></button>
 
-        <button type="submit" name="send_email" class="btn btn-primary" ng-disabled="!formValidate.$valid"><?php echo e(getPhrase('send')); ?></button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+
+
+             <button type="submit" name="send_email" class="btn btn-primary" ng-disabled="!formValidate.$valid">Enviar</button>
 
       </div>
 
