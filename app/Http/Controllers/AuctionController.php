@@ -709,7 +709,7 @@ class AuctionController extends Controller
             
         }
 
-        $tiros
+
 
 
 
