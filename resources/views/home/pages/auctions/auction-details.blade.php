@@ -202,6 +202,7 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                             0 {{getPhrase('bids')}}
                         @endif
                       </span>
+                        <span class="badge">Tiros - {{$auction->tiros}}</span>
 
                     </h4>
 
@@ -245,7 +246,7 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                         <input type="hidden" name="bid_auction_id" value="{{$auction->id}}">
 
 {{--                        <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>{{getPhrase('place_bid')}}</button>--}}
-                            <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
+                            <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>- Pujar</button>
 
                      </div>
 
@@ -258,8 +259,6 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                     @else
                 <div class="row">
                     <div class="col-lg-6">
-
-
 
                     {!! Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')) !!}
 
@@ -289,22 +288,20 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                     </div>
                   </div>
 
-                    <div class="col-lg-6">
+
+
+                   <div class="col-lg-6">
+
                      <div class="form-group">
-
                         <input type="hidden" name="bid_auction_id" value="{{$auction->id}}">
-
 {{--                        <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>{{getPhrase('place_bid')}}</button>--}}
                             <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
-
                      </div>
 
-                     {!! Form::close() !!}
-
-
-
+                         {!! Form::close() !!}
                     </div>
-                    </div>
+
+                   </div>
                     @endif
 
 

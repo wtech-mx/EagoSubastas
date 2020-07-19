@@ -709,6 +709,8 @@ class AuctionController extends Controller
             
         }
 
+        $tiros
+
 
 
         $auctions->withPath(URL_HOME_AUCTIONS);

@@ -202,6 +202,7 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 
                         <?php endif; ?>
                       </span>
+                        <span class="badge">Tiros - <?php echo e($auction->tiros); ?></span>
 
                     </h4>
 
@@ -247,7 +248,7 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                         <input type="hidden" name="bid_auction_id" value="<?php echo e($auction->id); ?>">
 
 
-                            <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
+                            <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>- Pujar</button>
 
                      </div>
 
@@ -261,8 +262,6 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                     <?php else: ?>
                 <div class="row">
                     <div class="col-lg-6">
-
-
 
                     <?php echo Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')); ?>
 
@@ -294,23 +293,21 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                     </div>
                   </div>
 
-                    <div class="col-lg-6">
-                     <div class="form-group">
 
+
+                   <div class="col-lg-6">
+
+                     <div class="form-group">
                         <input type="hidden" name="bid_auction_id" value="<?php echo e($auction->id); ?>">
 
-
                             <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
-
                      </div>
 
-                     <?php echo Form::close(); ?>
-
-
-
+                         <?php echo Form::close(); ?>
 
                     </div>
-                    </div>
+
+                   </div>
                     <?php endif; ?>
 
 
