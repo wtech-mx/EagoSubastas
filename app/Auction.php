@@ -876,6 +876,7 @@ class Auction extends Model implements HasMedia
     {
         return $this->hasMany(AuctionBidder::class,'auction_id')
                     ->join('bidding','auctionbidders.id','bidding.ab_id')
+                    ->join('bidding','auctionbidders.bidder_id','bidding.bidder_id')
                     ->join('users','auctionbidders.bidder_id','users.id')
                     ->select(['users.id','users.name','bidding.bid_amount'])
                     ->where('users.approved',1)

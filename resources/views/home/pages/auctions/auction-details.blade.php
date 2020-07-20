@@ -308,6 +308,8 @@ $user = Auth::user();
                             <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
                      </div>
 
+
+
                         <ul class="list-group z-depth-0">
                                       <li class="list-group-item justify-content-between">
                                           <span><b>Usuarios</b></span>
@@ -315,7 +317,7 @@ $user = Auth::user();
                                       </li>
 
                                        @foreach ($bidding_history as $bid)
-                                            <h2>{{$user->id}} es {{$bid->id}}</h2>
+                                          <h4>{{$user->id}} es {{$bid->bidder_id}} monto {{$bid->bid_amount}}</h4>
                                           @if( $user->id == $bid->id )
                                             <li class="list-group-item justify-content-between">
                                                 <span>{{$bid->id}}</span>
@@ -323,7 +325,7 @@ $user = Auth::user();
                                               </li>
                                           @endif
                                       @endforeach
-                                  </ul>
+                        </ul>
 
 
                          {!! Form::close() !!}

@@ -923,6 +923,7 @@ class AuctionController extends Controller
         $data['layout']         = getLayout();
         $data['title']          = getPhrase('auction_details');
         $data['breadcrumb']     = TRUE;
+        
         return view('home.pages.auctions.auction-details', $data);
 
     }

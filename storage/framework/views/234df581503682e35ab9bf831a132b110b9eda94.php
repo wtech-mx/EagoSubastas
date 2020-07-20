@@ -313,6 +313,8 @@ $user = Auth::user();
                             <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
                      </div>
 
+
+
                         <ul class="list-group z-depth-0">
                                       <li class="list-group-item justify-content-between">
                                           <span><b>Usuarios</b></span>
@@ -320,7 +322,7 @@ $user = Auth::user();
                                       </li>
 
                                        <?php $__currentLoopData = $bidding_history; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <h2><?php echo e($user->id); ?> es <?php echo e($bid->id); ?></h2>
+                                          <h4><?php echo e($user->id); ?> es <?php echo e($bid->created_at); ?> monto <?php echo e($bid->bid_amount); ?></h4>
                                           <?php if( $user->id == $bid->id ): ?>
                                             <li class="list-group-item justify-content-between">
                                                 <span><?php echo e($bid->id); ?></span>
@@ -328,7 +330,7 @@ $user = Auth::user();
                                               </li>
                                           <?php endif; ?>
                                       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                  </ul>
+                        </ul>
 
 
                          <?php echo Form::close(); ?>
