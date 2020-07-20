@@ -37,6 +37,7 @@ class AuctionBidder extends Model
      * [getBidHistory description]
      * @return [type] [description]
      */
+
     public function getBidHistory()
     {
       	return $this->hasMany(Bidding::class,'ab_id')

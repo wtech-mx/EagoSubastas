@@ -26,6 +26,14 @@ $active_picture_gallary = getSetting('active_picture_gallary','auction_settings'
 
 $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings');
 
+if (isset($active_class))
+$active_class = $active_class;
+else
+$active_class='';
+
+$user = Auth::user();
+
+
 ?>
 
  <!--CATEGORY BODY SECTION-->
@@ -251,6 +259,7 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                      </div>
 
 
+
                       {!! Form::close() !!}
 
                     </div>
@@ -298,6 +307,24 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 {{--                        <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>{{getPhrase('place_bid')}}</button>--}}
                             <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
                      </div>
+
+                        <ul class="list-group z-depth-0">
+                                      <li class="list-group-item justify-content-between">
+                                          <span><b>Usuarios</b></span>
+                                           <span style="float:right;"><b>Monto de la oferta</b></span>
+                                      </li>
+
+                                       @foreach ($bidding_history as $bid)
+                                            <h2>{{$user->id}} es {{$bid->id}}</h2>
+                                          @if( $user->id == $bid->id )
+                                            <li class="list-group-item justify-content-between">
+                                                <span>{{$bid->id}}</span>
+                                                <span style="float:right;">{{$currency_code}} {{$bid->bid_amount}}</span>
+                                              </li>
+                                          @endif
+                                      @endforeach
+                                  </ul>
+
 
                          {!! Form::close() !!}
                     </div>
@@ -433,7 +460,7 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
 
 {{--                        <a class="nav-item au-product-nav nav-link" id="nav-shipping-tab" data-toggle="tab" href="#nav-shipping" role="tab" aria-controls="nav-shipping" aria-selected="false"> {{getPhrase('shipping')}} & {{getPhrase('payment')}}</a>--}}
 
-                        <a class="nav-item au-product-nav nav-link" id="nav-shipping-tab" data-toggle="tab" href="#nav-shipping" role="tab" aria-controls="nav-shipping" aria-selected="false"> Envío & pago</a>
+                            <a class="nav-item au-product-nav nav-link" id="nav-shipping-tab" data-toggle="tab" href="#nav-shipping" role="tab" aria-controls="nav-shipping" aria-selected="false"> Envío & pago</a>
 
 {{--                        <a class="nav-item au-product-nav nav-link" id="nav-terms-tab" data-toggle="tab" href="#nav-terms" role="tab" aria-controls="nav-terms" aria-selected="false"> {{getPhrase('auction_terms')}} & {{getPhrase('info')}} </a>--}}
 
@@ -754,14 +781,14 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                             <div class="col-lg-12 col-md-12 col-sm-12 au-terms">
                                 <div class=" au-policy">
 
-                                  @if (isset($bidding_history) && count($bidding_history))
+
                                   <ul class="list-group z-depth-0">
 
                                       <li class="list-group-item justify-content-between">
 {{--                                          <span><b>{{getPhrase('username')}}</b></span>--}}
                                           <span><b>Usuario</b></span>
 {{--                                          <span style="float:right;"><b>{{getPhrase('bid_amount')}}</b></span>--}}
-                                           <span style="float:right;"><b>Monto de la oferta</b></span>
+                                           <span style="float:right;"><b>Monto de la ofertas</b></span>
                                       </li>
                                       @foreach ($bidding_history as $bid)
                                       <li class="list-group-item justify-content-between">
@@ -770,8 +797,10 @@ $max_number_of_pictures = getSetting('max_number_of_pictures','auction_settings'
                                       </li>
                                       @endforeach
                                   </ul>
-                                  @endif
-
+                                        <li ng-repeat="bid in bid_history" class="list-group-item justify-content-between">
+                                            <span>{{$currency}}@{{bid.bid_amount}}</span>
+                                            <span style="float:right;">@{{bid.created_at}} </span>
+                                        </li>
 
                                 </div>
                               </div>

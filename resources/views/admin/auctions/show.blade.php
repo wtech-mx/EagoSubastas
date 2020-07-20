@@ -461,7 +461,7 @@
                                 <td> 
 {{--                                    <a href="#" ng-click="getBidHistory({{$user->id}})" data-toggle="modal" data-target="#bidHistoryModal" title="view total bid history of {{$user->username}}" class="btn btn-xs btn-primary"> {{getPhrase('bid_history')}} </a>--}}
                                     <a href="#" ng-click="getBidHistory({{$user->id}})" data-toggle="modal" data-target="#bidHistoryModal" title="view total bid history of {{$user->username}}" class="btn btn-xs btn-primary"> historial de ofertas </a>
-                                   
+
 
                                     @if (checkRole(['admin']))
                                     

@@ -31,7 +31,6 @@
                      <a href="<?php echo e(URL_USERS_FAV_AUCTIONS); ?>" title="Favourite Auctions">Ver</a>
                  </div>     
                 </div>  
-                
 
                  <div class="col-lg-4 col-md-4 col-sm-4 au-primary au-quinary">
                  <div class="au-card-franky">
@@ -42,7 +41,6 @@
                       <a href="<?php echo e(URL_BIDDER_AUCTIONS); ?>" title="View Auctions">Ver</a>
                  </div>     
                 </div>  
-
 
                  <div class="col-lg-4 col-md-4 col-sm-4 au-primary au-senary">
                  <div class="au-card-franky">
@@ -75,10 +73,6 @@
                       <a href="<?php echo e(URL_MESSENGER); ?>" title="Messages">Ver</a>
                  </div>     
                 </div>  
-                
-                
-                
-                
 
               </div>   
             </div> 

@@ -127,9 +127,6 @@ $user = Auth::user();
                    </a>
                   </li>
 
-
-
-
                   <li class="<?php echo e($request->segment(1) == 'messenger' ? 'active isactive' : ''); ?>">
                      <?php ($unread = App\MessengerTopic::countUnread()); ?>
                    <!--  <div class="link"><i class="fa fa-database"></i><?php echo e(getPhrase('messages')); ?><i class="fa fa-chevron-down"></i>

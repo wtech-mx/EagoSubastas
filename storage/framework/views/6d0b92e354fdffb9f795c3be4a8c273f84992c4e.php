@@ -469,7 +469,7 @@
                                 <td> 
 
                                     <a href="#" ng-click="getBidHistory(<?php echo e($user->id); ?>)" data-toggle="modal" data-target="#bidHistoryModal" title="view total bid history of <?php echo e($user->username); ?>" class="btn btn-xs btn-primary"> historial de ofertas </a>
-                                   
+
 
                                     <?php if(checkRole(['admin'])): ?>
                                     
