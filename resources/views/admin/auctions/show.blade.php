@@ -352,38 +352,45 @@
     </div>
     <!--/.Panel 2-->
 
-        <!--Panel 2-->
+            <!--Panel 2-->
     <div class="tab-pane fade" id="panel4" role="tabpanel">
         <div class="row">
             <div class="col-md-12">
                <form action="{{route('email.import.excel')}}" method="POST" enctype="multipart/form-data">
                     {{csrf_field()}}
-                    <h1>Correos de Invitacion  </h1>
+                    <h1>Correos de Invitación  </h1>
                    <div class="form-group">
-
-
                             <input type="hidden" name="auction_id" value="{{ $record->id }}">
-
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                  <input  type="file" class="form-control"  name="file">
                             </div>
                        <div class="col-4">
                            <button class="btn btn-success">Importar Usuarios</button>
                        </div>
 
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                </thead>
+
+                <tbody>
+                 @foreach ($dato as $item)
+                     <tr>
+                         <td>#</td>
+                         <td>{{ $item->name }}</td>
+                         <td>{{ $item->email }}</td>
+                     </tr>
+                 @endforeach
+                </tbody>
+            </table>
                    </div>
                </form>
             </div>
         </div>
     </div>
     <!--/.Panel 2-->
-
-
-
-
-
-
-
 
 
     <!--Panel 3-->

@@ -73,6 +73,7 @@ Route::get('/test', function () {
 
 // Enviar Invitaciones
 Route::post('import-list-exel', 'invitacionesController@importExcel')->name('email.import.excel');
+Route::get('auctions/view/autos-clasicos-17852a4e5a0f86e14ecba8ca8ddefae0618e515d-1','invitacionesController@index')->name('index.invitacion');
 
 
 // Change Password Routes...

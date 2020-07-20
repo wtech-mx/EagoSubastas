@@ -26,17 +26,25 @@
          <!-- Nav tabs -->
 <ul class="nav nav-tabs nav-justified">
     <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab"><i class="fa fa-list"></i> <?php echo e(getPhrase('auction_details')); ?> </a>
+
+        <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab"><i class="fa fa-list"></i> Detalles de subasta </a>
     </li>
+
     <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#panel2" role="tab"><i class="far fa-image"></i> <?php echo e(getPhrase('images')); ?> </a>
+
+         <a class="nav-link" data-toggle="tab" href="#panel2" role="tab"><i class="fa fa-image"></i>Imagenes </a>
     </li>
+
     <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#panel4" role="tab"><i class="fas fa-envelope"></i> <?php echo e(getPhrase('invitacion')); ?> </a>
+
+        <a class="nav-link" data-toggle="tab" href="#panel3" role="tab"><i class="fa fa-user"></i> Licitadores de subasta </a>
     </li>
+
     <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#panel3" role="tab"><i class="fa fa-user"></i> <?php echo e(getPhrase('auction_bidders')); ?> </a>
+
+        <a class="nav-link" data-toggle="tab" href="#panel4" role="tab"><i class="fa fa-send"></i> Invitacion </a>
     </li>
+
 </ul>
 
 
@@ -246,7 +254,8 @@
         <div class="row">
 
         <div class="col-md-12">
-                <h4><?php echo e(getPhrase('upload_images')); ?></h4>
+
+                     <h4>Subir imagenes </h4>
 
                     <?php echo Form::open(array('url' => URL_AUCTIONS_UPLOAD_IMAGES.$record->slug, 'method' => 'POST', 'novalidate'=>'','name'=>'formUsers', 
                         'files'=>'true','class'=>"dropzone", 'id'=>"real-dropzone",'multiple'=>true)); ?>
@@ -257,16 +266,23 @@
                         <div class="col-lg-4">
                             <div class="dragble-area">
                                  <div class="dz-message">
-                                <h4 style="text-align: center;color:#428bca;">Drop files in this area  <span class="glyphicon glyphicon-hand-down"></span></h4>
+                                    <h4 style="text-align: center;color:#428bca;">Soltar archivos en esta área<span class="glyphicon glyphicon-hand-down"></span></h4>
                                 </div>
                             </div>
 
                              <div class="instuctions-block mt-3">
                                 <ul>
-                                    <li><?php echo e(getPhrase('only_image_files_are_accepted')); ?></li>
-                                    <li><?php echo e(getPhrase('files_are_uploaded_as_soon_as_you_drop_them')); ?></li>
-                                    <li><?php echo e(getPhrase('maximum_allowed_size_is_5MB')); ?></li>
-                                    <li style="color:red;"><?php echo e(getPhrase('for_good_resolution_image_width_height_950x650')); ?></li>
+
+                                    <li>solo se aceptan archivos de imagen</li>
+
+
+                                    <li>los archivos se cargan para que puedas soltarlos</li>
+
+
+                                    <li><?php echo e(getPhrase('tamaño máximo permitido de 5 MB')); ?></li>
+
+
+                                      <li style="color:red;">para una buena resolución ancho de imagen altura 950x650</li>
                                 </ul>
 
                             </div>
@@ -342,30 +358,46 @@
     </div>
     <!--/.Panel 2-->
 
-        <!--Panel 2-->
+            <!--Panel 2-->
     <div class="tab-pane fade" id="panel4" role="tabpanel">
         <div class="row">
             <div class="col-md-12">
-               <form method="POST" action="">
+               <form action="<?php echo e(route('email.import.excel')); ?>" method="POST" enctype="multipart/form-data">
+                    <?php echo e(csrf_field()); ?>
 
+                    <h1>Correos de Invitación  </h1>
                    <div class="form-group">
-                       <h1>Correos de Invitacion</h1>
+                            <input type="hidden" name="auction_id" value="<?php echo e($record->id); ?>">
                             <div class="col-md-6">
-                                 <input id="name" type="text" class="form-control" name="name">
+                                 <input  type="file" class="form-control"  name="file">
                             </div>
+                       <div class="col-4">
+                           <button class="btn btn-success">Importar Usuarios</button>
+                       </div>
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                </thead>
+
+                <tbody>
+                 <?php $__currentLoopData = $dato; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                     <tr>
+                         <td>#</td>
+                         <td><?php echo e($item->name); ?></td>
+                         <td><?php echo e($item->email); ?></td>
+                     </tr>
+                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </tbody>
+            </table>
                    </div>
                </form>
             </div>
         </div>
     </div>
     <!--/.Panel 2-->
-
-
-
-
-
-
-
 
 
     <!--Panel 3-->
@@ -383,14 +415,26 @@
 
                     <tr>    
                         <th>#</th>
-                        <th> <?php echo e(getPhrase('username')); ?> </th>
-                        <th> <?php echo e(getPhrase('email')); ?> </th>
-                        <th> <?php echo e(getPhrase('image')); ?> </th>
-                        <th> <?php echo e(getPhrase('no_of_times')); ?> </th>
-                        <th> <?php echo e(getPhrase('highest_bid')); ?> </th>
+
+
+                         <th> User </th>
+
+
+                        <th> Email</th>
+
+
+
+                        <th> Imagen </th>
+
+
+                        <th> no de veces </th>
+
+
+                         <th> apuesta más alta </th>
+
 
                         
-                        <th>&nbsp;</th> 
+                        <th>&nbsp;Acciones</th>
 
                     </tr>
                 </thead>
@@ -430,13 +474,15 @@
 
 
                                 <td> 
-                                    <a href="#" ng-click="getBidHistory(<?php echo e($user->id); ?>)" data-toggle="modal" data-target="#bidHistoryModal" title="view total bid history of <?php echo e($user->username); ?>" class="btn btn-xs btn-primary"> <?php echo e(getPhrase('bid_history')); ?> </a>
-                                   
+
+                                    <a href="#" ng-click="getBidHistory(<?php echo e($user->id); ?>)" data-toggle="modal" data-target="#bidHistoryModal" title="view total bid history of <?php echo e($user->username); ?>" class="btn btn-xs btn-primary"> historial de ofertas </a>
+
 
                                     <?php if(checkRole(['admin'])): ?>
                                     
                                     <?php if($send_email): ?>
-                                    <a href="#" onclick="auctionBidder(<?php echo e($user->id); ?>)" data-toggle="tooltip" data-placement="bottom" class="btn btn-xs btn-info" title="send email to <?php echo e($user->username); ?> regarding bidding payment"> <?php echo e(getPhrase('send_email')); ?> </a>
+
+                                         <a href="#" onclick="auctionBidder(<?php echo e($user->id); ?>)" data-toggle="tooltip" data-placement="bottom" class="btn btn-xs btn-info" title="send email to <?php echo e($user->username); ?> regarding bidding payment"> enviar correo electrónico </a>
                                     <?php endif; ?> 
 
                                     <?php endif; ?>
@@ -447,7 +493,8 @@
 
                         <?php else: ?>
                             <tr>
-                                <td colspan="6"> <?php echo e(getPhrase('no_entries_in_table')); ?></td>
+
+                                <td colspan="6"> no hay entradas en la tabla</td>
                             </tr>
                         <?php endif; ?>
                 </tbody>
@@ -470,7 +517,8 @@
 
         <p>&nbsp;</p>
 
-        <a href="<?php echo e(URL_LIST_AUCTIONS); ?>" class="btn btn-default"> <?php echo e(getPhrase('back_to_list')); ?> </a>
+
+            <a href="<?php echo e(URL_LIST_AUCTIONS); ?>" class="btn btn-default"> volver a la lista </a>
 
         </div>
 
@@ -487,7 +535,8 @@
                                           
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><?php echo e(getPhrase('bid_history')); ?></h5>
+
+          <h5 class="modal-title" id="exampleModalLabel">Historial de ofertas</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -499,12 +548,14 @@
         <ul class="list-group z-depth-0">
 
             <li class="list-group-item justify-content-between">
-                <span><b><?php echo e(getPhrase('bid_amount')); ?></b></span>
-                <span style="float:right;"><b><?php echo e(getPhrase('datetime')); ?></b></span> 
+
+                <span><b>monto de la oferta</b></span>
+
+                <span style="float:right;"><b>fecha y hora</b></span>
             </li>
 
             <li ng-repeat="bid in bid_history" class="list-group-item justify-content-between">
-                <span><?php echo e($currency); ?>{{bid.bid_amount}}</span>
+                <span><?php echo e($currency); ?> {{bid.bid_amount}}</span>
                 <span style="float:right;">{{bid.created_at}}</span>
             </li>
         </ul>
@@ -512,7 +563,8 @@
     </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php echo e(getPhrase('close')); ?></button>
+
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         
       </div>
     </div>
@@ -546,7 +598,7 @@
         <input type="hidden" name="ab_id" id="ab_id" value="">
         <input type="hidden" name="auction_id" value="<?php echo e($record->id); ?>">
 
-        <p>Send Email notification to User regarding payment of Auction</p>
+        <p>Enviar notificación por correo electrónico al usuario sobre el pago de la subasta</p>
 
          <div class="form-group">
 
@@ -630,9 +682,11 @@
 
         <div class="modal-footer">
 
-        <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php echo e(getPhrase('close')); ?></button>
 
-        <button type="submit" name="send_email" class="btn btn-primary" ng-disabled="!formValidate.$valid"><?php echo e(getPhrase('send')); ?></button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+
+
+             <button type="submit" name="send_email" class="btn btn-primary" ng-disabled="!formValidate.$valid">Enviar</button>
 
       </div>
 

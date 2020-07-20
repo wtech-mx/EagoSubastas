@@ -6,19 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Invitaciones extends Model
 {
-    protected $table = "invitaciones";
-    protected $primarykey = "id";
+    protected $table = 'invitaciones';
+    protected $primary = 'id';
 
     public $timestamps = false;
 
-    protected $fillable = [
-        'auction_id',
+    protected $flillable=[
     	'name',
-    	'email',
+    	'email'
     ];
 
     protected $guarded=[
 
     ];
+}
 }
 
