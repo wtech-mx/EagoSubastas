@@ -818,15 +818,12 @@ class AuctionsController extends Controller
         if ($isValid = $this->isValidRecord($auction))
              return redirect($isValid);
 
-
         $input = $request->all();
 
         $saved_id = [];
         $file_name = 'file';
 
-
         $upload_success = 0;
-
 
        if ($request->hasFile($file_name)) {
 

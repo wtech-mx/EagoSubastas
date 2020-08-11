@@ -51,26 +51,14 @@ class InvitacionesController extends Controller
 
     public function importExcel(Request $request)
     {
-        $saved_id = [];
+//        $auction_id = $request->get('auction_id');
+//        dd($auction_id);
 
-        $auction_id = new Invitaciones;
-        $auction_id->auction_id = $request->get('auction_id');
-       // dd($auction_id);
+//        $auction_id->save();
 
         $file = $request->file('file');
+        Excel::import(new InvitacionesImport, $file);
 
-        $invitacion = Excel::import(new InvitacionesImport, $file);
-
-        $invitacion->auctions_id = $auction_id;
-        //dd($invitacion);
-
-        $invitacion = $file;
-       // dd($invitacion);
-
-        $invitacion->save();
-        $saved_id[] = $invitacion->id;
-      
-      //  dd($file);
 
         return back()->with('message',' Importacion de datos completada');
     }

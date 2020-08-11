@@ -13,7 +13,8 @@ class Invitaciones extends Model
 
     protected $flillable=[
     	'name',
-    	'email'
+    	'email',
+        'auction_id',
     ];
 
     protected $guarded=[

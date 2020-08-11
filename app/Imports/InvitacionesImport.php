@@ -17,6 +17,7 @@ class InvitacionesImport implements ToModel
         return new Invitaciones([
             'name' => $row[0],
             'email' => $row[1],
+            'auction_id' =>$row[2],
         ]);
     }
 }

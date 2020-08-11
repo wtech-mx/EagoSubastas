@@ -118,6 +118,7 @@ $date_format = getSetting('date_format','site_settings');
                                    
 
                                     <a href="<?php echo e(URL_AUCTIONS_EDIT); ?>/<?php echo e($auction->slug); ?>" class="btn btn-xs btn-info"> Editar</a>
+                                   <a href="<?php echo e(URL_AUCTIONS_Invitaciones); ?>/<?php echo e($auction->slug); ?>" class="btn btn-xs btn-info"> Invitaciones</a>
                                     
                                 </td>
 

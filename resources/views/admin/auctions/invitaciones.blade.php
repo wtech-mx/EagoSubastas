@@ -27,45 +27,60 @@
                 <h1>Correos de Invitación  </h1>
                 <div class="form-group">
                         <input type="hidden" name="auction_id" value="{{ $record->id }}">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                                 <input  type="file" class="form-control"  name="file">
                         </div>
-                    <div class="col-4">
+                    <div class="col-6">
                         <button class="btn btn-success">Importar Usuarios</button>
                     </div>
 
-        <table class="table table-bordered table-striped">
-            
-            <thead>
-                <th>#</th>
-                <th>Nombre</th>
-                <th>Correo</th>
-            </thead>
+                    <div class="col-12 p-5">
+                        <h3>El ID de la subasta es :  {{ $record->id }}</h3>
+                    <p>Porfavor ingresar en el campo "auction_id" del exel </p>
+                    </div>
 
-            @if (count($invitacion) > 0)
-                <tbody>
+                <table class="table table-bordered table-striped">
+
+                    <thead>
+                        <th>#</th>
+                        <th>Id Subasta</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                    </thead>
+
                     @if (count($invitacion) > 0)
-                        <?php $i=0;?>
-                            @foreach ($invitacion as $item)
-                        <?php $i++;?>
-                                
-                                    <tr>
-                                        <td>{{ $item->id }}</td>
-                                        <td>{{ $item->name }}</td> 
-                                        <td>{{ $item->email }}</td>
-                                        
-                                    </tr>
-                                
-                            @endforeach
-                    @else
-                        <tr>
-                            <td colspan="12"> {{ getPhrase('no_entries_in_table') }}</td>
-                        </tr>
-                    @endif
-                </tbody>
-            @endif                 
+                        <tbody>
+                            @if (count($invitacion) > 0)
+                                <?php $i=0;?>
 
-        </table>
+
+                                    @foreach ($invitacion as $item)
+
+                                        @if($record->id == $item->auction_id)
+                                        <?php $i++;?>
+                                            <tr>
+                                                <td>{{ $item->id }}</td>
+                                                <td>{{ $item->auction_id }}</td>
+                                                <td>{{ $item->name }}</td>
+                                                <td>{{ $item->email }}</td>
+                                            </tr>
+                                        @else
+
+                                            <tr>
+                                                <td colspan="12">    No hay Datos</td>
+                                            </tr>
+                                        @endif
+
+                                    @endforeach
+                            @else
+                                <tr>
+                                    <td colspan="12"> {{ getPhrase('no_entries_in_table') }}</td>
+                                </tr>
+                            @endif
+                        </tbody>
+                    @endif
+
+                </table>
                 </div>
             </form>
         </div>
