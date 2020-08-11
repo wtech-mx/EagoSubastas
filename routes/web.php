@@ -501,6 +501,8 @@ Route::group(['middleware' => ['auth', 'approved'], 'prefix' => 'admin', 'as' =>
     // Enviar Invitaciones
     Route::post('import-list-exel', 'invitacionesController@importExcel')->name('email.import.excel');
     Route::get('auctions/invitaciones/{slug}','invitacionesController@index');
+    Route::delete('auctions/invitaciones/{id}','invitacionesController@destroy')->name('destroy.invitaciones');
+
 
 
     //MESSENGER

@@ -46,16 +46,14 @@
                         <th>Id Subasta</th>
                         <th>Nombre</th>
                         <th>Correo</th>
+                        <th>Eliminar</th>
                     </thead>
 
                     @if (count($invitacion) > 0)
                         <tbody>
                             @if (count($invitacion) > 0)
                                 <?php $i=0;?>
-
-
                                     @foreach ($invitacion as $item)
-
                                         @if($record->id == $item->auction_id)
                                         <?php $i++;?>
                                             <tr>
@@ -63,12 +61,13 @@
                                                 <td>{{ $item->auction_id }}</td>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->email }}</td>
+                                                <td>
+                                                    <button class="dropdown-item" data-toggle="modal" data-target="#modal-{{$item->id}}"> Eliminar</button>
+                                                    @include('admin.auctions.modal')
+                                                </td>
                                             </tr>
                                         @else
 
-                                            <tr>
-                                                <td colspan="12">    No hay Datos</td>
-                                            </tr>
                                         @endif
 
                                     @endforeach

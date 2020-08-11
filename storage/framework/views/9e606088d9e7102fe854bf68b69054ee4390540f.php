@@ -28,45 +28,59 @@
                 <h1>Correos de Invitación  </h1>
                 <div class="form-group">
                         <input type="hidden" name="auction_id" value="<?php echo e($record->id); ?>">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                                 <input  type="file" class="form-control"  name="file">
                         </div>
-                    <div class="col-4">
+                    <div class="col-6">
                         <button class="btn btn-success">Importar Usuarios</button>
                     </div>
 
-        <table class="table table-bordered table-striped">
-            
-            <thead>
-                <th>#</th>
-                <th>Nombre</th>
-                <th>Correo</th>
-            </thead>
+                    <div class="col-12 p-5">
+                        <h3>El ID de la subasta es :  <?php echo e($record->id); ?></h3>
+                    <p>Porfavor ingresar en el campo "auction_id" del exel </p>
+                    </div>
 
-            <?php if(count($invitacion) > 0): ?>
-                <tbody>
+                <table class="table table-bordered table-striped">
+
+                    <thead>
+                        <th>#</th>
+                        <th>Id Subasta</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Eliminar</th>
+                    </thead>
+
                     <?php if(count($invitacion) > 0): ?>
-                        <?php $i=0;?>
-                            <?php $__currentLoopData = $invitacion; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <?php $i++;?>
-                                
-                                    <tr>
-                                        <td><?php echo e($item->id); ?></td>
-                                        <td><?php echo e($item->name); ?></td> 
-                                        <td><?php echo e($item->email); ?></td>
-                                        
-                                    </tr>
-                                
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    <?php else: ?>
-                        <tr>
-                            <td colspan="12"> <?php echo e(getPhrase('no_entries_in_table')); ?></td>
-                        </tr>
-                    <?php endif; ?>
-                </tbody>
-            <?php endif; ?>                 
+                        <tbody>
+                            <?php if(count($invitacion) > 0): ?>
+                                <?php $i=0;?>
+                                    <?php $__currentLoopData = $invitacion; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php if($record->id == $item->auction_id): ?>
+                                        <?php $i++;?>
+                                            <tr>
+                                                <td><?php echo e($item->id); ?></td>
+                                                <td><?php echo e($item->auction_id); ?></td>
+                                                <td><?php echo e($item->name); ?></td>
+                                                <td><?php echo e($item->email); ?></td>
+                                                <td>
+                                                    <button class="dropdown-item" data-toggle="modal" data-target="#modal-<?php echo e($item->id); ?>"> Eliminar</button>
+                                                    <?php echo $__env->make('admin.auctions.modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                                                </td>
+                                            </tr>
+                                        <?php else: ?>
 
-        </table>
+                                        <?php endif; ?>
+
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php else: ?>
+                                <tr>
+                                    <td colspan="12"> <?php echo e(getPhrase('no_entries_in_table')); ?></td>
+                                </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    <?php endif; ?>
+
+                </table>
                 </div>
             </form>
         </div>

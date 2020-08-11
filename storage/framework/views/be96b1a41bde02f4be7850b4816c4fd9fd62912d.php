@@ -13,9 +13,11 @@
 
 
             <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('sub_catogory_create')): ?>
-                <a href="<?php echo e(URL_SUB_CATEGORIES_ADD); ?>" class="btn btn-success btn-add pull-right">
-                    <?php echo e(getPhrase('add_new')); ?>
 
+
+
+                <a href="<?php echo e(URL_SUB_CATEGORIES_ADD); ?>" class="btn btn-success btn-add pull-right">
+                    Agregar
                 </a>
             <?php endif; ?>
 
@@ -31,14 +33,17 @@
                         <th style="text-align:center;">S.no.</th>
 
                        
-                        <th><?php echo e(getPhrase('sub_category')); ?></th>
-                        
-                        <th><?php echo e(getPhrase('category')); ?></th>
 
-                        <th><?php echo e(getPhrase('status')); ?></th>
+                        <th>Subcategoria</th>
+                        
+
+                        <th>Categoria</th>
+
+
+                        <th>Status</th>
 
                        
-                        <th>&nbsp;</th>
+                        <th>&nbsp;Acciones</th>
                         
                     </tr>
                 </thead>
@@ -62,14 +67,17 @@
                                 
                                 <td>
                                     <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('category_view')): ?>
-                                     <a href="<?php echo e(URL_SUB_CATEGORIES_VIEW); ?>/<?php echo e($category->slug); ?> " class="btn btn-xs btn-primary"> <?php echo e(getPhrase('view')); ?> </a>
+
+                                        <a href="<?php echo e(URL_SUB_CATEGORIES_VIEW); ?>/<?php echo e($category->slug); ?> " class="btn btn-xs btn-primary"> Ver </a>
                                     <?php endif; ?>
                                     <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('category_edit')): ?>
-                                    <a href="<?php echo e(URL_SUB_CATEGORIES_EDIT); ?>/<?php echo e($category->slug); ?>" class="btn btn-xs btn-info"><?php echo e(getPhrase('edit')); ?></a>
+
+                                        <a href="<?php echo e(URL_SUB_CATEGORIES_EDIT); ?>/<?php echo e($category->slug); ?>" class="btn btn-xs btn-info">Editar</a>
                                     <?php endif; ?>
 
                                     <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('category_delete')): ?>
-                                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('<?php echo e($category->id); ?>')"> <?php echo e(getPhrase('delete')); ?></a>
+
+                                        <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('<?php echo e($category->id); ?>')"> Eliminar</a>
                                     <?php endif; ?>
                                 </td>
                                 

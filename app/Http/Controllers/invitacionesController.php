@@ -63,6 +63,14 @@ class InvitacionesController extends Controller
         return back()->with('message',' Importacion de datos completada');
     }
 
+    public function destroy($id)
+    {
+        $invitaciones = Invitaciones::findOrFail($id);
+        $invitaciones->delete();
+
+        return redirect()->route('admin.auctions.invitaciones');
+    }
+
 
     public function isValidRecord($record)
     {
