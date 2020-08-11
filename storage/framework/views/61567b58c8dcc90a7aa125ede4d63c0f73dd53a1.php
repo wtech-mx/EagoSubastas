@@ -56,10 +56,10 @@
 
     <!--Panel 1-->
     <div class="tab-pane fade in active" id="panel1" role="tabpanel">
-      
+
         <br>
             <div class="row">
-                
+
                 <div class="col-md-12">
 
                     <div class="table-responsive">
@@ -69,7 +69,7 @@
                            <!-- <th> <?php echo e(getPhrase('title')); ?> </th> -->
                             <td field-key='title'><?php echo e($record->title); ?></td>
                         </tr>
-                       
+
                         <tr>
                            <!-- <th> <?php echo e(getPhrase('image')); ?> </th> -->
                             <td field-key='image'> <a href="<?php echo e(getAuctionImage($record->image,'auction')); ?>" target="_blank"> <img src="<?php echo e(getAuctionImage($record->image)); ?>" alt="<?php echo e($record->title); ?>" width="50"> </a> </td>
@@ -153,7 +153,7 @@
 
                         <tr>
                           <!--  <th> <?php echo e(getPhrase('international_shipping')); ?>  </th>-->
-                            <td field-key='international_shipping'> 
+                            <td field-key='international_shipping'>
                                 <?php if($record->international_shipping==1): ?>
                                 <?php echo e(getPhrase('yes')); ?>
 
@@ -173,7 +173,7 @@
 
                         <tr>
                          <!-- <th> <?php echo e(getPhrase('featured')); ?>  </th>-->
-                            <td field-key='make_featured'> 
+                            <td field-key='make_featured'>
                                 <?php if($record->make_featured==1): ?>
                                 <?php echo e(getPhrase('yes')); ?>
 
@@ -207,10 +207,10 @@
                         </tr>
 
 
-                        
 
 
-                       
+
+
 
                         <tr>
                           <!--  <th> <?php echo e(getPhrase('admin_commission_type')); ?>  </th> -->
@@ -233,7 +233,7 @@
                         </tr>
 
 
-                       
+
                     </table>
                 </div>
             </div>
@@ -257,12 +257,12 @@
 
                      <h4>Subir imagenes </h4>
 
-                    <?php echo Form::open(array('url' => URL_AUCTIONS_UPLOAD_IMAGES.$record->slug, 'method' => 'POST', 'novalidate'=>'','name'=>'formUsers', 
+                    <?php echo Form::open(array('url' => URL_AUCTIONS_UPLOAD_IMAGES.$record->slug, 'method' => 'POST', 'novalidate'=>'','name'=>'formUsers',
                         'files'=>'true','class'=>"dropzone", 'id'=>"real-dropzone",'multiple'=>true)); ?>
 
 
                     <div class="row">
-        
+
                         <div class="col-lg-4">
                             <div class="dragble-area">
                                  <div class="dz-message">
@@ -299,7 +299,7 @@
                     </div>
 
 
-                     <div class="fallback">                   
+                     <div class="fallback">
                          <input type="file" name="file" multiple />
                     </div>
 
@@ -358,45 +358,7 @@
     </div>
     <!--/.Panel 2-->
 
-            <!--Panel 2-->
-    <div class="tab-pane fade" id="panel4" role="tabpanel">
-        <div class="row">
-            <div class="col-md-12">
-               <form action="<?php echo e(route('email.import.excel')); ?>" method="POST" enctype="multipart/form-data">
-                    <?php echo e(csrf_field()); ?>
 
-                    <h1>Correos de Invitación  </h1>
-                   <div class="form-group">
-                            <input type="hidden" name="auction_id" value="<?php echo e($record->id); ?>">
-                            <div class="col-md-6">
-                                 <input  type="file" class="form-control"  name="file">
-                            </div>
-                       <div class="col-4">
-                           <button class="btn btn-success">Importar Usuarios</button>
-                       </div>
-
-            <table class="table table-bordered table-striped">
-                <thead>
-                    <th>#</th>
-                    <th>Nombre</th>
-                    <th>Correo</th>
-                </thead>
-
-                <tbody>
-                 <?php $__currentLoopData = $dato; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                     <tr>
-                         <td>#</td>
-                         <td><?php echo e($item->name); ?></td>
-                         <td><?php echo e($item->email); ?></td>
-                     </tr>
-                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                </tbody>
-            </table>
-                   </div>
-               </form>
-            </div>
-        </div>
-    </div>
     <!--/.Panel 2-->
 
 
@@ -413,7 +375,7 @@
 
                 <thead>
 
-                    <tr>    
+                    <tr>
                         <th>#</th>
 
 
@@ -433,7 +395,7 @@
                          <th> apuesta más alta </th>
 
 
-                        
+
                         <th>&nbsp;Acciones</th>
 
                     </tr>
@@ -443,7 +405,7 @@
                    <?php if(count($bidders)): ?>
                        <?php $__currentLoopData = $bidders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-                       <?php 
+                       <?php
                        $highest_bid='';
                        $highestbid = $user->getHighestBid();
 
@@ -456,7 +418,7 @@
                             <tr>
                                 <td>#</td>
                                 <td field-key='name'>
-                                <?php if(checkRole(getUserGrade(1))): ?>    
+                                <?php if(checkRole(getUserGrade(1))): ?>
                                 <a href="<?php echo e(URL_USERS_VIEW); ?>/<?php echo e($user->slug); ?>"><?php echo e($user->username); ?></a>
                                 <?php else: ?>
                                 <?php echo e($user->username); ?>
@@ -473,17 +435,17 @@
                                 <td> <?php if($highest_bid): ?> <?php echo e($currency); ?><?php echo e($highest_bid); ?> <?php endif; ?> </td>
 
 
-                                <td> 
+                                <td>
 
                                     <a href="#" ng-click="getBidHistory(<?php echo e($user->id); ?>)" data-toggle="modal" data-target="#bidHistoryModal" title="view total bid history of <?php echo e($user->username); ?>" class="btn btn-xs btn-primary"> historial de ofertas </a>
 
 
                                     <?php if(checkRole(['admin'])): ?>
-                                    
+
                                     <?php if($send_email): ?>
 
                                          <a href="#" onclick="auctionBidder(<?php echo e($user->id); ?>)" data-toggle="tooltip" data-placement="bottom" class="btn btn-xs btn-info" title="send email to <?php echo e($user->username); ?> regarding bidding payment"> enviar correo electrónico </a>
-                                    <?php endif; ?> 
+                                    <?php endif; ?>
 
                                     <?php endif; ?>
 
@@ -532,7 +494,7 @@
 <div class="modal fade right" id="bidHistoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
 
-                                          
+
     <div class="modal-content">
       <div class="modal-header">
 
@@ -543,7 +505,7 @@
       </div>
 
       <div class="modal-body">
-       
+
 
         <ul class="list-group z-depth-0">
 
@@ -565,7 +527,7 @@
       <div class="modal-footer">
 
            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        
+
       </div>
     </div>
   </div>
@@ -577,7 +539,7 @@
 
 
 
-<!--send Email modal-->  
+<!--send Email modal-->
 <div class="modal fade" id="sendEmailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -602,9 +564,9 @@
 
          <div class="form-group">
 
-            <?php echo e(Form::textarea('message', old('message'), $attributes = 
+            <?php echo e(Form::textarea('message', old('message'), $attributes =
 
-                array('class' => 'form-control ckeditor', 
+                array('class' => 'form-control ckeditor',
 
                 'placeholder' => 'Enter Email Content/Message to Bidder',
 
@@ -635,9 +597,9 @@
 
                 <span class="text-red">*</span>
 
-                <?php echo e(Form::text('sent_at', old('sent_at') , $attributes = 
+                <?php echo e(Form::text('sent_at', old('sent_at') , $attributes =
 
-                array('class' => 'form-control', 
+                array('class' => 'form-control',
 
                 'id' => 'datetimepicker6',
 
@@ -661,17 +623,17 @@
 
 
 
-                <?php echo e(Form::text('ended_at', old('ended_at') , $attributes = 
+                <?php echo e(Form::text('ended_at', old('ended_at') , $attributes =
 
-                array('class' => 'form-control', 
+                array('class' => 'form-control',
 
                 'id' => 'datetimepicker7',
 
                 'placeholder'=>'Payment End Date and Time',
 
-                'ng-model' => 'ended_at', 
+                'ng-model' => 'ended_at',
 
-               
+
                 ))); ?>
 
 
@@ -695,14 +657,14 @@
         <?php echo Form::close(); ?>
 
 
-     
+
 
       </div>
 
 
 
 
-      
+
 
 
     </div>
@@ -727,8 +689,8 @@
 <?php echo $__env->make('common.alertify', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('admin.auctions.scripts.auction-js-scripts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <script>
- 
- 
+
+
 
 var photo_counter = 0;
 Dropzone.options.realDropzone = {
@@ -752,8 +714,8 @@ Dropzone.options.realDropzone = {
         photo_counter = previous_uploads.length;
         for(i=0; i<previous_uploads.length; i++){
 
-         var mockFile = previous_uploads[i];       
-         
+         var mockFile = previous_uploads[i];
+
           this.options.addedfile.call(this, mockFile);
 
            dataUrl = "<?php echo UPLOADS;?>auctions/"+mockFile.filename;
@@ -765,7 +727,7 @@ Dropzone.options.realDropzone = {
 
            // mockFile.previewElement.classList.add('dz-success');
            // mockFile.previewElement.classList.add('dz-complete');
-           
+
         }
             // $('.dz-image').css('background-image', 'url(<?php echo e(AUCTION_IMAGES_PATH_URL); ?>)'+mockFile.filename);
 
@@ -780,7 +742,7 @@ Dropzone.options.realDropzone = {
                 success: function(data){
                      photo_counter--;
                         $("#photoCounter").text( "(" + photo_counter + ")");
-                   
+
                 }
             });
 
@@ -801,19 +763,19 @@ Dropzone.options.realDropzone = {
         return _results;
     },
     success: function(file,done) {
-       
+
         file.id=done[photo_counter];
         photo_counter++;
         $("#photoCounter").text( "(" + photo_counter + ")");
     },
-    accept: function(file, done) { 
+    accept: function(file, done) {
 
     var thumbnail = $('.dropzone .dz-preview.dz-file-preview .dz-image:last ');
-    
-   
+
+
     switch (file.type) {
       case 'application/pdf':
-      
+
         thumbnail.css('background-image', 'url(<?php echo e(IMAGES); ?>pdf.png)');
         break;
       case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':

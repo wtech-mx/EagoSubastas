@@ -57,10 +57,10 @@
 
     <!--Panel 1-->
     <div class="tab-pane fade in active" id="panel1" role="tabpanel">
-      
+
         <br>
             <div class="row">
-                
+
                 <div class="col-md-12">
 
                     <div class="table-responsive">
@@ -70,7 +70,7 @@
                            <!-- <th> {{getPhrase('title')}} </th> -->
                             <td field-key='title'>{{ $record->title }}</td>
                         </tr>
-                       
+
                         <tr>
                            <!-- <th> {{getPhrase('image')}} </th> -->
                             <td field-key='image'> <a href="{{getAuctionImage($record->image,'auction')}}" target="_blank"> <img src="{{getAuctionImage($record->image)}}" alt="{{$record->title}}" width="50"> </a> </td>
@@ -154,7 +154,7 @@
 
                         <tr>
                           <!--  <th> {{getPhrase('international_shipping')}}  </th>-->
-                            <td field-key='international_shipping'> 
+                            <td field-key='international_shipping'>
                                 @if ($record->international_shipping==1)
                                 {{ getPhrase('yes') }}
                                 @else
@@ -172,7 +172,7 @@
 
                         <tr>
                          <!-- <th> {{getPhrase('featured')}}  </th>-->
-                            <td field-key='make_featured'> 
+                            <td field-key='make_featured'>
                                 @if ($record->make_featured==1)
                                 {{ getPhrase('yes') }}
                                 @else
@@ -204,10 +204,10 @@
                         </tr>
 
 
-                        
 
 
-                       
+
+
 
                         <tr>
                           <!--  <th> {{getPhrase('admin_commission_type')}}  </th> -->
@@ -228,7 +228,7 @@
                         </tr>
 
 
-                       
+
                     </table>
                 </div>
             </div>
@@ -252,12 +252,12 @@
 {{--                <h4>{{getPhrase('upload_images')}}</h4>--}}
                      <h4>Subir imagenes </h4>
 
-                    {!! Form::open(array('url' => URL_AUCTIONS_UPLOAD_IMAGES.$record->slug, 'method' => 'POST', 'novalidate'=>'','name'=>'formUsers', 
-                        'files'=>'true','class'=>"dropzone", 'id'=>"real-dropzone",'multiple'=>true)) 
+                    {!! Form::open(array('url' => URL_AUCTIONS_UPLOAD_IMAGES.$record->slug, 'method' => 'POST', 'novalidate'=>'','name'=>'formUsers',
+                        'files'=>'true','class'=>"dropzone", 'id'=>"real-dropzone",'multiple'=>true))
                     !!}
 
                     <div class="row">
-        
+
                         <div class="col-lg-4">
                             <div class="dragble-area">
                                  <div class="dz-message">
@@ -294,7 +294,7 @@
                     </div>
 
 
-                     <div class="fallback">                   
+                     <div class="fallback">
                          <input type="file" name="file" multiple />
                     </div>
 
@@ -352,44 +352,7 @@
     </div>
     <!--/.Panel 2-->
 
-            <!--Panel 2-->
-    <div class="tab-pane fade" id="panel4" role="tabpanel">
-        <div class="row">
-            <div class="col-md-12">
-               <form action="{{route('email.import.excel')}}" method="POST" enctype="multipart/form-data">
-                    {{csrf_field()}}
-                    <h1>Correos de Invitación  </h1>
-                   <div class="form-group">
-                            <input type="hidden" name="auction_id" value="{{ $record->id }}">
-                            <div class="col-md-6">
-                                 <input  type="file" class="form-control"  name="file">
-                            </div>
-                       <div class="col-4">
-                           <button class="btn btn-success">Importar Usuarios</button>
-                       </div>
 
-            <table class="table table-bordered table-striped">
-                <thead>
-                    <th>#</th>
-                    <th>Nombre</th>
-                    <th>Correo</th>
-                </thead>
-
-                <tbody>
-                 @foreach ($dato as $item)
-                     <tr>
-                         <td>#</td>
-                         <td>{{ $item->name }}</td>
-                         <td>{{ $item->email }}</td>
-                     </tr>
-                 @endforeach
-                </tbody>
-            </table>
-                   </div>
-               </form>
-            </div>
-        </div>
-    </div>
     <!--/.Panel 2-->
 
 
@@ -406,7 +369,7 @@
 
                 <thead>
 
-                    <tr>    
+                    <tr>
                         <th>#</th>
 
 {{--                        <th> {{getPhrase('username')}} </th>--}}
@@ -426,7 +389,7 @@
                          <th> apuesta más alta </th>
 
 
-                        
+
                         <th>&nbsp;Acciones</th>
 
                     </tr>
@@ -436,7 +399,7 @@
                    @if (count($bidders))
                        @foreach ($bidders as $user)
 
-                       <?php 
+                       <?php
                        $highest_bid='';
                        $highestbid = $user->getHighestBid();
 
@@ -449,7 +412,7 @@
                             <tr>
                                 <td>#</td>
                                 <td field-key='name'>
-                                @if (checkRole(getUserGrade(1)))    
+                                @if (checkRole(getUserGrade(1)))
                                 <a href="{{URL_USERS_VIEW}}/{{$user->slug}}">{{$user->username}}</a>
                                 @else
                                 {{$user->username}}
@@ -465,17 +428,17 @@
                                 <td> @if ($highest_bid) {{$currency}}{{$highest_bid}} @endif </td>
 
 
-                                <td> 
+                                <td>
 {{--                                    <a href="#" ng-click="getBidHistory({{$user->id}})" data-toggle="modal" data-target="#bidHistoryModal" title="view total bid history of {{$user->username}}" class="btn btn-xs btn-primary"> {{getPhrase('bid_history')}} </a>--}}
                                     <a href="#" ng-click="getBidHistory({{$user->id}})" data-toggle="modal" data-target="#bidHistoryModal" title="view total bid history of {{$user->username}}" class="btn btn-xs btn-primary"> historial de ofertas </a>
 
 
                                     @if (checkRole(['admin']))
-                                    
+
                                     @if ($send_email)
 {{--                                    <a href="#" onclick="auctionBidder({{$user->id}})" data-toggle="tooltip" data-placement="bottom" class="btn btn-xs btn-info" title="send email to {{$user->username}} regarding bidding payment"> {{getPhrase('send_email')}} </a>--}}
                                          <a href="#" onclick="auctionBidder({{$user->id}})" data-toggle="tooltip" data-placement="bottom" class="btn btn-xs btn-info" title="send email to {{$user->username}} regarding bidding payment"> enviar correo electrónico </a>
-                                    @endif 
+                                    @endif
 
                                     @endif
 
@@ -524,7 +487,7 @@
 <div class="modal fade right" id="bidHistoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-right" role="document">
 
-                                          
+
     <div class="modal-content">
       <div class="modal-header">
 {{--        <h5 class="modal-title" id="exampleModalLabel">{{getPhrase('bid_history')}}</h5>--}}
@@ -535,7 +498,7 @@
       </div>
 
       <div class="modal-body">
-       
+
 
         <ul class="list-group z-depth-0">
 
@@ -557,7 +520,7 @@
       <div class="modal-footer">
 {{--        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{getPhrase('close')}}</button>--}}
            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        
+
       </div>
     </div>
   </div>
@@ -569,7 +532,7 @@
 
 
 
-<!--send Email modal-->  
+<!--send Email modal-->
 <div class="modal fade" id="sendEmailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -593,9 +556,9 @@
 
          <div class="form-group">
 
-            {{ Form::textarea('message', old('message'), $attributes = 
+            {{ Form::textarea('message', old('message'), $attributes =
 
-                array('class' => 'form-control ckeditor', 
+                array('class' => 'form-control ckeditor',
 
                 'placeholder' => 'Enter Email Content/Message to Bidder',
 
@@ -623,9 +586,9 @@
 
                 <span class="text-red">*</span>
 
-                {{ Form::text('sent_at', old('sent_at') , $attributes = 
+                {{ Form::text('sent_at', old('sent_at') , $attributes =
 
-                array('class' => 'form-control', 
+                array('class' => 'form-control',
 
                 'id' => 'datetimepicker6',
 
@@ -647,17 +610,17 @@
 
 
 
-                {{ Form::text('ended_at', old('ended_at') , $attributes = 
+                {{ Form::text('ended_at', old('ended_at') , $attributes =
 
-                array('class' => 'form-control', 
+                array('class' => 'form-control',
 
                 'id' => 'datetimepicker7',
 
                 'placeholder'=>'Payment End Date and Time',
 
-                'ng-model' => 'ended_at', 
+                'ng-model' => 'ended_at',
 
-               
+
                 )) }}
 
 
@@ -679,14 +642,14 @@
 
         {!! Form::close() !!}
 
-     
+
 
       </div>
 
 
 
 
-      
+
 
 
     </div>
@@ -711,8 +674,8 @@
 @include('common.alertify')
 @include('admin.auctions.scripts.auction-js-scripts')
 <script>
- 
- 
+
+
 
 var photo_counter = 0;
 Dropzone.options.realDropzone = {
@@ -736,8 +699,8 @@ Dropzone.options.realDropzone = {
         photo_counter = previous_uploads.length;
         for(i=0; i<previous_uploads.length; i++){
 
-         var mockFile = previous_uploads[i];       
-         
+         var mockFile = previous_uploads[i];
+
           this.options.addedfile.call(this, mockFile);
 
            dataUrl = "<?php echo UPLOADS;?>auctions/"+mockFile.filename;
@@ -749,7 +712,7 @@ Dropzone.options.realDropzone = {
 
            // mockFile.previewElement.classList.add('dz-success');
            // mockFile.previewElement.classList.add('dz-complete');
-           
+
         }
             // $('.dz-image').css('background-image', 'url({{AUCTION_IMAGES_PATH_URL}})'+mockFile.filename);
 
@@ -764,7 +727,7 @@ Dropzone.options.realDropzone = {
                 success: function(data){
                      photo_counter--;
                         $("#photoCounter").text( "(" + photo_counter + ")");
-                   
+
                 }
             });
 
@@ -785,19 +748,19 @@ Dropzone.options.realDropzone = {
         return _results;
     },
     success: function(file,done) {
-       
+
         file.id=done[photo_counter];
         photo_counter++;
         $("#photoCounter").text( "(" + photo_counter + ")");
     },
-    accept: function(file, done) { 
+    accept: function(file, done) {
 
     var thumbnail = $('.dropzone .dz-preview.dz-file-preview .dz-image:last ');
-    
-   
+
+
     switch (file.type) {
       case 'application/pdf':
-      
+
         thumbnail.css('background-image', 'url({{IMAGES}}pdf.png)');
         break;
       case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':

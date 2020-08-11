@@ -115,6 +115,7 @@ $date_format = getSetting('date_format','site_settings');
                                    
 {{--                                    <a href="{{ URL_AUCTIONS_EDIT }}/{{$auction->slug}}" class="btn btn-xs btn-info"> {{getPhrase('edit')}} </a>--}}
                                     <a href="{{ URL_AUCTIONS_EDIT }}/{{$auction->slug}}" class="btn btn-xs btn-info"> Editar</a>
+                                   <a href="{{ URL_AUCTIONS_Invitaciones }}/{{$auction->slug}}" class="btn btn-xs btn-info"> Invitaciones</a>
                                     
                                 </td>
 

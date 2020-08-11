@@ -867,6 +867,11 @@ class Auction extends Model implements HasMedia
                     ->where('auctionbidders.is_bidder_paid','Yes')
                     ->get();
     }
+    // public function getAuctionInvitaciones(){
+    //     $invitacion = Invitaciones::select(['id','name','email'])
+    //     ->get();
+    // }
+
    
     /**
      * [getAuctionBiddingHistory description]

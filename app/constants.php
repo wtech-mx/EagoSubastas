@@ -266,6 +266,7 @@ define('URL_LOGOUT', PREFIX.'logout');
 define('URL_LIST_AUCTIONS', PREFIX.'auctions');
 define('URL_AUCTIONS_ADD', PREFIX.'auctions/create');
 define('URL_AUCTIONS_EDIT', PREFIX.'auctions/edit');
+define('URL_AUCTIONS_Invitaciones', PREFIX.'auctions/invitaciones');
 define('URL_AUCTIONS_VIEW', PREFIX.'auctions/view/');
 define('URL_AUCTIONS_DELETE', PREFIX.'auctions/delete/');
 define('URL_AUCTIONS_GETLIST', PREFIX.'auctions/getList/');

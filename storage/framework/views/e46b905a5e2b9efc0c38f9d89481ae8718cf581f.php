@@ -19,7 +19,8 @@ $date_format = getSetting('date_format','site_settings');
             <?php echo e(getPhrase('list')); ?>
 
 
-             <a href="<?php echo e(URL_AUCTIONS_ADD); ?>" class="btn btn-success btn-add pull-right"><?php echo e(getPhrase('add_new')); ?></a>
+
+            <a href="<?php echo e(URL_AUCTIONS_ADD); ?>" class="btn btn-success btn-add pull-right">Agregar</a>
 
         </div>
 
@@ -29,22 +30,37 @@ $date_format = getSetting('date_format','site_settings');
                     <tr>
                         
                         <th style="text-align:center;">S.no.</th>
-                        <th> <?php echo e(getPhrase('image')); ?> </th>
-                        <th> <?php echo e(getPhrase('title')); ?> </th>
-                        <th> <?php echo e(getPhrase('start_date')); ?> </th>
-                        <th> <?php echo e(getPhrase('end_date')); ?> </th>
+
+                        <th> IMAGEN</th>
+
+
+                        <th> TITULO</th>
+
+
+                        <th> FECHA INICIO</th>
+
+
+                         <th> FECHA FIN </th>
+
 
                         <th> <?php echo e(getPhrase('reserve_price')); ?> (<?php echo e(getSetting('currency_code','site_settings')); ?>) </th>
                         <?php if(checkRole(['admin'])): ?>
                         <th> <?php echo e(getPhrase('seller')); ?> </th>
                         <?php endif; ?>
-                        <th> <?php echo e(getPhrase('created_by')); ?> </th>
-                        <th> <?php echo e(getPhrase('auction_status')); ?> </th>
-                        <th> <?php echo e(getPhrase('admin_status')); ?> </th>
 
-                        <th> <?php echo e(getPhrase('live_auction')); ?> </th>
+                         <th> CREADO POR </th>
+
+
+                        <th> ESTADO SUBASTA </th>
+
+
+                        <th> ESTADO ADMINISTRADOR </th>
+
+
+                        <th> SUBASTA ENVIVO</th>
                        
-                        <th>&nbsp;</th>
+
+                        <th>ACCIONES</th>
                         
 
                     </tr>
@@ -97,9 +113,12 @@ $date_format = getSetting('date_format','site_settings');
 
                                 <td>
                                     
-                                    <a href="<?php echo e(URL_AUCTIONS_VIEW); ?><?php echo e($auction->slug); ?>" class="btn btn-xs btn-primary"> <?php echo e(getPhrase('view')); ?> </a>
+
+                                    <a href="<?php echo e(URL_AUCTIONS_VIEW); ?><?php echo e($auction->slug); ?>" class="btn btn-xs btn-primary"> Ver</a>
                                    
-                                    <a href="<?php echo e(URL_AUCTIONS_EDIT); ?>/<?php echo e($auction->slug); ?>" class="btn btn-xs btn-info"> <?php echo e(getPhrase('edit')); ?> </a>
+
+                                    <a href="<?php echo e(URL_AUCTIONS_EDIT); ?>/<?php echo e($auction->slug); ?>" class="btn btn-xs btn-info"> Editar</a>
+                                   <a href="<?php echo e(URL_AUCTIONS_Invitaciones); ?>/<?php echo e($auction->slug); ?>" class="btn btn-xs btn-info"> Invitaciones</a>
                                     
                                 </td>
 
