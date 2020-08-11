@@ -61,13 +61,13 @@
                                                 <td>{{ $item->auction_id }}</td>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->email }}</td>
+
                                                 <td>
-                                                    <button class="dropdown-item" data-toggle="modal" data-target="#modal-{{$item->id}}"> Eliminar</button>
-                                                    @include('admin.auctions.modal')
+                                                        <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$item->id}}')"> Eliminar</a>
                                                 </td>
+
                                             </tr>
                                         @else
-
                                         @endif
 
                                     @endforeach
@@ -84,11 +84,14 @@
             </form>
         </div>
     </div>
+    
 
 @endsection
 
-
 @section('footer_scripts')
+
+@include('common.deletescript', array('route'=>URL_INVITACIONES_DELETE))
+
 @include('common.validations')
 
 @include('common.alertify')

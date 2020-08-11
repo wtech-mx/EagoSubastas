@@ -62,13 +62,13 @@
                                                 <td><?php echo e($item->auction_id); ?></td>
                                                 <td><?php echo e($item->name); ?></td>
                                                 <td><?php echo e($item->email); ?></td>
+
                                                 <td>
-                                                    <button class="dropdown-item" data-toggle="modal" data-target="#modal-<?php echo e($item->id); ?>"> Eliminar</button>
-                                                    <?php echo $__env->make('admin.auctions.modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                                                        <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('<?php echo e($item->id); ?>')"> Eliminar</a>
                                                 </td>
+
                                             </tr>
                                         <?php else: ?>
-
                                         <?php endif; ?>
 
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -85,11 +85,16 @@
             </form>
         </div>
     </div>
+    
 
 <?php $__env->stopSection(); ?>
 
-
 <?php $__env->startSection('footer_scripts'); ?>
+
+
+    <?php echo $__env->make('common.deletescript', array('route'=>URL_INVITACIONES_DELETE), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+
 <?php echo $__env->make('common.validations', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 <?php echo $__env->make('common.alertify', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

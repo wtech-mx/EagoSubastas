@@ -65,12 +65,77 @@ class InvitacionesController extends Controller
 
     public function destroy($id)
     {
-        $invitaciones = Invitaciones::findOrFail($id);
-        $invitaciones->delete();
+        $invitacion = Invitaciones::findOrFail($id);
+        $invitacion->delete();
 
         return redirect()->route('admin.auctions.invitaciones');
     }
 
+    
+                            /**
+     * Delete all selected invitaciones at once.
+     *
+     * @param Request $request
+     */
+    public function massDestroy(Request $request)
+    {
+      if (!checkRole(getUserGrade(1)))
+      {
+          prepareBlockUserMessage();
+          return back();
+      }
+
+      $invitacion = Invitaciones::where('id',$request->id)->first();
+
+      if ($isValid = $this->isValidRecord($invitacion)) {
+
+          $response['status']  = 0;
+          $response['message'] = getPhrase('record_not_found');
+          return json_encode($response);
+      }
+
+
+      if ($redirect = $this->check_isdemo()) {
+
+          $response['status']  = 0;
+          $response['message'] = getPhrase('crud_operations_disabled_in_demo');
+          return json_encode($response);
+      }
+
+      if ($request->id) {
+
+          try {
+                if (!env('DEMO_MODE')) {
+
+                  $entries = Invitaciones::where('id', $request->id)->get();
+
+                      foreach ($entries as $entry) {
+                          $entry->delete();
+                      }
+
+                }
+              $response['status'] = 1;
+              $response['message'] = getPhrase('record_deleted_successfully');
+
+          }
+          catch ( \Illuminate\Database\QueryException $e) {
+
+                 $response['status'] = 0;
+                 if(getSetting('show_foreign_key_constraint','module'))
+                  $response['message'] =  $e->errorInfo;
+                 else
+                  $response['message'] =  getPhrase('record_not_deleted');
+          }
+
+
+      } else {
+
+          $response['status'] = 0;
+          $response['message'] = getPhrase('invalid_operation');
+      }
+
+      return json_encode($response);
+    }
 
     public function isValidRecord($record)
     {

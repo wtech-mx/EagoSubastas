@@ -266,13 +266,16 @@ define('URL_LOGOUT', PREFIX.'logout');
 define('URL_LIST_AUCTIONS', PREFIX.'auctions');
 define('URL_AUCTIONS_ADD', PREFIX.'auctions/create');
 define('URL_AUCTIONS_EDIT', PREFIX.'auctions/edit');
-define('URL_AUCTIONS_Invitaciones', PREFIX.'auctions/invitaciones');
 define('URL_AUCTIONS_VIEW', PREFIX.'auctions/view/');
 define('URL_AUCTIONS_DELETE', PREFIX.'auctions/delete/');
 define('URL_AUCTIONS_GETLIST', PREFIX.'auctions/getList/');
 define('URL_GET_AUCTION_SUB_CATEGORIES', PREFIX.'auctions/get-sub-categories');
 define('URL_AUCTIONS_UPLOAD_IMAGES', PREFIX.'auctions/upload-images/');
 define('URL_AUCTIONS_DELETE_IMAGES', PREFIX.'auctions/delete-image/');
+
+//INVITACIONES
+define('URL_AUCTIONS_Invitaciones', PREFIX.'auctions/invitaciones');
+define('URL_INVITACIONES_DELETE', PREFIX.'invitaciones/delete');
 
 
 

@@ -499,9 +499,10 @@ Route::group(['middleware' => ['auth', 'approved'], 'prefix' => 'admin', 'as' =>
     Route::post('auctions/send-email-bid', 'AuctionsController@sendEmailtoBidder');
 
     // Enviar Invitaciones
+    Route::post('invitaciones_mass_destroy', ['uses' => 'invitacionesController@massDestroy', 'as' => 'invitaciones.mass_destroy']);
     Route::post('import-list-exel', 'invitacionesController@importExcel')->name('email.import.excel');
     Route::get('auctions/invitaciones/{slug}','invitacionesController@index');
-    Route::delete('auctions/invitaciones/{id}','invitacionesController@destroy')->name('destroy.invitaciones');
+    Route::delete('invitaciones/delete/{id}', 'invitacionesController@massDestroy');
 
 
 
