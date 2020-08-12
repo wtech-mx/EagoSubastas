@@ -15,7 +15,8 @@
 
 
             <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('faq_category_create')): ?>
-            <a href="<?php echo e(URL_FAQ_CATEGORIES_ADD); ?>" class="btn btn-success btn-add pull-right"><?php echo e(getPhrase('add_new')); ?></a>
+
+                <a href="<?php echo e(URL_FAQ_CATEGORIES_ADD); ?>" class="btn btn-success btn-add pull-right">Agregar</a>
             <?php endif; ?>
         </div>
 
@@ -27,8 +28,12 @@
                         <th style="text-align:center;">S.no.</th>
                        
 
-                        <th> <?php echo e(getPhrase('category')); ?> </th>
-                        <th> <?php echo e(getPhrase('status')); ?> </th>
+
+                        <th> Categoria </th>
+
+
+                        <th> Estatus</th>
+
                         <th>&nbsp;</th>
 
                     </tr>
@@ -50,13 +55,16 @@
 
                                     <td>
                                     <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('faq_category_view')): ?>
-                                    <a href="<?php echo e(URL_FAQ_CATEGORIES_VIEW); ?>/<?php echo e($faq_category->slug); ?>" class="btn btn-xs btn-primary"> <?php echo e(getPhrase('view')); ?> </a>
+
+                                   <a href="<?php echo e(URL_FAQ_CATEGORIES_VIEW); ?>/<?php echo e($faq_category->slug); ?>" class="btn btn-xs btn-primary"> Ver </a>
                                     <?php endif; ?>
                                     <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('faq_category_edit')): ?>
-                                    <a href="<?php echo e(URL_FAQ_CATEGORIES_EDIT); ?>/<?php echo e($faq_category->slug); ?>" class="btn btn-xs btn-info"> <?php echo e(getPhrase('edit')); ?> </a>
+
+                                        <a href="<?php echo e(URL_FAQ_CATEGORIES_EDIT); ?>/<?php echo e($faq_category->slug); ?>" class="btn btn-xs btn-info"> Editar </a>
                                     <?php endif; ?>
                                     <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('faq_category_delete')): ?>
-                                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('<?php echo e($faq_category->id); ?>')"> <?php echo e(getPhrase('delete')); ?> </a>
+                                        <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('<?php echo e($faq_category->id); ?>')"> Eliminar </a>
+
                                     <?php endif; ?>
                                 </td>
 
