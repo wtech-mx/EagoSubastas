@@ -1,5 +1,3 @@
-
-
 <script>
 
 
@@ -8,9 +6,11 @@
 
 	swal({
 
-		  title: "<?php echo e(getPhrase('are_you_sure')); ?>?",
+		//   title: "<?php echo e(getPhrase('are_you_sure')); ?>?",
+		  title: "Eliminar Registro",
 
-		  text: "<?php echo e(getPhrase('you_will_not_be_able_to_recover_this_record')); ?>!",
+		//   text: "<?php echo e(getPhrase('you_will_not_be_able_to_recover_this_record')); ?>!",
+		text: "Desea eliminar el Registro?",
 
 		  type: "warning",
 
@@ -18,9 +18,13 @@
 
 		  confirmButtonClass: "btn-danger",
 
-		  confirmButtonText: "<?php echo e(getPhrase('yes').', '.getPhrase('delete_it')); ?>!",
+		//   confirmButtonText: "<?php echo e(getPhrase('yes').', '.getPhrase('delete_it')); ?>!",
 
-		  cancelButtonText: "<?php echo e(getPhrase('no').', '.getPhrase('cancel_please')); ?>!",
+		//   cancelButtonText: "<?php echo e(getPhrase('no').', '.getPhrase('cancel_please')); ?>!",
+
+		confirmButtonText: "Si, Eliminar!",
+
+		cancelButtonText: "No, Cancelar!",
 
 		  closeOnConfirm: false,
 
@@ -32,7 +36,7 @@
 
 		  if (isConfirm) {
 
-		  	  var token = '<?php echo e(csrf_token()); ?>';
+		 
 
 		  	route = '<?php echo e($route); ?>/'+slug;  
 
@@ -42,11 +46,9 @@
 
 		        type: 'post',
 
-		        data: {_method: 'delete', _token :token},
+		        data: {_method: 'delete'},
 
 		        success:function(msg){
-
-
 
 		        	result = $.parseJSON(msg);
                     
@@ -77,10 +79,7 @@
 
 		        	else {
 
-		        	swal("<?php echo e(getPhrase('deleted')); ?>!", "<?php echo e(getPhrase('your_record_has_been_deleted')); ?>", "success");
-
-
-
+						swal("Borrado!", "Su registro ha sido eliminado", "success");
 		        	}
 
 		        	
@@ -96,7 +95,7 @@
 
 		  } else {
 
-		    swal("<?php echo e(getPhrase('cancelled')); ?>", "<?php echo e(getPhrase('your_record_is_safe')); ?> :)", "error");
+		    swal("Cancelado", "Su expediente está seguro :)", "error");
 
 		  }
 

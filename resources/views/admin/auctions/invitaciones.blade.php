@@ -90,7 +90,7 @@
 
 @section('footer_scripts')
 
-@include('common.deletescript', array('route'=>URL_INVITACIONES_DELETE))
+    @include('common.deletescript', array('route'=>URL_INVITACIONES_DELETE))
 
 @include('common.validations')
 

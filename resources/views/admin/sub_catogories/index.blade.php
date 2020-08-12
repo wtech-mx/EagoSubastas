@@ -47,7 +47,7 @@
                     </tr>
                 </thead>
 
-               @if (count($sub_categories) > 0)
+            @if (count($sub_categories) > 0)
                 <tbody>
                     @if (count($sub_categories) > 0)
                      <?php $i=0;?>

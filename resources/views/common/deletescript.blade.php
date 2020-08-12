@@ -1,5 +1,3 @@
-
-
 <script>
 
 
@@ -8,9 +6,11 @@
 
 	swal({
 
-		  title: "{{getPhrase('are_you_sure')}}?",
+		//   title: "{{getPhrase('are_you_sure')}}?",
+		  title: "Eliminar Registro",
 
-		  text: "{{getPhrase('you_will_not_be_able_to_recover_this_record')}}!",
+		//   text: "{{getPhrase('you_will_not_be_able_to_recover_this_record')}}!",
+		text: "Desea eliminar el Registro?",
 
 		  type: "warning",
 
@@ -18,9 +18,13 @@
 
 		  confirmButtonClass: "btn-danger",
 
-		  confirmButtonText: "{{getPhrase('yes').', '.getPhrase('delete_it')}}!",
+		//   confirmButtonText: "{{getPhrase('yes').', '.getPhrase('delete_it')}}!",
 
-		  cancelButtonText: "{{getPhrase('no').', '.getPhrase('cancel_please')}}!",
+		//   cancelButtonText: "{{getPhrase('no').', '.getPhrase('cancel_please')}}!",
+
+		confirmButtonText: "Si, Eliminar!",
+
+		cancelButtonText: "No, Cancelar!",
 
 		  closeOnConfirm: false,
 
@@ -32,7 +36,7 @@
 
 		  if (isConfirm) {
 
-		  	  var token = '{{ csrf_token()}}';
+		 
 
 		  	route = '{{$route}}/'+slug;  
 
@@ -42,11 +46,9 @@
 
 		        type: 'post',
 
-		        data: {_method: 'delete', _token :token},
+		        data: {_method: 'delete'},
 
 		        success:function(msg){
-
-
 
 		        	result = $.parseJSON(msg);
                     
@@ -77,10 +79,7 @@
 
 		        	else {
 
-		        	swal("{{getPhrase('deleted')}}!", "{{getPhrase('your_record_has_been_deleted')}}", "success");
-
-
-
+						swal("Borrado!", "Su registro ha sido eliminado", "success");
 		        	}
 
 		        	
@@ -96,7 +95,7 @@
 
 		  } else {
 
-		    swal("{{getPhrase('cancelled')}}", "{{getPhrase('your_record_is_safe')}} :)", "error");
+		    swal("Cancelado", "Su expediente está seguro :)", "error");
 
 		  }
 

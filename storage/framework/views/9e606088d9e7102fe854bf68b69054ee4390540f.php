@@ -91,9 +91,7 @@
 
 <?php $__env->startSection('footer_scripts'); ?>
 
-
     <?php echo $__env->make('common.deletescript', array('route'=>URL_INVITACIONES_DELETE), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
 
 <?php echo $__env->make('common.validations', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
