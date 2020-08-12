@@ -34,43 +34,89 @@ $user = Auth::user();
 {{--                                <li><a href="{{URL_HOME}}"> {{getPhrase('home')}} </a></li>--}}
                                 <li><a href="{{URL_HOME}}"> Inicio </a></li>
 
-{{--                                <li><a href="{{URL_HOME_AUCTIONS}}"> {{getPhrase('auctions')}} </a></li>--}}
-                                <li><a href="{{URL_HOME_AUCTIONS}}"> Subastas </a></li>
-                                @if ($categories)
-                                @foreach ($categories as $category)
-
-                                <?php $sub_categories = $category->get_sub_catgories()->get();?>
-
-                                @if (count($sub_categories))
                                 <li class="single-dropdown"><span class="menu-mobile-grover au-listts"><i class="fa fa-chevron-circle-down au-icon"></i></span>
 
-
-{{--                                    <a href="javascript:void(0)"> {{$category->category}} </a>--}}
-                                    <a href="javascript:void(0)"> {{$category->category}} </a>
+                                    <a href="javascript:void(0)"> Empresas </a>
 
                                     <ul class="submenu-container clearfix first-in-line-xs menu-mobile">
                                         <li>
                                             <ul>
-                                    @foreach ($sub_categories as $sub)
+                                                @if ($categories)
+                                                @foreach ($categories as $category)
 
-                                    <?php $auctions_count = $sub->getMenuSubCategoryAuctions()->count();?>
+                                                <?php $sub_categories = $category->get_sub_catgories()->get();?>
 
-                                        <li>
-                                            <a href="javascript:void(0)" onclick="window.location.href='{{URL_HOME_AUCTIONS}}?category={{$category->slug}}&subcategory={{$sub->slug}}';"> {{$sub->sub_category}} ({{$auctions_count}}) </a>
-                                        </li>
-                                    @endforeach
+                                                @if (count($sub_categories))
+                                                    <li class="single-dropdown">
+                                                        <span class="menu-mobile-grover au-listts">
+                                                            <i class="fa fa-chevron-circle-down au-icon"></i>
+                                                        </span>
+
+                                                        <a href="javascript:void(0)"> {{$category->category}} </a>
+
+                                                        <ul class="submenu-container clearfix first-in-line-xs menu-mobile">
+                                                            <li>
+                                                                <ul>
+                                                                    @foreach ($sub_categories as $sub)
+
+                                                                    <?php $auctions_count = $sub->getMenuSubCategoryAuctions()->count();?>
+
+                                                                        <li>
+                                                                            <a href="javascript:void(0)" onclick="window.location.href='{{URL_HOME_AUCTIONS}}?category={{$category->slug}}&subcategory={{$sub->slug}}';"> {{$sub->sub_category}} ({{$auctions_count}}) </a>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </li>
+                                                            <li id="category-thumbnails"></li>
+                                                        </ul>
+                                                    @else
+                                                        <li>
+                                                            <a href="javascript:void(0)" onclick="window.location.href='{{URL_HOME_AUCTIONS}}?category={{$category->slug}}';"> {{$category->category}} </a>
+                                                        </li>
+                                                    @endif
+                                                    @endforeach
+                                                    @endif
                                             </ul>
                                         </li>
-                                        <li id="category-thumbnails"></li>
                                     </ul>
                                 </li>
-                                @else
 
-                                    <li><a href="javascript:void(0)" onclick="window.location.href='{{URL_HOME_AUCTIONS}}?category={{$category->slug}}';"> {{$category->category}} </a></li>
-                                    @endif
+{{--                                <li><a href="{{URL_HOME_AUCTIONS}}"> {{getPhrase('auctions')}} </a></li>--}}
+                                <li><a href="{{URL_HOME_AUCTIONS}}"> Subastass </a></li>
 
-                                    @endforeach
-                                    @endif
+                                 {{--INICIO SE SECCION MENU ITERMS--}}
+
+{{--                                @if ($categories)--}}
+{{--                                @foreach ($categories as $category)--}}
+{{--                                     $sub_categories = $category->get_sub_catgories()->get();--}}
+{{--                                    @if (count($sub_categories))--}}
+{{--                                    <li class="single-dropdown"><span class="menu-mobile-grover au-listts"><i class="fa fa-chevron-circle-down au-icon"></i></span>--}}
+
+{{--                                        <a href="javascript:void(0)"> {{$category->category}} </a>--}}
+
+{{--                                        <ul class="submenu-container clearfix first-in-line-xs menu-mobile">--}}
+{{--                                            <li>--}}
+{{--                                                <ul>--}}
+{{--                                                    @foreach ($sub_categories as $sub)--}}
+
+{{--                                                     $auctions_count = $sub->getMenuSubCategoryAuctions()->count();--}}
+
+{{--                                                        <li>--}}
+{{--                                                            <a href="javascript:void(0)" onclick="window.location.href='{{URL_HOME_AUCTIONS}}?category={{$category->slug}}&subcategory={{$sub->slug}}';"> {{$sub->sub_category}} ({{$auctions_count}}) </a>--}}
+{{--                                                        </li>--}}
+{{--                                                    @endforeach--}}
+{{--                                                </ul>--}}
+{{--                                            </li>--}}
+{{--                                            <li id="category-thumbnails"></li>--}}
+{{--                                        </ul>--}}
+{{--                                    </li>--}}
+{{--                                    @else--}}
+{{--                                <li><a href="javascript:void(0)" onclick="window.location.href='{{URL_HOME_AUCTIONS}}?category={{$category->slug}}';"> {{$category->category}} </a></li>--}}
+{{--                                @endif--}}
+{{--                                @endforeach--}}
+{{--                                @endif--}}
+
+                                    {{--TERMINO SE SECCION MENU ITERMS--}}
 
 {{--                                    <li><a href="{{URL_LIVE_AUCTIONS}}"> {{getPhrase('live_auctions')}} </a></li>--}}
                                         <li><a href="{{URL_LIVE_AUCTIONS}}"> Subastas en Vivo </a></li>
@@ -91,7 +137,7 @@ $user = Auth::user();
 
                                        <li>
 
-                                            <a href="">Email: {{$user->email}} </a>
+                                            <a href="">Bienvenido: {{$user->email}} </a>
 
                                        </li>
                                        @endif
