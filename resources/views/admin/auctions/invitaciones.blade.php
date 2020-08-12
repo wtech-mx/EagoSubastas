@@ -62,7 +62,9 @@
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->email }}</td>
                                                 <td>
-                                                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$item->id}}')"> Eliminar</a>
+                                                    @can('invitacion_delete')
+                                                        <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$item->id}}')"> Borrar </a>
+                                                    @endcan
                                                 </td>
 
                                             </tr>
@@ -89,7 +91,9 @@
 
 @section('footer_scripts')
 
-    @include('common.deletescript', array('route'=>URL_INVITACIONES_DELETE))
+@can('invitacion_delete') 
+        @include('common.deletescript', array('route'=>URL_INVITACIONES_DELETE))
+@endcan
 
 @include('common.validations')
 

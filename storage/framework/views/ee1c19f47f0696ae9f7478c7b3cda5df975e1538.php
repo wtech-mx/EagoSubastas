@@ -36,7 +36,7 @@
 
 		  if (isConfirm) {
 
-		 
+		  	  var token = '<?php echo e(csrf_token()); ?>';
 
 		  	route = '<?php echo e($route); ?>/'+slug;  
 
@@ -46,7 +46,7 @@
 
 		        type: 'post',
 
-		        data: {_method: 'delete'},
+		        data: {_method: 'delete', _token :token},
 
 		        success:function(msg){
 
@@ -80,6 +80,7 @@
 		        	else {
 
 						swal("Borrado!", "Su registro ha sido eliminado", "success");
+
 		        	}
 
 		        	

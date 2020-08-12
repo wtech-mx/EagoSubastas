@@ -516,6 +516,11 @@ $user = Auth::user();
                                       <span>@if($auction->reserve_price) {{$currency_code}} {{$auction->reserve_price}} @endif</span>
                                      </li>
 
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Invitados
+                                      <span>@if($data->name) {{$currency_code}} {{$data->name}} @endif</span>
+                                    </li>
+
                                      <li class="list-group-item d-flex justify-content-between align-items-center">
 {{--                                      {{getPhrase('reserve_price')}}--}}
                                          Tiros

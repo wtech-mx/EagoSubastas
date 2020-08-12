@@ -65,7 +65,6 @@ class AuctionsController extends Controller
                             ->orderBy('auctions.id','desc')
                             ->get();
 
-
         $data['title']              = getPhrase('auctions');
         $data['active_class']       = 'auctions';
 

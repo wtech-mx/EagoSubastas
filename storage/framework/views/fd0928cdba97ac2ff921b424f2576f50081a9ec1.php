@@ -13,7 +13,8 @@
 
 
              <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('country_create')): ?>
-                <a href="<?php echo e(URL_COUNTRIES_ADD); ?>" class="btn btn-success btn-add pull-right"><?php echo e(getPhrase('add_new')); ?></a>
+
+                  <a href="<?php echo e(URL_COUNTRIES_ADD); ?>" class="btn btn-success btn-add pull-right">Agregar</a>
             <?php endif; ?>
 
         </div>
@@ -25,10 +26,14 @@
 
                        <th style="text-align:center;">S.no.</th>
 
-                        <th> <?php echo e(getPhrase('shortcode')); ?> </th>
-                        <th> <?php echo e(getPhrase('title')); ?> </th>
+
+                        <th> Código corto </th>
+
+
+                         <th> Titulo </th>
+
                        
-                        <th>&nbsp;</th>
+                        <th>&nbsp;Acciones</th>
                         
                     </tr>
                 </thead>
@@ -48,15 +53,18 @@
                                 
                                 <td>
                                     <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('country_view')): ?>
-                                    <a href="<?php echo e(URL_COUNTRIES_VIEW); ?>/<?php echo e($country->slug); ?>" class="btn btn-xs btn-primary"> <?php echo e(getPhrase('view')); ?> </a>
+
+                                        <a href="<?php echo e(URL_COUNTRIES_VIEW); ?>/<?php echo e($country->slug); ?>" class="btn btn-xs btn-primary"> Ver </a>
                                     <?php endif; ?>
 
                                     <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('country_edit')): ?>
-                                    <a href="<?php echo e(URL_COUNTRIES_EDIT); ?>/<?php echo e($country->slug); ?>" class="btn btn-xs btn-info"> <?php echo e(getPhrase('edit')); ?> </a>
+
+                                        <a href="<?php echo e(URL_COUNTRIES_EDIT); ?>/<?php echo e($country->slug); ?>" class="btn btn-xs btn-info">Editar </a>
                                     <?php endif; ?>
 
                                     <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('country_delete')): ?>
-                                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('<?php echo e($country->id); ?>')"> <?php echo e(getPhrase('delete')); ?> </a>
+
+                                        <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('<?php echo e($country->id); ?>')"> Eliminar </a>
                                     <?php endif; ?>
                                 </td>
                                

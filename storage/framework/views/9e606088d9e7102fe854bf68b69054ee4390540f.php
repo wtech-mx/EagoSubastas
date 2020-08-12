@@ -62,9 +62,10 @@
                                                 <td><?php echo e($item->auction_id); ?></td>
                                                 <td><?php echo e($item->name); ?></td>
                                                 <td><?php echo e($item->email); ?></td>
-
                                                 <td>
-                                                        <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('<?php echo e($item->id); ?>')"> Eliminar</a>
+                                                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('invitacion_delete')): ?>
+                                                        <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('<?php echo e($item->id); ?>')"> Borrar </a>
+                                                    <?php endif; ?>
                                                 </td>
 
                                             </tr>
@@ -91,7 +92,9 @@
 
 <?php $__env->startSection('footer_scripts'); ?>
 
-    <?php echo $__env->make('common.deletescript', array('route'=>URL_INVITACIONES_DELETE), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('invitacion_delete')): ?> 
+        <?php echo $__env->make('common.deletescript', array('route'=>URL_INVITACIONES_DELETE), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php endif; ?>
 
 <?php echo $__env->make('common.validations', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 

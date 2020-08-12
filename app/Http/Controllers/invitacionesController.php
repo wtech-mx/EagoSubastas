@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Invitaciones;
 use DB;
+use Session;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
@@ -49,6 +50,8 @@ class InvitacionesController extends Controller
         
     }
 
+
+
     public function importExcel(Request $request)
     {
 //        $auction_id = $request->get('auction_id');
@@ -65,77 +68,81 @@ class InvitacionesController extends Controller
 
     public function destroy($id)
     {
-        $invitacion = Invitaciones::findOrFail($id);
-        $invitacion->delete();
-
-        return redirect()->route('admin.auctions.invitaciones');
+      $invitacion = Invitaciones::findOrFail($id);
+      $invitacion->delete();
+  
+      return back()->with('message',' Eliminacion de dato completada');
     }
 
-    
-                            /**
-     * Delete all selected invitaciones at once.
+     /**
+     * Delete all selected invitacion at once.
      *
      * @param Request $request
      */
     public function massDestroy(Request $request)
     {
-      if (!checkRole(getUserGrade(1)))
-      {
-          prepareBlockUserMessage();
-          return back();
-      }
 
-      $invitacion = Invitaciones::where('id',$request->id)->first();
-
-      if ($isValid = $this->isValidRecord($invitacion)) {
-
-          $response['status']  = 0;
-          $response['message'] = getPhrase('record_not_found');
-          return json_encode($response);
-      }
+        if (!checkRole(getUserGrade(1)))
+        {
+            prepareBlockUserMessage();
+            return back();
+        }
 
 
-      if ($redirect = $this->check_isdemo()) {
+         $invitacion = Invitaciones::where('id',$request->id)->first();
 
-          $response['status']  = 0;
-          $response['message'] = getPhrase('crud_operations_disabled_in_demo');
-          return json_encode($response);
-      }
+        if ($isValid = $this->isValidRecord($invitacion)) {
 
-      if ($request->id) {
-
-          try {
-                if (!env('DEMO_MODE')) {
-
-                  $entries = Invitaciones::where('id', $request->id)->get();
-
-                      foreach ($entries as $entry) {
-                          $entry->delete();
-                      }
-
-                }
-              $response['status'] = 1;
-              $response['message'] = getPhrase('record_deleted_successfully');
-
-          }
-          catch ( \Illuminate\Database\QueryException $e) {
-
-                 $response['status'] = 0;
-                 if(getSetting('show_foreign_key_constraint','module'))
-                  $response['message'] =  $e->errorInfo;
-                 else
-                  $response['message'] =  getPhrase('record_not_deleted');
-          }
+            $response['status']  = 0;
+            $response['message'] = getPhrase('record_not_found');
+            return json_encode($response);
+        }
 
 
-      } else {
+        if ($redirect = $this->check_isdemo()) {
+            
+            $response['status']  = 0;
+            $response['message'] = getPhrase('crud_operations_disabled_in_demo');
+            return json_encode($response);
+        }
 
-          $response['status'] = 0;
-          $response['message'] = getPhrase('invalid_operation');
-      }
 
-      return json_encode($response);
+
+        if ($request->id) {
+
+            try {
+                  if(!env('DEMO_MODE')) {
+                     
+                    $entries = Invitaciones::where('id', $request->id)->get();
+
+                        foreach ($entries as $entry) {
+                            $entry->delete();
+                        }
+
+                  }
+                $response['status'] = 1;
+                $response['message'] = getPhrase('record_deleted_successfully');
+
+            }
+            catch ( \Illuminate\Database\QueryException $e) {
+
+                   $response['status'] = 0;
+                   if(getSetting('show_foreign_key_constraint','module'))
+                    $response['message'] =  $e->errorInfo;
+                   else
+                    $response['message'] =  getPhrase('record_not_deleted');
+            }  
+
+            
+        } else {
+
+            $response['status'] = 0;
+            $response['message'] = getPhrase('invalid_operation');
+        }
+
+        return json_encode($response);
     }
+
 
     public function isValidRecord($record)
     {

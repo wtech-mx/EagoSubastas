@@ -165,6 +165,7 @@ class PermissionSeed extends Seeder
             ['id' => 151, 'title' => 'city_edit',],
             ['id' => 152, 'title' => 'city_view',],
             ['id' => 153, 'title' => 'city_delete',],
+            ['id' => 154, 'title' => 'invitacion_delete',],
 
         ];
 

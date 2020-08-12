@@ -1,15 +1,16 @@
+
 <!-- Modal -->
 <div class="modal fade" id="modal-{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
-    <form method="POST" action="{{route('destroy.invitaciones',$item->id)}}">
+    <form method="POST" action="{{route('invitaciones.destroy',$item->id)}}">
 
         {{csrf_field() }}
-        <input type="hidden" name="_method" value="DELETE">
+        <input type="text" name="_method" value="DELETE">
 
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Eliminar Registro  </h5>
+            <h5 class="modal-title" id="exampleModalLabel">Eliminar Enlace  </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>

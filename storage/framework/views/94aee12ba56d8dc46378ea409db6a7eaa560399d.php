@@ -25,15 +25,24 @@
                         
                         <th>#</th>
                        
-                        <th> <?php echo e(getPhrase('image')); ?> </th>
-                        <th> <?php echo e(getPhrase('title')); ?> </th>
 
-                        <th> <?php echo e(getPhrase('start')); ?> </th>
-                        <th> <?php echo e(getPhrase('end')); ?> </th>
+                        <th>Imagen </th>
 
-                        <th> <?php echo e(getPhrase('reserve_price')); ?> </th>
+
+                         <th>Titulo </th>
+
+
+
+                        <th>Inicio </th>
+
+
+                        <th> Fin </th>
+
+
+                        <th> precio de reserva </th>
                         
-                        <th> <?php echo e(getPhrase('bid_no_of_times')); ?> </th>
+
+                         <th> oferta no de veces </th>
                    
                         <th>&nbsp;</th>
 
@@ -65,19 +74,24 @@
 
                                 <td>
                                     <div>    
-                                        <a href="<?php echo e(URL_HOME_AUCTION_DETAILS); ?>/<?php echo e($auction->auction_slug); ?>" class="btn btn-primary btn-sm login-bttn" title="View Auction Details"> <?php echo e(getPhrase('view')); ?> </a>
 
-                                        <a href="#" ng-click="getBidHistory(<?php echo e($auction->id); ?>)" data-toggle="modal" data-target="#bidHistoryModal" title="view total bid history" class="btn btn-info btn-sm login-bttn"> <?php echo e(getPhrase('bid_history')); ?> </a>
+                                        <a href="<?php echo e(URL_HOME_AUCTION_DETAILS); ?>/<?php echo e($auction->auction_slug); ?>" class="btn btn-primary btn-sm login-bttn" title="View Auction Details"> Ver </a>
+
+
+
+                                        <a href="#" ng-click="getBidHistory(<?php echo e($auction->id); ?>)" data-toggle="modal" data-target="#bidHistoryModal" title="view total bid history" class="btn btn-info btn-sm login-bttn"> Historial Pujas </a>
                                         
                                         <?php $bid_pay=bidpayment($auction->id);
 
                                         ?>
                                         <?php if($bid_pay): ?> 
-                                         <a href="<?php echo e(URL_BID_PAYMENT_CONFIRM); ?>/<?php echo e($auction->slug); ?>" class="btn btn-warning btn-sm login-bttn" data-toggle="tooltip" title="Pay Auction Bid"> <?php echo e(getPhrase('pay')); ?> </a>
+
+                                             <a href="<?php echo e(URL_BID_PAYMENT_CONFIRM); ?>/<?php echo e($auction->slug); ?>" class="btn btn-warning btn-sm login-bttn" data-toggle="tooltip" title="Pay Auction Bid"> pagar</a>
                                         <?php endif; ?>
 
                                         <?php if($auction->is_bidder_won=='Yes'): ?>
-                                        <span class="btn btn-success btn-sm login-bttn" data-toggle="tooltip" title="You have won this Auction"><?php echo e(getPhrase('won')); ?></span>
+
+                                            <span class="btn btn-success btn-sm login-bttn" data-toggle="tooltip" title="You have won this Auction">Ganadas</span>
                                         <?php endif; ?>
                                     </div>
 
@@ -87,7 +101,8 @@
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="11"> <?php echo e(getPhrase('no_entries_in_table')); ?> </td>
+
+                            <td colspan="11"> no hay entradas en la tabla </td>
                         </tr>
                     <?php endif; ?>
                 </tbody>
@@ -123,7 +138,8 @@
                                           
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><?php echo e(getPhrase('bid_history')); ?></h5>
+
+          <h5 class="modal-title" id="exampleModalLabel">historial de ofertas</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -135,12 +151,14 @@
         <ul class="list-group z-depth-0">
 
             <li class="list-group-item justify-content-between">
-                <span><b><?php echo e(getPhrase('bid_amount')); ?></b></span>
-                <span style="float:right;"><b><?php echo e(getPhrase('datetime')); ?></b></span> 
+
+                <span><b>monto de la oferta</b></span>
+
+                 <span style="float:right;"><b>fecha y hora</b></span>
             </li>
 
             <li ng-repeat="bid in bid_history" class="list-group-item justify-content-between">
-                <span><?php echo e($currency); ?>{{bid.bid_amount}}</span>
+                <span><?php echo e($currency); ?> {{bid.bid_amount}}</span>
                 <span style="float:right;">{{bid.created_at}} </span>
             </li>
         </ul>
@@ -148,7 +166,8 @@
     </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary login-bttn" data-dismiss="modal"><?php echo e(getPhrase('close')); ?></button>
+
+          <button type="button" class="btn btn-secondary login-bttn" data-dismiss="modal">Cerrar</button>
         
       </div>
     </div>

@@ -709,6 +709,9 @@ class AuctionController extends Controller
             
         }
 
+            $invitacion = DB::table('invitaciones')
+                            ->get();
+                     //  dd($invitacion);
 
 
 
@@ -730,7 +733,7 @@ class AuctionController extends Controller
             return view('home.pages.auctions.ajax_auctions', ['auctions' => $auctions])->render();  
         }
         // Auction::paginate(3);
-        return view('home.pages.auctions.auctions', $data);
+        return view('home.pages.auctions.auctions', $data, compact('invitacion'));
     }
 
     /**
