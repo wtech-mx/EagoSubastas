@@ -2,7 +2,7 @@
 
 //Auction Categories
 $categories = \App\Category::getHomeCategories(6);
-
+$user = Auth::user();
 
 ?>
 
@@ -86,8 +86,12 @@ $categories = \App\Category::getHomeCategories(6);
 
                                        @if (Auth::check())
                                        <li>
-{{--                                           <a href="{{URL_DASHBOARD}}" title="Dashboard" > {{getPhrase('dashboard')}} </a>--}}
                                                <a href="{{URL_DASHBOARD}}" title="Dashboard" > Panel Cotrol</a>
+                                       </li>
+
+                                       <li>
+
+                                            <a href="">Email: {{$user->email}} </a>
 
                                        </li>
                                        @endif

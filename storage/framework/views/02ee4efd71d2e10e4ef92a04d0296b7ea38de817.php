@@ -2,7 +2,7 @@
 
 //Auction Categories
 $categories = \App\Category::getHomeCategories(6);
-
+$user = Auth::user();
 
 ?>
 
@@ -86,8 +86,12 @@ $categories = \App\Category::getHomeCategories(6);
 
                                        <?php if(Auth::check()): ?>
                                        <li>
-
                                                <a href="<?php echo e(URL_DASHBOARD); ?>" title="Dashboard" > Panel Cotrol</a>
+                                       </li>
+
+                                       <li>
+
+                                            <a href="">Email: <?php echo e($user->email); ?> </a>
 
                                        </li>
                                        <?php endif; ?>

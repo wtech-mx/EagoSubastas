@@ -61,9 +61,8 @@
                                                 <td>{{ $item->auction_id }}</td>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->email }}</td>
-
                                                 <td>
-                                                        <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$item->id}}')"> Eliminar</a>
+                                                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$item->id}}')"> Eliminar</a>
                                                 </td>
 
                                             </tr>

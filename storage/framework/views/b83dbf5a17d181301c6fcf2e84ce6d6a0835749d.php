@@ -16,13 +16,10 @@ $latest_auctions = \App\Auction::getHomeLatestAuctions();
                     <h2 class="text-center"> Últimas ofertas de subasta</h2>
                  </div>
 
-
                  <?php if(count($latest_auctions)): ?>
-
 
                     <?php $__currentLoopData = $latest_auctions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $auction): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <style>
-
 
                     /* DEFAULT STYLE */
                     :root {

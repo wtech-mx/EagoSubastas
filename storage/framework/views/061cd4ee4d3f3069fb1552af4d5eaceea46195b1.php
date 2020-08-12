@@ -5,6 +5,8 @@ $today = DATE('Y-m-d');
 <div class="row">
 <?php if(count($auctions)): ?>  
 <?php $__currentLoopData = $auctions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $auction): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+
 <div class="col-lg-4 col-md-6 col-sm-6 au-item-categorys">
  <div class="card au-cards">
     <?php if(Auth::user()): ?>
@@ -12,6 +14,7 @@ $today = DATE('Y-m-d');
     <?php else: ?>
      <a href="javascript:void(0);" onclick="showModal('loginModal')" title="Add to Wishlist"><i class="pe-7s-like"></i></a>
     <?php endif; ?>
+    <a><?php echo e($auction->id); ?></a>
 
     <a href="<?php echo e(URL_HOME_AUCTION_DETAILS); ?>/<?php echo e($auction->slug); ?>" title="View Auction Details"><img class="img-fluid auction-img" src="<?php echo e(getAuctionImage($auction->image,'auction')); ?>" alt="<?php echo e($auction->title); ?>"></a>
     <div class="card-block au-card-block">

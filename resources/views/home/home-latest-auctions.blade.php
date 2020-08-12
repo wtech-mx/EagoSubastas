@@ -16,13 +16,10 @@ $latest_auctions = \App\Auction::getHomeLatestAuctions();
                     <h2 class="text-center"> Últimas ofertas de subasta</h2>
                  </div>
 
-
                  @if (count($latest_auctions))
-
 
                     @foreach ($latest_auctions as $auction)
                     <style>
-
 
                     /* DEFAULT STYLE */
                     :root {

@@ -5,6 +5,8 @@ $today = DATE('Y-m-d');
 <div class="row">
 @if (count($auctions))  
 @foreach ($auctions as $auction)
+
+
 <div class="col-lg-4 col-md-6 col-sm-6 au-item-categorys">
  <div class="card au-cards">
     @if (Auth::user())
@@ -12,6 +14,7 @@ $today = DATE('Y-m-d');
     @else
      <a href="javascript:void(0);" onclick="showModal('loginModal')" title="Add to Wishlist"><i class="pe-7s-like"></i></a>
     @endif
+    <a>{{$auction->id}}</a>
 
     <a href="{{URL_HOME_AUCTION_DETAILS}}/{{$auction->slug}}" title="View Auction Details"><img class="img-fluid auction-img" src="{{getAuctionImage($auction->image,'auction')}}" alt="{{$auction->title}}"></a>
     <div class="card-block au-card-block">

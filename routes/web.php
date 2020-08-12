@@ -115,11 +115,9 @@ Route::get('{driver}/callback', 'Auth\LoginController@handleSocialCallback');
 // date_default_timezone_set(getSetting('system_timezone','site_settings'));
 
 
-Route::get('home', 'HomeController@index');
+    Route::get('home', 'HomeController@index');
 
-Route::group(['middleware' => ['auth', 'approved'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
-
-
+    Route::group(['middleware' => ['auth', 'approved'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
 
 
     Route::get('/reports/auction-report', 'Admin\ReportsController@auctionReport');
@@ -130,7 +128,6 @@ Route::group(['middleware' => ['auth', 'approved'], 'prefix' => 'admin', 'as' =>
 
     Route::get('/reports/seller-auctions', 'Admin\ReportsController@sellerAuctions');
     Route::post('/reports/seller-auctions', 'Admin\ReportsController@getSellerAuctions');
-
 
 
     Route::resource('site_settings', 'Admin\SiteSettingsController');

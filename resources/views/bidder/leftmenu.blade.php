@@ -24,6 +24,7 @@ $user = Auth::user();
                   <img class="mr-3" src="{{getProfilePath($user->image)}}" alt="Profile Image" class="img-fluid">
                  <div class="media-body">
                    <h5 class="mt-0">{{$user->name}}</h5>
+                    <p class="mt-0">{{$user->email}}</p>
                    <!-- <p>User Login: 28/02/2018 16:50:55</p> -->
                   </div>
                  </div>
