@@ -310,26 +310,6 @@ $user = Auth::user();
                             <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
                      </div>
 
-
-
-                        <ul class="list-group z-depth-0">
-                                      <li class="list-group-item justify-content-between">
-                                          <span><b>Usuarios</b></span>
-                                           <span style="float:right;"><b>Monto de la oferta</b></span>
-                                      </li>
-
-                                       @foreach ($bidding_history as $bid)
-                                          <h4>{{$user->id}} es {{$bid->bidder_id}} monto {{$bid->bid_amount}}</h4>
-                                          @if( $user->id == $bid->id )
-                                            <li class="list-group-item justify-content-between">
-                                                <span>{{$bid->id}}</span>
-                                                <span style="float:right;">{{$currency_code}} {{$bid->bid_amount}}</span>
-                                              </li>
-                                          @endif
-                                      @endforeach
-                        </ul>
-
-
                          {!! Form::close() !!}
                     </div>
 
@@ -836,7 +816,7 @@ $user = Auth::user();
 
 
     <!--SELLER AUCTIONS SECTION-->
-    @include('home.pages.auctions.seller-auctions')
+    {{-- @include('home.pages.auctions.seller-auctions') --}}
 
     <!--SELLER AUCTIONS SECTION-->
 

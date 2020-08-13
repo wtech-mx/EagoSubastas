@@ -12,7 +12,7 @@
 
 
 {{--            <a href="{{URL_HOME}}" class="au-middles justify-content-start"> {{getPhrase('home')}} &nbsp;<span> / {{$title}} </span></a>--}}
-            <a href="{{URL_HOME}}" class="au-middles justify-content-start"> Inicio <span> / Dashboard </span></a>
+            {{-- <a href="{{URL_HOME}}" class="au-middles justify-content-start"> Inicio <span> / Dashboard </span></a> --}}
              <div class="row au-left-side">
                <div class="col-lg-4 col-md-4 col-sm-4 au-primary">
                  <div class="au-card-franky">

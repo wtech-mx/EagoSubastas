@@ -315,26 +315,6 @@ $user = Auth::user();
                             <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
                      </div>
 
-
-
-                        <ul class="list-group z-depth-0">
-                                      <li class="list-group-item justify-content-between">
-                                          <span><b>Usuarios</b></span>
-                                           <span style="float:right;"><b>Monto de la oferta</b></span>
-                                      </li>
-
-                                       <?php $__currentLoopData = $bidding_history; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                          <h4><?php echo e($user->id); ?> es <?php echo e($bid->bidder_id); ?> monto <?php echo e($bid->bid_amount); ?></h4>
-                                          <?php if( $user->id == $bid->id ): ?>
-                                            <li class="list-group-item justify-content-between">
-                                                <span><?php echo e($bid->id); ?></span>
-                                                <span style="float:right;"><?php echo e($currency_code); ?> <?php echo e($bid->bid_amount); ?></span>
-                                              </li>
-                                          <?php endif; ?>
-                                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </ul>
-
-
                          <?php echo Form::close(); ?>
 
                     </div>
@@ -839,7 +819,7 @@ $user = Auth::user();
 
 
     <!--SELLER AUCTIONS SECTION-->
-    <?php echo $__env->make('home.pages.auctions.seller-auctions', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    
 
     <!--SELLER AUCTIONS SECTION-->
 

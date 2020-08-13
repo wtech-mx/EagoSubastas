@@ -6,7 +6,7 @@
 <?php $currency = getSetting('currency_code','site_settings');?>
 
     <div class="col-lg-9 col-md-8 col-sm-12 au-onboard">
-            <a href="<?php echo e(URL_HOME); ?>" class="au-middles justify-content-start"> <?php echo e(getPhrase('home')); ?> &nbsp;<span> / <?php echo e($title); ?> </span></a>
+            
 
             <div class="au-left-side form-auth-style">
 

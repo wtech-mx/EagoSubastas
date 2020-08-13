@@ -10,7 +10,7 @@
     <div class="col-lg-8 col-md-8 col-sm-12 au-onboard">
 
 
-            <a href="{{URL_HOME}}" class="au-middles justify-content-start"> {{getPhrase('home')}} &nbsp;<span> / {{getPhrase('reply_message')}} </span></a>
+            {{-- <a href="{{URL_HOME}}" class="au-middles justify-content-start"> {{getPhrase('home')}} &nbsp;<span> / {{getPhrase('reply_message')}} </span></a> --}}
 
              <div class="au-left-side form-auth-style">
 

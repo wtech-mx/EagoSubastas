@@ -13,7 +13,7 @@
                 <div class="row">
                     <?php  
                     $currency = getSetting('currency_code','site_settings');
-                    //dateformat
+                    $today = date('Y-m-d');
                     ?>
 
                     <div class="table-responsive">
@@ -25,11 +25,12 @@
                         
                         <th>#</th>
                        
-                        <th> <?php echo e(getPhrase('transaction_id')); ?> </th>
-                        <th> <?php echo e(getPhrase('paid_amount')); ?> </th>
+                        <th> <?php echo e(getPhrase('image')); ?> </th>
+                        <th> <?php echo e(getPhrase('title')); ?> </th>
 
-                        <th> <?php echo e(getPhrase('payment_for')); ?> </th>
-                        <th> <?php echo e(getPhrase('pay_through')); ?> </th>
+                        <th> <?php echo e(getPhrase('reserve_price')); ?> </th>
+                        <th> <?php echo e(getPhrase('buy_now_price')); ?> </th>
+
 
                         <th> <?php echo e(getPhrase('datetime')); ?> </th>
 
@@ -37,32 +38,31 @@
 
                     </tr>
                 </thead>
-                <?php if(count($records) > 0): ?>
+                <?php if(count($auctions) > 0): ?>
                 <tbody>
-                    <?php if(count($records) > 0): ?>
+                    <?php if(count($auctions) > 0): ?>
                     <?php $i=0;
                    
                      ?>
-                        <?php $__currentLoopData = $records; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $record): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php $__currentLoopData = $auctions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $auction): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <?php $i++;?>
                             <tr>
                             
                                 <td><?php echo e($i); ?></td>
                                
-                               
-                                <td> <?php echo e($record->transaction_id); ?> </td>
+                                <td> <img src="<?php echo e(getAuctionImage($auction->image)); ?>" alt="<?php echo e($auction->title); ?>" width="50" /> </td>
+
+                                <td> <span data-toggle="tooltip" title="<?php echo e($auction->title); ?>" data-placement="bottom"><?php echo str_limit($auction->title,20); ?> </span> </td>
 
                                 
-                                <td> <?php if($record->paid_amount): ?> <?php echo e($currency); ?><?php echo e($record->paid_amount); ?> <?php endif; ?></td>
+                                <td> <?php echo e($currency); ?><?php echo e($auction->reserve_price); ?></td>
 
-                                <td> <?php echo e(get_text($record->payment_for)); ?> </td>
+                                <td> <?php echo e($currency); ?><?php echo e($auction->buy_now_price); ?> </td>
 
-                                <td> <?php echo e(ucfirst($record->payment_gateway)); ?> </td>
-
-                                 <td> <?php if($record->created_at): ?> <?php echo date(getSetting('date_format','site_settings').' H:i:s', strtotime($record->created_at));?> <?php endif; ?> </td>
+                                <td> <?php if($auction->created_at): ?> <?php echo date(getSetting('date_format','site_settings').' H:i:s', strtotime($auction->created_at));?> <?php endif; ?></td>
 
                                 <td>
-                                    <a href="<?php echo e(URL_BIDDER_PAYMENT_DETAILS); ?>/<?php echo e($record->slug); ?>" class="btn btn-primary btn-sm login-bttn" title="View Payment Details"> <?php echo e(getPhrase('view')); ?> </a>
+                                    <a href="<?php echo e(URL_HOME_AUCTION_DETAILS); ?>/<?php echo e($auction->slug); ?>" class="btn btn-primary btn-sm login-bttn" title="View Auction Details"> <?php echo e(getPhrase('view')); ?> </a>
                                 </td>
 
                             </tr>
@@ -91,8 +91,6 @@
       </div>   
     </section>
     <!--Dashboard section-->
-
-
 
 <?php $__env->stopSection(); ?>
 

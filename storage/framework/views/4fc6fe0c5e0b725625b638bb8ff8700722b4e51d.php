@@ -32,7 +32,7 @@ $user = Auth::user();
                             <ul class="navbar-nav mr-auto mt-2 mt-lg-0 sf-menu">
 
 
-                                <li><a href="<?php echo e(URL_HOME); ?>"> Inicio </a></li>
+                                
 
                                 <li class="single-dropdown"><span class="menu-mobile-grover au-listts"><i class="fa fa-chevron-circle-down au-icon"></i></span>
 

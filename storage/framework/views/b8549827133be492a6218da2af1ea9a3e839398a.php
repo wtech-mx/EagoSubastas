@@ -23,31 +23,24 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
          <div class="row">
  
 
-           <!--ASIDE BAR SECTION-->
-            <div class="col-lg-3 col-md-4 col-sm-12">
-
+          <!--ASIDE BAR SECTION-->
+          <div class="col-lg-3 col-md-4 col-sm-12">
 
               <!--Auction Date-->
               <div class="au-all-category">
 
                   <h6>Dia Subasta</h6>
-
-
                 <div class="form-group">
-
-
-                <div class="input-group date">
-                    <input type="text" class="form-control datepicker" name="auction_date" id="auction_date">
-                    <div class="input-group-addon">
-                        <!-- <span class="glyphicon glyphicon-th"></span> -->
-                        <span id="clear_date"><i class="fa fa-close"></i></span>
-                    </div>
-                </div>
-
+                  <div class="input-group date">
+                      <input type="text" class="form-control datepicker" name="auction_date" id="auction_date">
+                      <div class="input-group-addon">
+                          <!-- <span class="glyphicon glyphicon-th"></span> -->
+                          <span id="clear_date"><i class="fa fa-close"></i></span>
+                      </div>
+                  </div>
                     <!-- <input type="text" class="form-control datepicker" name="auction_date" id="auction_date">
                     <span id="clear_date"><i class="fa fa-close"></i></span> -->
                 </div>
-
               </div>
               <!--Auction Date-->
 

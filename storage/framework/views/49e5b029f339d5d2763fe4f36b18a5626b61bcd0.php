@@ -1,41 +1,40 @@
-@extends($layout)
+<?php $__env->startSection('custom_div'); ?>
 
-
-@section('custom_div')
-
-@if (isset($record) && count($record))
+<?php if(isset($record) && count($record)): ?>
     <div ng-controller="auctionsController" ng-init="initFunctions()">
-@else
+<?php else: ?>
     <div ng-controller="auctionsController">
-@endif
+<?php endif; ?>
 
-@stop
+<?php $__env->stopSection(); ?>
 
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
-@include('bidder.leftmenu')
+<?php echo $__env->make('bidder.leftmenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 <!--Dashboard section -->
 
 
     <div class="col-lg-9 col-md-8 col-sm-12 au-onboard">
-{{--            <a href="{{URL_HOME}}" class="au-middles justify-content-start"> {{getPhrase('home')}} Inicio &nbsp;<span> / {{getPhrase('profile')}} Perfil </span></a>--}}
-        {{-- <a href="{{URL_HOME}}" class="au-middles justify-content-start">  Inicio &nbsp;<span> /  Perfil </span></a> --}}
+
+        
 
             <div class="au-left-side form-auth-style">
 
 
-            	{{ Form::model($record, 
+            	<?php echo e(Form::model($record, 
 				array('url' => URL_USERS_EDIT.'/'.$record->slug, 
-				'method'=>'PATCH', 'name'=>'formValidate', 'files'=>'true' , 'novalidate'=>'')) }}
+				'method'=>'PATCH', 'name'=>'formValidate', 'files'=>'true' , 'novalidate'=>''))); ?>
+
 
                 <div class="row">
 
                 	<div class="col-lg-6">
 
                 	<div class="form-group">
-                    {!! Form::label('name', getPhrase('name'), ['class' => 'control-label']) !!}
+                    <?php echo Form::label('name', getPhrase('name'), ['class' => 'control-label']); ?>
+
 
                     <span class="text-red">*</span>
 
@@ -45,7 +44,7 @@
                          $val = $record->name;     
                     ?>
 
-                    {{ Form::text('name', $val, $attributes = 
+                    <?php echo e(Form::text('name', $val, $attributes = 
 
                     array('class' => 'form-control', 
 
@@ -65,18 +64,23 @@
 
 					'ng-class'=>'{"has-error": formValidate.name.$touched && formValidate.name.$invalid}',
 
-                    )) }}
+                    ))); ?>
+
 
 
                     <div class="validation-error" ng-messages="formValidate.name.$error" >
 
-	    					{!! getValidationMessage()!!}
+	    					<?php echo getValidationMessage(); ?>
 
-	    					{!! getValidationMessage('minlength')!!}
 
-	    					{!! getValidationMessage('maxlength')!!}
+	    					<?php echo getValidationMessage('minlength'); ?>
 
-	    					{!! getValidationMessage('pattern')!!}
+
+	    					<?php echo getValidationMessage('maxlength'); ?>
+
+
+	    					<?php echo getValidationMessage('pattern'); ?>
+
 
 					</div>
                 </div>
@@ -97,11 +101,12 @@
 
                     ?>
 
-                    {!! Form::label('email', getPhrase('email'), ['class' => 'control-label']) !!}
+                    <?php echo Form::label('email', getPhrase('email'), ['class' => 'control-label']); ?>
+
 
                     <span class="text-red">*</span>
 
-                    {{ Form::email('email', $val, $attributes = 
+                    <?php echo e(Form::email('email', $val, $attributes = 
 
                     array('class' => 'form-control', 
 
@@ -117,13 +122,16 @@
                     
                     'ng-class'=>'{"has-error": formValidate.email.$touched && formValidate.email.$invalid}',
 
-                    )) }}
+                    ))); ?>
+
 
                     <div class="validation-error" ng-messages="formValidate.email.$error" >
 
-                            {!! getValidationMessage()!!}
+                            <?php echo getValidationMessage(); ?>
 
-                            {!! getValidationMessage('email')!!}
+
+                            <?php echo getValidationMessage('email'); ?>
+
 
                     </div>
 
@@ -132,7 +140,8 @@
 
                 <div class="form-group">
 
-                    {!! Form::label('country', getPhrase('country'), ['class' => 'control-label']) !!}
+                    <?php echo Form::label('country', getPhrase('country'), ['class' => 'control-label']); ?>
+
 
                     <span class="text-red">*</span>
 
@@ -143,7 +152,7 @@
      
                     ?>
 
-                    {{Form::select('country_id', $countries, $val, ['placeholder' => getPhrase('select_country'),'class'=>'form-control select2',
+                    <?php echo e(Form::select('country_id', $countries, $val, ['placeholder' => getPhrase('select_country'),'class'=>'form-control select2',
 
                             'ng-model'=>'country_id',
 
@@ -155,13 +164,15 @@
 
                             'ng-class'=>'{"has-error": formValidate.country_id.$touched && formValidate.country_id.$invalid}'
 
-                         ])}}
+                         ])); ?>
+
 
 
                     
                         <div class="validation-error" ng-messages="formValidate.country_id.$error" >
 
-                            {!! getValidationMessage()!!}
+                            <?php echo getValidationMessage(); ?>
+
 
                         </div>
 
@@ -171,7 +182,7 @@
 
                  <div class="form-group">
 
-                       <label for="name"> {{ getPhrase('city') }} <span class="text-red">*</span></label>
+                       <label for="name"> <?php echo e(getPhrase('city')); ?> <span class="text-red">*</span></label>
 
                         <?php 
 
@@ -181,7 +192,7 @@
 
                         ?>
 
-                        <select ng-init="city_id={id:{{$val}} }" name="city_id" ng-model="city_id" class="form-control select2" ng-options="item.id as item.city for item in cities track by item.id" required="true">
+                        <select ng-init="city_id={id:<?php echo e($val); ?> }" name="city_id" ng-model="city_id" class="form-control select2" ng-options="item.id as item.city for item in cities track by item.id" required="true">
 
                           <option value="">Select</option>  
 
@@ -189,7 +200,8 @@
 
                          <div class="validation-error" ng-messages="formValidate.city_id.$error">
 
-                                {!! getValidationMessage()!!}
+                                <?php echo getValidationMessage(); ?>
+
                         </div>
                  </div>
 
@@ -201,9 +213,10 @@
 
                        <div class="col-md-6">
 
-                         {!! Form::label('profile_pic', getPhrase('profile_picture'), ['class' => 'control-label']) !!}    
+                         <?php echo Form::label('profile_pic', getPhrase('profile_picture'), ['class' => 'control-label']); ?>    
 
-                        {!! Form::file('image', array('id'=>'image_input', 'accept'=>'.png,.jpg,.jpeg')) !!}
+                        <?php echo Form::file('image', array('id'=>'image_input', 'accept'=>'.png,.jpg,.jpeg')); ?>
+
 
                         </div>
 
@@ -214,7 +227,7 @@
                             ?>
 
                         <div class="col-md-6">
-                            <img src="{{ getProfilePath($record->image) }}" />
+                            <img src="<?php echo e(getProfilePath($record->image)); ?>" />
                         </div>
 
                         <?php } } ?>
@@ -243,11 +256,12 @@
 
                     ?>
 
-                    {!! Form::label('username', getPhrase('username'), ['class' => 'control-label']) !!}
+                    <?php echo Form::label('username', getPhrase('username'), ['class' => 'control-label']); ?>
+
 
                     <span class="text-red">*</span>
 
-                    {{ Form::text('username', $val , $attributes = 
+                    <?php echo e(Form::text('username', $val , $attributes = 
 
                     array('class' => 'form-control', 
 
@@ -269,17 +283,22 @@
 
                     'ng-class'=>'{"has-error": formValidate.username.$touched && formValidate.username.$invalid}',
 
-                    )) }}
+                    ))); ?>
+
 
                     <div class="validation-error" ng-messages="formValidate.username.$error" >
 
-                            {!! getValidationMessage()!!}
+                            <?php echo getValidationMessage(); ?>
 
-                            {!! getValidationMessage('minlength')!!}
 
-                            {!! getValidationMessage('maxlength')!!}
+                            <?php echo getValidationMessage('minlength'); ?>
 
-                            {!! getValidationMessage('pattern')!!}
+
+                            <?php echo getValidationMessage('maxlength'); ?>
+
+
+                            <?php echo getValidationMessage('pattern'); ?>
+
 
                     </div>
 
@@ -289,7 +308,8 @@
 
                 <div class="form-group">
 
-                    {!! Form::label('phone', getPhrase('phone'), ['class' => 'control-label']) !!}
+                    <?php echo Form::label('phone', getPhrase('phone'), ['class' => 'control-label']); ?>
+
 
                     <span class="text-red">*</span>
 
@@ -299,7 +319,7 @@
                          $val = $record->phone;     
                     ?>
 
-                    {{ Form::text('phone', $val, $attributes = 
+                    <?php echo e(Form::text('phone', $val, $attributes = 
 
                     array('class' => 'form-control', 
 
@@ -319,13 +339,16 @@
 
 
 
-                    )) }}
+                    ))); ?>
+
 
                     <div class="validation-error" ng-messages="formValidate.phone.$error" >
 
-                            {!! getValidationMessage('phone')!!}
+                            <?php echo getValidationMessage('phone'); ?>
 
-                            {!! getValidationMessage('maxlength')!!}
+
+                            <?php echo getValidationMessage('maxlength'); ?>
+
 
                     </div>
 
@@ -334,7 +357,7 @@
 
                  <div class="form-group">
 
-                        <label for="name"> {{ getPhrase('state') }} <span class="text-red">*</span></label>
+                        <label for="name"> <?php echo e(getPhrase('state')); ?> <span class="text-red">*</span></label>
 
 
                         <?php 
@@ -346,7 +369,7 @@
 
                         ?>
 
-                        <select ng-init="state_id={id:{{$val}} }" name="state_id" ng-model="state_id" class="form-control select2" ng-options="item.id as item.state for item in states track by item.id" ng-change="getCities(state_id)" required="true">
+                        <select ng-init="state_id={id:<?php echo e($val); ?> }" name="state_id" ng-model="state_id" class="form-control select2" ng-options="item.id as item.state for item in states track by item.id" ng-change="getCities(state_id)" required="true">
 
                           <option value="">Select</option>  
 
@@ -354,7 +377,8 @@
 
                          <div class="validation-error" ng-messages="formValidate.state_id.$error">
 
-                                {!! getValidationMessage()!!}
+                                <?php echo getValidationMessage(); ?>
+
                         </div>
                  </div>
 
@@ -363,7 +387,8 @@
 
                   <div class="form-group">
 
-                    {!! Form::label('address', getPhrase('address'), ['class' => 'control-label']) !!}
+                    <?php echo Form::label('address', getPhrase('address'), ['class' => 'control-label']); ?>
+
 
                    <?php
                         $val=old('address');
@@ -371,7 +396,7 @@
                          $val = $record->address;     
                     ?>
 
-                    {{ Form::textarea('address', $val, $attributes = 
+                    <?php echo e(Form::textarea('address', $val, $attributes = 
 
                     array('class' => 'form-control', 'rows'=>3, 
 
@@ -387,14 +412,16 @@
 
 
 
-                    )) }}
+                    ))); ?>
+
 
 
                     
                     <div class="validation-error" ng-messages="formValidate.address.$error" >
 
                            
-                            {!! getValidationMessage('maxlength')!!}
+                            <?php echo getValidationMessage('maxlength'); ?>
+
 
                     </div>
 
@@ -403,7 +430,7 @@
 
                  <div class="form-group">
 
-					<button class="btn btn-primary login-bttn"  ng-disabled='!formValidate.$valid'>{{ getPhrase('save') }}</button>
+					<button class="btn btn-primary login-bttn"  ng-disabled='!formValidate.$valid'><?php echo e(getPhrase('save')); ?></button>
 
 				</div>
 
@@ -415,7 +442,8 @@
 
             </div> 
 
-            {!! Form::close() !!}
+            <?php echo Form::close(); ?>
+
 
              </div> 
     </div> 
@@ -428,15 +456,15 @@
     </section>
     <!--Dashboard section-->
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
 
-@section('footer_scripts')
-@include('common.validations')
-@include('common.alertify')
+<?php $__env->startSection('footer_scripts'); ?>
+<?php echo $__env->make('common.validations', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('common.alertify', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-@include('home.pages.auctions.auctions-js-script')
+<?php echo $__env->make('home.pages.auctions.auctions-js-script', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 <script>
 var file = document.getElementById('image_input');
@@ -451,10 +479,11 @@ file.onchange = function(e){
 
             break;
         default:
-               alertify.error("{{getPhrase('file_type_not_allowed')}}");
+               alertify.error("<?php echo e(getPhrase('file_type_not_allowed')); ?>");
             this.value='';
     }
 };
 </script>
 
-@stop
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make($layout, array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
