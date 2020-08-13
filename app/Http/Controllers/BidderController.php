@@ -250,7 +250,7 @@ class BidderController extends Controller
         $user = \Auth::user();
 
         $auctions = $user->getBidderParicipatedAuctions();
-         //dd($auctions);
+        // dd($auctions);
         $data['title']              = getPhrase('my_auctions');
         $data['active_class']       = 'auctions';
 
@@ -398,7 +398,6 @@ class BidderController extends Controller
                 $record = Auction::join('users','auctions.user_id','users.id')
                                  ->join('auctionbidders','auctions.id','auctionbidders.auction_id')
                                  ->join('bidding','auctionbidders.id','bidding.ab_id')
-                                 ->join('bidding','auctionbidders.bidder_id','bidding.bidder_id')
                                  ->leftJoin('categories','auctions.category_id','categories.id')
                                  ->leftJoin('sub_catogories','auctions.sub_category_id','sub_catogories.id')
                                  ->select(['auctions.*','categories.category','sub_catogories.sub_category','users.username','users.email','users.phone','bidding.bid_amount'])
