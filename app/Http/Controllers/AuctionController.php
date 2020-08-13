@@ -711,9 +711,7 @@ class AuctionController extends Controller
 
             $invitacion = DB::table('invitaciones')
                             ->get();
-                   // dd($invitacion);
-
-
+                            //dd($invitacion);
 
 
         $auctions->withPath(URL_HOME_AUCTIONS);
@@ -929,9 +927,13 @@ class AuctionController extends Controller
 
         $invitacion = DB::table('invitaciones')
         ->get();
-        //  dd($invitacion);
+          //dd($invitacion);
+
+        $auctionbidders = DB::table('auctionbidders')
+          ->get();
+          //dd($auctionbidders);
         
-        return view('home.pages.auctions.auction-details', $data, compact('invitacion'));
+        return view('home.pages.auctions.auction-details', $data, compact('invitacion', 'auctionbidders'));
 
     }
 
