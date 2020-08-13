@@ -711,7 +711,7 @@ class AuctionController extends Controller
 
             $invitacion = DB::table('invitaciones')
                             ->get();
-                     //  dd($invitacion);
+                   // dd($invitacion);
 
 
 
@@ -926,8 +926,12 @@ class AuctionController extends Controller
         $data['layout']         = getLayout();
         $data['title']          = getPhrase('auction_details');
         $data['breadcrumb']     = TRUE;
+
+        $invitacion = DB::table('invitaciones')
+        ->get();
+        //  dd($invitacion);
         
-        return view('home.pages.auctions.auction-details', $data);
+        return view('home.pages.auctions.auction-details', $data, compact('invitacion'));
 
     }
 
@@ -1121,7 +1125,6 @@ class AuctionController extends Controller
         $data['title']          = getPhrase('live_auction').'::'.$auction->title;
         $data['breadcrumb']     = TRUE;
         return view('home.pages.auctions.live-auction', $data);
-
     }
     
     public function auctionInfo(Request $request)
@@ -1854,7 +1857,12 @@ class AuctionController extends Controller
         $data['active_class']   = 'live_auctions';
         $data['layout']         = getLayout();
         $data['title']          = getPhrase('live_auctions');
-        return view('home.pages.auctions.live_auctions', $data);
+
+        $invitacion = DB::table('invitaciones')
+        ->get();
+        //dd($invitacion);
+
+        return view('home.pages.auctions.live_auctions', $data, compact('invitacion'));
 
     }
 }

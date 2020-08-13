@@ -20,10 +20,10 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
 
 
   <!--CATEGORY BODY SECTION-->
-
      <section class="au-categorys">
       <div class="container">
          <div class="row">
+ 
 
            <!--ASIDE BAR SECTION-->
             <div class="col-lg-3 col-md-4 col-sm-12">
@@ -310,11 +310,11 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
 
             </div>
             <!--PRODUCTS SECTION-->
+          
 
          </div>
       </div>
     </section>
-
     <!--CATEGORY BODY SECTION-->
 
 @endsection

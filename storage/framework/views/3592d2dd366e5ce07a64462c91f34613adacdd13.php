@@ -35,7 +35,9 @@ $user = Auth::user();
 ?>
 
  <!--CATEGORY BODY SECTION-->
-
+ <?php $__currentLoopData = $invitacion; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php if($user->email == $item->email): ?>
+    <?php if($auction->id == $item->auction_id): ?>
      <section class="single-product section-pad">
       <div class="container">
 
@@ -841,9 +843,14 @@ $user = Auth::user();
 
     <!--SELLER AUCTIONS SECTION-->
 
-
-
-<?php $__env->stopSection(); ?>
+    <?php else: ?>
+    <div class="col-lg-12 col-md-12 col-sm-12">
+     
+    </div>
+      <?php endif; ?>
+      <?php endif; ?>
+      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('footer_scripts'); ?>
 

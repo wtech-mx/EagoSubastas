@@ -37,7 +37,9 @@ $user = Auth::user();
 ?>
 
  <!--CATEGORY BODY SECTION-->
-
+ @foreach ($invitacion as $item)
+    @if ($user->email == $item->email)
+    @if ($auction->id == $item->auction_id)
      <section class="single-product section-pad">
       <div class="container">
 
@@ -838,9 +840,14 @@ $user = Auth::user();
 
     <!--SELLER AUCTIONS SECTION-->
 
-
-
-@endsection
+    @else
+    <div class="col-lg-12 col-md-12 col-sm-12">
+     
+    </div>
+      @endif
+      @endif
+      @endforeach
+    @endsection
 
 @section('footer_scripts')
 

@@ -534,6 +534,7 @@ Route::get('{driver}/callback', 'Auth\LoginController@handleSocialCallback');
     Route::get('user/notifications/show/{slug}', 'UserNotificationsController@display');
 
     Route::get('view-auctions', 'AuctionController@index');
+   // Route::get('index', 'AuctionController@index');
     Route::post('view-auctions', 'AuctionController@index');
 
 
