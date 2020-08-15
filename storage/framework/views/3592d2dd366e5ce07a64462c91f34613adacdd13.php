@@ -227,50 +227,78 @@ use App\Auction;
 
 
       
-        <?php if(AuctionBidder::where('auction_id', '=', $auction->id)->exists()): ?> 
+      <?php if(AuctionBidder::where('auction_id', '=', $auction->id)->exists()): ?> 
 
-          <?php $__currentLoopData = $invitacion; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <?php if($auction->id == $item->auction_id): ?>
-            
-              <?php $__currentLoopData = $auctionbidders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <?php if($user->id == $bid->bidder_id): ?>
-                  <?php if($bid->no_of_times < $auction->tiros): ?>
-                      <div class="form-group">
-                            <?php echo e(Form::select('bid_amount', $bid_options, null, ['placeholder'=>'select',
-                
-                              'class'=>'form-control',
-                
-                              'ng-model'=>'bid_amount',
-                
-                              'required'=> 'true',
-                
-                              'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}'
-                
-                          ])); ?>
+      <?php $__currentLoopData = $invitacion; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <?php if($auction->id == $item->auction_id): ?>
+        
+          <?php $__currentLoopData = $auctionbidders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php if($user->id == $bid->bidder_id): ?>
+              <?php if($bid->no_of_times < $auction->tiros): ?>
+              <div class="form-group">
+                <?php echo e(Form::select('bid_amount', $bid_options, null, ['placeholder'=>'select',
 
-                
-                        <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
-                      </div>
+                  'class'=>'form-control',
 
-                      <div class="form-group">
-                        <input type="hidden" name="bid_auction_id" value="<?php echo e($auction->id); ?>">
-                            <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
-                      </div>
-                      <?php echo Form::close(); ?>
+                  'ng-model'=>'bid_amount',
 
-                 <?php else: ?>
+                  'required'=> 'true',
 
-                  <p>Lo sentimos, ya no tiene tiros</p>
-                     
-                  <?php endif; ?>
-                <?php endif; ?>
-              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>  
+                  'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}'
 
-            <?php break; ?>
+                ])); ?>
+
+
+                <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
+              </div>
+      
+                  <div class="form-group">
+                    <input type="hidden" name="bid_auction_id" value="<?php echo e($auction->id); ?>">
+                        <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
+                  </div>
+                  <?php echo Form::close(); ?>
+
+                <?php else: ?>
+      
+                <p>Lo sentimos, ya no tiene tiros</p>
+                 
+              <?php endif; ?>
+
+                <?php else: ?>
+                <?php echo Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')); ?>
+
+                <div class="form-group">
+                      <?php echo e(Form::select('bid_amount', $bid_options, null, ['placeholder'=>'select',
+
+                        'class'=>'form-control',
+
+                        'ng-model'=>'bid_amount',
+
+                        'required'=> 'true',
+
+                        'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}'
+
+                    ])); ?>
+
+
+                  <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
+                </div>
+
+                <div class="form-group">
+                  <input type="hidden" name="bid_auction_id" value="<?php echo e($auction->id); ?>">
+                      <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
+                </div>
+                <?php echo Form::close(); ?>
+
             <?php endif; ?>
-          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>   
-
-        <?php else: ?>
+            <?php break; ?>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>  
+      
+        <?php break; ?>
+        <?php endif; ?>
+      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>   
+      
+      <?php else: ?>
 
           <?php echo Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')); ?>
 
@@ -345,12 +373,41 @@ use App\Auction;
                     <?php echo Form::close(); ?>
 
 
-                  <?php else: ?>
+                    <?php else: ?>
 
-                  <p>Lo sentimos, ya no tiene tiros</p>
+                    <p>Lo sentimos, ya no tiene tiros</p>
                      
                   <?php endif; ?>
+
+                  <?php else: ?>
+                    <?php echo Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')); ?>
+
+                    <div class="form-group">
+                      <?php echo e(Form::number('bid_amount', null, $attributes =
+                  
+                          array('class' => 'form-control',
+                  
+                          'placeholder' => $enter_amount,
+                  
+                          'ng-model' => 'bid_amount',
+                  
+                          'required' => 'true',
+                  
+                          'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}',
+                  
+                          ))); ?>
+
+                      <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
+                    </div>
+
+                    <div class="form-group">
+                      <input type="hidden" name="bid_auction_id" value="<?php echo e($auction->id); ?>">
+                          <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
+                    </div>
+                    <?php echo Form::close(); ?>
+
                 <?php endif; ?>
+                <?php break; ?>
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>  
 
             <?php break; ?>

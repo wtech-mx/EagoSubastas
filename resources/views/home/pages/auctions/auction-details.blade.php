@@ -226,48 +226,73 @@ use App\Auction;
           {!! Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')) !!}
 
       {{-- Traer el id de la subasta en que se esta --}}
-        @if (AuctionBidder::where('auction_id', '=', $auction->id)->exists()) 
+      @if (AuctionBidder::where('auction_id', '=', $auction->id)->exists()) 
 
-          @foreach ($invitacion as $item)
-            @if ($auction->id == $item->auction_id)
-            
-              @foreach ($auctionbidders as $bid)
-                @if($user->id == $bid->bidder_id)
-                  @if($bid->no_of_times < $auction->tiros)
-                      <div class="form-group">
-                            {{Form::select('bid_amount', $bid_options, null, ['placeholder'=>'select',
-                
-                              'class'=>'form-control',
-                
-                              'ng-model'=>'bid_amount',
-                
-                              'required'=> 'true',
-                
-                              'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}'
-                
-                          ])}}
-                
-                        <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
-                      </div>
+      @foreach ($invitacion as $item)
+        @if ($auction->id == $item->auction_id)
+        
+          @foreach ($auctionbidders as $bid)
+            @if($user->id == $bid->bidder_id)
+              @if($bid->no_of_times < $auction->tiros)
+              <div class="form-group">
+                {{Form::select('bid_amount', $bid_options, null, ['placeholder'=>'select',
 
-                      <div class="form-group">
-                        <input type="hidden" name="bid_auction_id" value="{{$auction->id}}">
-                            <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
-                      </div>
-                      {!! Form::close() !!}
-                 @else
+                  'class'=>'form-control',
 
-                  <p>Lo sentimos, ya no tiene tiros</p>
-                     
-                  @endif
-                @endif
-              @endforeach  
+                  'ng-model'=>'bid_amount',
 
-            <?php break; ?>
+                  'required'=> 'true',
+
+                  'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}'
+
+                ])}}
+
+                <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
+              </div>
+      
+                  <div class="form-group">
+                    <input type="hidden" name="bid_auction_id" value="{{$auction->id}}">
+                        <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
+                  </div>
+                  {!! Form::close() !!}
+                @else
+      
+                <p>Lo sentimos, ya no tiene tiros</p>
+                 
+              @endif
+
+                @else
+                {!! Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')) !!}
+                <div class="form-group">
+                      {{Form::select('bid_amount', $bid_options, null, ['placeholder'=>'select',
+
+                        'class'=>'form-control',
+
+                        'ng-model'=>'bid_amount',
+
+                        'required'=> 'true',
+
+                        'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}'
+
+                    ])}}
+
+                  <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
+                </div>
+
+                <div class="form-group">
+                  <input type="hidden" name="bid_auction_id" value="{{$auction->id}}">
+                      <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
+                </div>
+                {!! Form::close() !!}
             @endif
-          @endforeach   
-
-        @else
+            <?php break; ?>
+          @endforeach  
+      
+        <?php break; ?>
+        @endif
+      @endforeach   
+      
+      @else
 
           {!! Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')) !!}
             <div class="form-group">
@@ -336,12 +361,38 @@ use App\Auction;
                     </div>
                     {!! Form::close() !!}
 
-                  @else
+                    @else
 
-                  <p>Lo sentimos, ya no tiene tiros</p>
+                    <p>Lo sentimos, ya no tiene tiros</p>
                      
                   @endif
+
+                  @else
+                    {!! Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')) !!}
+                    <div class="form-group">
+                      {{ Form::number('bid_amount', null, $attributes =
+                  
+                          array('class' => 'form-control',
+                  
+                          'placeholder' => $enter_amount,
+                  
+                          'ng-model' => 'bid_amount',
+                  
+                          'required' => 'true',
+                  
+                          'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}',
+                  
+                          )) }}
+                      <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
+                    </div>
+
+                    <div class="form-group">
+                      <input type="hidden" name="bid_auction_id" value="{{$auction->id}}">
+                          <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
+                    </div>
+                    {!! Form::close() !!}
                 @endif
+                <?php break; ?>
               @endforeach  
 
             <?php break; ?>
