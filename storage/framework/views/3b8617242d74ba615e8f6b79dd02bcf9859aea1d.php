@@ -1,10 +1,11 @@
 <?php $__env->startSection('content'); ?>
-    <h3 class="page-title"><?php echo e(getPhrase('categories')); ?></h3>
+	
+	<h3 class="page-title">Lotes</h3>
 
      <div class="panel panel-default">
         <div class="panel-heading">
-            <?php echo e(isset($title) ? $title : ''); ?>
-
+			
+			Crear
         </div>
 
         

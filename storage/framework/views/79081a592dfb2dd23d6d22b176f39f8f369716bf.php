@@ -2,7 +2,7 @@
 			<div class="col-xs-6"> 	
 
 				<div class="form-group">
-                    <?php echo Form::label('category', getPhrase('category'), ['class' => 'control-label']); ?>
+                    <?php echo Form::label('category', getPhrase('Lote'), ['class' => 'control-label']); ?>
 
 
                     <span class="text-red">*</span>
@@ -11,7 +11,7 @@
 
                     array('class' => 'form-control', 
 
-                    'placeholder' => 'Category',
+                    'placeholder' => 'Lote',
 
                     'ng-model' => 'category', 
 
@@ -50,7 +50,7 @@
 
 
                 <div class="form-group">
-                    <?php echo Form::label('description', getPhrase('description'), ['class' => 'control-label']); ?>
+                    <?php echo Form::label('description', getPhrase('Descripcion'), ['class' => 'control-label']); ?>
 
 
                    
@@ -58,7 +58,7 @@
 
                     array('class' => 'form-control', 
 
-                    'placeholder' => 'Description',
+                    'placeholder' => 'Descripcion',
 
                     'ng-model' => 'description', 
 
@@ -82,7 +82,7 @@
                  
                 <div class="form-group">
 
-                    <?php echo Form::label('status', getPhrase('status'), ['class' => 'control-label']); ?>
+                    <?php echo Form::label('status', getPhrase('Estado'), ['class' => 'control-label']); ?>
 
 
                     <span class="text-red">*</span>
@@ -99,7 +99,7 @@
 
                     
 
-                    <?php echo e(Form::select('status', activeinactive(), $selected, ['placeholder' => getPhrase('select'),'class'=>'form-control select2',
+                    <?php echo e(Form::select('status', activeinactive(), $selected, ['placeholder' => getPhrase('Seleccionar'),'class'=>'form-control select2',
 
                             'ng-model'=>'status',
 
@@ -128,8 +128,8 @@
 
                <div class="form-group pull-right">
 
-					<button class="btn btn-success" ng-disabled='!formValidate.$valid'><?php echo e(getPhrase('save')); ?></button>
 
+                    <button class="btn btn-success" ng-disabled='!formValidate.$valid'>Guardar</button>
 				</div>
 
 			</div>

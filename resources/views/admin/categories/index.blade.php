@@ -2,7 +2,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="page-title"> {{$title}}</h3>
+    {{-- <h3 class="page-title"> {{$title}}</h3> --}}
+    <h3 class="page-title">Lotes</h3>
     
 
 
@@ -25,10 +26,10 @@
 
                 <thead>
                     <tr>
-                        <th style="text-align:center;">S.no.</th>
+                        <th style="text-align:center;">No.</th>
 
 {{--                        <th> {{getPhrase('category')}} </th>--}}
-                        <th> Categorias </th>
+                        <th> Nombre Lote </th>
 
 {{--                        <th> {{getPhrase('status')}} </th>--}}
                         <th> Estatus </th>

@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="page-title"> {{getPhrase('categories')}} </h3>
+    {{-- <h3 class="page-title"> {{getPhrase('categories')}} </h3> --}}
+    <h3 class="page-title"> Lotes </h3>
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            {{$title}}
+            {{-- {{$title}} --}}
+                    Ver
         </div>
 
         <div class="panel-body table-responsive">
@@ -13,11 +15,13 @@
                 <div class="col-md-6">
                     <table class="table table-bordered table-striped">
                         <tr>
-                            <th> {{getPhrase('category')}} </th>
+                            {{-- <th> {{getPhrase('category')}} </th> --}}
+                            <th> Lote</th>
                             <td field-key='category'>{{ $category->category }}</td>
                         </tr>
                         <tr>
-                            <th> {{getPhrase('description')}} </th>
+                            {{-- <th> {{getPhrase('description')}} </th> --}}
+                            <th> Descripcion </th>
                             <td field-key='question_text'>{!! $category->description !!}</td>
                         </tr>
                        
@@ -28,7 +32,7 @@
             <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
     
-<li role="presentation" class="active"><a href="#faqquestions" aria-controls="faqquestions" role="tab" data-toggle="tab">Sub Categories </a></li>
+<li role="presentation" class="active"><a href="#faqquestions" aria-controls="faqquestions" role="tab" data-toggle="tab">Empresas</a></li>
 </ul>
 
 <!-- Tab panes -->
@@ -39,7 +43,8 @@
     <thead>
         <tr>
             
-            <th> {{getPhrase('sub_category')}} </th>
+            {{-- <th> {{getPhrase('sub_category')}} </th> --}}
+            <th>Empresas</th>
             <th>&nbsp;</th>
 
         </tr>
@@ -54,14 +59,16 @@
                                 
                 <td>
                     @can('sub_catogory_view')
-                    <a href="{{URL_SUB_CATEGORIES_VIEW}}/{{$sub_category->slug}}" class="btn btn-xs btn-primary"> {{getPhrase('view')}} </a>
+                    {{-- <a href="{{URL_SUB_CATEGORIES_VIEW}}/{{$sub_category->slug}}" class="btn btn-xs btn-primary"> {{getPhrase('view')}} </a> --}}
+                    <a href="{{URL_SUB_CATEGORIES_VIEW}}/{{$sub_category->slug}}" class="btn btn-xs btn-primary">Ver</a>
                     @endcan
                     @can('sub_catogory_edit')
-                    <a href="{{URL_SUB_CATEGORIES_EDIT}}/{{$sub_category->slug}}" class="btn btn-xs btn-info"> {{getPhrase('edit')}} </a>
+                    {{-- <a href="{{URL_SUB_CATEGORIES_EDIT}}/{{$sub_category->slug}}" class="btn btn-xs btn-info"> {{getPhrase('edit')}} </a> --}}
+                    <a href="{{URL_SUB_CATEGORIES_EDIT}}/{{$sub_category->slug}}" class="btn btn-xs btn-info"> Editar </a>
                     @endcan
                     @can('sub_catogory_delete')
-                   
-                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$sub_category->id}}')"> {{ getPhrase('delete') }} </a>
+                    {{-- <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$sub_category->id}}')"> {{ getPhrase('delete') }} </a> --}}
+                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$sub_category->id}}')"> Eliminar </a>
                     @endcan
                 </td>
 
@@ -69,7 +76,8 @@
             @endforeach
         @else
             <tr>
-                <td colspan="8"> {{ getPhrase('no_entries_in_table') }}</td>
+                {{-- <td colspan="8"> {{ getPhrase('no_entries_in_table') }}</td> --}}
+                <td colspan="8"> no hay entradas en la tabla</td>
             </tr>
         @endif
     </tbody>

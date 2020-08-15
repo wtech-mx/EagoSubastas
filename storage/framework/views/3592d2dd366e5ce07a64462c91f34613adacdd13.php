@@ -11,7 +11,7 @@ $today = DATE('Y-m-d');
 $currency_code = getSetting('currency_code','site_settings');
 $auctin_url = URL_HOME_AUCTIONS;
 
-$enter_amount = 'Enter amount ';
+$enter_amount = 'Ingresar cantidad ';
 if (isset($last_bid) && !empty($last_bid->bid_amount))
   $enter_amount .= '> '.$last_bid->bid_amount;
 elseif ($auction->minimum_bid>0)
@@ -346,48 +346,48 @@ use App\Auction;
 
             
         <?php if(AuctionBidder::where('auction_id', '=', $auction->id)->exists()): ?> 
-
-          <?php $__currentLoopData = $invitacion; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+          
+          <?php $__currentLoopData = $auctionbidders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php if($auction->id == $item->auction_id): ?>
-            
               <?php $__currentLoopData = $auctionbidders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <?php if($user->id == $bid->bidder_id): ?>
-                  <?php if($bid->no_of_times < $auction->tiros): ?>
+                <?php if(AuctionBidder::where('bidder_id', '=', $user->id)->exists()): ?> 
+                  <?php if($user->id == $bid->bidder_id): ?>
+                    <?php if($bid->no_of_times < $auction->tiros): ?>
+                      <div class="form-group">
+                        <?php echo e(Form::number('bid_amount', null, $attributes =
+                    
+                            array('class' => 'form-control',
+                    
+                            'placeholder' => $enter_amount,
+                    
+                            'ng-model' => 'bid_amount',
+                    
+                            'required' => 'true',
+                    
+                            'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}',
+                    
+                            ))); ?>
 
-                    <div class="form-group">
-                      <?php echo e(Form::number('bid_amount', null, $attributes =
-                  
-                          array('class' => 'form-control',
-                  
-                          'placeholder' => $enter_amount,
-                  
-                          'ng-model' => 'bid_amount',
-                  
-                          'required' => 'true',
-                  
-                          'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}',
-                  
-                          ))); ?>
+                        <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
+                      </div>
 
-                      <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
-                    </div>
-
-                    <div class="form-group">
-                      <input type="hidden" name="bid_auction_id" value="<?php echo e($auction->id); ?>">
-                          <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
-                    </div>
-                    <?php echo Form::close(); ?>
+                      <div class="form-group">
+                        <input type="hidden" name="bid_auction_id" value="<?php echo e($auction->id); ?>">
+                            <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
+                      </div>
+                      <?php echo Form::close(); ?>
 
 
-                    <?php else: ?>
+                      <?php else: ?>
 
-                    <p>Lo sentimos, ya no tiene tiros</p>
-                     
+                      <p>Lo sentimos, ya no tiene tiros</p>
+                      
+                    <?php endif; ?>
                   <?php endif; ?>
-
                 <?php else: ?>
                     <?php echo Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')); ?>
 
+
                     <div class="form-group">
                       <?php echo e(Form::number('bid_amount', null, $attributes =
                   
@@ -412,9 +412,8 @@ use App\Auction;
                     </div>
                     <?php echo Form::close(); ?>
 
-                  
-                  <?php break; ?>
                 <?php endif; ?>
+
                 
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>  
 
@@ -635,11 +634,6 @@ use App\Auction;
                                          Precio de reserva
                                       <span><?php if($auction->reserve_price): ?> <?php echo e($currency_code); ?> <?php echo e($auction->reserve_price); ?> <?php endif; ?></span>
                                      </li>
-
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        Invitados
-                                      <span><?php if($data->name): ?> <?php echo e($currency_code); ?> <?php echo e($data->name); ?> <?php endif; ?></span>
-                                    </li>
 
                                      <li class="list-group-item d-flex justify-content-between align-items-center">
 
@@ -948,7 +942,7 @@ use App\Auction;
     <!--AUCTION DETAILS SECTION END-->
 
     <!--SAME CATEGORY AUCTIONS SECTION-->
-    <?php echo $__env->make('home.pages.auctions.category-auctions', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    
 
     <!--SAME CATEGORY AUCTIONS SECTION-->
 

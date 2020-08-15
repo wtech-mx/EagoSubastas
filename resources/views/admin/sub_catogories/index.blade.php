@@ -2,14 +2,16 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="page-title"> {{getPhrase('sub_categories')}} </h3>
+    {{-- <h3 class="page-title"> {{getPhrase('sub_categories')}} </h3> --}}
+    <h3 class="page-title"> Empresas </h3>
     
 
     
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            {{getPhrase('list')}}
+            {{-- {{getPhrase('list')}} --}}
+            Lista
 
             @can('sub_catogory_create')
 {{--                <a href="{{URL_SUB_CATEGORIES_ADD}}" class="btn btn-success btn-add pull-right">--}}
@@ -29,17 +31,17 @@
 
                 <thead>
                     <tr>
-                        <th style="text-align:center;">S.no.</th>
+                        <th style="text-align:center;">No.</th>
 
                        
 {{--                        <th>{{getPhrase('sub_category')}}</th>--}}
-                        <th>Subcategoria</th>
+                        <th>Empresas</th>
                         
 {{--                        <th>{{getPhrase('category')}}</th>--}}
-                        <th>Categoria</th>
+                        <th>Lotes</th>
 
 {{--                        <th>{{getPhrase('status')}}</th>--}}
-                        <th>Status</th>
+                        <th>Estados</th>
 
                        
                         <th>&nbsp;Acciones</th>
@@ -84,7 +86,8 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="7"> {{getPhrase('no_entries_in_table')}} </td>
+                            {{-- <td colspan="7"> {{getPhrase('no_entries_in_table')}} </td> --}}
+                            <td colspan="7"> no hay entradas en la tabla </td>
                         </tr>
                     @endif
                 </tbody>

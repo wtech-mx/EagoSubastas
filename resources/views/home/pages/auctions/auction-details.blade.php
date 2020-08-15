@@ -13,7 +13,7 @@ $today = DATE('Y-m-d');
 $currency_code = getSetting('currency_code','site_settings');
 $auctin_url = URL_HOME_AUCTIONS;
 
-$enter_amount = 'Enter amount ';
+$enter_amount = 'Ingresar cantidad ';
 if (isset($last_bid) && !empty($last_bid->bid_amount))
   $enter_amount .= '> '.$last_bid->bid_amount;
 elseif ($auction->minimum_bid>0)
@@ -336,45 +336,45 @@ use App\Auction;
 
             {{-- Traer el id de la subasta en que se esta --}}
         @if (AuctionBidder::where('auction_id', '=', $auction->id)->exists()) 
-
-          @foreach ($invitacion as $item)
+          
+          @foreach ($auctionbidders as $item)
             @if ($auction->id == $item->auction_id)
-            
               @foreach ($auctionbidders as $bid)
-                @if($user->id == $bid->bidder_id)
-                  @if($bid->no_of_times < $auction->tiros)
+                @if (AuctionBidder::where('bidder_id', '=', $user->id)->exists()) 
+                  @if($user->id == $bid->bidder_id)
+                    @if($bid->no_of_times < $auction->tiros)
+                      <div class="form-group">
+                        {{ Form::number('bid_amount', null, $attributes =
+                    
+                            array('class' => 'form-control',
+                    
+                            'placeholder' => $enter_amount,
+                    
+                            'ng-model' => 'bid_amount',
+                    
+                            'required' => 'true',
+                    
+                            'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}',
+                    
+                            )) }}
+                        <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
+                      </div>
 
-                    <div class="form-group">
-                      {{ Form::number('bid_amount', null, $attributes =
-                  
-                          array('class' => 'form-control',
-                  
-                          'placeholder' => $enter_amount,
-                  
-                          'ng-model' => 'bid_amount',
-                  
-                          'required' => 'true',
-                  
-                          'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}',
-                  
-                          )) }}
-                      <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
-                    </div>
+                      <div class="form-group">
+                        <input type="hidden" name="bid_auction_id" value="{{$auction->id}}">
+                            <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
+                      </div>
+                      {!! Form::close() !!}
 
-                    <div class="form-group">
-                      <input type="hidden" name="bid_auction_id" value="{{$auction->id}}">
-                          <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
-                    </div>
-                    {!! Form::close() !!}
+                      @else
 
-                    @else
-
-                    <p>Lo sentimos, ya no tiene tiros</p>
-                     
+                      <p>Lo sentimos, ya no tiene tiros</p>
+                      
+                    @endif
                   @endif
-
                 @else
                     {!! Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')) !!}
+
                     <div class="form-group">
                       {{ Form::number('bid_amount', null, $attributes =
                   
@@ -397,9 +397,8 @@ use App\Auction;
                           <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
                     </div>
                     {!! Form::close() !!}
-                  
-                  <?php break; ?>
                 @endif
+
                 
               @endforeach  
 
@@ -620,11 +619,6 @@ use App\Auction;
                                          Precio de reserva
                                       <span>@if($auction->reserve_price) {{$currency_code}} {{$auction->reserve_price}} @endif</span>
                                      </li>
-
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        Invitados
-                                      <span>@if($data->name) {{$currency_code}} {{$data->name}} @endif</span>
-                                    </li>
 
                                      <li class="list-group-item d-flex justify-content-between align-items-center">
 {{--                                      {{getPhrase('reserve_price')}}--}}
@@ -933,7 +927,7 @@ use App\Auction;
     <!--AUCTION DETAILS SECTION END-->
 
     <!--SAME CATEGORY AUCTIONS SECTION-->
-    @include('home.pages.auctions.category-auctions')
+    {{-- @include('home.pages.auctions.category-auctions') --}}
 
     <!--SAME CATEGORY AUCTIONS SECTION-->
 

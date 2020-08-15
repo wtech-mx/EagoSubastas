@@ -2,7 +2,7 @@
 			<div class="col-xs-6"> 	
 
 				<div class="form-group">
-                    {!! Form::label('category', getPhrase('category'), ['class' => 'control-label']) !!}
+                    {!! Form::label('category', getPhrase('Lote'), ['class' => 'control-label']) !!}
 
                     <span class="text-red">*</span>
 
@@ -10,7 +10,7 @@
 
                     array('class' => 'form-control', 
 
-                    'placeholder' => 'Category',
+                    'placeholder' => 'Lote',
 
                     'ng-model' => 'category', 
 
@@ -45,14 +45,14 @@
 
 
                 <div class="form-group">
-                    {!! Form::label('description', getPhrase('description'), ['class' => 'control-label']) !!}
+                    {!! Form::label('description', getPhrase('Descripcion'), ['class' => 'control-label']) !!}
 
                    
                     {{ Form::textarea('description', old('description'), $attributes = 
 
                     array('class' => 'form-control', 
 
-                    'placeholder' => 'Description',
+                    'placeholder' => 'Descripcion',
 
                     'ng-model' => 'description', 
 
@@ -74,7 +74,7 @@
                  
                 <div class="form-group">
 
-                    {!! Form::label('status', getPhrase('status'), ['class' => 'control-label']) !!}
+                    {!! Form::label('status', getPhrase('Estado'), ['class' => 'control-label']) !!}
 
                     <span class="text-red">*</span>
 
@@ -90,7 +90,7 @@
 
                     
 
-                    {{Form::select('status', activeinactive(), $selected, ['placeholder' => getPhrase('select'),'class'=>'form-control select2',
+                    {{Form::select('status', activeinactive(), $selected, ['placeholder' => getPhrase('Seleccionar'),'class'=>'form-control select2',
 
                             'ng-model'=>'status',
 

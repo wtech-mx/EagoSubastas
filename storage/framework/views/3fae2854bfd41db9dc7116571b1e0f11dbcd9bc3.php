@@ -15,12 +15,13 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
-    <h3 class="page-title"><?php echo e(getPhrase('auctions')); ?></h3>
+    
+    <h3 class="page-title">Subasta</h3>
 
      <div class="panel panel-default">
         <div class="panel-heading">
-            <?php echo e(isset($title) ? $title : ''); ?>
-
+            
+                        Subasta
         </div>
 
         
@@ -69,7 +70,8 @@ file.onchange = function(e){
 
             break;
         default:
-               alertify.error("<?php echo e(getPhrase('file_type_not_allowed')); ?>");
+            //    alertify.error("<?php echo e(getPhrase('file_type_not_allowed')); ?>");
+            alertify.error("Tipo de archivo no permitido");
             this.value='';
     }
 };

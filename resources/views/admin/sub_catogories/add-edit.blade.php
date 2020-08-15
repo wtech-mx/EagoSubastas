@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="page-title">{{getPhrase('sub_categories')}}</h3>
+	{{-- <h3 class="page-title">{{getPhrase('sub_categories')}}</h3> --}}
+	<h3 class="page-title">Empresas</h3>
 
      <div class="panel panel-default">
         <div class="panel-heading">
-            {{ isset($title) ? $title : ''}}
+			{{-- {{ isset($title) ? $title : ''}} --}}
+			Crear
         </div>
 
         {{--@include('errors.errors')--}}

@@ -2,15 +2,16 @@
 
 
 <?php $__env->startSection('content'); ?>
-    <h3 class="page-title"> <?php echo e(getPhrase('sub_categories')); ?> </h3>
+    
+    <h3 class="page-title"> Empresas </h3>
     
 
     
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            <?php echo e(getPhrase('list')); ?>
-
+            
+            Lista
 
             <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('sub_catogory_create')): ?>
 
@@ -30,17 +31,17 @@
 
                 <thead>
                     <tr>
-                        <th style="text-align:center;">S.no.</th>
+                        <th style="text-align:center;">No.</th>
 
                        
 
-                        <th>Subcategoria</th>
+                        <th>Empresas</th>
                         
 
-                        <th>Categoria</th>
+                        <th>Lotes</th>
 
 
-                        <th>Status</th>
+                        <th>Estados</th>
 
                        
                         <th>&nbsp;Acciones</th>
@@ -48,7 +49,7 @@
                     </tr>
                 </thead>
 
-               <?php if(count($sub_categories) > 0): ?>
+            <?php if(count($sub_categories) > 0): ?>
                 <tbody>
                     <?php if(count($sub_categories) > 0): ?>
                      <?php $i=0;?>
@@ -85,7 +86,8 @@
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="7"> <?php echo e(getPhrase('no_entries_in_table')); ?> </td>
+                            
+                            <td colspan="7"> no hay entradas en la tabla </td>
                         </tr>
                     <?php endif; ?>
                 </tbody>

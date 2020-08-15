@@ -930,12 +930,11 @@ class AuctionController extends Controller
         ->get();
         //dd($invitacion);
 
-
-
         //CUANDO EXISTEN DATOS EN auctionbidders
         $auctionbidders = AuctionBidder::where('auction_id',$auction->id)
                                         ->select('auction_id', 'no_of_times', 'bidder_id')
                                         ->get();
+       // dd($data['bidder']);
                         
 
 

@@ -22,7 +22,8 @@ $user = Auth::user();
                       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"><i class="fa fa-bars au-icon"></i></span>
                       </button>
-                             <a class="navbar-brand" href="{{PREFIX}}">
+                             {{-- <a class="navbar-brand" href="{{PREFIX}}"> --}}
+                            <a class="navbar-brand" href="">
                               <img class="img-fluid" src="{{IMAGE_PATH_SETTINGS.getSetting('site_logo', 'site_settings')}}" alt="Auction Logo">
                             </a>
 

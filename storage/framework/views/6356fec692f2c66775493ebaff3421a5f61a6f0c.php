@@ -3,7 +3,7 @@
 
                 <div class="form-group">
 
-                    <?php echo Form::label('category', getPhrase('category'), ['class' => 'control-label']); ?>
+                    <?php echo Form::label('category', getPhrase('Lote'), ['class' => 'control-label']); ?>
 
 
                     <span class="text-red">*</span>
@@ -20,7 +20,7 @@
 
                     
 
-                    <?php echo e(Form::select('category_id', $categories, $selected, ['placeholder' => getPhrase('select_category'),'class'=>'form-control select2',
+                    <?php echo e(Form::select('category_id', $categories, $selected, ['placeholder' => getPhrase('Seleccionar Lote'),'class'=>'form-control select2',
 
                             'ng-model'=>'category_id',
 
@@ -46,7 +46,7 @@
 
 
 				<div class="form-group">
-                    <?php echo Form::label('sub_category', getPhrase('sub_category'), ['class' => 'control-label']); ?>
+                    <?php echo Form::label('sub_category', getPhrase('Empresa'), ['class' => 'control-label']); ?>
 
 
                     <span class="text-red">*</span>
@@ -55,7 +55,7 @@
 
                     array('class' => 'form-control', 
 
-                    'placeholder' => 'Sub Category',
+                    'placeholder' => 'Empresa',
 
                     'ng-model' => 'sub_category', 
 
@@ -93,7 +93,7 @@
 
                 <div class="form-group">
 
-                    <?php echo Form::label('status', getPhrase('status'), ['class' => 'control-label']); ?>
+                    <?php echo Form::label('status', getPhrase('Estados'), ['class' => 'control-label']); ?>
 
 
                     <span class="text-red">*</span>
@@ -110,7 +110,7 @@
 
                     
 
-                    <?php echo e(Form::select('status', activeinactive(), $selected, ['placeholder' => getPhrase('select'),'class'=>'form-control select2',
+                    <?php echo e(Form::select('status', activeinactive(), $selected, ['placeholder' => getPhrase('Seleccionar'),'class'=>'form-control select2',
 
                             'ng-model'=>'status',
 
@@ -127,8 +127,8 @@
                     
                         <div class="validation-error" ng-messages="formValidate.status.$error" >
 
-                            <?php echo getValidationMessage(); ?>
-
+                            
+                          No hay entradas en la tabla
 
                         </div>
 
@@ -137,8 +137,8 @@
 
                <div class="form-group">
 
-					<button class="btn btn-primary" ng-disabled='!formValidate.$valid'><?php echo e(getPhrase('save')); ?></button>
 
+                    <button class="btn btn-primary" ng-disabled='!formValidate.$valid'>Agregar</button>
 				</div>
 
 			</div>

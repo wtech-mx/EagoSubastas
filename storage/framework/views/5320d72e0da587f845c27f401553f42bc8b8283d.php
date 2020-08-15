@@ -80,48 +80,6 @@ $active_class='';
             </li>
             <?php endif; ?>
 
-            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('category_access')): ?>
-            <li class="treeview <?php echo e(isActive($active_class,'categories')); ?>">
-                <a href="#">
-                    <i class="fa fa-list"></i>
-                  <!--  <span class="title"> <?php echo e(getPhrase('categories')); ?> </span> -->
-                    <span class="title"> Categorias </span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                
-                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('category_access')): ?>
-                <li class="<?php echo e($request->segment(2) == 'categories' ? 'active active-sub' : ''); ?>">
-                        <a href="<?php echo e(URL_CATEGORIES); ?>">
-                            <i class="fa fa-tags"></i>
-                          <!--  <span class="title">
-                                <?php echo e(getPhrase('category')); ?> 
-                            </span> -->
-                            <span class="title">
-                                Categorias
-                            </span>
-                        </a>
-                    </li>
-                <?php endif; ?>
-                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('sub_catogory_access')): ?>
-                <li class="<?php echo e($request->segment(2) == 'sub_catogories' ? 'active active-sub' : ''); ?>">
-                        <a href="<?php echo e(URL_SUB_CATEGORIES); ?>">
-                            <i class="fa fa-list-alt"></i>
-                            <!-- <span class="title">
-                                <?php echo e(getPhrase('sub_categories')); ?> 
-                            </span> -->
-                            <span class="title">
-                                Subcategorias
-                            </span>
-                        </a>
-                    </li>
-                <?php endif; ?>
-                </ul>
-            </li>
-            <?php endif; ?>
-
             <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('location_master_access')): ?>
             <li class="treeview <?php echo e(isActive($active_class,'locations')); ?>">
                 <a href="#">
@@ -246,7 +204,47 @@ $active_class='';
                 </li>
             <?php endif; ?>
 
-
+            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('category_access')): ?>
+            <li class="treeview <?php echo e(isActive($active_class,'categories')); ?>">
+                <a href="#">
+                    <i class="fa fa-list"></i>
+                  <!--  <span class="title"> <?php echo e(getPhrase('categories')); ?> </span> -->
+                    <span class="title"> Lotes </span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                
+                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('category_access')): ?>
+                <li class="<?php echo e($request->segment(2) == 'categories' ? 'active active-sub' : ''); ?>">
+                        <a href="<?php echo e(URL_CATEGORIES); ?>">
+                            <i class="fa fa-tags"></i>
+                          <!--  <span class="title">
+                                <?php echo e(getPhrase('category')); ?> 
+                            </span> -->
+                            <span class="title">
+                                Lotes
+                            </span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('sub_catogory_access')): ?>
+                <li class="<?php echo e($request->segment(2) == 'sub_catogories' ? 'active active-sub' : ''); ?>">
+                        <a href="<?php echo e(URL_SUB_CATEGORIES); ?>">
+                            <i class="fa fa-list-alt"></i>
+                            <!-- <span class="title">
+                                <?php echo e(getPhrase('sub_categories')); ?> 
+                            </span> -->
+                            <span class="title">
+                                Empresa
+                            </span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+                </ul>
+            </li>
+            <?php endif; ?>
 
 
             <li class="<?php echo e(isActive($active_class,'auctions')); ?>">

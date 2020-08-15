@@ -18,11 +18,13 @@
 @stop
 
 @section('content')
-    <h3 class="page-title">{{getPhrase('auctions')}}</h3>
+    {{-- <h3 class="page-title">{{getPhrase('auctions')}}</h3> --}}
+    <h3 class="page-title">Subasta</h3>
 
      <div class="panel panel-default">
         <div class="panel-heading">
-            {{ isset($title) ? $title : ''}}
+            {{-- {{ isset($title) ? $title : ''}} --}}
+                        Subasta
         </div>
 
         {{--@include('errors.errors')--}}
@@ -68,7 +70,8 @@ file.onchange = function(e){
 
             break;
         default:
-               alertify.error("{{getPhrase('file_type_not_allowed')}}");
+            //    alertify.error("{{getPhrase('file_type_not_allowed')}}");
+            alertify.error("Tipo de archivo no permitido");
             this.value='';
     }
 };

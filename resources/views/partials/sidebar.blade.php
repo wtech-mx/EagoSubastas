@@ -78,48 +78,6 @@ $active_class='';
             </li>
             @endcan
 
-            @can('category_access')
-            <li class="treeview {{ isActive($active_class,'categories')}}">
-                <a href="#">
-                    <i class="fa fa-list"></i>
-                  <!--  <span class="title"> {{getPhrase('categories')}} </span> -->
-                    <span class="title"> Categorias </span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                
-                @can('category_access')
-                <li class="{{ $request->segment(2) == 'categories' ? 'active active-sub' : '' }}">
-                        <a href="{{ URL_CATEGORIES }}">
-                            <i class="fa fa-tags"></i>
-                          <!--  <span class="title">
-                                {{getPhrase('category')}} 
-                            </span> -->
-                            <span class="title">
-                                Categorias
-                            </span>
-                        </a>
-                    </li>
-                @endcan
-                @can('sub_catogory_access')
-                <li class="{{ $request->segment(2) == 'sub_catogories' ? 'active active-sub' : '' }}">
-                        <a href="{{ URL_SUB_CATEGORIES }}">
-                            <i class="fa fa-list-alt"></i>
-                            <!-- <span class="title">
-                                {{getPhrase('sub_categories')}} 
-                            </span> -->
-                            <span class="title">
-                                Subcategorias
-                            </span>
-                        </a>
-                    </li>
-                @endcan
-                </ul>
-            </li>
-            @endcan
-
             @can('location_master_access')
             <li class="treeview {{ isActive($active_class,'locations')}}">
                 <a href="#">
@@ -239,7 +197,47 @@ $active_class='';
                 </li>
             @endcan
 
-
+            @can('category_access')
+            <li class="treeview {{ isActive($active_class,'categories')}}">
+                <a href="#">
+                    <i class="fa fa-list"></i>
+                  <!--  <span class="title"> {{getPhrase('categories')}} </span> -->
+                    <span class="title"> Lotes </span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                
+                @can('category_access')
+                <li class="{{ $request->segment(2) == 'categories' ? 'active active-sub' : '' }}">
+                        <a href="{{ URL_CATEGORIES }}">
+                            <i class="fa fa-tags"></i>
+                          <!--  <span class="title">
+                                {{getPhrase('category')}} 
+                            </span> -->
+                            <span class="title">
+                                Lotes
+                            </span>
+                        </a>
+                    </li>
+                @endcan
+                @can('sub_catogory_access')
+                <li class="{{ $request->segment(2) == 'sub_catogories' ? 'active active-sub' : '' }}">
+                        <a href="{{ URL_SUB_CATEGORIES }}">
+                            <i class="fa fa-list-alt"></i>
+                            <!-- <span class="title">
+                                {{getPhrase('sub_categories')}} 
+                            </span> -->
+                            <span class="title">
+                                Empresa
+                            </span>
+                        </a>
+                    </li>
+                @endcan
+                </ul>
+            </li>
+            @endcan
 
 
             <li class="{{ isActive($active_class,'auctions')}}">
