@@ -265,31 +265,37 @@ use App\Auction;
               <?php endif; ?>
 
                 <?php else: ?>
-                <?php echo Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')); ?>
+                  <?php if($bid->no_of_times < $auction->tiros): ?>
+                  <?php echo Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')); ?>
 
-                <div class="form-group">
-                      <?php echo e(Form::select('bid_amount', $bid_options, null, ['placeholder'=>'select',
+                  <div class="form-group">
+                        <?php echo e(Form::select('bid_amount', $bid_options, null, ['placeholder'=>'select',
 
-                        'class'=>'form-control',
+                          'class'=>'form-control',
 
-                        'ng-model'=>'bid_amount',
+                          'ng-model'=>'bid_amount',
 
-                        'required'=> 'true',
+                          'required'=> 'true',
 
-                        'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}'
+                          'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}'
 
-                    ])); ?>
+                      ])); ?>
 
 
-                  <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
-                </div>
+                    <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
+                  </div>
 
-                <div class="form-group">
-                  <input type="hidden" name="bid_auction_id" value="<?php echo e($auction->id); ?>">
-                      <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
-                </div>
-                <?php echo Form::close(); ?>
+                  <div class="form-group">
+                    <input type="hidden" name="bid_auction_id" value="<?php echo e($auction->id); ?>">
+                        <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
+                  </div>
+                  <?php echo Form::close(); ?>
 
+
+                  <?php else: ?>
+                  <p>Lo sentimos, ya no tiene tiros</p>
+                  <?php endif; ?>
+                  
             <?php endif; ?>
             <?php break; ?>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>  
@@ -379,7 +385,7 @@ use App\Auction;
                      
                   <?php endif; ?>
 
-                  <?php else: ?>
+                <?php else: ?>
                     <?php echo Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')); ?>
 
                     <div class="form-group">
@@ -406,8 +412,10 @@ use App\Auction;
                     </div>
                     <?php echo Form::close(); ?>
 
+                  
+                  <?php break; ?>
                 <?php endif; ?>
-                <?php break; ?>
+                
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>  
 
             <?php break; ?>
