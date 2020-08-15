@@ -14,6 +14,7 @@ use App\Category;
 use App\SubCatogory;
 use App\Auction;
 use App\User;
+use App\Invitaciones;
 use App\City;
 use App\Favouriteauction;
 
@@ -927,10 +928,19 @@ class AuctionController extends Controller
 
         $invitacion = DB::table('invitaciones')
         ->get();
-          //dd($invitacion);
+        //dd($invitacion);
 
-        $auctionbidders = DB::table('auctionbidders')
-          ->get();
+
+
+        //CUANDO EXISTEN DATOS EN auctionbidders
+        $auctionbidders = AuctionBidder::where('auction_id',$auction->id)
+                                        ->select('auction_id', 'no_of_times', 'bidder_id')
+                                        ->get();
+                        
+
+
+        
+           //dd($auctions);
           //dd($auctionbidders);
         
         return view('home.pages.auctions.auction-details', $data, compact('invitacion', 'auctionbidders'));
