@@ -1135,7 +1135,18 @@ class AuctionController extends Controller
         $data['layout']         = getLayout();
         $data['title']          = getPhrase('live_auction').'::'.$auction->title;
         $data['breadcrumb']     = TRUE;
-        return view('home.pages.auctions.live-auction', $data);
+
+        $invitacion = DB::table('invitaciones')
+        ->get();
+        //dd($invitacion);
+
+        //CUANDO EXISTEN DATOS EN auctionbidders
+        $auctionbidders = AuctionBidder::where('auction_id',$auction->id)
+                                        ->select('auction_id', 'no_of_times', 'bidder_id')
+                                        ->get();
+     // dd($auctionbidders);
+
+        return view('home.pages.auctions.live-auction', $data, compact('invitacion', 'auctionbidders'));
     }
     
     public function auctionInfo(Request $request)

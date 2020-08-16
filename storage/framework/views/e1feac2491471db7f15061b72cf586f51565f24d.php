@@ -1,8 +1,12 @@
-
+<?php 
+$user = Auth::user();
+use App\AuctionBidder;
+use App\Auction;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Live Auction :: <?php echo e($auction->title); ?></title>
+  <title>Subasta en Vivo :: <?php echo e($auction->title); ?></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -40,108 +44,163 @@
 </head>
 <body class="bidding-page">
 
+<?php $__currentLoopData = $invitacion; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php if($user->email == $item->email): ?>
+		<?php if($auction->id == $item->auction_id): ?>
+			<div class="container">
+					<?php
 
-<div class="container">
-		<?php
+					$currency_code = getSetting('currency_code','site_settings');
 
-		$currency_code = getSetting('currency_code','site_settings');
+					$date_format = getSetting('date_format','site_settings');
 
-		$date_format = getSetting('date_format','site_settings');
-
-		$live_auction_date = date($date_format, strtotime($auction->live_auction_date));
-
-
-		/*	$enter_amount = 'Enter amount ';
-		if (isset($last_bid) && !empty($last_bid->bid_amount))
-		  $enter_amount .= '> '.$last_bid->bid_amount;
-		elseif ($auction->minimum_bid>0)
-		  $enter_amount .= '> '.$auction->minimum_bid;*/
+					$live_auction_date = date($date_format, strtotime($auction->live_auction_date));
 
 
-		 //placeholder
-		$enter_amount = 'Ingrese el monto';
-		if ($auction->is_bid_increment && $auction->bid_increment>0) {
-		  //if increment = add incremental cost +current one=show to user
-
-		  if (isset($bidding) && !empty($bidding->bid_amount)) {
-			 $amnt = $bidding->bid_amount+$auction->bid_increment;
-			 $enter_amount .= ' = '.$amnt;
-		  }
-		  elseif ($auction->minimum_bid>0)
-			$enter_amount .= ' > '.$auction->minimum_bid;
-
-		} else {
-		  //if not incremental
-		  if (isset($bidding) && !empty($bidding->bid_amount))
-			$enter_amount .= '> '.$bidding->bid_amount;
-		  elseif ($auction->minimum_bid>0)
-			$enter_amount .= '> '.$auction->minimum_bid;
-		}
+					/*	$enter_amount = 'Enter amount ';
+					if (isset($last_bid) && !empty($last_bid->bid_amount))
+					$enter_amount .= '> '.$last_bid->bid_amount;
+					elseif ($auction->minimum_bid>0)
+					$enter_amount .= '> '.$auction->minimum_bid;*/
 
 
+					//placeholder
+					$enter_amount = 'Ingrese el monto';
+					if ($auction->is_bid_increment && $auction->bid_increment>0) {
+					//if increment = add incremental cost +current one=show to user
+
+					if (isset($bidding) && !empty($bidding->bid_amount)) {
+						$amnt = $bidding->bid_amount+$auction->bid_increment;
+						$enter_amount .= ' = '.$amnt;
+					}
+					elseif ($auction->minimum_bid>0)
+						$enter_amount .= ' > '.$auction->minimum_bid;
+
+					} else {
+					//if not incremental
+					if (isset($bidding) && !empty($bidding->bid_amount))
+						$enter_amount .= '> '.$bidding->bid_amount;
+					elseif ($auction->minimum_bid>0)
+						$enter_amount .= '> '.$auction->minimum_bid;
+					}
 
 
-		?>
-
-	<div class="row">
-			<h1 class="text-center" style="color: #fff;padding: 5px;"><strong>Estas en una Subasta en vivo</strong></h1>
-			<div class="col-md-12">
-
-					<div class="col-md-6 bid-data" style="background-color: #05123F">
-							<h1 class="text-center" style="color: #fff;">Detalles de Subasta</h1>
-						<div class="form-group bid-form-group">
-							<div class="col-6" >
-								<p  class="text-center" style="color: #05123F;background: white;padding: 16px;border-radius: 10px;font-size: 15px">Precio de reserva <?php echo e($currency_code); ?><?php echo e($auction->reserve_price); ?></p>
-							</div>
-							<div class="col-6">
-								<p class="text-center" style="color: #05123F;background: white;padding: 16px;border-radius: 10px;font-size: 15px">Termina en <?php echo e($live_auction_date); ?> <?php echo e($auction->live_auction_end_time); ?></p>
-							</div>
 
 
-							<p class="text-center" style="font-size: 20px" id="demo"></p>
+					?>
+
+				<div class="row">
+						<h1 class="text-center" style="color: #fff;padding: 5px;"><strong>Estas en una Subasta en vivo</strong></h1>
+						<div class="col-md-12">
+
+								<div class="col-md-6 bid-data" style="background-color: #05123F">
+										<h1 class="text-center" style="color: #fff;">Detalles de Subasta</h1>
+									<div class="form-group bid-form-group">
+										<div class="col-6" >
+											<p  class="text-center" style="color: #05123F;background: white;padding: 16px;border-radius: 10px;font-size: 15px">Precio de reserva <?php echo e($currency_code); ?><?php echo e($auction->reserve_price); ?></p>
+										</div>
+										<div class="col-6">
+											<p class="text-center" style="color: #05123F;background: white;padding: 16px;border-radius: 10px;font-size: 15px">Termina en <?php echo e($live_auction_date); ?> <?php echo e($auction->live_auction_end_time); ?></p>
+										</div>
+
+
+										<p class="text-center" style="font-size: 20px" id="demo"></p>
+									</div>
+									<?php if(AuctionBidder::where('auction_id', '=', $auction->id)->exists()): ?> 
+            
+									<?php $__currentLoopData = $auctionbidders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+									  <?php if($auction->id == $item->auction_id): ?>
+										<?php $__currentLoopData = $auctionbidders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+										  <?php if(AuctionBidder::where('bidder_id', '=', $user->id)->exists()): ?> 
+											<?php if($user->id == $bid->bidder_id): ?>
+											  <?php if($bid->no_of_times < $auction->tiros): ?>
+							
+											  <div class="form-group bid-form-group">
+												<input type="number" class="form-control form-control-sm" id="bid_amount" placeholder="<?php echo e($enter_amount); ?>" style="color: #fff">
+											
+												<?php if($bid_options): ?>
+													<small>+<?php echo e($auction->bid_increment); ?></small>
+												<?php endif; ?>
+											</div>
+											
+											<div class="form-group" align="right">
+												<button type="submit" id="au_submit" class="btn btn-success bid-submit-btn" style="padding:3px 16px;">Hacer oferta</button>
+											</div>
+							
+												<?php else: ?>
+												<br>
+												<p class="text-center" style="color: #fbfcff;">Usos todos sus tiros disponibles</p>
+												
+											  <?php endif; ?>
+											<?php endif; ?>
+										  <?php else: ?>
+										  <div class="form-group bid-form-group">
+											<input type="number" class="form-control form-control-sm" id="bid_amount" placeholder="<?php echo e($enter_amount); ?>" style="color: #fff">
+										
+											<?php if($bid_options): ?>
+												<small>+<?php echo e($auction->bid_increment); ?></small>
+											<?php endif; ?>
+										</div>
+										
+										<div class="form-group" align="right">
+											<button type="submit" id="au_submit" class="btn btn-success bid-submit-btn" style="padding:3px 16px;">Hacer oferta</button>
+										</div>
+										  <?php endif; ?>
+							
+										  
+										<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>  
+							
+									  <?php break; ?>
+									  <?php endif; ?>
+									<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>   
+							
+								  <?php else: ?>
+							
+								<div class="form-group bid-form-group">
+									<input type="number" class="form-control form-control-sm" id="bid_amount" placeholder="<?php echo e($enter_amount); ?>" style="color: #fff">
+								
+									<?php if($bid_options): ?>
+										<small>+<?php echo e($auction->bid_increment); ?></small>
+									<?php endif; ?>
+								</div>
+								
+								<div class="form-group" align="right">
+									<button type="submit" id="au_submit" class="btn btn-success bid-submit-btn" style="padding:3px 16px;">Hacer oferta</button>
+								</div>
+							
+								  <?php endif; ?>
+
+
+									<div class="bid-loader" style="display:none;" id="bid_loader"><img src="<?php echo e(AJAXLOADER); ?>"> <?php echo e(trans('please_wait')); ?>...</div>
+
+								</div>
+
+								<div class="col-md-6" style="padding: 10px">
+									<div id="latest_bids" style="background-color: #05123F" style="padding: 10px">
+										<h1 class="text-center" style="color: #fff;">Pujas</h1>
+										<?php if(count($live_biddings)): ?>
+
+
+										<ul class="list-group" style="padding: 10px">
+										<?php $__currentLoopData = $live_biddings; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+											<li class="list-group-item d-flex justify-content-between align-items-center" style="font-size: 15px;">
+												<?php echo e($bid->name); ?>
+
+												<span class="badge badge-primary badge-pill" style="font-size: 15px;padding: 10px"> <?php echo e($currency_code); ?> <?php echo e($bid->bid_amount); ?></span>
+											</li>
+										<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+										</ul>
+
+
+										<?php endif; ?>
+									</div>
+								</div>
 						</div>
-
-						<div class="form-group bid-form-group">
-						  <input type="number" class="form-control form-control-sm" id="bid_amount" placeholder="<?php echo e($enter_amount); ?>" style="color: #fff">
-
-						  <?php if($bid_options): ?>
-							<small>+<?php echo e($auction->bid_increment); ?></small>
-						  <?php endif; ?>
-						</div>
-
-
-						<div class="form-group" align="right">
-							<button type="submit" id="au_submit" class="btn btn-success bid-submit-btn" style="padding:3px 16px;">Hacer oferta</button>
-						</div>
-						<div class="bid-loader" style="display:none;" id="bid_loader"><img src="<?php echo e(AJAXLOADER); ?>"> <?php echo e(trans('please_wait')); ?>...</div>
-
-					</div>
-
-					<div class="col-md-6" style="padding: 10px">
-						<div id="latest_bids" style="background-color: #05123F" style="padding: 10px">
-							<h1 class="text-center" style="color: #fff;">Pujas</h1>
-							<?php if(count($live_biddings)): ?>
-
-
-							<ul class="list-group" style="padding: 10px">
-							 <?php $__currentLoopData = $live_biddings; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-								  <li class="list-group-item d-flex justify-content-between align-items-center" style="font-size: 15px;">
-									<?php echo e($bid->name); ?>
-
-									<span class="badge badge-primary badge-pill" style="font-size: 15px;padding: 10px"> <?php echo e($currency_code); ?> <?php echo e($bid->bid_amount); ?></span>
-								  </li>
-							  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-							</ul>
-
-
-							<?php endif; ?>
-            		    </div>
-             		</div>
+				</div>
 			</div>
-	</div>
-</div>
-
-
+		<?php endif; ?>
+	<?php endif; ?>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
 <script>
@@ -301,12 +360,13 @@ alertify.set('notifier','position', 'top-right');
 
 
 		        	}
-
+					location.reload();
 				},
 				'error' : function(request,error)
 				{
 				    // console.log("Request: "+JSON.stringify(request));
 				}
+				
 			});
 
 
