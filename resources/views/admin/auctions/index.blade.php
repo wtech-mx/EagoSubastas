@@ -8,7 +8,9 @@
        
    
     
-<?php 
+<?php
+$mytime = Carbon\Carbon::now();
+$dt = new DateTime();
 $date_format = getSetting('date_format','site_settings');
 
 ?>
@@ -106,17 +108,23 @@ $date_format = getSetting('date_format','site_settings');
                                         {{ $auction->live_auction_end_time }}
                                     @endif
                                     )
-                                    @endif </td>
+                                    @endif
+                                </td>
 
                                 <td>
-                                    
+                                    {{--<p>  date(getSetting('date_format','site_settings').' H:i:s', strtotime($auction->end_date));  $dt->format('d-m-Y H:i:s'); </p> --}}
 {{--                                    <a href="{{URL_AUCTIONS_VIEW}}{{$auction->slug}}" class="btn btn-xs btn-primary"> {{getPhrase('view')}} </a>--}}
-                                    <a href="{{URL_AUCTIONS_VIEW}}{{$auction->slug}}" class="btn btn-xs btn-primary"> Ver</a>
+                                    <a href="{{URL_AUCTIONS_VIEW}}{{$auction->slug}}" class="btn btn-xs btn-primary"> <?php  ?>  Ver</a>
                                    
 {{--                                    <a href="{{ URL_AUCTIONS_EDIT }}/{{$auction->slug}}" class="btn btn-xs btn-info"> {{getPhrase('edit')}} </a>--}}
-                                    <a href="{{ URL_AUCTIONS_EDIT }}/{{$auction->slug}}" class="btn btn-xs btn-info"> Editar</a>
-                                   <a href="{{ URL_AUCTIONS_Invitaciones }}/{{$auction->slug}}" class="btn btn-xs btn-info"> Invitaciones</a>
-                                    
+                                    @if(date(getSetting('date_format','site_settings').' H:i:s', strtotime($auction->end_date))  > $dt->format('d-m-Y H:i:s'))
+                                        <a href="{{ URL_AUCTIONS_EDIT }}/{{$auction->slug}}" class="btn btn-xs btn-info"> Editar</a>
+                                        <a href="{{ URL_AUCTIONS_Invitaciones }}/{{$auction->slug}}" class="btn btn-xs btn-info"> Invitaciones</a>
+                                        @else
+                                        <a disabled href="{{ URL_AUCTIONS_EDIT }}/{{$auction->slug}}" class="btn btn-xs btn-info"> Editar</a>
+                                        <a disabled href="{{ URL_AUCTIONS_Invitaciones }}/{{$auction->slug}}" class="btn btn-xs btn-info"> Invitaciones</a>
+                                    @endif
+
                                 </td>
 
 
