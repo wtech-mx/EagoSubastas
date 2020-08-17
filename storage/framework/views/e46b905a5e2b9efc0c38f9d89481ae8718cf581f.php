@@ -8,7 +8,9 @@
        
    
     
-<?php 
+<?php
+$mytime = Carbon\Carbon::now();
+$dt = new DateTime();
 $date_format = getSetting('date_format','site_settings');
 
 ?>
@@ -109,17 +111,23 @@ $date_format = getSetting('date_format','site_settings');
 
                                     <?php endif; ?>
                                     )
-                                    <?php endif; ?> </td>
+                                    <?php endif; ?>
+                                </td>
 
                                 <td>
                                     
 
-                                    <a href="<?php echo e(URL_AUCTIONS_VIEW); ?><?php echo e($auction->slug); ?>" class="btn btn-xs btn-primary"> Ver</a>
+                                    <a href="<?php echo e(URL_AUCTIONS_VIEW); ?><?php echo e($auction->slug); ?>" class="btn btn-xs btn-primary"> <?php  ?>  Ver</a>
                                    
 
-                                    <a href="<?php echo e(URL_AUCTIONS_EDIT); ?>/<?php echo e($auction->slug); ?>" class="btn btn-xs btn-info"> Editar</a>
-                                   <a href="<?php echo e(URL_AUCTIONS_Invitaciones); ?>/<?php echo e($auction->slug); ?>" class="btn btn-xs btn-info"> Invitaciones</a>
-                                    
+                                    <?php if(date(getSetting('date_format','site_settings').' H:i:s', strtotime($auction->end_date))  > $dt->format('d-m-Y H:i:s')): ?>
+                                        <a href="<?php echo e(URL_AUCTIONS_EDIT); ?>/<?php echo e($auction->slug); ?>" class="btn btn-xs btn-info"> Editar</a>
+                                        <a href="<?php echo e(URL_AUCTIONS_Invitaciones); ?>/<?php echo e($auction->slug); ?>" class="btn btn-xs btn-info"> Invitaciones</a>
+                                        <?php else: ?>
+                                        <a disabled href="<?php echo e(URL_AUCTIONS_EDIT); ?>/<?php echo e($auction->slug); ?>" class="btn btn-xs btn-info"> Editar</a>
+                                        <a disabled href="<?php echo e(URL_AUCTIONS_Invitaciones); ?>/<?php echo e($auction->slug); ?>" class="btn btn-xs btn-info"> Invitaciones</a>
+                                    <?php endif; ?>
+
                                 </td>
 
 

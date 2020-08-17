@@ -3,7 +3,7 @@
 
 <?php $__env->startSection('content'); ?>
     
-    <h3 class="page-title"> Empresas </h3>
+    <h3 class="page-title"> Lotes </h3>
     
 
     
@@ -35,10 +35,10 @@
 
                        
 
-                        <th>Empresas</th>
+                        <th>Lotes</th>
                         
 
-                        <th>Lotes</th>
+                        <th>Empresas</th>
 
 
                         <th>Estados</th>
