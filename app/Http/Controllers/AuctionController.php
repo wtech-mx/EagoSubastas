@@ -530,7 +530,7 @@ class AuctionController extends Controller
                                 ->select(['auctions.id','auctions.title','auctions.slug',
                                           'auctions.description','auctions.image',
                                           'auctions.reserve_price','auctions.auction_status',
-                                          'auctions.start_date','auctions.end_date'])
+                                          'auctions.start_date','auctions.end_date', 'auctions.sub_category_id'])
                                 ->where($cond)
                                 ->whereIn('auctions.auction_status',$auction_status)
                                 ->whereIn('auctions.sub_category_id',$sub_categories)
@@ -547,7 +547,7 @@ class AuctionController extends Controller
                                 ->select(['auctions.id','auctions.title','auctions.slug',
                                           'auctions.description','auctions.image',
                                           'auctions.reserve_price','auctions.auction_status',
-                                          'auctions.start_date','auctions.end_date'])
+                                          'auctions.start_date','auctions.end_date', 'auctions.sub_category_id'])
                                 ->where($cond)
                                 ->whereIn('auctions.auction_status',$auction_status)
                                 ->whereIn('auctions.sub_category_id',$sub_categories)
@@ -566,7 +566,7 @@ class AuctionController extends Controller
                                 ->select(['auctions.id','auctions.title','auctions.slug',
                                           'auctions.description','auctions.image',
                                           'auctions.reserve_price','auctions.auction_status',
-                                          'auctions.start_date','auctions.end_date'])
+                                          'auctions.start_date','auctions.end_date', 'auctions.sub_category_id'])
                                 ->where($cond)
                                 ->whereIn('auctions.auction_status',$auction_status)
                                 ->whereIn('auctions.sub_category_id',$sub_categories)
@@ -581,7 +581,7 @@ class AuctionController extends Controller
                                 ->select(['auctions.id','auctions.title','auctions.slug',
                                           'auctions.description','auctions.image',
                                           'auctions.reserve_price','auctions.auction_status',
-                                          'auctions.start_date','auctions.end_date'])
+                                          'auctions.start_date','auctions.end_date', 'auctions.sub_category_id'])
                                 ->where($cond)
                                 ->whereIn('auctions.auction_status',$auction_status)
                                 ->whereIn('auctions.sub_category_id',$sub_categories)
@@ -602,7 +602,7 @@ class AuctionController extends Controller
                                     ->select(['auctions.id','auctions.title','auctions.slug',
                                               'auctions.description','auctions.image',
                                               'auctions.reserve_price','auctions.auction_status',
-                                              'auctions.start_date','auctions.end_date'])
+                                              'auctions.start_date','auctions.end_date', 'auctions.sub_category_id'])
                                     ->where($cond)
                                     ->whereIn('auctions.auction_status',$auction_status)
                                     ->whereIn('users.city_id',$selected_cities)
@@ -617,7 +617,7 @@ class AuctionController extends Controller
                                 ->select(['auctions.id','auctions.title','auctions.slug',
                                           'auctions.description','auctions.image',
                                           'auctions.reserve_price','auctions.auction_status',
-                                          'auctions.start_date','auctions.end_date'])
+                                          'auctions.start_date','auctions.end_date', 'auctions.sub_category_id'])
                                 ->where($cond)
                                 ->whereIn('auctions.auction_status',$auction_status)
                                 ->whereIn('users.city_id',$selected_cities)
@@ -636,7 +636,7 @@ class AuctionController extends Controller
                             ->select(['auctions.id','auctions.title','auctions.slug',
                                       'auctions.description','auctions.image',
                                       'auctions.reserve_price','auctions.auction_status',
-                                      'auctions.start_date','auctions.end_date'])
+                                      'auctions.start_date','auctions.end_date', 'auctions.sub_category_id'])
                             ->where($cond)
                             ->whereIn('auctions.auction_status',$auction_status)
                             ->whereIn('users.id',$sellers)
@@ -649,7 +649,7 @@ class AuctionController extends Controller
                             ->select(['auctions.id','auctions.title','auctions.slug',
                                       'auctions.description','auctions.image',
                                       'auctions.reserve_price','auctions.auction_status',
-                                      'auctions.start_date','auctions.end_date'])
+                                      'auctions.start_date','auctions.end_date', 'auctions.sub_category_id'])
                             ->where($cond)
                             ->whereIn('auctions.auction_status',$auction_status)
                             ->orderBy('auctions.id','desc')->paginate(PAGINATE_RECORDS);
@@ -679,7 +679,7 @@ class AuctionController extends Controller
                 ->select(['auctions.id','auctions.title','auctions.slug',
                           'auctions.description','auctions.image',
                           'auctions.reserve_price','auctions.auction_status',
-                          'auctions.start_date','auctions.end_date'])
+                          'auctions.start_date','auctions.end_date', 'auctions.sub_category_id'])
                 ->where($cond)
                 ->whereIn('auctions.sub_category_id',$sub_categories)
                 ->orderBy('auctions.id','desc')->paginate(PAGINATE_RECORDS);
@@ -702,25 +702,46 @@ class AuctionController extends Controller
                 ->select(['auctions.id','auctions.title','auctions.slug',
                           'auctions.description','auctions.image',
                           'auctions.reserve_price','auctions.auction_status',
-                          'auctions.start_date','auctions.end_date'])
+                          'auctions.start_date','auctions.end_date', 'auctions.sub_category_id'])
                 ->where($cond)
                 ->orderBy('auctions.id','desc')->paginate(PAGINATE_RECORDS);
-
+                
             }
             
         }
-
-            $invitacion = DB::table('invitaciones')
-                            ->get();
-                            //dd($invitacion);
-
-
         $auctions->withPath(URL_HOME_AUCTIONS);
         
         
         $data['auctions'] = $auctions;
+       // dd($auctions);
+        $subcategoria = DB::table('sub_catogories')
+                            ->get();
+                           // dd($subcategoria);
+  
+        $auctionbidders=DB::table('auctionbidders') 
+                           ->get();
         
-       
+        $invitacion = DB::table('invitaciones')
+                            ->get();
+                            //dd($invitacion);
+        
+        $cond2[] = ['auctionbidders.is_bidder_won','=','Yes'];
+               // dd($auctions);
+           
+        $auctionbidders2=DB::table('auctionbidders') 
+                        ->where($cond2)
+                        ->count();
+                       // dd( $auctionbidders2);
+        
+        $auction = DB::table('auctions')
+                    ->get();
+
+        
+        // $auctions2 = Auction::where('sub_category_id',$subcategoria->id)
+        //                     ->select('id','sub_category_id')
+        //                     ->get();
+        //                     dd($auctions2);
+        // $lotes = ['auctions.sub_category_id','=','subcategoria.id'];
 
         $data['active_class']   = 'auctions';
         $data['layout']         = getLayout();
@@ -732,7 +753,7 @@ class AuctionController extends Controller
             return view('home.pages.auctions.ajax_auctions', ['auctions' => $auctions])->render();  
         }
         // Auction::paginate(3);
-        return view('home.pages.auctions.auctions', $data, compact('invitacion'));
+        return view('home.pages.auctions.auctions', $data, compact('invitacion', 'subcategoria', 'auctionbidders2', 'auctionbidders', 'auction'));
     }
 
     /**
@@ -931,10 +952,31 @@ class AuctionController extends Controller
         //dd($invitacion);
 
         //CUANDO EXISTEN DATOS EN auctionbidders
-        $auctionbidders = AuctionBidder::where('auction_id',$auction->id)
-                                        ->select('auction_id', 'no_of_times', 'bidder_id')
+        $auctionbidders = AuctionBidder::select('auction_id', 'no_of_times', 'bidder_id', 'subcategoria')
                                         ->get();
+
+        $subcategoria = SubCatogory::select('id', 'articulos')
+                            ->get();
+
+
        // dd($data['bidder']);
+      
+       // dd($auctions);
+    //    $auctionbidders2=DB::table('auctionbidders') 
+    //             ->where('subcategoria',$subcategoria->id)
+    //             ->where($cond2)
+    //             ->count();
+
+
+        $cond2[] = ['auctionbidders.is_bidder_won','=','Yes'];
+
+        $auctionbidders2 = DB::table('auctionbidders')
+                            ->where($cond2)
+                            ->count();
+
+                
+
+               // dd($auctionbidders2);
                         
 
 
@@ -942,7 +984,7 @@ class AuctionController extends Controller
            //dd($auctions);
           //dd($auctionbidders);
         
-        return view('home.pages.auctions.auction-details', $data, compact('invitacion', 'auctionbidders'));
+        return view('home.pages.auctions.auction-details', $data, compact('invitacion', 'auctionbidders', 'auctionbidders2', 'subcategoria'));
 
     }
 
