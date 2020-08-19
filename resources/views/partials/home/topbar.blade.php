@@ -133,12 +133,8 @@ $user = Auth::user();
 
                                        @if (Auth::check())
                                        <li>
-                                               <a href="{{URL_DASHBOARD}}" title="Dashboard" > Panel Cotrol</a>
-                                       </li>
 
-                                       <li>
-
-                                            <a href="">Bienvenido: {{$user->email}} </a>
+                                            <a href="{{URL_DASHBOARD}}">Bienvenido: {{$user->email}} </a>
 
                                        </li>
                                        @endif

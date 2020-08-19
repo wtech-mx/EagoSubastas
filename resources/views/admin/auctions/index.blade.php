@@ -3,18 +3,18 @@
 
 @section('content')
     <h3 class="page-title"> {{getPhrase('auctions')}} </h3>
-    
-    
-       
-   
-    
+
+
+
+
+
 <?php
 $mytime = Carbon\Carbon::now();
 $dt = new DateTime();
 $date_format = getSetting('date_format','site_settings');
 
 ?>
-    
+
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -29,7 +29,7 @@ $date_format = getSetting('date_format','site_settings');
             <table class="table table-bordered table-striped datatable">
                 <thead>
                     <tr>
-                        
+
                         <th style="text-align:center;">S.no.</th>
 {{--                        <th> {{getPhrase('image')}} </th>--}}
                         <th> IMAGEN</th>
@@ -59,10 +59,10 @@ $date_format = getSetting('date_format','site_settings');
 
 {{--                        <th> {{getPhrase('live_auction')}} </th>--}}
                         <th> SUBASTA ENVIVO</th>
-                       
+
 {{--                        <th>&nbsp;</th>--}}
                         <th>ACCIONES</th>
-                        
+
 
                     </tr>
                 </thead>
@@ -73,9 +73,9 @@ $date_format = getSetting('date_format','site_settings');
                         @foreach ($auctions as $auction)
                          <?php $i++;?>
                             <tr data-entry-id="{{ $auction->id }}">
-                              
+
                                 <td style="text-align:center;">{{$i}}</td>
-                     
+
                                 <td field-key='image'> <a href="{{getAuctionImage($auction->image,'auction')}}" target="_blank"><img src="{{getAuctionImage($auction->image)}}" alt="{{$auction->title}}" width="50" /> </a> </td>
 
                                 <td> {{$auction->title}} </td>
@@ -94,9 +94,9 @@ $date_format = getSetting('date_format','site_settings');
 
                                 <td>{{ $auction->admin_status }}</td>
 
-                                <td> @if ($auction->live_auction_date) 
+                                <td> @if ($auction->live_auction_date)
 
-                                    <?php echo date(getSetting('date_format','site_settings'), strtotime($auction->live_auction_date));?> 
+                                    <?php echo date(getSetting('date_format','site_settings'), strtotime($auction->live_auction_date));?>
                                     (
                                     @if ($auction->live_auction_start_time)
                                         {{ $auction->live_auction_start_time }}
@@ -107,7 +107,7 @@ $date_format = getSetting('date_format','site_settings');
                                     @if ($auction->live_auction_end_time)
                                         {{ $auction->live_auction_end_time }}
                                     @endif
-                                    )
+                                    ) Licitadores de subasta
                                     @endif
                                 </td>
 
@@ -115,13 +115,13 @@ $date_format = getSetting('date_format','site_settings');
                                     {{--<p>  date(getSetting('date_format','site_settings').' H:i:s', strtotime($auction->end_date));  $dt->format('d-m-Y H:i:s'); </p> --}}
 {{--                                    <a href="{{URL_AUCTIONS_VIEW}}{{$auction->slug}}" class="btn btn-xs btn-primary"> {{getPhrase('view')}} </a>--}}
                                     <a href="{{URL_AUCTIONS_VIEW}}{{$auction->slug}}" class="btn btn-xs btn-primary"> <?php  ?>  Ver</a>
-                                   
+
 {{--                                    <a href="{{ URL_AUCTIONS_EDIT }}/{{$auction->slug}}" class="btn btn-xs btn-info"> {{getPhrase('edit')}} </a>--}}
                                     @if(date(getSetting('date_format','site_settings').' H:i:s', strtotime($auction->end_date))  > $dt->format('d-m-Y H:i:s'))
                                         <a href="{{ URL_AUCTIONS_EDIT }}/{{$auction->slug}}" class="btn btn-xs btn-info"> Editar</a>
-                                      
+
                                         @else
-                                        <a disabled href="{{ URL_AUCTIONS_EDIT }}/{{$auction->slug}}" class="btn btn-xs btn-info"> Editar</a>
+
                                     @endif
 
                                 </td>
@@ -142,10 +142,10 @@ $date_format = getSetting('date_format','site_settings');
 @stop
 
 
-@section('footer_scripts') 
+@section('footer_scripts')
 
 
-    @can('content_page_delete') 
+    @can('content_page_delete')
     @include('common.deletescript', array('route'=>URL_AUCTIONS_DELETE))
     @endcan
 
@@ -153,4 +153,4 @@ $date_format = getSetting('date_format','site_settings');
 
 
 
-@endsection        
+@endsection
