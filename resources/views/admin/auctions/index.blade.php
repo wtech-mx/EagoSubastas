@@ -107,7 +107,7 @@ $date_format = getSetting('date_format','site_settings');
                                     @if ($auction->live_auction_end_time)
                                         {{ $auction->live_auction_end_time }}
                                     @endif
-                                    )
+                                    ) Licitadores de subasta
                                     @endif
                                 </td>
 
@@ -121,8 +121,8 @@ $date_format = getSetting('date_format','site_settings');
                                         <a href="{{ URL_AUCTIONS_EDIT }}/{{$auction->slug}}" class="btn btn-xs btn-info"> Editar</a>
                                         <a href="{{ URL_AUCTIONS_Invitaciones }}/{{$auction->slug}}" class="btn btn-xs btn-info"> Invitaciones</a>
                                         @else
-                                        <a disabled href="{{ URL_AUCTIONS_EDIT }}/{{$auction->slug}}" class="btn btn-xs btn-info"> Editar</a>
-                                        <a disabled href="{{ URL_AUCTIONS_Invitaciones }}/{{$auction->slug}}" class="btn btn-xs btn-info"> Invitaciones</a>
+                                        <a readonly href="{{ URL_AUCTIONS_EDIT }}/{{$auction->slug}}" class="btn btn-xs btn-info"> Editar</a>
+                                        <a readonly href="{{ URL_AUCTIONS_Invitaciones }}/{{$auction->slug}}" class="btn btn-xs btn-info"> Invitaciones</a>
                                     @endif
 
                                 </td>
