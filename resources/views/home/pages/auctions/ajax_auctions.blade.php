@@ -9,11 +9,11 @@ $user = Auth::user();
     @if ($user->email == $item->email)
         @if (count($auctions))  
 
-          @foreach ($auctions as $auction)
-            @if ($auction->id == $item->auction_id)
+        @foreach ($auctions as $auction)
+            @if ($auction->sub_category_id == $item->auction_id)
                 
             
-
+         
             <div class="col-lg-4 col-md-6 col-sm-6 au-item-categorys">
               <div class="card au-cards">
                 @if (Auth::user())
@@ -54,6 +54,7 @@ $user = Auth::user();
                 </div>
               </div>
             </div>
+            
             @endif
           @endforeach
 

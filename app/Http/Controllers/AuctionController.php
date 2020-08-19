@@ -716,7 +716,7 @@ class AuctionController extends Controller
        // dd($auctions);
         $subcategoria = DB::table('sub_catogories')
                             ->get();
-                           // dd($subcategoria);
+                          // dd($subcategoria);
   
         $auctionbidders=DB::table('auctionbidders') 
                            ->get();
@@ -750,7 +750,7 @@ class AuctionController extends Controller
                          
         if ($request->ajax()) {
 
-            return view('home.pages.auctions.ajax_auctions', ['auctions' => $auctions])->render();  
+            return view('home.pages.auctions.ajax_auctions', compact('subcategoria'),['auctions' => $auctions])->render();  
         }
         // Auction::paginate(3);
         return view('home.pages.auctions.auctions', $data, compact('invitacion', 'subcategoria', 'auctionbidders2', 'auctionbidders', 'auction'));

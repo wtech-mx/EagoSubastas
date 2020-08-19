@@ -397,6 +397,7 @@ Route::get('{driver}/callback', 'Auth\LoginController@handleSocialCallback');
     Route::post('sub_catogories_mass_destroy', ['uses' => 'Admin\SubCatogoriesController@massDestroy', 'as' => 'sub_catogories.mass_destroy']);
     Route::post('sub_catogories_restore/{id}', ['uses' => 'Admin\SubCatogoriesController@restore', 'as' => 'sub_catogories.restore']);
     Route::delete('sub_catogories_perma_del/{id}', ['uses' => 'Admin\SubCatogoriesController@perma_del', 'as' => 'sub_catogories.perma_del']);
+    Route::get('sub_catogories/invitaciones/{slug}','invitacionesController@index');
 
     Route::post('sub_catogories/create','Admin\SubCatogoriesController@store');
     Route::patch('sub_catogories/edit/{slug}','Admin\SubCatogoriesController@update');
@@ -497,7 +498,7 @@ Route::get('{driver}/callback', 'Auth\LoginController@handleSocialCallback');
 
     // Enviar Invitaciones
     Route::post('import-list-exel', 'invitacionesController@importExcel')->name('email.import.excel');
-    Route::get('auctions/invitaciones/{slug}','invitacionesController@index');
+   
 
     Route::post('invitaciones_mass_destroy', ['uses' => 'invitacionesController@massDestroy', 'as' => 'invitaciones.mass_destroy']);
     Route::delete('invitaciones/delete/{id}', 'invitacionesController@massDestroy');

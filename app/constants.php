@@ -158,6 +158,7 @@ define('URL_SUB_CATEGORIES', PREFIX.'sub_catogories');
 define('URL_SUB_CATEGORIES_ADD', PREFIX.'sub_catogories/create');
 define('URL_SUB_CATEGORIES_EDIT', PREFIX.'sub_catogories/edit');
 define('URL_SUB_CATEGORIES_VIEW', PREFIX.'sub_catogories/view');
+define('URL_AUCTIONS_Invitaciones', PREFIX.'sub_catogories/invitaciones');
 define('URL_SUB_CATEGORIES_DELETE', PREFIX.'sub_catogories/delete');
 
 
@@ -275,7 +276,7 @@ define('URL_AUCTIONS_UPLOAD_IMAGES', PREFIX.'auctions/upload-images/');
 define('URL_AUCTIONS_DELETE_IMAGES', PREFIX.'auctions/delete-image/');
 
 //INVITACIONES
-define('URL_AUCTIONS_Invitaciones', PREFIX.'auctions/invitaciones');
+
 define('URL_INVITACIONES_DELETE', PREFIX.'invitaciones/delete');
 
 

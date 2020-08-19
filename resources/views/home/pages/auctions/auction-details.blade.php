@@ -40,7 +40,7 @@ use App\Auction;
  <!--CATEGORY BODY SECTION-->
  @foreach ($invitacion as $item)
     @if ($user->email == $item->email)
-    @if ($auction->id == $item->auction_id)
+    @if ($auction->sub_category_id == $item->auction_id)
      <section class="single-product section-pad">
       <div class="container">
 
@@ -343,6 +343,8 @@ use App\Auction;
                   @foreach ($subcategoria as $sub)
                       @if (AuctionBidder::where('subcategoria', '=', $auction->sub_category_id)->exists())
                         @if($auctionbidders2 < $sub->articulos)
+                          {{-- <p>hay{{$bid}}</p>
+                          <p>{{$auctionbidders2}}</p> --}}
 
                           <p>Sub Auction={{$auction->sub_category_id}}</p>
                           <p>ID AuctBidder={{$bid->subcategoria}}</p>

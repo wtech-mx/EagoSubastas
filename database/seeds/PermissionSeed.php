@@ -166,7 +166,7 @@ class PermissionSeed extends Seeder
             ['id' => 152, 'title' => 'city_view',],
             ['id' => 153, 'title' => 'city_delete',],
             ['id' => 154, 'title' => 'invitacion_delete',],
-
+            ['id' => 155, 'title' => 'category_invitacion',],
         ];
 
         foreach ($items as $item) {

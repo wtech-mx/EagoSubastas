@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Imports\InvitacionesImport;
 
 use App\Auction;
+use App\SubCatogory;
 
 class InvitacionesController extends Controller
 {
@@ -26,14 +27,14 @@ class InvitacionesController extends Controller
 
         $auction = Auction::getRecordWithSlug($slug);
 
-        if ($isValid = $this->isValidRecord($auction))
-             return redirect($isValid);
+        $subcategorias = SubCatogory::getRecordWithSlug($slug);
 
-
+        
         $users = Auction::getSellerOptions();
         $data['users'] = $users;
 
-
+        $data['sub']   = $subcategorias;
+  
         $data['record']   = $auction;
 
         $data['layout']   = getLayOut();
@@ -41,12 +42,15 @@ class InvitacionesController extends Controller
         $invitacion = DB::table('invitaciones')
                  //   ->where('auction_id',$auction->id)
                     ->get();
-       // dd($invitacion);
+    
+                    
+       //dd($sub);
 
         //$data['invitaciones'] = $invitacion;
         //dd($data);
+        
        
-        return view('admin.auctions.invitaciones', $data, compact('invitacion'));
+        return view('admin.sub_catogories.invitaciones', $data, compact('invitacion'));
         
     }
 
@@ -144,13 +148,8 @@ class InvitacionesController extends Controller
     }
 
 
-    public function isValidRecord($record)
+    public function getRedirectUrl()
     {
-      if ($record === null) {
-        flash('Ooops...!', getPhrase("page_not_found"), 'error');
-        return $this->getRedirectUrl();
-       }
-
-       return FALSE;
+      return URL_SUB_CATEGORIES;
     }
 }

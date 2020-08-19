@@ -79,6 +79,9 @@
                                     @can('category_delete')
 {{--                                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$category->id}}')"> {{ getPhrase('delete') }}</a>--}}
                                         <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$category->id}}')"> Eliminar</a>
+                                    @endcan 
+                                    @can('category_invitacion')
+                                        <a href="{{ URL_AUCTIONS_Invitaciones }}/{{$category->slug}}" class="btn btn-xs btn-info"> Invitaciones</a>
                                     @endcan
                                 </td>
                                 
