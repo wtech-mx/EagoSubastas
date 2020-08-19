@@ -19,7 +19,7 @@ class SubCatogory extends Model
     // use SoftDeletes; 
     // FilterByUser;
 
-    protected $fillable = ['sub_category', 'category_id'];
+    protected $fillable = ['sub_category', 'category_id', 'articulos'];
     
     
     public static function boot()

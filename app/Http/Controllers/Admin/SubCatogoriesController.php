@@ -67,6 +67,7 @@ class SubCatogoriesController extends Controller
         $data['categories']   = SubCatogory::getCategories();
 
         $data['title']        = getPhrase('create');
+        $data['articulos']        = 'articulos';
         $data['active_class'] = 'sub_categories';
         $data['record']       = FALSE;
 
@@ -91,6 +92,7 @@ class SubCatogoriesController extends Controller
         $this->validate($request, [
          'category_id'   => 'bail|required',
          'sub_category' => 'bail|required|max:100',
+         'articulos' => 'bail|required',
      
         ]);
 
@@ -108,6 +110,7 @@ class SubCatogoriesController extends Controller
 
         $record->category_id     = $request->category_id;
         $record->status          = $request->status;
+        $record->articulos          = $request->articulos;
         
         
         $record->save();
@@ -138,6 +141,7 @@ class SubCatogoriesController extends Controller
              return redirect($isValid);
 
         $data['title']        = getPhrase('edit');
+        $data['articulos']        = 'articulos';
         $data['active_class'] = 'categories';
 
         $categories = SubCatogory::getCategories();
@@ -171,6 +175,7 @@ class SubCatogoriesController extends Controller
         $this->validate($request, [
          'category_id'   => 'bail|required',
          'sub_category'  => 'bail|required|max:100',
+         'articulos'   => 'bail|required',
          
         ]);
 
@@ -191,6 +196,7 @@ class SubCatogoriesController extends Controller
 
         $record->category_id     = $request->category_id;
         $record->status          = $request->status;
+        $record->articulos          = $request->articulos;
         
         $record->save();
 
@@ -225,6 +231,7 @@ class SubCatogoriesController extends Controller
              return redirect($isValid);
 
         $data['title']        = getPhrase('view');
+        $data['articulos']        = 'articulos';
         $data['active_class'] = 'categories';
         $data['sub_catogory'] = $sub_category;
        

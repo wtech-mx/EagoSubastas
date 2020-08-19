@@ -3,7 +3,7 @@
 
 @section('content')
     {{-- <h3 class="page-title"> {{getPhrase('sub_categories')}} </h3> --}}
-    <h3 class="page-title"> Empresas </h3>
+    <h3 class="page-title"> Lotes </h3>
     
 
     
@@ -35,10 +35,10 @@
 
                        
 {{--                        <th>{{getPhrase('sub_category')}}</th>--}}
-                        <th>Empresas</th>
+                        <th>Lotes</th>
                         
 {{--                        <th>{{getPhrase('category')}}</th>--}}
-                        <th>Lotes</th>
+                        <th>Empresas</th>
 
 {{--                        <th>{{getPhrase('status')}}</th>--}}
                         <th>Estados</th>

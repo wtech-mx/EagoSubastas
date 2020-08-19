@@ -202,7 +202,7 @@ $active_class='';
                 <a href="#">
                     <i class="fa fa-list"></i>
                   <!--  <span class="title"> {{getPhrase('categories')}} </span> -->
-                    <span class="title"> Lotes </span>
+                    <span class="title"> Empresas </span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -217,7 +217,7 @@ $active_class='';
                                 {{getPhrase('category')}} 
                             </span> -->
                             <span class="title">
-                                Lotes
+                                Empresas
                             </span>
                         </a>
                     </li>
@@ -230,7 +230,7 @@ $active_class='';
                                 {{getPhrase('sub_categories')}} 
                             </span> -->
                             <span class="title">
-                                Empresa
+                                Lotes
                             </span>
                         </a>
                     </li>

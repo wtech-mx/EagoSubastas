@@ -267,7 +267,6 @@ class AuctionsController extends Controller
 
         }
 
-
         $record->save();
 
         $message = 'record_added_successfully';
@@ -573,6 +572,8 @@ class AuctionsController extends Controller
                         ->select(['auctions.*','users.username','created_by.username as created_by','categories.category','sub_catogories.sub_category', 'updated_by.username as updated_by_name'])
                         ->where('auctions.slug',$slug)->first();
 
+       // dd($record);
+
 
         if ($isValid = $this->isValidRecord($record))
              return redirect($isValid);
@@ -608,7 +609,7 @@ class AuctionsController extends Controller
         //get auction bidders
         $bidders = $record->getAuctionBidders();
         $data['bidders'] = $bidders;
-
+//dd($bidders);
 
         //get auction payment
         $payment = $record->getAuctionPayment();
@@ -623,7 +624,10 @@ class AuctionsController extends Controller
             $send_email=false;
 
         $data['send_email'] = $send_email;
+    //    dd($data);
 
+
+        // flash('success',$message, 'success');
         return view('admin.auctions.show', $data);
     }
 
@@ -1032,8 +1036,9 @@ class AuctionsController extends Controller
                 $record->sent_at              = date('Y-m-d H:i:s');
                 $record->pay_start_datetime   = date('Y-m-d H:i:s', strtotime($payment_start_datetime));
                 $record->pay_end_datetime     = date('Y-m-d H:i:s', strtotime($payment_end_datetime));
+                $record->is_bidder_won        = 'Yes';
                 $record->is_bidder_paid       = 'No';
-
+dd($record);
                 $record->save();
 
 

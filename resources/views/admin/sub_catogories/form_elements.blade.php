@@ -82,6 +82,42 @@
 
                 </div>
 
+                <div class="form-group">
+                    {!! Form::label('articulos', getPhrase('Num. articulos'), ['class' => 'control-label']) !!}
+
+                    <span class="text-red">*</span>
+
+                    {{ Form::text('articulos', old('category'), $attributes = 
+
+                    array('class' => 'form-control', 
+
+                    'placeholder' => 'Num. articulos',
+
+                    'ng-model' => 'articulos', 
+
+                    'required' => 'true',
+
+					'ng-class'=>'{"has-error": formValidate.articulos.$touched && formValidate.articulos.$invalid}',
+
+
+
+                    )) }}
+
+
+                    
+                    <div class="validation-error" ng-messages="formValidate.articulos.$error" >
+
+	    					{!! getValidationMessage()!!}
+
+	    					{!! getValidationMessage('minlength')!!}
+
+	    					{!! getValidationMessage('maxlength')!!}
+
+
+					</div>
+
+                </div>
+
 
                 <div class="form-group">
 

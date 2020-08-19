@@ -209,7 +209,7 @@ $active_class='';
                 <a href="#">
                     <i class="fa fa-list"></i>
                   <!--  <span class="title"> <?php echo e(getPhrase('categories')); ?> </span> -->
-                    <span class="title"> Lotes </span>
+                    <span class="title"> Empresas </span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -224,7 +224,7 @@ $active_class='';
                                 <?php echo e(getPhrase('category')); ?> 
                             </span> -->
                             <span class="title">
-                                Lotes
+                                Empresas
                             </span>
                         </a>
                     </li>
@@ -237,7 +237,7 @@ $active_class='';
                                 <?php echo e(getPhrase('sub_categories')); ?> 
                             </span> -->
                             <span class="title">
-                                Empresa
+                                Lotes
                             </span>
                         </a>
                     </li>
