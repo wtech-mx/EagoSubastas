@@ -62,7 +62,24 @@
                                         @else
                                         @endif
 
-                                                        <div class="modal fade" id="modal-{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    @endforeach
+                            @else
+                                <tr>
+                                    <td colspan="12"> {{ getPhrase('no_entries_in_table') }}</td>
+                                </tr>
+                            @endif
+                        </tbody>
+                    @endif
+
+                </table>
+
+
+                </div>
+            </form>
+        </div>
+    </div>
+    @foreach ($invitacion as $item)
+         <div class="modal fade" id="modal-{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
                                                             <form method="POST" action="{{route('destroy.invitacion',$item->id)}}">
 
@@ -90,24 +107,7 @@
                                                             </form>
 
                                                         </div>
-
-                                    @endforeach
-                            @else
-                                <tr>
-                                    <td colspan="12"> {{ getPhrase('no_entries_in_table') }}</td>
-                                </tr>
-                            @endif
-                        </tbody>
-                    @endif
-
-                </table>
-
-
-                </div>
-            </form>
-        </div>
-    </div>
-
+     @endforeach
    
 
     @stop
