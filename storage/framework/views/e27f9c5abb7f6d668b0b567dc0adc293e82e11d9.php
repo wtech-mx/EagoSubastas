@@ -1,18 +1,19 @@
-@inject('request', 'Illuminate\Http\Request')
-@extends('layouts.app')
+<?php $request = app('Illuminate\Http\Request'); ?>
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 <!--Panel 2-->
 
     <div class="row">
         <div class="col-md-12">
-            <form action="{{route('email.import.excel')}}" method="POST" enctype="multipart/form-data">
-                {{csrf_field()}}
+            <form action="<?php echo e(route('email.import.excel')); ?>" method="POST" enctype="multipart/form-data">
+                <?php echo e(csrf_field()); ?>
+
                 
                 <h1>Correos de Invitación  </h1>
-                <h3>{{ $sub->sub_category }}</h3>
+                <h3><?php echo e($sub->sub_category); ?></h3>
                 <div class="form-group">
-                        <input type="hidden" name="auction_id" value="{{ $sub->id }}">
+                        <input type="hidden" name="auction_id" value="<?php echo e($sub->id); ?>">
                         <div class="col-md-4">
                                 <input  type="file" class="form-control"  name="file">
                         </div>
@@ -21,7 +22,7 @@
                     </div>
 
                     <div class="col-12 p-5">
-                        <h3>El ID del lote es :  {{ $sub->id }}</h3>
+                        <h3>El ID del lote es :  <?php echo e($sub->id); ?></h3>
                         <p>Porfavor ingresar en el exel </p>
                     </div>
 
@@ -35,38 +36,39 @@
                         <th>Eliminar</th>
                     </thead>
 
-                    @if (count($invitacion) > 0)
+                    <?php if(count($invitacion) > 0): ?>
                         <tbody>
-                            @if (count($invitacion) > 0)
+                            <?php if(count($invitacion) > 0): ?>
                                 <?php $i=0;?>
-                                    @foreach ($invitacion as $item)
-                                        @if($sub->id == $item->auction_id)
+                                    <?php $__currentLoopData = $invitacion; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php if($sub->id == $item->auction_id): ?>
                                         <?php $i++;?>
 
                                             <tr>
 
-                                                <td>{{ $item->id }}</td>
-                                                <td>{{ $item->auction_id }}</td>
-                                                <td>{{ $item->name }}</td>
-                                                <td>{{ $item->email }}</td>
+                                                <td><?php echo e($item->id); ?></td>
+                                                <td><?php echo e($item->auction_id); ?></td>
+                                                <td><?php echo e($item->name); ?></td>
+                                                <td><?php echo e($item->email); ?></td>
 
                                                 <td>
-                                                    @can('invitacion_delete')
-{{--                                                        <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('{{$item->id}}')">Borrar</a>--}}
-                                                        <a class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-{{$item->id}}">Eliminar</a>
-                                                    @endcan
+                                                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('invitacion_delete')): ?>
+
+                                                        <a class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-<?php echo e($item->id); ?>">Eliminar</a>
+                                                    <?php endif; ?>
                                                 </td>
 
                                             </tr>
 
-                                        @else
-                                        @endif
+                                        <?php else: ?>
+                                        <?php endif; ?>
 
-                                                        <div class="modal fade" id="modal-{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal fade" id="modal-<?php echo e($item->id); ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
-                                                            <form method="POST" action="{{route('destroy.invitacion',$item->id)}}">
+                                                            <form method="POST" action="<?php echo e(route('destroy.invitacion',$item->id)); ?>">
 
-                                                                {{csrf_field() }}
+                                                                <?php echo e(csrf_field()); ?>
+
                                                                 <input type="hidden" name="_method" value="DELETE">
 
                                                               <div class="modal-dialog" role="document">
@@ -91,14 +93,14 @@
 
                                                         </div>
 
-                                    @endforeach
-                            @else
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php else: ?>
                                 <tr>
-                                    <td colspan="12"> {{ getPhrase('no_entries_in_table') }}</td>
+                                    <td colspan="12"> <?php echo e(getPhrase('no_entries_in_table')); ?></td>
                                 </tr>
-                            @endif
+                            <?php endif; ?>
                         </tbody>
-                    @endif
+                    <?php endif; ?>
 
                 </table>
 
@@ -110,14 +112,15 @@
 
    
 
-    @stop
+    <?php $__env->stopSection(); ?>
 
-    @section('footer_scripts') 
+    <?php $__env->startSection('footer_scripts'); ?> 
     
-     @can('category_delete') 
-            @include('common.deletescript', array('route'=>URL_item_CATEGORIES_DELETE))
-            @endcan
+     <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('category_delete')): ?> 
+            <?php echo $__env->make('common.deletescript', array('route'=>URL_item_CATEGORIES_DELETE), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php endif; ?>
     
         
     
-    @endsection
+    <?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

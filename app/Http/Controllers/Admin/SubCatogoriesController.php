@@ -24,7 +24,7 @@ class SubCatogoriesController extends Controller
     }
 
     /**
-     * Display a listing of SubCatogory.
+     * Muestra una lista de SubCatogory.
      *
      * @return \Illuminate\Http\Response
      */
@@ -51,7 +51,7 @@ class SubCatogoriesController extends Controller
     }
 
     /**
-     * Show the form for creating new SubCatogory.
+     * Muestre el formulario para crear una nueva subcategoría.
      *
      * @return \Illuminate\Http\Response
      */
@@ -75,7 +75,7 @@ class SubCatogoriesController extends Controller
     }
 
     /**
-     * Store a newly created SubCatogory in storage.
+     * Almacene una subcategoría recién creada en el almacenamiento.
      *
      * @param  \App\Http\Requests\StoreSubCatogoriesRequest  $request
      * @return \Illuminate\Http\Response
@@ -121,7 +121,7 @@ class SubCatogoriesController extends Controller
 
 
     /**
-     * Show the form for editing SubCatogory.
+     * Muestre el formulario para editar SubCatogory.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -153,7 +153,7 @@ class SubCatogoriesController extends Controller
     }
 
     /**
-     * Update SubCatogory in storage.
+     * Actualice SubCatogory en el almacenamiento.
      *
      * @param  \App\Http\Requests\UpdateSubCatogoriesRequest  $request
      * @param  int  $id
@@ -187,8 +187,8 @@ class SubCatogoriesController extends Controller
         $sub_category = $request->sub_category;
 
          /**
-        * Check if the title of the record is changed, 
-        * if changed update the slug value based on the new title
+        * Compruebe si se ha cambiado el título del registro,
+        * si se cambia, actualice el valor de slug según el nuevo título
         */
         if($sub_category != $record->sub_category)
             $record->slug = $record->makeSlug($sub_category, TRUE);
@@ -206,7 +206,7 @@ class SubCatogoriesController extends Controller
 
 
     /**
-     * Display SubCatogory.
+     * Mostrar subcategoría.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -241,7 +241,7 @@ class SubCatogoriesController extends Controller
 
 
     /**
-     * Remove SubCatogory from storage.
+     * Elimine SubCatogory del almacenamiento.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -255,7 +255,7 @@ class SubCatogoriesController extends Controller
     }
 
     /**
-     * Delete all selected SubCatogory at once.
+     * Eliminar todas las subcategorías seleccionadas a la vez
      *
      * @param Request $request
      */
@@ -321,7 +321,7 @@ class SubCatogoriesController extends Controller
 
 
     /**
-     * Restore SubCatogory from storage.
+     * Restaurar SubCatogory desde el almacenamiento.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -335,7 +335,7 @@ class SubCatogoriesController extends Controller
     }
 
     /**
-     * Permanently delete SubCatogory from storage.
+     * Elimina permanentemente SubCatogory del almacenamiento.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

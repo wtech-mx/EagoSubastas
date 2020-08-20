@@ -2,7 +2,8 @@
 
 
 <?php $__env->startSection('content'); ?>
-    <h3 class="page-title"> <?php echo e($title); ?></h3>
+    
+    <h3 class="page-title">Empresas</h3>
     
 
 
@@ -26,10 +27,10 @@
 
                 <thead>
                     <tr>
-                        <th style="text-align:center;">S.no.</th>
+                        <th style="text-align:center;">No.</th>
 
 
-                        <th> Categorias </th>
+                        <th> Nombre Empresas </th>
 
 
                         <th> Estatus </th>
