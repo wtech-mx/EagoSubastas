@@ -966,19 +966,25 @@ class AuctionController extends Controller
         $lote = DB::table('sub_catogories')
                             ->get();                  
   
-       //dd($subcategoria);
+       //dd($lote);
     
 
         $cond2[] = ['auctionbidders.is_bidder_won','=','Yes'];
 
     
         $auctionbidders2 = DB::table('auctionbidders') 
-                                    ->where('sub', $subcategoria->id)
-                                    ->where($cond2)
-                                    ->count();
+                            ->where('sub', $subcategoria->id)
+                            ->where($cond2)
+                            ->count();
+
+        // $total = DB::table('auctionbidders') 
+        //                 ->where('sub', $subcategoria->id)
+        //                 ->where($auctionbidders2, '<', $subcategoria->articulos)
+        //                 ->get();
+
                            
                            
-              // dd($auctionbidders2);
+        //        dd($total);
                         
 
 
