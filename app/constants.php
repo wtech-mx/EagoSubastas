@@ -256,7 +256,6 @@ define('URL_USERS_VIEW', PREFIX.'users/view');
 define('URL_USERS_DELETE', PREFIX.'users/delete');
 define('URL_USERS_CHANGE_PASSWORD', PREFIX.'users/change-password/');
 define('URL_USERS_STATUS', PREFIX.'users/status');
-define('URL_GANADOR_STATUS', PREFIX.'auctions/view');
 define('URL_GET_CITIES',PREFIX.'users/get-cities');
 define('URL_LOGOUT', PREFIX.'logout');
 

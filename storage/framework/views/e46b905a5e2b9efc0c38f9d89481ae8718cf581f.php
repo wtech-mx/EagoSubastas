@@ -3,18 +3,18 @@
 
 <?php $__env->startSection('content'); ?>
     <h3 class="page-title"> <?php echo e(getPhrase('auctions')); ?> </h3>
-    
-    
-       
-   
-    
+
+
+
+
+
 <?php
 $mytime = Carbon\Carbon::now();
 $dt = new DateTime();
 $date_format = getSetting('date_format','site_settings');
 
 ?>
-    
+
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -30,7 +30,7 @@ $date_format = getSetting('date_format','site_settings');
             <table class="table table-bordered table-striped datatable">
                 <thead>
                     <tr>
-                        
+
                         <th style="text-align:center;">S.no.</th>
 
                         <th> IMAGEN</th>
@@ -60,10 +60,10 @@ $date_format = getSetting('date_format','site_settings');
 
 
                         <th> SUBASTA ENVIVO</th>
-                       
+
 
                         <th>ACCIONES</th>
-                        
+
 
                     </tr>
                 </thead>
@@ -74,9 +74,9 @@ $date_format = getSetting('date_format','site_settings');
                         <?php $__currentLoopData = $auctions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $auction): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                          <?php $i++;?>
                             <tr data-entry-id="<?php echo e($auction->id); ?>">
-                              
+
                                 <td style="text-align:center;"><?php echo e($i); ?></td>
-                     
+
                                 <td field-key='image'> <a href="<?php echo e(getAuctionImage($auction->image,'auction')); ?>" target="_blank"><img src="<?php echo e(getAuctionImage($auction->image)); ?>" alt="<?php echo e($auction->title); ?>" width="50" /> </a> </td>
 
                                 <td> <?php echo e($auction->title); ?> </td>
@@ -95,9 +95,9 @@ $date_format = getSetting('date_format','site_settings');
 
                                 <td><?php echo e($auction->admin_status); ?></td>
 
-                                <td> <?php if($auction->live_auction_date): ?> 
+                                <td> <?php if($auction->live_auction_date): ?>
 
-                                    <?php echo date(getSetting('date_format','site_settings'), strtotime($auction->live_auction_date));?> 
+                                    <?php echo date(getSetting('date_format','site_settings'), strtotime($auction->live_auction_date));?>
                                     (
                                     <?php if($auction->live_auction_start_time): ?>
                                         <?php echo e($auction->live_auction_start_time); ?>
@@ -110,7 +110,7 @@ $date_format = getSetting('date_format','site_settings');
                                         <?php echo e($auction->live_auction_end_time); ?>
 
                                     <?php endif; ?>
-                                    )
+                                    ) Licitadores de subasta
                                     <?php endif; ?>
                                 </td>
 
@@ -118,14 +118,13 @@ $date_format = getSetting('date_format','site_settings');
                                     
 
                                     <a href="<?php echo e(URL_AUCTIONS_VIEW); ?><?php echo e($auction->slug); ?>" class="btn btn-xs btn-primary"> <?php  ?>  Ver</a>
-                                   
+
 
                                     <?php if(date(getSetting('date_format','site_settings').' H:i:s', strtotime($auction->end_date))  > $dt->format('d-m-Y H:i:s')): ?>
                                         <a href="<?php echo e(URL_AUCTIONS_EDIT); ?>/<?php echo e($auction->slug); ?>" class="btn btn-xs btn-info"> Editar</a>
-                                        <a href="<?php echo e(URL_AUCTIONS_Invitaciones); ?>/<?php echo e($auction->slug); ?>" class="btn btn-xs btn-info"> Invitaciones</a>
-                                        <?php else: ?>
-                                        <a disabled href="<?php echo e(URL_AUCTIONS_EDIT); ?>/<?php echo e($auction->slug); ?>" class="btn btn-xs btn-info"> Editar</a>
-                                        <a disabled href="<?php echo e(URL_AUCTIONS_Invitaciones); ?>/<?php echo e($auction->slug); ?>" class="btn btn-xs btn-info"> Invitaciones</a>
+
+                                        <?php else: ?>   
+
                                     <?php endif; ?>
 
                                 </td>
@@ -146,10 +145,10 @@ $date_format = getSetting('date_format','site_settings');
 <?php $__env->stopSection(); ?>
 
 
-<?php $__env->startSection('footer_scripts'); ?> 
+<?php $__env->startSection('footer_scripts'); ?>
 
 
-    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('content_page_delete')): ?> 
+    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('content_page_delete')): ?>
     <?php echo $__env->make('common.deletescript', array('route'=>URL_AUCTIONS_DELETE), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <?php endif; ?>
 
@@ -157,5 +156,5 @@ $date_format = getSetting('date_format','site_settings');
 
 
 
-<?php $__env->stopSection(); ?>        
+<?php $__env->stopSection(); ?>
 <?php echo $__env->make($layout, array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

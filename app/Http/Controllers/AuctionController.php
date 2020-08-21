@@ -715,6 +715,7 @@ class AuctionController extends Controller
         $data['auctions'] = $auctions;
        // dd($auctions);
         $subcategoria = DB::table('sub_catogories')
+                            ->select('id', 'articulos')
                             ->get();
                           // dd($subcategoria);
   
@@ -750,7 +751,7 @@ class AuctionController extends Controller
                          
         if ($request->ajax()) {
 
-            return view('home.pages.auctions.ajax_auctions', compact('subcategoria'),['auctions' => $auctions])->render();  
+            return view('home.pages.auctions.ajax_auctions',['auctions' => $auctions])->render();  
         }
         // Auction::paginate(3);
         return view('home.pages.auctions.auctions', $data, compact('invitacion', 'subcategoria', 'auctionbidders2', 'auctionbidders', 'auction'));
@@ -950,33 +951,34 @@ class AuctionController extends Controller
         $invitacion = DB::table('invitaciones')
         ->get();
         //dd($invitacion);
+        $user = DB::table('users')
+    
+        ->first();
 
         //CUANDO EXISTEN DATOS EN auctionbidders
-        $auctionbidders = AuctionBidder::select('auction_id', 'no_of_times', 'bidder_id', 'subcategoria')
+        $auctionbidders = AuctionBidder::select('auction_id', 'no_of_times', 'bidder_id')
                                         ->get();
+                                 //dd($auctionbidders);
 
-        $subcategoria = SubCatogory::select('id', 'articulos')
-                            ->get();
+        $subcategoria = DB::table('sub_catogories')
+                            ->first();
 
-
-       // dd($data['bidder']);
-      
-       // dd($auctions);
-    //    $auctionbidders2=DB::table('auctionbidders') 
-    //             ->where('subcategoria',$subcategoria->id)
-    //             ->where($cond2)
-    //             ->count();
-
+        $lote = DB::table('sub_catogories')
+                            ->get();                  
+  
+       //dd($subcategoria);
+    
 
         $cond2[] = ['auctionbidders.is_bidder_won','=','Yes'];
 
-        $auctionbidders2 = DB::table('auctionbidders')
-                            ->where($cond2)
-                            ->count();
-
-                
-
-               // dd($auctionbidders2);
+    
+        $auctionbidders2 = DB::table('auctionbidders') 
+                                    ->where('sub', $subcategoria->id)
+                                    ->where($cond2)
+                                    ->count();
+                           
+                           
+              // dd($auctionbidders2);
                         
 
 
@@ -984,7 +986,7 @@ class AuctionController extends Controller
            //dd($auctions);
           //dd($auctionbidders);
         
-        return view('home.pages.auctions.auction-details', $data, compact('invitacion', 'auctionbidders', 'auctionbidders2', 'subcategoria'));
+        return view('home.pages.auctions.auction-details', $data, compact('invitacion', 'auctionbidders', 'auctionbidders2', 'lote'));
 
     }
 

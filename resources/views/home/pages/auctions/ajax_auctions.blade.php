@@ -12,8 +12,6 @@ $user = Auth::user();
         @foreach ($auctions as $auction)
             @if ($auction->sub_category_id == $item->auction_id)
                 
-            
-         
             <div class="col-lg-4 col-md-6 col-sm-6 au-item-categorys">
               <div class="card au-cards">
                 @if (Auth::user())
@@ -21,7 +19,8 @@ $user = Auth::user();
                 @else
                 <a href="javascript:void(0);" onclick="showModal('loginModal')" title="Add to Wishlist"><i class="pe-7s-like"></i></a>
                 @endif
-                <p class="text-muted">{{$auction->id}}</p>
+                <p class="text-muted">IDSubasta{{$auction->id}}</p>
+                <p class="text-muted">IDLote:{{$auction->sub_category_id}}</p>
 
                 <a href="{{URL_HOME_AUCTION_DETAILS}}/{{$auction->slug}}" title="View Auction Details"><img class="img-fluid auction-img" src="{{getAuctionImage($auction->image,'auction')}}" alt="{{$auction->title}}"></a>
                 <div class="card-block au-card-block">
@@ -92,5 +91,7 @@ $user = Auth::user();
   </div>
 </div>
 <!--Pagination Section-->
+
+
 
 

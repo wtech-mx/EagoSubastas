@@ -79,7 +79,13 @@
                                     <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('category_delete')): ?>
 
                                         <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="deleteRecord('<?php echo e($category->id); ?>')"> Eliminar</a>
+
                                     <?php endif; ?>
+
+                                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('category_invitacion')): ?>
+                                        <a href="<?php echo e(URL_AUCTIONS_Invitaciones); ?>/<?php echo e($category->slug); ?>" class="btn btn-xs btn-info"> Invitaciones</a>
+                                    <?php endif; ?>
+
                                 </td>
                                 
                             </tr>

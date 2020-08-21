@@ -120,7 +120,7 @@ $date_format = getSetting('date_format','site_settings');
                                     @if(date(getSetting('date_format','site_settings').' H:i:s', strtotime($auction->end_date))  > $dt->format('d-m-Y H:i:s'))
                                         <a href="{{ URL_AUCTIONS_EDIT }}/{{$auction->slug}}" class="btn btn-xs btn-info"> Editar</a>
 
-                                        @else
+                                        @else   
 
                                     @endif
 
