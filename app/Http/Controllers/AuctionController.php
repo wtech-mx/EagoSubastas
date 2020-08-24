@@ -963,19 +963,31 @@ class AuctionController extends Controller
         $subcategoria = DB::table('sub_catogories')
                             ->first();
 
+        $user   = \Auth::user();
+                   //dd($user);
+
         $lote = DB::table('sub_catogories')
                             ->get();                  
   
        //dd($lote);
+       $cond2[] = ['auctionbidders.is_bidder_won','=','Yes'];
+       $auctionbidders2 = DB::table('auctionbidders')
+                     ->select(DB::raw('count(*) as bidder_count'))
+                     ->where('bidder_id', '=', $user->id)
+                     ->where('sub', '=', $auction->sub_category_id)
+                     ->where($cond2)
+                     ->get();
+
+                 // dd($auctionbidders2);
     
 
-        $cond2[] = ['auctionbidders.is_bidder_won','=','Yes'];
+        // $cond2[] = ['auctionbidders.is_bidder_won','=','Yes'];
 
     
-        $auctionbidders2 = DB::table('auctionbidders') 
-                            ->where('sub', $subcategoria->id)
-                            ->where($cond2)
-                            ->count();
+        // $auctionbidders2 = DB::table('auctionbidders') 
+        //                     ->where('sub', $subcategoria->id)
+        //                     ->where($cond2)
+        //                     ->count();
 
         // $total = DB::table('auctionbidders') 
         //                 ->where('sub', $subcategoria->id)
@@ -1276,6 +1288,7 @@ class AuctionController extends Controller
 
         $bid_amount  = $request->bid_amount;
         $auction_id  = $request->bid_auction_id;
+        $sub  = $request->sub;
 
         $save=FALSE;
 
@@ -1401,6 +1414,7 @@ class AuctionController extends Controller
                         if ($save) {
 
                             $auctionbidder = AuctionBidder::where('auction_id',$auction_id)
+                                                            ->where('sub',$sub)
                                                             ->where('bidder_id',$currentUser->id)
                                                             ->select(['id','no_of_times'])
                                                             ->first();
@@ -1416,6 +1430,7 @@ class AuctionController extends Controller
                                 $auctionbidder = new AuctionBidder;
 
                                 $auctionbidder->auction_id = $auction_id;
+                                $auctionbidder->sub = $sub;
                                 $auctionbidder->bidder_id  = $currentUser->id;
                                 $auctionbidder->no_of_times= 1;
                                 $auctionbidder->slug       = $auctionbidder::makeSlug(getHashCode());

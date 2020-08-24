@@ -34,6 +34,7 @@ $active_class='';
 $user = Auth::user();
 use App\AuctionBidder;
 use App\Auction;
+use App\SubCatogory;
 
 ?>
 
@@ -156,7 +157,10 @@ use App\Auction;
 
             <div class="col-lg-6">
 
+                <p class="text-muted text-right">IDSubasta{{$auction->id}}</p>
+                <p class="text-muted text-right">IDLote:{{$auction->sub_category_id}}</p>
                 <h4>{{$auction->title}}</h4>
+                
 
                 @if (!$live_auction) <!--normal auction happening-->
                   <p title="Auction End Date"> La subasta regular finaliza el <?php echo date(getSetting('date_format','site_settings').' H:i:s', strtotime($auction->end_date));?> </p>
@@ -226,127 +230,132 @@ use App\Auction;
           {!! Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')) !!}
 
         {{-- Traer el id de la subasta en que se esta --}}
-      @if (AuctionBidder::where('auction_id', '=', $auction->id)->exists()) 
-          
-        @foreach ($auctionbidders as $item)
-          @if ($auction->id == $item->auction_id)
-            @if($user->id == $item->bidder_id)
-              @if($item->no_of_times < $auction->tiros)
-
-                    <div class="form-group">
-                      {{ Form::number('bid_amount', null, $attributes =
-                  
-                          array('class' => 'form-control',
-                  
-                          'placeholder' => $enter_amount,
-                  
-                          'ng-model' => 'bid_amount',
-                  
-                          'required' => 'true',
-                  
-                          'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}',
-                  
-                          )) }}
-                      <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
-                    </div>
-
-                    <div class="form-group">
-                      <input type="hidden" name="bid_auction_id" value="{{$auction->id}}">
-                          <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
-                    </div>
-                    {!! Form::close() !!}
-
-                    @else
-
-                    <p>Lo sentimos, ya no tiene tiros</p>
-                    
-                  @endif
-            @break
-            @endif
-          @endif
-        @endforeach   
-
-      @else
-
-      {!! Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')) !!}
-
-            <div class="form-group">
-              {{ Form::number('bid_amount', null, $attributes =
-          
-                  array('class' => 'form-control',
-          
-                  'placeholder' => $enter_amount,
-          
-                  'ng-model' => 'bid_amount',
-          
-                  'required' => 'true',
-          
-                  'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}',
-          
-                  )) }}
-              <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
-            </div>
-
-            <div class="form-group">
-              <input type="hidden" name="bid_auction_id" value="{{$auction->id}}">
-                  <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
-            </div>
-      {!! Form::close() !!}
-
-      @endif
-        </div>
-
-    </div>
-                   
-</div>
-  @else
-
-    <div class="row">
-      <div class="col-lg-6">
-        {!! Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')) !!}
-
-            {{-- Traer el id de la subasta en que se esta --}}
-
-
-            @if (AuctionBidder::where('auction_id', '=', $auction->id)->exists()) 
-
-                  @foreach ($auctionbidders as $item)
-                    @if ($auction->id == $item->auction_id)
-                      @if (AuctionBidder::where('bidder_id', '=', $user->id)->exists()) 
-                        @if($user->id == $item->bidder_id)
-                          @if($item->no_of_times < $auction->tiros)
-                                <div class="form-group">
-                                  {{ Form::number('bid_amount', null, $attributes =
-                              
-                                      array('class' => 'form-control',
-                              
-                                      'placeholder' => $enter_amount,
-                              
-                                      'ng-model' => 'bid_amount',
-                              
-                                      'required' => 'true',
-                              
-                                      'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}',
-                              
-                                      )) }}
-                                  <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
-                                </div>
-
-                                <div class="form-group">
-                                  <input type="hidden" name="bid_auction_id" value="{{$auction->id}}">
-                                      <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
-                                </div>
-                                {!! Form::close() !!}
-
-                                @else
-
-                                <p>Lo sentimos, ya no tiene tiros</p>
+            @if (AuctionBidder::where('auction_id', '=', $auction->id)->exists()){{-- Valida si existe el id subasta en auctionbidder 1--}}
                                 
-                          @endif
-                        @break
-                        @endif
-                      @else
+                @foreach ($auctionbidders as $item) {{-- trae datos de  auctionbidders for1--}}
+                  @if ($auction->id == $item->auction_id)  {{-- valida si los id de subasta son iguales if2 --}}
+                    @if (AuctionBidder::where('bidder_id', '=', $user->id)->exists()) {{-- Valida si existe el id usuario en auctionbidder if3--}}
+                      @if($user->id == $item->bidder_id) {{-- valida si los usuarios son iguales if4 --}}
 
+                        @foreach ($lote as $lotes){{-- Trae lo de subcategoria for2--}}
+                          @if ($auction->sub_category_id == $lotes->id){{-- valida si subcategorias son iguales if5--}}
+                            @if ($auctionbidders2[0]->bidder_count < $lotes->articulos){{-- valida si won es menor a los permitidos if6--}}
+
+                              @if($item->no_of_times < $auction->tiros){{-- valida si tiros es menor a los permitidos if7--}}
+                              <div class="form-group">
+                                {{ Form::number('bid_amount', null, $attributes =
+                            
+                                    array('class' => 'form-control',
+                            
+                                    'placeholder' => $enter_amount,
+                            
+                                    'ng-model' => 'bid_amount',
+                            
+                                    'required' => 'true',
+                            
+                                    'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}',
+                            
+                                    )) }}
+                                <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
+                              </div>
+                  
+                              <div class="form-group">
+                                <input type="hidden" name="bid_auction_id" value="{{$auction->id}}">
+                                <input type="hidden" name="sub" value="{{$auction->sub_category_id}}">
+                                    <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
+                              </div>
+                                    {!! Form::close() !!}
+
+                                    @else
+
+                                    <p>Lo sentimos, ya no tiene tiros</p>
+                                    
+                              @endif{{-- Termina if7 --}}
+                              @else{{--else de if6--}}
+                              <p>Lo sentimos, ya no puede seguir subastando</p>
+                  
+                            @endif{{-- Termina if6--}}    
+                          @endif{{-- Termina if5 --}}
+                        @endforeach {{-- termina for2--}}
+
+                        @break                     
+                      @endif {{-- Termina if4 --}}
+                    @endif {{-- Termina if3 --}}
+                      
+                    @else{{-- else del if2 --}}
+                      @if (AuctionBidder::where('bidder_id', '=', $user->id)->exists()) {{-- Valida si existe el id usuario en auctionbidder if8--}}
+                        @if($user->id == $item->bidder_id){{-- valida si los usuarios son iguales if9 --}}
+                          @foreach ($lote as $lotes){{-- trae datos de  auctionbidders for3--}}
+                            @if ($auction->sub_category_id == $lotes->id){{-- valida si subcategorias son iguales if10--}}
+                              @if ($auctionbidders2[0]->bidder_count < $lotes->articulos){{-- valida si won es menor a los permitidos if11--}}
+
+                                  {!! Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')) !!}
+                                    <div class="form-group">
+                                      {{ Form::number('bid_amount', null, $attributes =
+                                  
+                                          array('class' => 'form-control',
+                                  
+                                          'placeholder' => $enter_amount,
+                                  
+                                          'ng-model' => 'bid_amount',
+                                  
+                                          'required' => 'true',
+                                  
+                                          'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}',
+                                  
+                                          )) }}
+                                      <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
+                                    </div>
+                        
+                                    <div class="form-group">
+                                      <input type="hidden" name="bid_auction_id" value="{{$auction->id}}">
+                                      <input type="hidden" name="sub" value="{{$auction->sub_category_id}}">
+                                          <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
+                                    </div>
+                                  {!! Form::close() !!}
+                                  @else{{-- else if11 --}}
+                                  <p>Lo sentimos, ya no puede seguir subastando</p>
+
+                              @endif{{-- termina if11 --}}
+                              
+                            @endif{{-- termina if10 --}}
+                          @endforeach{{-- termina for3 --}}
+
+                          @else {{-- else de if9 --}}
+
+                          @if($item->no_of_times < $auction->tiros){{-- Valida tiros if12--}}
+                            <p>tiros{{$item->no_of_times}}</p>
+                            {!! Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')) !!}
+                              <div class="form-group">
+                                {{ Form::number('bid_amount', null, $attributes =
+                            
+                                    array('class' => 'form-control',
+                            
+                                    'placeholder' => $enter_amount,
+                            
+                                    'ng-model' => 'bid_amount',
+                            
+                                    'required' => 'true',
+                            
+                                    'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}',
+                            
+                                    )) }}
+                                <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
+                              </div>
+                  
+                              <div class="form-group">
+                                <input type="hidden" name="bid_auction_id" value="{{$auction->id}}">
+                                <input type="hidden" name="sub" value="{{$auction->sub_category_id}}">
+                                    <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
+                              </div>
+                            {!! Form::close() !!}
+                            @else{{-- else if12 --}}
+                            
+                                  <p>Lo sentimos, ya no puede seguir subastando</p>
+                          @endif   {{--Termina if12--}}
+                        @endif{{-- termina de if9 --}}
+                        @else{{-- Else de if8 --}}
+                        
                         {!! Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')) !!}
                           <div class="form-group">
                             {{ Form::number('bid_amount', null, $attributes =
@@ -364,39 +373,198 @@ use App\Auction;
                                 )) }}
                             <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
                           </div>
+              
                           <div class="form-group">
                             <input type="hidden" name="bid_auction_id" value="{{$auction->id}}">
+                            <input type="hidden" name="sub" value="{{$auction->sub_category_id}}">
                                 <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
                           </div>
                         {!! Form::close() !!}
-                      @endif
-                    @endif
-                  @endforeach 
+                        
+                      @endif{{-- Termina if8 --}}
+
+                      @break
+                  @endif{{-- Termina if2 --}}
+                @endforeach {{-- termina for1 --}}
+
+                    
+                  
+              @else{{-- else del 1 if  --}}
+                @foreach ($lote as $lotes){{-- trae subcategorias for4 --}}
+                  @if ($auction->sub_category_id == $lotes->id){{-- valida si subcategorias son iguales if13--}}
+                    @if ($auctionbidders2[0]->bidder_count < $lotes->articulos){{-- valida si won es menor a los permitidos if14--}}
+                    {!! Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')) !!}
+                      <div class="form-group">
+                        {{ Form::number('bid_amount', null, $attributes =
+                    
+                            array('class' => 'form-control',
+                    
+                            'placeholder' => $enter_amount,
+                    
+                            'ng-model' => 'bid_amount',
+                    
+                            'required' => 'true',
+                    
+                            'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}',
+                    
+                            )) }}
+                        <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
+                      </div>
+
+                      <div class="form-group">
+                        <input type="hidden" name="bid_auction_id" value="{{$auction->id}}">
+                        <input type="hidden" name="sub" value="{{$auction->sub_category_id}}">
+                            <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
+                      </div>
+                    {!! Form::close() !!}
+                        
+                    @else{{-- else if14 --}}
+                        <p>Lo sentimos, ya no puede seguir subastando</p>
+
+                    @endif    {{-- Termina if14 --}}                 
+                  @endif{{-- Termina if13 --}}
+                @endforeach {{-- Termina for4 --}}
+            @endif {{-- termina 1 if  --}}
+
+        </div>
+
+    </div>
+                   
+</div>
+  @else
+
+    <div class="row">
+      <div class="col-lg-6">
+        {!! Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')) !!}
+
+            {{-- Traer el id de la subasta en que se esta --}}
+
+
+            @if (AuctionBidder::where('auction_id', '=', $auction->id)->exists())
+
+            @foreach ($auctionbidders as $item)
+              @if ($auction->id == $item->auction_id)
+                @if (AuctionBidder::where('bidder_id', '=', $user->id)->exists()) 
+                  @if($user->id == $item->bidder_id)
             
-              @else
-              {!! Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')) !!}
-                <div class="form-group">
-                  {{ Form::number('bid_amount', null, $attributes =
-              
-                      array('class' => 'form-control',
-              
-                      'placeholder' => $enter_amount,
-              
-                      'ng-model' => 'bid_amount',
-              
-                      'required' => 'true',
-              
-                      'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}',
-              
-                      )) }}
-                  <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
-                </div>
-                <div class="form-group">
-                  <input type="hidden" name="bid_auction_id" value="{{$auction->id}}">
-                      <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
-                </div>
-              {!! Form::close() !!}
+                    @foreach ($lote as $lotes)
+                      @if ($auction->sub_category_id == $lotes->id)
+                        @if ($auctionbidders2[0]->bidder_count < $lotes->articulos)
+            
+                    
+                            @if($item->no_of_times < $auction->tiros)
+                                  <div class="form-group">
+                                    {{ Form::number('bid_amount', null, $attributes =
+                                
+                                        array('class' => 'form-control',
+                                
+                                        'placeholder' => $enter_amount,
+                                
+                                        'ng-model' => 'bid_amount',
+                                
+                                        'required' => 'true',
+                                
+                                        'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}',
+                                
+                                        )) }}
+                                    <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
+                                  </div>
+            
+                                  <div class="form-group">
+                                    <input type="hidden" name="bid_auction_id" value="{{$auction->id}}">
+                                    <input type="hidden" name="sub" value="{{$auction->sub_category_id}}">
+                                        <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
+                                  </div>
+                                  {!! Form::close() !!}
+            
+                              @else
+            
+                                  <p>Lo sentimos, ya no tiene tiros</p>
+                                  
+                            @endif
+            
+                            @else
+                            <p>Lo sentimos, ya no puede seguir subastando</p>
+            
+                          @endif                     
+                        @endif
+                      @endforeach 
+            
+                    @break
+                  @endif
+            
+                  @else
+            
+                  {!! Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')) !!}
+                    <div class="form-group">
+                      {{ Form::number('bid_amount', null, $attributes =
+                  
+                          array('class' => 'form-control',
+                  
+                          'placeholder' => $enter_amount,
+                  
+                          'ng-model' => 'bid_amount',
+                  
+                          'required' => 'true',
+                  
+                          'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}',
+                  
+                          )) }}
+                      <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
+                    </div>
+                    <div class="form-group">
+                      <input type="hidden" name="bid_auction_id" value="{{$auction->id}}">
+                      <input type="hidden" name="sub" value="{{$auction->sub_category_id}}">
+                          <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
+                    </div>
+                  {!! Form::close() !!}
+                @endif
+              @endif
+            @endforeach 
+            
+            
+            
+            
+            
+            @else
+            @foreach ($lote as $lotes)
+            @if ($auction->sub_category_id == $lotes->id)
+            @if ($auctionbidders2[0]->bidder_count < $lotes->articulos)
+            {!! Form::open(array('url' => URL_SAVE_BID, 'method' => 'POST','name'=>'formBid', 'files'=>'true', 'novalidate'=>'')) !!}
+            <div class="form-group">
+            {{ Form::number('bid_amount', null, $attributes =
+            
+                array('class' => 'form-control',
+            
+                'placeholder' => $enter_amount,
+            
+                'ng-model' => 'bid_amount',
+            
+                'required' => 'true',
+            
+                'ng-class'=>'{"has-error": formBid.bid_amount.$touched && formBid.bid_amount.$invalid}',
+            
+                )) }}
+            <div class="validation-error" ng-messages="formBid.bid_amount.$error" ></div>
+            </div>
+            <div class="form-group">
+            <input type="hidden" name="bid_auction_id" value="{{$auction->id}}">
+            <input type="hidden" name="sub" value="{{$auction->sub_category_id}}">
+                <button class="btn btn-primary login-bttn au-btn-modren" ng-disabled='!formBid.$valid'>Pujar</button>
+            </div>
+            {!! Form::close() !!}
+            
+            
+            
+            @else
+            
+            <p>Lo sentimos, ya no puede seguir subastando</p>
+            
+            @endif                     
             @endif
+            @endforeach 
+            @endif
+
 
 
 

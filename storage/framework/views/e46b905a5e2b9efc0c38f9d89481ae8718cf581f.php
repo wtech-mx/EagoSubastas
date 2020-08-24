@@ -120,12 +120,10 @@ $date_format = getSetting('date_format','site_settings');
                                     <a href="<?php echo e(URL_AUCTIONS_VIEW); ?><?php echo e($auction->slug); ?>" class="btn btn-xs btn-primary"> <?php  ?>  Ver</a>
 
 
-                                    <?php if(date(getSetting('date_format','site_settings').' H:i:s', strtotime($auction->end_date))  > $dt->format('d-m-Y H:i:s')): ?>
+                                    
                                         <a href="<?php echo e(URL_AUCTIONS_EDIT); ?>/<?php echo e($auction->slug); ?>" class="btn btn-xs btn-info"> Editar</a>
 
-                                        <?php else: ?>   
-
-                                    <?php endif; ?>
+                                        
 
                                 </td>
 
