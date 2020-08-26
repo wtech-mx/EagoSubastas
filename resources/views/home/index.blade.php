@@ -1,4 +1,8 @@
-@extends($layout)
+<?php
+    echo '<script type="text/javascript">window.location = "http://localhost/EagoSubastas/view-auctions";</script>';
+?>
+
+{{-- @extends($layout)
 
 @section('content')
 
@@ -20,4 +24,4 @@
 
 @include('home/partners')
 
-@endsection
+@endsection --}}

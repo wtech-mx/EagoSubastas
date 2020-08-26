@@ -48,8 +48,8 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
 
 
               <!--Item Type-->
-              <div class="au-all-category">
-{{--                <h6>{{getPhrase('item_type')}}</h6>--}}
+              {{-- <div class="au-all-category">
+               <h6>{{getPhrase('item_type')}}</h6>
                    <h6>Tipo de artículo</h6>
 
                 <div class="form-group">
@@ -59,7 +59,7 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
 
                  ))
                }}
-{{--                 <label for="all_items"> {{getPhrase('all_items')}}  </label>--}}
+                <label for="all_items"> {{getPhrase('all_items')}}  </label>
                     <label for="all_items"> Todos los artículos  </label>
                 </div>
 
@@ -69,7 +69,7 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
                  'name'=>'item_type'
 
                  )) }}
-{{--                 <label for="auction_items"> {{getPhrase('auctions')}}  </label>--}}
+                <label for="auction_items"> {{getPhrase('auctions')}}  </label>
                      <label for="auction_items"> Subastas  </label>
                 </div>
 
@@ -79,23 +79,23 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
                  'name'=>'item_type'
 
                   )) }}
-{{--                 <label for="buynow_items"> {{getPhrase('buy_now')}}  </label>--}}
+                <label for="buynow_items"> {{getPhrase('buy_now')}}  </label>
                       <label for="buynow_items"> Compra ahora  </label>
                 </div>
 
-              </div>
+              </div> --}}
               <!--Item Type-->
 
 
               <!--Auction STATUS-->
-              <div class="au-all-category">
+              {{-- <div class="au-all-category">
                 <h6>{{getPhrase('auction_status')}}</h6>
 
                 <div class="form-group">
 
                  {{ Form::checkbox('auction_status','open', true , array('id'=>'open', 'name'=>'auction_status','class'=>'auction-status')) }}
                  <label for="open"> <span class="fa-stack radio-button"> <i class="fa fa-check active"></i> </span>
-{{--                     {{getPhrase('regular')}} --}}
+                    {{getPhrase('regular')}}
                      Regular
                      <span class="badge">{{$open_auctions_count}}</span>
                  </label>
@@ -105,7 +105,7 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
                 <div class="form-group">
                  {{ Form::checkbox('auction_status','new', null , array('id'=>'new', 'name'=>'auction_status','class'=>'auction-status')) }}
                  <label for="new"> <span class="fa-stack radio-button"> <i class="fa fa-check active"></i> </span>
-{{--                     {{getPhrase('upcoming')}}--}}
+                    {{getPhrase('upcoming')}}
                      próxima
                      <span class="badge">{{$new_auctions_count}}</span>
                  </label>
@@ -115,36 +115,27 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
                  <div class="form-group">
                  {{ Form::checkbox('auction_status','closed', null , array('id'=>'closed', 'name'=>'auction_status','class'=>'auction-status')) }}
                  <label for="closed"> <span class="fa-stack radio-button"> <i class="fa fa-check active"></i> </span>
-{{--                     {{getPhrase('past')}}--}}
+                    {{getPhrase('past')}}
                      Pasada
                      <span class="badge">{{$closed_auctions_count}}</span>
                  </label>
                 </div>
 
 
-              </div>
+              </div> --}}
               <!--Auction STATUS-->
 
 
               <!--Categories-->
-              @if (count($categories))
+              {{-- @if (count($categories))
 
               <div class="au-all-category">
-{{--                <h6>{{getPhrase('categories')}}</h6>--}}
+               <h6>{{getPhrase('categories')}}</h6>
                   <h6>Categorias</h6>
                 <div class="option-scroll">
                 @foreach ($categories as $category)
 
-              <?php $sub_categories = $category->getAuctionPageSubcatgories()->get();
-
-                $collapse_show='';
-                if (isset($selected_category) && in_array($category->id,$selected_category)) {
-                   $collapse_show = 'show';
-                } else {
-                  $collapse_show = '';
-                }
-
-              ?>
+            
 
               @if (count($sub_categories))
               <div class="panel-group">
@@ -158,20 +149,7 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
 
                    <ul class="au-list-item">
                     @foreach ($sub_categories as $sub_category)
-                    <?php
-
-                    $sub_category_auctions=null;
-                    $sub_category_auctions = $sub_category->getMenuSubCategoryAuctions()->count();//open
-                    //$sub_category->getAuctionPageSubCategoryAuctions()->count();//open,new
-
-                    $checked='';
-                    if (isset($selected_sub_categories) && in_array($sub_category->id,$selected_sub_categories)) {
-                       $checked = 'checked';
-                    } else {
-                      $checked='';
-                    }
-
-                    ?>
+                   
 
                     <li>
 
@@ -180,7 +158,7 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
                        <label for="{{$sub_category->sub_category}}"> <span class="fa-stack radio-button"> <i class="fa fa-check active"></i> </span> {{$sub_category->sub_category}} <span class="badge">{{$sub_category_auctions}}</span> </label>
 
 
-                      <!--a href="javascript:void(0);"> {{$sub_category->sub_category}} <span class="badge"> {{$sub_category_auctions}} </span></a-->
+                      <a href="javascript:void(0);"> {{$sub_category->sub_category}} <span class="badge"> {{$sub_category_auctions}} </span></a>
 
                     </li>
                     @endforeach
@@ -200,24 +178,20 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
               @endforeach
                 </div>
              </div>
-             @endif
+             @endif --}}
               <!--Categories-->
 
 
                <!--Seller Location-->
-            <div class="au-all-category">
-{{--                <h6>{{getPhrase('location')}}</h6>--}}
+            {{-- <div class="au-all-category">
+                <h6>{{getPhrase('location')}}</h6>
 
                 <h6>Localizacion</h6>
                  <div class="option-scroll">
-                <?php $cities = \App\City::getAuctionPageCities();
-
-                $city_auctions=0;
-                ?>
+               
                 @if (count($cities))
                 @foreach ($cities as $city)
 
-                <?php $city_auctions = $city->getCityAuctions()->count(); ?>
 
                 <div class="form-group">
                      {{ Form::checkbox('city_id',$city->id,null,array('id'=>$city->id, 'name'=>'city_id','class'=>'auction-cities')) }}
@@ -227,22 +201,16 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
                 @endif
               </div>
 
-              </div>
+            </div> --}}
               <!--Seller Location-->
 
 
               <!--Sellers-->
-               <div class="au-all-category">
+               {{-- <div class="au-all-category">
                 <h6>Vendedores</h6>
-
-                <?php $sellers = \App\Auction::getSellers();
-
-                $seller_auctions = 0;
-                ?>
 
                 @if (count($sellers))
                 @foreach ($sellers as $seller)
-                <?php $seller_auctions = $seller->getSellerAuctions()->count(); ?>
                  <div class="form-group">
                      {{ Form::checkbox('user_id',$seller->id,null,array('id'=>$seller->id, 'name'=>'user_id','class'=>'auction-sellers')) }}
                     <label for="{{$seller->id}}"> <span class="fa-stack radio-button"> <i class="fa fa-check active"></i> </span> {{$seller->username}} <span class="badge">{{$seller_auctions}}</span> </label>
@@ -251,23 +219,23 @@ $closed_auctions_count = \App\Auction::getHomeAuctionStatusAuctions('closed')->c
                 @endforeach
                 @endif
 
-              </div>
+              </div> --}}
               <!--Sellers-->
 
               <!--Featured-->
-              @if ($featured_enable=='Yes')
+              {{-- @if ($featured_enable=='Yes')
               <div class="au-all-category">
-{{--                <h6>{{getPhrase('featured')}}</h6>--}}
+                <h6>{{getPhrase('featured')}}</h6>
                    <h6>Destacados</h6>
                 <div class="form-group">
                  {{ Form::checkbox('featured',null,null, array('id'=>'featured_yes', 'name'=>'featured')) }}
                  <label for="featured_yes"> <span class="fa-stack radio-button"> <i class="fa fa-check active"></i> </span>
-{{--                     {{getPhrase('featured_auctions')}}--}}
+                      {{getPhrase('featured_auctions')}}
                      Subastas destacadas
                  </label>
                 </div>
               </div>
-              @endif
+              @endif --}}
               <!--Featured-->
 
             </div>
