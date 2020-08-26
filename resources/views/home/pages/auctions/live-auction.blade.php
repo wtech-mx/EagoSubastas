@@ -1,12 +1,8 @@
-<?php 
-$user = Auth::user();
-use App\AuctionBidder;
-use App\Auction;
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Subasta en Vivo :: {{$auction->title}}</title>
+  <title>Live Auction :: {{$auction->title}}</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -44,162 +40,189 @@ use App\Auction;
 </head>
 <body class="bidding-page">
 
-@foreach ($invitacion as $item)
-    @if ($user->email == $item->email)
-		@if ($auction->id == $item->auction_id)
-			<div class="container">
-					<?php
 
-					$currency_code = getSetting('currency_code','site_settings');
+<div class="container">
+<?php 
 
-					$date_format = getSetting('date_format','site_settings');
+$currency_code = getSetting('currency_code','site_settings');
 
-					$live_auction_date = date($date_format, strtotime($auction->live_auction_date));
+$date_format = getSetting('date_format','site_settings');
+
+$live_auction_date = date($date_format, strtotime($auction->live_auction_date));
 
 
-					/*	$enter_amount = 'Enter amount ';
-					if (isset($last_bid) && !empty($last_bid->bid_amount))
-					$enter_amount .= '> '.$last_bid->bid_amount;
-					elseif ($auction->minimum_bid>0)
-					$enter_amount .= '> '.$auction->minimum_bid;*/
+/*	$enter_amount = 'Enter amount ';
+if (isset($last_bid) && !empty($last_bid->bid_amount))
+  $enter_amount .= '> '.$last_bid->bid_amount;
+elseif ($auction->minimum_bid>0)
+  $enter_amount .= '> '.$auction->minimum_bid;*/
 
 
-					//placeholder
-					$enter_amount = 'Ingrese el monto';
-					if ($auction->is_bid_increment && $auction->bid_increment>0) {
-					//if increment = add incremental cost +current one=show to user
+ //placeholder
+$enter_amount = 'Ingrese cantidad ';
+if ($auction->is_bid_increment && $auction->bid_increment>0) {
+  //if increment = add incremental cost +current one=show to user
+  
+  if (isset($bidding) && !empty($bidding->bid_amount)) {
+     $amnt = $bidding->bid_amount+$auction->bid_increment;
+     $enter_amount .= ' = '.$amnt;
+  }
+  elseif ($auction->minimum_bid>0)
+    $enter_amount .= ' > '.$auction->minimum_bid;
 
-					if (isset($bidding) && !empty($bidding->bid_amount)) {
-						$amnt = $bidding->bid_amount+$auction->bid_increment;
-						$enter_amount .= ' = '.$amnt;
-					}
-					elseif ($auction->minimum_bid>0)
-						$enter_amount .= ' > '.$auction->minimum_bid;
-
-					} else {
-					//if not incremental
-					if (isset($bidding) && !empty($bidding->bid_amount))
-						$enter_amount .= '> '.$bidding->bid_amount;
-					elseif ($auction->minimum_bid>0)
-						$enter_amount .= '> '.$auction->minimum_bid;
-					}
-
-
+} else {
+  //if not incremental
+  if (isset($bidding) && !empty($bidding->bid_amount))
+    $enter_amount .= '> '.$bidding->bid_amount;
+  elseif ($auction->minimum_bid>0)
+    $enter_amount .= '> '.$auction->minimum_bid;
+}
 
 
-					?>
+$user = Auth::user();
+use App\AuctionBidder;
+use App\Auction;
+use App\SubCatogory;
 
-				<div class="row">
-						<h1 class="text-center" style="color: #fff;padding: 5px;"><strong>Estas en una Subasta en vivo</strong></h1>
-						<div class="col-md-12">
+?>
 
-								<div class="col-md-6 bid-data" style="background-color: #05123F">
-										<h1 class="text-center" style="color: #fff;">Detalles de Subasta</h1>
-									<div class="form-group bid-form-group">
-										<div class="col-6" >
-											<p  class="text-center" style="color: #05123F;background: white;padding: 16px;border-radius: 10px;font-size: 15px">Precio de reserva {{$currency_code}}{{$auction->reserve_price}}</p>
-										</div>
-										<div class="col-6">
-											<p class="text-center" style="color: #05123F;background: white;padding: 16px;border-radius: 10px;font-size: 15px">Termina en {{$live_auction_date}} {{$auction->live_auction_end_time}}</p>
-										</div>
+<div class="row">
 
+	<div class="col-md-12">
 
-										<p class="text-center" style="font-size: 20px" id="demo"></p>
-									</div>
-									@if (AuctionBidder::where('auction_id', '=', $auction->id)->exists()) 
-            
-									@foreach ($auctionbidders as $item)
-									  @if ($auction->id == $item->auction_id)
-										@foreach ($auctionbidders as $bid)
-										  @if (AuctionBidder::where('bidder_id', '=', $user->id)->exists()) 
-											@if($user->id == $bid->bidder_id)
-											  @if($bid->no_of_times < $auction->tiros)
-							
-											  <div class="form-group bid-form-group">
-												<input type="number" class="form-control form-control-sm" id="bid_amount" placeholder="{{$enter_amount}}" style="color: #fff">
-											
-												@if ($bid_options)
-													<small>+{{$auction->bid_increment}}</small>
-												@endif
-											</div>
-											
-											<div class="form-group" align="right">
-												<button type="submit" id="au_submit" class="btn btn-success bid-submit-btn" style="padding:3px 16px;">Hacer oferta</button>
-											</div>
-							
-												@else
-												<br>
-												<p class="text-center" style="color: #fbfcff;">Usos todos sus tiros disponibles</p>
-												
-											  @endif
-											@endif
-										  @else
-										  <div class="form-group bid-form-group">
-											<input type="number" class="form-control form-control-sm" id="bid_amount" placeholder="{{$enter_amount}}" style="color: #fff">
-										
-											@if ($bid_options)
-												<small>+{{$auction->bid_increment}}</small>
-											@endif
-										</div>
-										
-										<div class="form-group" align="right">
-											<button type="submit" id="au_submit" class="btn btn-success bid-submit-btn" style="padding:3px 16px;">Hacer oferta</button>
-										</div>
-										  @endif
-							
-										  
-										@endforeach  
-							
-									  <?php break; ?>
-									  @endif
-									@endforeach   
-							
-								  @else
-							
-								<div class="form-group bid-form-group">
-									<input type="number" class="form-control form-control-sm" id="bid_amount" placeholder="{{$enter_amount}}" style="color: #fff">
-								
-									@if ($bid_options)
-										<small>+{{$auction->bid_increment}}</small>
-									@endif
-								</div>
-								
-								<div class="form-group" align="right">
-									<button type="submit" id="au_submit" class="btn btn-success bid-submit-btn" style="padding:3px 16px;">Hacer oferta</button>
-								</div>
-							
-								  @endif
+	<div class="col-md-6 bid-data">
 
-
-									<div class="bid-loader" style="display:none;" id="bid_loader"><img src="{{AJAXLOADER}}"> {{trans('please_wait')}}...</div>
-
-								</div>
-
-								<div class="col-md-6" style="padding: 10px">
-									<div id="latest_bids" style="background-color: #05123F" style="padding: 10px">
-										<h1 class="text-center" style="color: #fff;">Pujas</h1>
-										@if (count($live_biddings))
-
-
-										<ul class="list-group" style="padding: 10px">
-										@foreach ($live_biddings as $bid)
-											<li class="list-group-item d-flex justify-content-between align-items-center" style="font-size: 15px;">
-												{{$bid->name}}
-												<span class="badge badge-primary badge-pill" style="font-size: 15px;padding: 10px"> {{$currency_code}} {{$bid->bid_amount}}</span>
-											</li>
-										@endforeach
-										</ul>
-
-
-										@endif
-									</div>
-								</div>
+		<div class="form-group bid-form-group">
+			<p>{{$auction->sub_category_id}}</p>
+			<p>Precio Reserva {{$currency_code}}{{$auction->reserve_price}}</p>
+			<p>Termina {{$live_auction_date}} {{$auction->live_auction_end_time}}</p>
+			<p id="demo"></p> 
+		</div>
+  
+@if (AuctionBidder::where('auction_id', '=', $auction->id)->exists())
+        
+		@foreach ($auctionbidders as $item)
+		  @if ($auction->id == $item->auction_id)
+			@if (AuctionBidder::where('bidder_id', '=', $user->id)->exists()) 
+			  @if($user->id == $item->bidder_id)
+		
+				@foreach ($lote as $lotes)
+				  @if ($auction->sub_category_id == $lotes->id)
+					@if ($auctionbidders2[0]->bidder_count < $lotes->articulos)
+		
+				
+						@if($item->no_of_times < $auction->tiros)
+						<div class="form-group bid-form-group">
+							<input type="number" class="form-control form-control-sm" id="bid_amount" placeholder="{{$enter_amount}}">
+						
+							@if ($bid_options)
+							  <small>+{{$auction->bid_increment}}</small>
+							@endif
 						</div>
-				</div>
+						
+							<div class="form-group" align="right">
+								<button type="submit" id="au_submit" class="btn btn-success bid-submit-btn" style="padding:3px 16px;">pujar</button>
+							</div>
+		
+						  @else
+		
+							  <p>Lo sentimos, ya no tiene tiros</p>
+							  
+						@endif
+		
+						@else
+						<p>Lo sentimos, ya no puede seguir subastando</p>
+		
+					  @endif                     
+					@endif
+				  @endforeach 
+		
+				@break
+			  @endif
+		
+			  @else
+		
+			<div class="form-group bid-form-group">
+				<input type="number" class="form-control form-control-sm" id="bid_amount" placeholder="{{$enter_amount}}">
+			
+				@if ($bid_options)
+				  <small>+{{$auction->bid_increment}}</small>
+				@endif
 			</div>
-		@endif
-	@endif
-@endforeach
+			
+				<div class="form-group" align="right">
+					<button type="submit" id="au_submit" class="btn btn-success bid-submit-btn" style="padding:3px 16px;">pujar</button>
+				</div>
+			@endif
+		  @endif
+		@endforeach 
+		
+	@else
+		@foreach ($lote as $lotes)
+		  @if ($auction->sub_category_id == $lotes->id)
+			@if ($auctionbidders2[0]->bidder_count < $lotes->articulos)
+			<div class="form-group bid-form-group">
+				<input type="number" class="form-control form-control-sm" id="bid_amount" placeholder="{{$enter_amount}}">
+			
+				@if ($bid_options)
+				  <small>+{{$auction->bid_increment}}</small>
+				@endif
+			</div>
+			
+				<div class="form-group" align="right">
+					<button type="submit" id="au_submit" class="btn btn-success bid-submit-btn" style="padding:3px 16px;">pujar</button>
+				</div>
+			
+			
+			
+			@else
+			
+			<p>Lo sentimos, ya no puede seguir subastando</p>
+		
+				@endif                     
+			@endif
+		@endforeach 
+@endif
+		  
+	  	<div class="bid-loader" style="display:none;" id="bid_loader"><img src="{{AJAXLOADER}}"> {{trans('please_wait')}}...</div>
+
+	</div>
+
+
+	
+
+		 
+		<div class="col-md-6">
+			<div id="latest_bids">
+			@if (count($live_biddings))
+			
+			
+			<ul class="list-group">
+			 @foreach ($live_biddings as $bid)
+	              <li class="list-group-item d-flex justify-content-between align-items-center">
+	              	{{$bid->name}}
+	                <span class="badge badge-primary badge-pill">{{$currency_code}}{{$bid->bid_amount}}</span>
+	              </li>
+              @endforeach
+          	</ul>
+          	
+          
+            @endif  
+            </div>
+             </div>
+		
+
+
+
+
+
+</div>
+
+</div>
+
+</div>
+
+
 
 
 <script>
@@ -229,6 +252,14 @@ alertify.set('notifier','position', 'top-right');
     }
 });
 */
+
+
+
+
+
+
+
+
 
 	var socket = io.connect('http://localhost:3000');
 
@@ -265,12 +296,11 @@ alertify.set('notifier','position', 'top-right');
 	$('#au_submit').click(function(){
 
 
-
-		
 	  	// console.log('hey submit');
 
 	  	var current_bid = $('#bid_amount').val();
 	  	var auction_id = '{{$auction->id}}';
+		var sub = '{{$auction->sub_category_id}}';
 
 	  	var ajax_status=false;
 	  		
@@ -288,6 +318,7 @@ alertify.set('notifier','position', 'top-right');
 			    "type" : "POST",
 			    "data" : {
 			        "bid_auction_id" : '{{$auction->id}}',
+					"bid_sub" : '{{$auction->sub_category_id}}',
 			        "bid_amount" : current_bid,
 			        "_token" : "{{csrf_token()}}"
 			    },
@@ -314,12 +345,12 @@ alertify.set('notifier','position', 'top-right');
 		        		alertify.error("Bid amount is not valid");
 	  					return;
 		        	} else if (bid_status==555) {
-		        		// won auction, time is over, reached/>Precio de reserva
+		        		// won auction, time is over, reached/> reserve price
 		        		// alertify.log(msg);
 		        		alertify.warning(msg);
 	  					return;
 	  				} else if (bid_status==9999) {
-		        		// alert("Bidding time is not valid..can not place bid now");
+		        		// alert("Bidding time is not valid..can not pujar now");
 		        		alertify.error("Bidding time is not valid..can not place bid now");
 	  					return;
 		        	} else if (bid_status==0) {
@@ -352,6 +383,7 @@ alertify.set('notifier','position', 'top-right');
 		        		socket.emit('au_bid', { 
 						    	"amount" : current_bid,
 						    	"auction_id" : '{{$auction->id}}',
+								"sub" : '{{$auction->sub_category_id}}',
 						    	"latest_bids": ltst_bids,
 						    	"placeholder": plchlder
 						    	
@@ -429,7 +461,7 @@ var x = setInterval(function() {
     // If the count down is over, write some text 
     if (distance < 0) {
         clearInterval(x);
-        document.getElementById("demo").innerHTML = "EL TIEMPO DE OFERTA HA TERMINADO";
+        document.getElementById("demo").innerHTML = "BIDDING TIME IS OVER";
     }
 }, 1000);
 </script>

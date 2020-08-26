@@ -1125,13 +1125,19 @@ class AuctionController extends Controller
         //get last 5 recent bids
         $data['live_biddings'] = $auction->getAuctionBiddingHistory(5);
 
+        // $subca = SubCatogory::all()
+        //                 ->first();
+      //  dd($sub);
+
         //bidding - last record
         $bidding = Bidding::join('auctionbidders', 'bidding.ab_id', 'auctionbidders.id')
                           ->select('bidding.bid_amount')
                           ->where('auctionbidders.auction_id', $auction->id)
+                          ->where('auctionbidders.sub', $auction->sub_category_id)
                           ->orderBy('bidding.id','desc')
                           ->limit(1)
                           ->get();
+                          //dd($bidding);
 
         if (count($bidding)) {
           $bidding = $bidding[0];
@@ -1162,7 +1168,6 @@ class AuctionController extends Controller
                                           ->get();
 
         $data['auction_images'] = $auction_images;
-
 
 
 
@@ -1206,9 +1211,33 @@ class AuctionController extends Controller
         $auctionbidders = AuctionBidder::where('auction_id',$auction->id)
                                         ->select('auction_id', 'no_of_times', 'bidder_id')
                                         ->get();
+                                        
+        $user = DB::table('users')
+        ->first();
+
+        $subcategoria = DB::table('sub_catogories')
+                            ->first();
+
+        // dd($subcat);
+
+
+        $user   = \Auth::user();
+                   //dd($user);
+
+        $lote = DB::table('sub_catogories')
+                            ->get();                  
+ // dd($lote);
+       //dd($lote);
+       $cond2[] = ['auctionbidders.is_bidder_won','=','Yes'];
+       $auctionbidders2 = DB::table('auctionbidders')
+                     ->select(DB::raw('count(*) as bidder_count'))
+                     ->where('bidder_id', '=', $user->id)
+                     ->where('sub', '=', $auction->sub_category_id)
+                     ->where($cond2)
+                     ->get();
      // dd($auctionbidders);
 
-        return view('home.pages.auctions.live-auction', $data, compact('invitacion', 'auctionbidders'));
+        return view('home.pages.auctions.live-auction', $data, compact('invitacion', 'auctionbidders', 'auctionbidders2', 'lote'));
     }
     
     public function auctionInfo(Request $request)
@@ -1311,7 +1340,7 @@ class AuctionController extends Controller
               
 
                 //auction record
-                $auction_record = Auction::where('id',$auction_id)->get();
+                $auction_record = Auction::where('id',$auction_id)->where('sub_category_id',$sub)->get();
                 if (count($auction_record))
                   $auction_record = $auction_record[0];
 
@@ -1545,6 +1574,7 @@ class AuctionController extends Controller
 
         $bid_amount  = $request->bid_amount;
         $auction_id  = $request->bid_auction_id;
+        $sub  = $request->bid_sub;
 
         $save=FALSE;
 
@@ -1777,6 +1807,7 @@ class AuctionController extends Controller
                                 $auctionbidder = new AuctionBidder;
 
                                 $auctionbidder->auction_id = $auction_id;
+                                $auctionbidder->sub = $sub;
                                 $auctionbidder->bidder_id  = $currentUser->id;
                                 $auctionbidder->no_of_times= 1;
                                 $auctionbidder->slug      = $auctionbidder::makeSlug(getHashCode());

@@ -15,6 +15,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 use App\User;
+use App\Bidding;
 
 use Input;
 use Image;
@@ -556,6 +557,24 @@ class AuctionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // function ganador(Request $request){
+
+    // }
+    //     $ab_id = $request->ab_id;
+
+    //     $record = AuctionBidder::where('id',$ab_id)
+    //                             ->first();
+    //     $record->is_bidder_won        = 'Yes';
+    //     //dd($record);
+    //     $record->save();
+
+
+
+    // flash('success','invoice_sent_to_bidder_successfully', 'success');
+    // return redirect(URL_AUCTIONS_VIEW.$auction->slug);
+
+    // }
+
     public function show($slug)
     {
         if(!checkRole(getUserGrade(4)))
@@ -1038,7 +1057,7 @@ class AuctionsController extends Controller
                 $record->pay_end_datetime     = date('Y-m-d H:i:s', strtotime($payment_end_datetime));
                 $record->is_bidder_won        = 'Yes';
                 $record->is_bidder_paid       = 'No';
-dd($record);
+//dd($record);
                 $record->save();
 
 

@@ -36,7 +36,7 @@ $active_class='';
             @endcan
 
 
-            @can('faq_management_access')
+            {{-- @can('faq_management_access')
             <li class="treeview {{ isActive($active_class,'faqs')}}">
                 <a href="#">
                     <i class="fa fa-question"></i>
@@ -76,9 +76,9 @@ $active_class='';
                 @endcan
                 </ul>
             </li>
-            @endcan
+            @endcan --}}
 
-            @can('location_master_access')
+            {{-- @can('location_master_access')
             <li class="treeview {{ isActive($active_class,'locations')}}">
                 <a href="#">
                     <i class="fa fa-map-marker"></i>
@@ -131,11 +131,11 @@ $active_class='';
                 @endcan
                 </ul>
             </li>
-            @endcan
+            @endcan --}}
 
 
 
-            @if (checkRole(['admin']))
+            {{-- @if (checkRole(['admin']))
             <li class="{{ isActive($active_class,'languages')}}">
                 <a href="{{ URL_LANGUAGES_LIST }}">
                     <i class="fa fa-language"></i>
@@ -143,7 +143,7 @@ $active_class='';
                     <span>Idiomas</span>
                 </a>
             </li>
-            @endif
+            @endif --}}
 
 
 
@@ -171,7 +171,7 @@ $active_class='';
             </li>
             @endcan
 
-            @can('testmony_access')
+            {{-- @can('testmony_access')
             <li class="{{ isActive($active_class,'testimonials')}}">
                 <a href="{{ URL_TETSIMONIALS }}">
                     <i class="fa fa-quote-left"></i>
@@ -179,7 +179,7 @@ $active_class='';
                     <span>Testimonios</span>
                 </a>
             </li>
-            @endcan
+            @endcan --}}
 
 
 
@@ -328,7 +328,7 @@ $active_class='';
                 </a>
             </li>
 
-            @if (checkRole(['admin']))
+            {{-- @if (checkRole(['admin']))
             <li class="{{ isActive($active_class,'sms')}}">
                 <a href="{{ URL_SEND_SMS }}">
                     <i class="fa fa-mobile"></i>
@@ -336,7 +336,7 @@ $active_class='';
                     <span class="title"> SMS </span>
                 </a>
             </li>
-            @endif
+            @endif --}}
             
             @php ($unread = App\MessengerTopic::countUnread())
             <li class="{{ $request->segment(1) == 'messenger' ? 'active' : '' }} {{ ($unread > 0 ? 'unread' : '') }}">
@@ -357,7 +357,7 @@ $active_class='';
             </style>
 
 
-            @if (checkRole(['admin']))
+            {{-- @if (checkRole(['admin']))
             <li class="{{ isActive($active_class,'payments')}}">
                 <a href="{{ URL_PAYMENT_HISTORY }}">
                     <i class="fa fa-money"></i>
@@ -365,7 +365,7 @@ $active_class='';
                     <span>Pagos</span>
                 </a>
             </li>
-            @endif
+            @endif --}}
 
            
 
