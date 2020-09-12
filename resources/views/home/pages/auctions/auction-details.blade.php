@@ -205,7 +205,13 @@ use App\SubCatogory;
                         {{strtoUpper(getAuctionDaysLeft($auction->start_date,$auction->end_date))}}</b></p>
 
                     <h4>
-                      {{$currency_code}}{{$auction->reserve_price}}
+
+                      {{$currency_code}}
+
+                        {!! number_format($auction->reserve_price) !!}
+
+{{--                        {{$auction->reserve_price}}--}}
+
                       <span class="badge">
                         @if ($total_bids>1)
         {{--{{$total_bids}} {{getPhrase('bids')}}--}}
@@ -722,6 +728,20 @@ use App\SubCatogory;
                                         </span>
                                      </li>
 
+                                     <li class="list-group-item d-flex justify-content-between align-items-center">
+{{--                                      {{getPhrase('is_it_buynow_item')}}--}}
+                                        Tipo de subastas
+                                        <span>
+                                        @if ($auction->visibilidad==1)
+{{--                                            {{getPhrase('yes')}}--}}
+                                            Abierta
+                                        @else
+{{--                                            {{getPhrase('no')}}--}}
+                                            Cerrada
+                                        @endif
+                                        </span>
+                                     </li>
+
 
                                      @if ($auction->is_buynow==1)
                                       <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -949,8 +969,21 @@ use App\SubCatogory;
                                       </li>
                                       @foreach ($bidding_history as $bid)
                                       <li class="list-group-item justify-content-between">
-                                        <span>{{$bid->username}}</span>
-                                        <span style="float:right;">{{$currency_code}} {{$bid->bid_amount}}</span>
+
+
+                                        @if ($auction->visibilidad==1)
+{{--                                            {{getPhrase('yes')}}--}}
+{{--                                            Abierta--}}
+                                            <span>{{$bid->username}}</span>
+                                        @else
+{{--                                            {{getPhrase('no')}}--}}
+{{--                                            Cerrada--}}
+                                            <span>Usuario</span>
+                                        @endif
+
+                                        <span style="float:right;">{{$currency_code}}
+                                             {!! number_format($auction->reserve_price) !!}
+                                        </span>
                                       </li>
                                       @endforeach
                                   </ul>

@@ -32,6 +32,7 @@ use DB;
  * @property decimal $bid_increment
  * @property string $shipping_conditions
  * @property tinyInteger $international_shipping
+ * @property tinyInteger $visibilidad
  * @property text $shipping_terms
  * @property tinyInteger $make_featured
  * @property enum $status
@@ -42,7 +43,7 @@ class Auction extends Model implements HasMedia
 {
     use HasMediaTrait;
 
-    protected $fillable = ['title', 'description', 'start_date', 'end_date', 'minimum_bid', 'reserve_price','tiros', 'buy_now_price', 'bid_increment', 'shipping_conditions', 'international_shipping', 'shipping_terms', 'make_featured', 'auction_status', 'admin_status' , 'category_id', 'sub_category_id', 'created_by_id', 'user_id'];
+    protected $fillable = ['title', 'description', 'start_date', 'end_date', 'minimum_bid', 'reserve_price','tiros', 'buy_now_price', 'bid_increment', 'shipping_conditions', 'international_shipping','visibilidad', 'shipping_terms', 'make_featured', 'auction_status', 'admin_status' , 'category_id', 'sub_category_id', 'created_by_id', 'user_id'];
     
     
     public static function boot()
@@ -158,6 +159,11 @@ class Auction extends Model implements HasMedia
     public function setTirosAttribute($input)
     {
         $this->attributes['tiros'] = $input ? $input : null;
+    }
+
+    public function setAbiertaAttribute($input)
+    {
+        $this->attributes['visibilidad'] = $input ? $input : null;
     }
 
     /**

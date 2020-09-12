@@ -5,7 +5,8 @@
 
 				<div class="form-group">
 
-                    <?php echo Form::label('title', getPhrase('title'), ['class' => 'control-label']); ?>
+                    
+                    <?php echo Form::label('title', getPhrase('Titulo'), ['class' => 'control-label']); ?>
 
 
                     <span class="text-red">*</span>
@@ -22,7 +23,7 @@
 
                     array('class' => 'form-control', 
 
-                    'placeholder' => 'Title',
+                    'placeholder' => 'Titulo',
 
                     'ng-model' => 'title', 
 
@@ -45,8 +46,8 @@
                     
                     <div class="validation-error" ng-messages="formValidate.title.$error" >
 
-	    					<?php echo getValidationMessage(); ?>
-
+                            
+                            Este campo es requerido
 
 	    					<?php echo getValidationMessage('minlength'); ?>
 
@@ -62,7 +63,8 @@
                 <?php if(checkRole(['admin'])): ?>
                 <div class="form-group">
 
-                    <?php echo Form::label('user_id', getPhrase('seller'), ['class' => 'control-label']); ?>
+                    
+                    <?php echo Form::label('user_id', getPhrase('Usuario'), ['class' => 'control-label']); ?>
 
 
                     <span class="text-red">*</span>
@@ -79,7 +81,8 @@
 
                     
 
-                    <?php echo e(Form::select('user_id', $users , $selected, ['placeholder' => getPhrase('select_seller'),'class'=>'form-control select2',
+                    
+                    <?php echo e(Form::select('user_id', $users , $selected, ['placeholder' => getPhrase('Seleccionar Usuario'),'class'=>'form-control select2',
 
                             'ng-model'=>'user_id',
 
@@ -96,8 +99,8 @@
                     
                         <div class="validation-error" ng-messages="formValidate.user_id.$error" >
 
-                            <?php echo getValidationMessage(); ?>
-
+                            
+                            Este campo es requerido
 
                         </div>
 
@@ -108,7 +111,8 @@
 
                 <div class="form-group">
 
-                    <?php echo Form::label('category', getPhrase('category'), ['class' => 'control-label']); ?>
+                    
+                    <?php echo Form::label('category', getPhrase('Lote'), ['class' => 'control-label']); ?>
 
 
                     <span class="text-red">*</span>
@@ -125,7 +129,8 @@
 
                     
 
-                    <?php echo e(Form::select('category_id', $categories , $selected, ['placeholder' => getPhrase('select'),'class'=>'form-control select2',
+                    
+                    <?php echo e(Form::select('category_id', $categories , $selected, ['placeholder' => getPhrase('Seleccionar'),'class'=>'form-control select2',
 
                             'ng-model'=>'category_id',
 
@@ -144,8 +149,8 @@
                     
                         <div class="validation-error" ng-messages="formValidate.category_id.$error" >
 
-                            <?php echo getValidationMessage(); ?>
-
+                            
+                            Este campo es requerido
 
                         </div>
 
@@ -155,7 +160,7 @@
                 <div class="form-group">
 
 
-                     <label for="name">Subcategoria <span class="text-red">*</span></label>
+                     <label for="name">Empresa<span class="text-red">*</span></label>
 
 
                         <?php 
@@ -169,7 +174,7 @@
 
                         <select ng-init="sub_category_id={id:<?php echo e($val); ?> }" name="sub_category_id" ng-model="sub_category_id" class="form-control select2" ng-options="item.id as item.sub_category for item in sub_categories track by item.id" required="true">
 
-                          <option value="">Select</option>  
+                          <option value="">Seleccionar</option>  
 
                         </select>
 
@@ -178,9 +183,8 @@
 
                           <div class="validation-error" ng-messages="formValidate.sub_category_id.$error">
 
-                                <?php echo getValidationMessage(); ?>
-
-
+                                
+                                Este campo es requerido
 
                             </div>
 
@@ -210,7 +214,7 @@
 
                     'id' => 'datetimepicker6',
 
-                    'placeholder'=>'Start Date and Time',
+                    'placeholder'=>'Fecha y hora de inicio',
 
                     'ng-model' => 'start_date', 
 
@@ -225,7 +229,8 @@
 
 
                 <div class="form-group">
-                    <?php echo Form::label('end_date', getPhrase('end_date'), ['class' => 'control-label']); ?>
+                    
+                    <?php echo Form::label('end_date', getPhrase('fecha final'), ['class' => 'control-label']); ?>
 
 
                     <span class="text-red">*</span>
@@ -245,7 +250,7 @@
 
                     'id' => 'datetimepicker7',
 
-                    'placeholder'=>'End Date and Time',
+                    'placeholder'=>'Fecha y hora de finalización',
 
                     'ng-model' => 'end_date', 
 
@@ -264,7 +269,7 @@
 
 
                  <div class="form-group">
-                    <?php echo Form::label('live_auction_date', getPhrase('live_auction_date'), ['class' => 'control-label']); ?>
+                    <?php echo Form::label('live_auction_date', getPhrase('Dia subasta en vivio'), ['class' => 'control-label']); ?>
 
 
                     <?php 
@@ -282,7 +287,7 @@
 
                     'id' => 'datepicker',
 
-                    'placeholder'=>'Live Auction Date',
+                    'placeholder'=>'Fecha Subasta en vivio',
 
                     'ng-model' => 'live_auction_date', 
 
@@ -295,7 +300,7 @@
                 </div>
 
                 <div class="form-group">
-                    <?php echo Form::label('live_auction_start_time', getPhrase('live_auction_start_time'), ['class' => 'control-label']); ?>
+                    <?php echo Form::label('live_auction_start_time', getPhrase('hora de inicio de la subasta en vivo'), ['class' => 'control-label']); ?>
 
 
                     <?php 
@@ -313,7 +318,7 @@
 
                     'id' => 'timepicker1',
 
-                    'placeholder'=>'Live Auction Start Time',
+                    'placeholder'=>'Hora de inicio de la subasta en vivo',
 
                     'ng-model' => 'live_auction_start_time', 
 
@@ -326,7 +331,7 @@
 
 
                 <div class="form-group">
-                    <?php echo Form::label('live_auction_end_time', getPhrase('live_auction_end_time'), ['class' => 'control-label']); ?>
+                    <?php echo Form::label('live_auction_end_time', getPhrase('Hora de finalización de la subasta en vivo'), ['class' => 'control-label']); ?>
 
 
                     <?php 
@@ -344,7 +349,7 @@
 
                     'id' => 'timepicker2',
 
-                    'placeholder'=>'Live Auction End Time',
+                    'placeholder'=>'Hora de finalización de la subasta en vivo',
 
                     'ng-model' => 'live_auction_end_time', 
 
@@ -358,7 +363,7 @@
 
                   <div class="form-group">
 
-                    <?php echo Form::label('reserve_price', getPhrase('reserve_price'), ['class' => 'control-label']); ?>
+                    <?php echo Form::label('reserve_price', getPhrase('precio de reserva'), ['class' => 'control-label']); ?>
 
                     (<?php echo e($currency_code); ?>)
                     <span class="text-red">*</span>
@@ -374,7 +379,7 @@
 
                     array('class' => 'form-control', 
 
-                    'placeholder' => 'Reserve Price',
+                    'placeholder' => 'precio de reserva',
 
                     'ng-model' => 'reserve_price', 
 
@@ -449,7 +454,7 @@
 
                 <div class="form-group">
 
-                    <?php echo Form::label('minimum_bid', getPhrase('minimum_bid'), ['class' => 'control-label']); ?>
+                    <?php echo Form::label('minimum_bid', getPhrase('oferta mínima'), ['class' => 'control-label']); ?>
 
                     (<?php echo e($currency_code); ?>)
                    
@@ -464,7 +469,7 @@
 
                     array('class' => 'form-control', 
 
-                    'placeholder' => 'Mimimum Bid',
+                    'placeholder' => 'Oferta mínima',
 
                     'ng-model' => 'minimum_bid', 
 
@@ -491,7 +496,7 @@
 
                 <div class="form-group">
 
-                    <?php echo Form::label('is_it_bid_increment', getPhrase('is_it_bid_increment'), ['class' => 'control-label']); ?>
+                    <?php echo Form::label('is_it_bid_increment', getPhrase('es un incremento de la oferta'), ['class' => 'control-label']); ?>
 
 
                     <div class="form-group row">
@@ -518,7 +523,7 @@
 
                 <div class="form-group">
 
-                    <?php echo Form::label('bid_increment', getPhrase('bid_increment'), ['class' => 'control-label']); ?>
+                    <?php echo Form::label('bid_increment', getPhrase('incremento de ofertat'), ['class' => 'control-label']); ?>
 
                     (<?php echo e($currency_code); ?>)
                    
@@ -533,7 +538,7 @@
 
                     array('class' => 'form-control', 
 
-                    'placeholder' => 'Bid Increment',
+                    'placeholder' => 'incremento de oferta',
 
                     'ng-model' => 'bid_increment', 
 
@@ -559,12 +564,9 @@
 
 
 
-               
-
-
                  <div class="form-group">
 
-                    <?php echo Form::label('is_buynow', getPhrase('is_it_buy_now_item'), ['class' => 'control-label']); ?>
+                    <?php echo Form::label('is_buynow', getPhrase('es comprar ahora artículo'), ['class' => 'control-label']); ?>
 
 
                     <div class="form-group row">
@@ -591,7 +593,7 @@
 
                 <div class="form-group">
 
-                    <?php echo Form::label('buy_now_price', getPhrase('buy_now_price'), ['class' => 'control-label']); ?>
+                    <?php echo Form::label('buy_now_price', getPhrase('comprar ahora precio'), ['class' => 'control-label']); ?>
 
                     (<?php echo e($currency_code); ?>)
                    
@@ -606,7 +608,7 @@
 
                     array('class' => 'form-control', 
 
-                    'placeholder' => 'Buy Now Price',
+                    'placeholder' => 'comprar ahora precio',
 
                     'ng-model' => 'buy_now_price', 
 
@@ -633,7 +635,7 @@
 
                 <div class="form-group">
 
-                    <?php echo Form::label('description', getPhrase('description'), ['class' => 'control-label']); ?>
+                    <?php echo Form::label('description', getPhrase('Descripcion'), ['class' => 'control-label']); ?>
 
 
                      <span class="text-red">*</span>
@@ -649,7 +651,7 @@
 
                     array('class' => 'form-control ckeditor', 
 
-                    'placeholder' => 'Description',
+                    'placeholder' => 'Descripcion',
 
                     'ng-model' => 'description',
 
@@ -682,7 +684,7 @@
 
                 <div class="form-group">
 
-                    <?php echo Form::label('international_shipping', getPhrase('international_shipping'), ['class' => 'control-label']); ?>
+                    <?php echo Form::label('international_shipping', getPhrase('envío internacional'), ['class' => 'control-label']); ?>
 
 
                     <div class="form-group row">
@@ -702,10 +704,31 @@
 
                 </div>
 
+                 <div class="form-group">
+
+                    <?php echo Form::label('visibilidad', getPhrase('Tipo de subasta'), ['class' => 'control-label']); ?>
+
+
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                        <?php echo e(Form::radio('visibilidad', 0, false, array('id'=>'visibilidad_no', 'name'=>'visibilidad'))); ?>
+
+
+
+                            <label for="visibilidad_no"> <span class="fa-stack radio-button"> <i class="mdi mdi-check active"></i> </span> Cerrada</label>
+                        </div>
+                        <div class="col-md-6">
+                        <?php echo e(Form::radio('visibilidad', 1, true, array('id'=>'visibilidad_yes', 'name'=>'visibilidad'))); ?>
+
+
+                            <label for="visibilidad_yes"> <span class="fa-stack radio-button"> <i class="mdi mdi-check active"></i> </span> Abierta</label>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="form-group">
 
-                    <?php echo Form::label('shipping_conditions', getPhrase('payment_and_shipping'), ['class' => 'control-label']); ?>
+                    <?php echo Form::label('shipping_conditions', getPhrase('pago y envio'), ['class' => 'control-label']); ?>
 
 
                     <?php
@@ -716,7 +739,7 @@
                     ?>
 
                      
-                    <?php echo e(Form::textarea('shipping_conditions', old('shipping_conditions'), $attributes = 
+                    <?php echo e(Form::textarea('shipping_conditions', old('condiciones de envío'), $attributes = 
 
                     array('class' => 'form-control ckeditor',
 
@@ -741,7 +764,7 @@
 
                 <div class="form-group">
 
-                    <?php echo Form::label('shipping_terms', getPhrase('terms'), ['class' => 'control-label']); ?>
+                    <?php echo Form::label('shipping_terms', getPhrase('condiciones'), ['class' => 'control-label']); ?>
 
 
                       <?php
@@ -756,7 +779,7 @@
 
                     array('class' => 'form-control ckeditor',
 
-                    'placeholder' => 'Shipping Terms',
+                    'placeholder' => 'Condiciones de envío',
 
                     'id'=>'terms',
 
@@ -776,7 +799,7 @@
 
                  <div class="form-group">
 
-                    <?php echo Form::label('make_featured', getPhrase('is_featured'), ['class' => 'control-label']); ?>
+                    <?php echo Form::label('make_featured', getPhrase('Se factura'), ['class' => 'control-label']); ?>
 
 
                     <div class="form-group row">
@@ -795,6 +818,9 @@
                         </div>
                     </div>
                 </div>
+
+
+
 
 
                 <?php if(checkRole(['admin'])): ?>
@@ -819,7 +845,7 @@
 
 
 
-                    <?php echo e(Form::select('auction_status', auctionstatusoptions() , $selected, ['placeholder' => getPhrase('select'),'class'=>'form-control select2',
+                    <?php echo e(Form::select('auction_status', auctionstatusoptions() , $selected, ['placeholder' => getPhrase('Seleccionar'),'class'=>'form-control select2',
 
 
                             'ng-model'=>'auction_status',
@@ -835,8 +861,8 @@
 
                         <div class="validation-error" ng-messages="formValidate.auction_status.$error" >
 
-                            <?php echo getValidationMessage(); ?>
-
+                            
+                            Este campo es requerido
 
                         </div>
 
@@ -863,7 +889,7 @@
                         $selected = $record->admin_status;      
                     ?>
 
-                    <?php echo e(Form::select('admin_status', adminstatusoptions() , $selected, ['placeholder' => getPhrase('select'),'class'=>'form-control select2',
+                    <?php echo e(Form::select('admin_status', adminstatusoptions() , $selected, ['placeholder' => getPhrase('Seleccionar'),'class'=>'form-control select2',
 
                             'ng-model'=>'admin_status',
 
@@ -880,8 +906,8 @@
                     
                         <div class="validation-error" ng-messages="formValidate.admin_status.$error" >
 
-                            <?php echo getValidationMessage(); ?>
-
+                            
+                            Este campo es requerido
 
                         </div>
 
@@ -892,7 +918,7 @@
 
                  <div class="form-group">
 
-                     <?php echo Form::label('image', getPhrase('image'), ['class' => 'control-label']); ?> <b><small style="color:red;">(950x650 for good resolution)</small></b>
+                     <?php echo Form::label('image', getPhrase('image'), ['class' => 'control-label']); ?> <b><small style="color:red;">(950x650 para una buena resolución)</small></b>
 
                     <div class="row"> 
 
